@@ -1,0 +1,13 @@
+{
+  "name": "grid-swipe-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "phaser": "^3.22.0",
+    "phecs": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
