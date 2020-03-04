@@ -19,9 +19,11 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image('dungeon-tileset', 'assets/dungeon-tileset.png');
   }
 
   create() {
+    this.add.image(10, 10, 'dungeon-tileset');
     /*
     this.phecs.add.prefab('point', {}, 10, 20);
     this.phecs.add.prefab('point', {}, 100, 20);
