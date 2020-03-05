@@ -29,7 +29,7 @@ export class LevelCreator {
     if (heroStart == null) {
       throw new Error('Load level: `hero-start` marker missing from `markers` object layer');
     }
-    const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x + 100, heroStart.y + 100);
+    const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x! + 100, heroStart.y! + 100);
 
     const heroWorldPosition = this.layers.floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
     heroWorldPosition.add(new Phaser.Math.Vector2(16, 16));
