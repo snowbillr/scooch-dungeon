@@ -31,8 +31,18 @@ class GameScene extends Phaser.Scene {
 
     const level = this.add.tilemap('level-001');
     level.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
-    level.createStaticLayer('floor', 'dungeon-tileset', 100, 100);
+    const floor = level.createStaticLayer('floor', 'dungeon-tileset', 100, 100);
     level.createStaticLayer('walls', 'dungeon-tileset', 100, 100);
+
+    const markers = level.getObjectLayer('markers');
+    const heroStart = markers.objects.find(o => o.name === 'hero-start');
+    if (heroStart == null) {
+      throw new Error('Level: `hero-start` marker missing');
+    }
+    const heroStartTile = floor.getTileAtWorldXY(heroStart.x + 100, heroStart.y + 100);
+
+    const heroPosition = floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
+    const hero = this.add.sprite(heroPosition.x + 16, heroPosition.y + 16, 'hero');
 
     /*
     this.phecs.add.prefab('point', {}, 10, 20);

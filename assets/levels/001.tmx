@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="11" height="4" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="11" height="4" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="2">
+ <editorsettings>
+  <export target="001.json" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
  <layer id="2" name="floor" width="11" height="4">
   <data encoding="csv">
@@ -17,4 +20,9 @@
 133,16,16,16,16,16,16,16,16,17,134
 </data>
  </layer>
+ <objectgroup id="3" name="markers">
+  <object id="1" name="hero-start" x="109.564" y="84.2105">
+   <point/>
+  </object>
+ </objectgroup>
 </map>
