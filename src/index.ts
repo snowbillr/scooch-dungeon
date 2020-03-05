@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
+import { LevelCreator } from './level-creator';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -29,20 +30,12 @@ class GameScene extends Phaser.Scene {
   create() {
     this.cameras.main.setBackgroundColor(0xCCCCCC);
 
-    const level = this.add.tilemap('level-001');
-    level.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
-    const floor = level.createStaticLayer('floor', 'dungeon-tileset', 100, 100);
-    level.createStaticLayer('walls', 'dungeon-tileset', 100, 100);
+    const levelCreator = new LevelCreator(this, 'level-001');
+    levelCreator.load();
+    levelCreator.createMap(100, 100);
 
-    const markers = level.getObjectLayer('markers');
-    const heroStart = markers.objects.find(marker => marker.name === 'hero-start');
-    if (heroStart == null) {
-      throw new Error('Load level: `hero-start` marker missing from `markers` object layer');
-    }
-    const heroStartTile = floor.getTileAtWorldXY(heroStart.x + 100, heroStart.y + 100);
-
-    const heroPosition = floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
-    const hero = this.add.sprite(heroPosition.x + 16, heroPosition.y + 16, 'hero');
+    const heroStartWorldCoordinates = levelCreator.getHeroStartWorldPosition();
+    this.add.sprite(heroStartWorldCoordinates.x, heroStartWorldCoordinates.y, 'hero');
 
     /*
     this.phecs.add.prefab('point', {}, 10, 20);
