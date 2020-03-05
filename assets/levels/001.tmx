@@ -32,7 +32,7 @@
 </data>
  </layer>
  <objectgroup id="3" name="markers">
-  <object id="1" name="hero-start" x="109.564" y="84.2105">
+  <object id="1" name="hero-start" x="17.2043" y="82.3995">
    <point/>
   </object>
  </objectgroup>
