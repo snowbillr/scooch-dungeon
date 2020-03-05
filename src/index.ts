@@ -19,11 +19,14 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('dungeon-tileset', 'assets/dungeon-tileset.png');
+    this.load.image('dungeon-tileset', 'assets/maps/dungeon-tileset.png');
+
+    this.load.spritesheet('hero', 'assets/characters/hero.png', { frameWidth: 32, frameHeight: 56 });
   }
 
   create() {
-    this.add.image(10, 10, 'dungeon-tileset');
+    this.cameras.main.setBackgroundColor(0xCCCCCC);
+    this.add.sprite(100, 100, 'hero');
     /*
     this.phecs.add.prefab('point', {}, 10, 20);
     this.phecs.add.prefab('point', {}, 100, 20);
@@ -37,8 +40,8 @@ class GameScene extends Phaser.Scene {
 }
 
 const game = new Phaser.Game({
-  width: 500,
-  height: 500,
+  width: 352,
+  height: 600,
   scene: [GameScene],
   plugins: {
     scene: [
