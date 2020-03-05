@@ -26,8 +26,6 @@ export class LevelCreator {
     this.layers.walls.setDepth(Depths.wallsBelow);
     this.layers.walls = this.level.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y);
     this.layers.walls.setDepth(Depths.wallsAbove);
-
-    // const hero = this.add.sprite(heroPosition.x + 16, heroPosition.y + 16, 'hero');
   }
 
   public getHeroStartWorldPosition(): Phaser.Math.Vector2 {
@@ -38,7 +36,7 @@ export class LevelCreator {
     const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x! + 100, heroStart.y! + 100);
 
     const heroWorldPosition = this.layers.floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
-    heroWorldPosition.add(new Phaser.Math.Vector2(16, 0));
+    heroWorldPosition.add(new Phaser.Math.Vector2(16, 0)); // this centers the hero in the tile
 
     return heroWorldPosition;
   }
