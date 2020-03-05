@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
 
 class GameScene extends Phaser.Scene {
-  phecs: PhecsPlugin;
+  phecs!: PhecsPlugin;
 
   init() {
     /*
@@ -35,9 +35,9 @@ class GameScene extends Phaser.Scene {
     level.createStaticLayer('walls', 'dungeon-tileset', 100, 100);
 
     const markers = level.getObjectLayer('markers');
-    const heroStart = markers.objects.find(o => o.name === 'hero-start');
+    const heroStart = markers.objects.find(marker => marker.name === 'hero-start');
     if (heroStart == null) {
-      throw new Error('Level: `hero-start` marker missing');
+      throw new Error('Load level: `hero-start` marker missing from `markers` object layer');
     }
     const heroStartTile = floor.getTileAtWorldXY(heroStart.x + 100, heroStart.y + 100);
 
@@ -51,8 +51,6 @@ class GameScene extends Phaser.Scene {
 
     this.phecs.add.entity([PointComponent], 100, 100);
     */
-
-
   }
 }
 
