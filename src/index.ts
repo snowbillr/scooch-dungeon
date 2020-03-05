@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
 import { LevelCreator } from './level-creator';
+import { Depths } from './constants/depths';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -35,7 +36,8 @@ class GameScene extends Phaser.Scene {
     levelCreator.createMap(100, 100);
 
     const heroStartWorldCoordinates = levelCreator.getHeroStartWorldPosition();
-    this.add.sprite(heroStartWorldCoordinates.x, heroStartWorldCoordinates.y, 'hero');
+    const hero = this.add.sprite(heroStartWorldCoordinates.x, heroStartWorldCoordinates.y, 'hero');
+    hero.setDepth(Depths.hero);
 
     /*
     this.phecs.add.prefab('point', {}, 10, 20);

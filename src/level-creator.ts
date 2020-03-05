@@ -1,3 +1,5 @@
+import { Depths } from './constants/depths';
+
 export class LevelCreator {
   private level!: Phaser.Tilemaps.Tilemap;
   private markers!: Phaser.Types.Tilemaps.TiledObject[];
@@ -19,7 +21,11 @@ export class LevelCreator {
 
   public createMap(x: number, y: number) {
     this.layers.floor = this.level.createStaticLayer('floor', 'dungeon-tileset', x, y);
-    this.layers.walls = this.level.createStaticLayer('walls', 'dungeon-tileset', x, y);
+    this.layers.floor.setDepth(Depths.floor);
+    this.layers.walls = this.level.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y);
+    this.layers.walls.setDepth(Depths.wallsBelow);
+    this.layers.walls = this.level.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y);
+    this.layers.walls.setDepth(Depths.wallsAbove);
 
     // const hero = this.add.sprite(heroPosition.x + 16, heroPosition.y + 16, 'hero');
   }
@@ -32,7 +38,7 @@ export class LevelCreator {
     const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x! + 100, heroStart.y! + 100);
 
     const heroWorldPosition = this.layers.floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
-    heroWorldPosition.add(new Phaser.Math.Vector2(16, 16));
+    heroWorldPosition.add(new Phaser.Math.Vector2(16, 0));
 
     return heroWorldPosition;
   }
