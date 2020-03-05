@@ -21,12 +21,14 @@ class GameScene extends Phaser.Scene {
   preload() {
     this.load.image('dungeon-tileset', 'assets/maps/dungeon-tileset.png');
 
-    this.load.spritesheet('hero', 'assets/characters/hero.png', { frameWidth: 32, frameHeight: 56 });
+    this.load.spritesheet('hero', 'assets/characters/hero/spritesheet.png', { frameWidth: 32, frameHeight: 56 });
+    this.load.animation('hero-animations', 'assets/characters/hero/animations.json');
   }
 
   create() {
     this.cameras.main.setBackgroundColor(0xCCCCCC);
-    this.add.sprite(100, 100, 'hero');
+    const hero = this.add.sprite(100, 100, 'hero');
+    hero.anims.play('hero-run');
     /*
     this.phecs.add.prefab('point', {}, 10, 20);
     this.phecs.add.prefab('point', {}, 100, 20);
