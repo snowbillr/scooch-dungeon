@@ -15,6 +15,10 @@ export class DungeonTile {
     return this.properties.walkable;
   }
 
+  isPosition(x: number, y: number) {
+    return x === this.x && y === this.y;
+  }
+
   runStatEffects() {
 
   }

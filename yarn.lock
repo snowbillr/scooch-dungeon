@@ -3905,10 +3905,10 @@ phaser@^3.22.0:
     imports-loader "^0.8.0"
     path "^0.12.7"
 
-phecs@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/phecs/-/phecs-0.0.1.tgz#c3dcaa2b54edf562ab73f932ca746f989cb98166"
-  integrity sha512-PVMC9qB1nGfHnmrtKkDPYiNjAel4NU2LdjC19ckCtDoRew1gcUL1uiPxcqU4OXBRxN9gO5R7NjsvpOvaXOAv7w==
+phecs@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/phecs/-/phecs-0.0.2.tgz#3e16fb0c07349d634e70d41fab82443121d21548"
+  integrity sha512-VBEgdcxmeuLuCgpeTaPKgmGqV3TgJmEBcMm39zCb67VRRNy8QQCenPPZ8DTrnXKTIJoR7gMjWOWcgbFIcbEneg==
   dependencies:
     dist "^0.1.2"
 
