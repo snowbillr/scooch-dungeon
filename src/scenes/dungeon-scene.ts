@@ -5,10 +5,13 @@ import { Direction } from "../constants/directions";
 import { PhecsPlugin } from "phecs";
 import { HeroPrefab } from "../prefabs/hero/prefab";
 import { GridPositionComponent } from "../components/grid-position-component";
+import { Entity } from "phecs/dist/types/entity";
 
 export class DungeonScene extends Phaser.Scene {
-  private dungeon!: Dungeon;
   private phecs!: PhecsPlugin;
+
+  private dungeon!: Dungeon;
+  private hero!: Entity;
 
   init() {
     this.phecs.register.prefab('hero', HeroPrefab);
@@ -31,7 +34,7 @@ export class DungeonScene extends Phaser.Scene {
 
     const heroStartGridPosition = dungeonCreator.getHeroStartGridPosition();
     const heroStartWorldCoordinates = dungeonCreator.getHeroStartWorldPosition();
-    const hero = this.phecs.add.prefab('hero', {
+    this.hero = this.phecs.add.prefab('hero', {
       gridX: heroStartGridPosition.x,
       gridY: heroStartGridPosition.y
     }, heroStartWorldCoordinates.x, heroStartWorldCoordinates.y);
@@ -42,9 +45,16 @@ export class DungeonScene extends Phaser.Scene {
       'left': Phaser.Input.Keyboard.KeyCodes.LEFT,
       'right': Phaser.Input.Keyboard.KeyCodes.RIGHT,
     }) as Record<string, Phaser.Input.Keyboard.Key>;
-    controls.up.on(Phaser.Input.Keyboard.Events.DOWN, () => this.dungeon.moveHero(Direction.UP));
-    controls.down.on(Phaser.Input.Keyboard.Events.DOWN, () => this.dungeon.moveHero(Direction.DOWN));
-    controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.dungeon.moveHero(Direction.LEFT));
-    controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.dungeon.moveHero(Direction.RIGHT));
+    controls.up.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.UP));
+    controls.down.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.DOWN));
+    controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
+    controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
+  }
+
+  private moveHero(direction: Direction) {
+    const heroGridPosition = this.hero.getComponent(GridPositionComponent);
+    const neighbor = this.dungeon.getWalkableNeighborTile(heroGridPosition.gridX, heroGridPosition.gridY, direction);
+
+    console.log(neighbor);
   }
 }

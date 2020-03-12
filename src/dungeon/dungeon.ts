@@ -6,35 +6,28 @@ export class Dungeon {
     private dungeonTiles: DungeonTile[]
   ) {}
 
-  // this will live in a system somewhere
-  public moveHero(direction: Direction) {
-    // get tile in given direction
-    // if it is walkable
-    //  tween the hero to that tile
-  }
-
-  private getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | null {
-    let neighborCoordinates = new Phaser.Math.Vector2(x, y);
+  public getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | undefined {
+    let neighborX = x;
+    let neighborY = y;
     switch (direction) {
       case Direction.UP:
-        neighborCoordinates.add(new Phaser.Math.Vector2(0, -1));
+        neighborY -= 1;
         break;
       case Direction.DOWN:
-        neighborCoordinates.add(new Phaser.Math.Vector2(0, 1));
+        neighborY += 1;
         break;
       case Direction.LEFT:
-        neighborCoordinates.add(new Phaser.Math.Vector2(-1, 0));
+        neighborX -= 1;
         break;
       case Direction.RIGHT:
-        neighborCoordinates.add(new Phaser.Math.Vector2(1, 0));
+        neighborX += 1;
         break;
     }
     
-    const neighborTile = this.dungeonTiles.find(tile => tile.isPosition(x, y))
-    if (neighborTile?.isWalkable()) {
-      return neighborTile;
-    } else {
-      return null;
-    }
+    const neighborTile = this.dungeonTiles
+      .filter(tile => tile.isWalkable())
+      .find(tile => tile.isPosition(neighborX, neighborY))
+
+    return neighborTile;
   }
 }
