@@ -1,6 +1,7 @@
 import { Depths } from '../constants/depths';
 import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
+import { HeroPrefab } from '../prefabs/hero/prefab';
 
 export class DungeonCreator {
   private level!: Phaser.Tilemaps.Tilemap;
@@ -57,15 +58,23 @@ export class DungeonCreator {
   }
 
   public getHeroStartWorldPosition(): Phaser.Math.Vector2 {
-    const heroStart = this.markers.find(marker => marker.name === 'hero-start');
-    if (heroStart == null) {
-      throw new Error('Load level: `hero-start` marker missing from `markers` object layer');
-    }
-    const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x! + 100, heroStart.y! + 100);
+    const heroStartGridPosition = this.getHeroStartGridPosition();
+    const heroWorldPosition = this.layers.floor.tileToWorldXY(heroStartGridPosition.x, heroStartGridPosition.y);
 
-    const heroWorldPosition = this.layers.floor.tileToWorldXY(heroStartTile.x, heroStartTile.y);
     heroWorldPosition.add(new Phaser.Math.Vector2(16, 0)); // this centers the hero in the tile
 
     return heroWorldPosition;
   }
+
+  public getHeroStartGridPosition(): Phaser.Math.Vector2 {
+    const heroStart = this.markers.find(marker => marker.name === 'hero-start');
+    if (heroStart == null) {
+      throw new Error('Load level: `hero-start` marker missing from `markers` object layer');
+    }
+
+    const heroStartTile = this.layers.floor.getTileAtWorldXY(heroStart.x! + 100, heroStart.y! + 100);
+
+    return new Phaser.Math.Vector2(heroStartTile.x, heroStartTile.y);
+  }
+
 }

@@ -2,8 +2,9 @@ import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 
 export class Dungeon {
-  constructor(private dungeonTiles: DungeonTile[]) {
-  }
+  constructor(
+    private dungeonTiles: DungeonTile[]
+  ) {}
 
   // this will live in a system somewhere
   public moveHero(direction: Direction) {
@@ -12,7 +13,7 @@ export class Dungeon {
     //  tween the hero to that tile
   }
 
-  private getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | undefined {
+  private getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | null {
     let neighborCoordinates = new Phaser.Math.Vector2(x, y);
     switch (direction) {
       case Direction.UP:
@@ -29,7 +30,11 @@ export class Dungeon {
         break;
     }
     
-    return this.dungeonTiles.filter(tile => tile.isWalkable())
-      .find(tile => tile.isPosition(x, y))
+    const neighborTile = this.dungeonTiles.find(tile => tile.isPosition(x, y))
+    if (neighborTile?.isWalkable()) {
+      return neighborTile;
+    } else {
+      return null;
+    }
   }
 }

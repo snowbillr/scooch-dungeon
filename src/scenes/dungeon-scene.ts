@@ -4,6 +4,7 @@ import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
 import { PhecsPlugin } from "phecs";
 import { HeroPrefab } from "../prefabs/hero/prefab";
+import { GridPositionComponent } from "../components/grid-position-component";
 
 export class DungeonScene extends Phaser.Scene {
   private dungeon!: Dungeon;
@@ -28,8 +29,12 @@ export class DungeonScene extends Phaser.Scene {
     dungeonCreator.load();
     this.dungeon = dungeonCreator.createDungeon(100, 100);
 
+    const heroStartGridPosition = dungeonCreator.getHeroStartGridPosition();
     const heroStartWorldCoordinates = dungeonCreator.getHeroStartWorldPosition();
-    const hero = this.phecs.add.prefab('hero', {}, heroStartWorldCoordinates.x, heroStartWorldCoordinates.y);
+    const hero = this.phecs.add.prefab('hero', {
+      gridX: heroStartGridPosition.x,
+      gridY: heroStartGridPosition.y
+    }, heroStartWorldCoordinates.x, heroStartWorldCoordinates.y);
 
     const controls = this.input.keyboard.addKeys({
       'up': Phaser.Input.Keyboard.KeyCodes.UP,
