@@ -2,9 +2,16 @@ import { Depths } from "../constants/depths";
 import { DungeonCreator } from "../dungeon/dungeon-creator";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
+import { PhecsPlugin } from "phecs";
+import { HeroPrefab } from "../prefabs/hero/prefab";
 
 export class DungeonScene extends Phaser.Scene {
   private dungeon!: Dungeon;
+  private phecs!: PhecsPlugin;
+
+  init() {
+    this.phecs.register.prefab('hero', HeroPrefab);
+  }
 
   preload() {
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
@@ -22,8 +29,7 @@ export class DungeonScene extends Phaser.Scene {
     this.dungeon = dungeonCreator.createDungeon(100, 100);
 
     const heroStartWorldCoordinates = dungeonCreator.getHeroStartWorldPosition();
-    const hero = this.add.sprite(heroStartWorldCoordinates.x, heroStartWorldCoordinates.y, 'hero');
-    hero.setDepth(Depths.hero);
+    const hero = this.phecs.add.prefab('hero', {}, heroStartWorldCoordinates.x, heroStartWorldCoordinates.y);
 
     const controls = this.input.keyboard.addKeys({
       'up': Phaser.Input.Keyboard.KeyCodes.UP,
