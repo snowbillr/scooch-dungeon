@@ -53,7 +53,6 @@ export class DungeonCreator {
       isNotEmpty: true
     });
 
-
     return new Dungeon(dungeonTiles, this.layers.floor);
   }
 

@@ -7,6 +7,12 @@ export class Dungeon {
     private floorLayer: Phaser.Tilemaps.StaticTilemapLayer
   ) {}
 
+  public getTile(x: number, y: number): DungeonTile | undefined {
+    return this.dungeonTiles
+      .filter(tile => tile.isWalkable())
+      .find(tile => tile.isPosition(x, y));
+  }
+
   public getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | undefined {
     let neighborX = x;
     let neighborY = y;

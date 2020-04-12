@@ -55,32 +55,11 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   private moveHero(direction: Direction) {
-    const heroStateMachine = this.hero.getComponent(StateMachineComponent).stateMachine;
-    if (heroStateMachine.currentState.id === 'moving') {
-      return;
-    }
-
-    const heroSprite = this.hero.getComponent(SpriteComponent);
     const heroGridPosition = this.hero.getComponent(GridPositionComponent);
-    const neighbor = this.dungeon.getWalkableNeighborTile(heroGridPosition.gridX, heroGridPosition.gridY, direction);
+    const dungeonTile = this.dungeon.getTile(heroGridPosition.gridX, heroGridPosition.gridY);
 
-    if (!neighbor) {
-      return;
-    }
+    if (!dungeonTile) return;
 
-    heroGridPosition.setGridPosition(neighbor.x, neighbor.y);
-
-    const neighborWorldPosition = this.dungeon.getTileWorldPosition(neighbor.x, neighbor.y);
-
-    this.tweens.add({
-      targets: heroSprite.sprite,
-      props: {
-        x: neighborWorldPosition.x,
-        y: neighborWorldPosition.y
-      },
-      duration: 200,
-      onStart: () => heroStateMachine.doTransition({ to: 'moving' }),
-      onComplete: () => heroStateMachine.doTransition({ to: 'idle' })
-    });
+    dungeonTile.directionInputEffect?.(direction, this.hero, this.dungeon, this);
   }
 }
