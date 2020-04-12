@@ -1,4 +1,5 @@
 import { DirectionInputEffects, DirectionInputTypes, DirectionInputEffect } from "./direction-input-effects";
+import { EnterEffect, EnterEffects } from "./enter-effects";
 
 type DungeonTileProperties = {
   walkable: boolean;
@@ -7,7 +8,7 @@ type DungeonTileProperties = {
 
 export class DungeonTile {
   public readonly directionInputEffect?: DirectionInputEffect;
-  // public readonly onEnterEffect?: EnterEffect
+  public readonly onEnterEffect?: EnterEffect;
 
   constructor(
     public readonly x: number,
@@ -15,6 +16,7 @@ export class DungeonTile {
     private properties: DungeonTileProperties,
   ) {
     this.directionInputEffect = DirectionInputEffects.MOVE;
+    this.onEnterEffect = EnterEffects.CONTINUE_MOVEMENT;
   }
 
   isWalkable() {

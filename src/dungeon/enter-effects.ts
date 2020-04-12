@@ -1,21 +1,19 @@
 import { Direction } from "../constants/directions";
-import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
-import { SpriteComponent } from "../components/sprite-component";
-import { GridPositionComponent } from "../components/grid-position-component";
 import { Dungeon } from "./dungeon";
+import { GridPositionComponent } from "../components/grid-position-component";
+import { StateMachineComponent } from "../components/state-machine-component";
+import { SpriteComponent } from "../components/sprite-component";
 
-export type DirectionInputEffect = (direction: Direction, hero: Entity, dungeon: Dungeon, scene: Phaser.Scene) => void;
-
-export enum DirectionInputTypes {
-  MOVE = 'MOVE'
+export enum EnterEffectTypes {
+  CONTINUE_MOVEMENT = 'CONTINUE_MOVEMENT'
 }
 
-export const DirectionInputEffects: Record<DirectionInputTypes, DirectionInputEffect> = {
-  MOVE: (direction, hero, dungeon, scene) => {
-    const heroStateMachine = hero.getComponent(StateMachineComponent).stateMachine;
-    if (heroStateMachine.currentState.id === 'moving') return;
+export type EnterEffect = (direction: Direction, hero: Entity, dungeon: Dungeon, scene: Phaser.Scene) => void;
 
+export const EnterEffects: Record<EnterEffectTypes, EnterEffect> = {
+  CONTINUE_MOVEMENT: (direction, hero, dungeon, scene) => {
+    const heroStateMachine = hero.getComponent(StateMachineComponent).stateMachine;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const neighborTile = dungeon.getWalkableNeighborTile(heroGridPosition.gridX, heroGridPosition.gridY, direction);
 
@@ -33,9 +31,10 @@ export const DirectionInputEffects: Record<DirectionInputTypes, DirectionInputEf
       onStart: () => heroStateMachine.doTransition({ to: 'moving' }),
       onComplete: () => {
         heroGridPosition.setGridPosition(neighborTile.x, neighborTile.y);
+        heroStateMachine.doTransition({ to: 'idle' });
 
         neighborTile.onEnterEffect?.(direction, hero, dungeon, scene);
       }
     });
-  },
-};
+  }
+}
