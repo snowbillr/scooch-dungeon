@@ -2,6 +2,7 @@ import { SpriteComponent } from "../../components/sprite-component";
 import { Depths } from "../../constants/depths";
 import { GridPositionComponent } from "../../components/grid-position-component";
 import { StateMachineComponent } from "../../components/state-machine-component";
+import { Prefab } from "phecs/dist/entity-manager";
 
 const heroStates = [
   {
@@ -14,7 +15,7 @@ const heroStates = [
   }
 ];
 
-export const HeroPrefab = {
+export const HeroPrefab: Prefab = {
   components: [
     {
       component: SpriteComponent,

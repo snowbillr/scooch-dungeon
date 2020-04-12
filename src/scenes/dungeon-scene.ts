@@ -5,9 +5,9 @@ import { Direction } from "../constants/directions";
 import { PhecsPlugin } from "phecs";
 import { HeroPrefab } from "../prefabs/hero/prefab";
 import { GridPositionComponent } from "../components/grid-position-component";
-import { Entity } from "phecs/dist/types/entity";
 import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
+import { Entity } from "phecs/dist/entity";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;

@@ -21,4 +21,6 @@ export class SpriteComponent {
     this.sprite = this.scene.add.sprite(this.x, this.y, this.texture);
     this.sprite.setDepth(this.depth);
   }
+
+  destroy() {}
 }

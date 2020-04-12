@@ -11,4 +11,6 @@ export class GridPositionComponent {
     this.gridX = gridX;
     this.gridY = gridY;
   }
+
+  destroy() {}
 }
