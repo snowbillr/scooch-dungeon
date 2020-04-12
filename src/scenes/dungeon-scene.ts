@@ -7,6 +7,7 @@ import { HeroPrefab } from "../prefabs/hero/prefab";
 import { GridPositionComponent } from "../components/grid-position-component";
 import { Entity } from "phecs/dist/types/entity";
 import { SpriteComponent } from "../components/sprite-component";
+import { StateMachineComponent } from "../components/state-machine-component";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
@@ -54,6 +55,13 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   private moveHero(direction: Direction) {
+    const heroStateMachine = this.hero.getComponent(StateMachineComponent).stateMachine;
+    if (heroStateMachine.currentState.id === 'moving') {
+      return;
+    } else {
+      heroStateMachine.doTransition({ to: 'moving' });
+    }
+
     const heroSprite = this.hero.getComponent(SpriteComponent);
     const heroGridPosition = this.hero.getComponent(GridPositionComponent);
     const neighbor = this.dungeon.getWalkableNeighborTile(heroGridPosition.gridX, heroGridPosition.gridY, direction);
@@ -72,7 +80,8 @@ export class DungeonScene extends Phaser.Scene {
         x: neighborWorldPosition.x,
         y: neighborWorldPosition.y
       },
-      duration: 500
+      duration: 500,
+      onComplete: () => heroStateMachine.doTransition({ to: 'idle' })
     });
   }
 }

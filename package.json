@@ -6,7 +6,8 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "phaser": "^3.22.0",
-    "phecs": "^0.0.8"
+    "phecs": "^0.0.8",
+    "phinite-state-machine": "^0.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

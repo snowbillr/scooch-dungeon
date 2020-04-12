@@ -3912,6 +3912,11 @@ phecs@^0.0.8:
   dependencies:
     dist "^0.1.2"
 
+phinite-state-machine@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/phinite-state-machine/-/phinite-state-machine-0.2.0.tgz#d4d71673727d195ed7fc217b03054d3220b0a7fe"
+  integrity sha512-iRloc+M7JhpVtZhx+oVg9p9vbdES/nKeUDj5SOl2f0X3VKwBrKWLeS9wyFYKj3A7KF+2dJJxPSqBgvGuaa41/g==
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
