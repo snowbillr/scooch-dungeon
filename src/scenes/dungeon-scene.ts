@@ -58,8 +58,6 @@ export class DungeonScene extends Phaser.Scene {
     const heroStateMachine = this.hero.getComponent(StateMachineComponent).stateMachine;
     if (heroStateMachine.currentState.id === 'moving') {
       return;
-    } else {
-      heroStateMachine.doTransition({ to: 'moving' });
     }
 
     const heroSprite = this.hero.getComponent(SpriteComponent);
@@ -80,7 +78,8 @@ export class DungeonScene extends Phaser.Scene {
         x: neighborWorldPosition.x,
         y: neighborWorldPosition.y
       },
-      duration: 500,
+      duration: 200,
+      onStart: () => heroStateMachine.doTransition({ to: 'moving' }),
       onComplete: () => heroStateMachine.doTransition({ to: 'idle' })
     });
   }
