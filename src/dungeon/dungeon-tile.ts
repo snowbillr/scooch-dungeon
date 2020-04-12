@@ -4,8 +4,8 @@ type DungeonTileProperties = {
 
 export class DungeonTile {
   constructor(
-    private x: number,
-    private y: number,
+    public readonly x: number,
+    public readonly y: number,
     private properties: DungeonTileProperties
   ) {
 

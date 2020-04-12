@@ -3,7 +3,8 @@ import { Direction } from "../constants/directions";
 
 export class Dungeon {
   constructor(
-    private dungeonTiles: DungeonTile[]
+    private dungeonTiles: DungeonTile[],
+    private floorLayer: Phaser.Tilemaps.StaticTilemapLayer
   ) {}
 
   public getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | undefined {
@@ -29,5 +30,13 @@ export class Dungeon {
       .find(tile => tile.isPosition(neighborX, neighborY))
 
     return neighborTile;
+  }
+
+  public getTileWorldPosition(gridX: number, gridY: number): Phaser.Math.Vector2 {
+    const worldPosition = this.floorLayer.tileToWorldXY(gridX, gridY);
+
+    worldPosition.add(new Phaser.Math.Vector2(16, 0)); // this centers the hero in the tile
+
+    return worldPosition;
   }
 }

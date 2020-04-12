@@ -54,7 +54,7 @@ export class DungeonCreator {
     });
 
 
-    return new Dungeon(dungeonTiles);
+    return new Dungeon(dungeonTiles, this.layers.floor);
   }
 
   public getHeroStartWorldPosition(): Phaser.Math.Vector2 {

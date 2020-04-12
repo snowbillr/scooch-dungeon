@@ -6,6 +6,7 @@ import { PhecsPlugin } from "phecs";
 import { HeroPrefab } from "../prefabs/hero/prefab";
 import { GridPositionComponent } from "../components/grid-position-component";
 import { Entity } from "phecs/dist/types/entity";
+import { SpriteComponent } from "../components/sprite-component";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
@@ -52,9 +53,25 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   private moveHero(direction: Direction) {
+    const heroSprite = this.hero.getComponent(SpriteComponent);
     const heroGridPosition = this.hero.getComponent(GridPositionComponent);
     const neighbor = this.dungeon.getWalkableNeighborTile(heroGridPosition.gridX, heroGridPosition.gridY, direction);
 
-    console.log(neighbor);
+    if (!neighbor) {
+      return;
+    }
+
+    heroGridPosition.setGridPosition(neighbor.x, neighbor.y);
+
+    const neighborWorldPosition = this.dungeon.getTileWorldPosition(neighbor.x, neighbor.y);
+
+    this.tweens.add({
+      targets: heroSprite.sprite,
+      props: {
+        x: neighborWorldPosition.x,
+        y: neighborWorldPosition.y
+      },
+      duration: 500
+    });
   }
 }
