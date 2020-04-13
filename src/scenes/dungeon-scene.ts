@@ -56,13 +56,7 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   private moveHero(direction: Direction) {
-    const heroGridPosition = this.hero.getComponent(GridPositionComponent);
-    const dungeonTile = this.dungeon.getTile(heroGridPosition.gridX, heroGridPosition.gridY);
-
-    const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, dungeonTile, this.dungeon, this);
-    console.log(movementTimeline)
+    const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
     movementTimeline.play();
-
-    // dungeonTile.directionInputEffect?.(direction, this.hero, this.dungeon, this);
   }
 }

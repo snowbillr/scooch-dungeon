@@ -4,14 +4,23 @@ import { GridPositionComponent } from "../../components/grid-position-component"
 import { StateMachineComponent } from "../../components/state-machine-component";
 import { Prefab } from "phecs/dist/entity-manager";
 
-const heroStates = [
+import { State } from 'phinite-state-machine/dist/types/state';
+import { Entity } from "phecs/dist/entity";
+
+const heroStates: State<Entity>[] = [
   {
     id: 'idle',
-    transitions: []
+    transitions: [],
+    onEnter(hero) {
+      hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
+    }
   },
   {
     id: 'moving',
-    transitions: []
+    transitions: [],
+    onEnter(hero) {
+      hero.getComponent(SpriteComponent).sprite.anims.play('hero-run');
+    }
   }
 ];
 
