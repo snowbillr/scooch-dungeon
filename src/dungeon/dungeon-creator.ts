@@ -35,6 +35,7 @@ export class DungeonCreator {
     this.layers.floor.setDepth(Depths.floor);
 
     
+    /*
     this.layers.wallsBelow.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       dungeonTiles.push(new DungeonTile(tile.x, tile.y, tile.properties))
     }, this, 0, 0, this.level.width, this.level.height, {
@@ -46,6 +47,7 @@ export class DungeonCreator {
     }, this, 0, 0, this.level.width, this.level.height, {
       isNotEmpty: true
     });
+    */
 
     this.layers.floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       dungeonTiles.push(new DungeonTile(tile.x, tile.y, tile.properties))

@@ -8,6 +8,7 @@ import { GridPositionComponent } from "../components/grid-position-component";
 import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
+import { MovementPlanner } from "../dungeon/movement-planner";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
@@ -58,8 +59,10 @@ export class DungeonScene extends Phaser.Scene {
     const heroGridPosition = this.hero.getComponent(GridPositionComponent);
     const dungeonTile = this.dungeon.getTile(heroGridPosition.gridX, heroGridPosition.gridY);
 
-    if (!dungeonTile) return;
+    const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, dungeonTile, this.dungeon, this);
+    console.log(movementTimeline)
+    movementTimeline.play();
 
-    dungeonTile.directionInputEffect?.(direction, this.hero, this.dungeon, this);
+    // dungeonTile.directionInputEffect?.(direction, this.hero, this.dungeon, this);
   }
 }
