@@ -1,0 +1,26 @@
+{
+  "anims": [
+    {
+      "key": "hero-idle",
+      "frames": [
+        { "key": "hero", "frame": 4 },
+        { "key": "hero", "frame": 5 },
+        { "key": "hero", "frame": 6 },
+        { "key": "hero", "frame": 7 }
+      ],
+      "repeat": -1,
+      "frameRate": 6
+    },
+    {
+      "key": "hero-run",
+      "frames": [
+        { "key": "hero", "frame": 8 },
+        { "key": "hero", "frame": 9 },
+        { "key": "hero", "frame": 10 },
+        { "key": "hero", "frame": 11 }
+      ],
+      "repeat": -1,
+      "frameRate": 10
+    }
+  ]
+}

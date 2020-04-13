@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
+import { DungeonScene } from './scenes/dungeon-scene';
 
 class GameScene extends Phaser.Scene {
-  phecs: PhecsPlugin;
+  phecs!: PhecsPlugin;
 
   init() {
     /*
@@ -18,12 +19,7 @@ class GameScene extends Phaser.Scene {
     */
   }
 
-  preload() {
-    this.load.image('dungeon-tileset', 'assets/dungeon-tileset.png');
-  }
-
   create() {
-    this.add.image(10, 10, 'dungeon-tileset');
     /*
     this.phecs.add.prefab('point', {}, 10, 20);
     this.phecs.add.prefab('point', {}, 100, 20);
@@ -31,15 +27,13 @@ class GameScene extends Phaser.Scene {
 
     this.phecs.add.entity([PointComponent], 100, 100);
     */
-
-
   }
 }
 
 const game = new Phaser.Game({
-  width: 500,
-  height: 500,
-  scene: [GameScene],
+  width: 352,
+  height: 600,
+  scene: [DungeonScene],
   plugins: {
     scene: [
       {
