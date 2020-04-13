@@ -9,7 +9,7 @@
         { "key": "hero", "frame": 7 }
       ],
       "repeat": -1,
-      "frameRate": 8
+      "frameRate": 6
     },
     {
       "key": "hero-run",
