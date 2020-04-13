@@ -56,6 +56,8 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   private moveHero(direction: Direction) {
+    if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') return;
+
     const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
     movementTimeline.play();
   }
