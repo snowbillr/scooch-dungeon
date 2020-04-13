@@ -15,6 +15,7 @@ export class StateMachineComponent<T> {
 
   onAdd() {
     this.stateMachine = new PhiniteStateMachine(this.scene, this.entity, this.data.states, this.data.initialState);
+    this.stateMachine.start();
 
     this.scene.events.on(Phaser.Scenes.Events.POST_UPDATE, () => this.updateStateMachine);
   }

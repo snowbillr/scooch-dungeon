@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="-1" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="2">
+<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="2">
  <editorsettings>
   <export target="001.json" format="json"/>
  </editorsettings>
@@ -8,7 +8,7 @@
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,
-54,56,55,54,56,54,55,54,54,55,54,
+54,56,55,54,124,54,55,54,54,55,54,
 55,54,54,54,54,54,55,54,54,54,55,
 68,68,69,54,68,68,68,68,68,68,68
 </data>
