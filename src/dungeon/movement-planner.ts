@@ -18,7 +18,18 @@ export const MovementPlanner = {
       tweens: [{targets: [], duration: 0}],
       paused: true,
       onStart() {
-        hero.getComponent(StateMachineComponent).stateMachine.doTransition({ to: 'moving' });
+        hero.getComponent(StateMachineComponent).stateMachine.doTransition({
+          to: 'moving',
+          onTransition(hero: Entity) {
+            const sprite = hero.getComponent(SpriteComponent).sprite;
+
+            if (direction === Direction.LEFT) {
+              sprite.flipX = true;
+            } else if (direction === Direction.RIGHT) {
+              sprite.flipX = false;
+            }
+          }
+        });
       },
 
       onComplete() {
