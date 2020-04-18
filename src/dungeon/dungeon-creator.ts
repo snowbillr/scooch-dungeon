@@ -1,77 +1,87 @@
 import { Depths } from '../constants/depths';
 import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
-import { HeroPrefab } from '../prefabs/hero/prefab';
 import { DungeonMarker } from './dungeon-marker';
 
-export class DungeonCreator {
-  private level!: Phaser.Tilemaps.Tilemap;
-  private markers!: Phaser.Types.Tilemaps.TiledObject[];
-  private layers: Record<string, Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer>;
+type DungeonLayers = {
+  wallsBelow: Phaser.Tilemaps.StaticTilemapLayer;
+  wallsAbove: Phaser.Tilemaps.StaticTilemapLayer;
+  floor: Phaser.Tilemaps.StaticTilemapLayer;
+};
 
+export class DungeonFactory {
   constructor(
     private scene: Phaser.Scene,
-    private levelTilemapKey: string
-  ) {
-    this.layers = {};
+  ) {}
+
+  public createDungeon(levelKey: string, x: number, y: number): Dungeon {
+    const tilemap = this.scene.add.tilemap(levelKey);
+    tilemap.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
+
+    const layers = this.createLayers(tilemap, x, y);
+    const dungeonTiles = this.createDungeonTiles(tilemap, layers);
+    const dungeonMarkers = this.createDungeonMarkers(tilemap, layers, x, y);
+
+    return new Dungeon(dungeonTiles, dungeonMarkers);
   }
 
-  public load() {
-    this.level = this.scene.add.tilemap(this.levelTilemapKey);
-    this.level.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
+  private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
+    const layers: DungeonLayers = {
+      wallsBelow: tilemap.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y),
+      wallsAbove: tilemap.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y),
+      floor: tilemap.createStaticLayer('floor', 'dungeon-tileset', x, y)
+    }
 
-    this.markers = this.level.getObjectLayer('markers').objects;
+    layers.wallsBelow.setDepth(Depths.wallsBelow);
+    layers.wallsAbove.setDepth(Depths.wallsAbove);
+    layers.floor.setDepth(Depths.floor);
+
+    return layers;
   }
 
-  public createDungeon(x: number, y: number): Dungeon {
-    this.layers.wallsBelow = this.level.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y);
-    this.layers.wallsBelow.setDepth(Depths.wallsBelow);
-
-    this.layers.wallsAbove = this.level.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y);
-    this.layers.wallsAbove.setDepth(Depths.wallsAbove);
-
-    this.layers.floor = this.level.createStaticLayer('floor', 'dungeon-tileset', x, y);
-    this.layers.floor.setDepth(Depths.floor);
-
+  private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
     const tileData: Record<string, Record<string, any>> = {};
 
-    this.layers.wallsBelow.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+    layers.wallsBelow.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       const key = `${tile.x},${tile.y}`;
       tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, this.level.width, this.level.height, {
+    }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
     });
 
-    this.layers.wallsAbove.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+    layers.wallsAbove.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       const key = `${tile.x},${tile.y}`;
       tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, this.level.width, this.level.height, {
+    }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
     });
 
-    this.layers.floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+    layers.floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       const key = `${tile.x},${tile.y}`;
       tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, this.level.width, this.level.height, {
+    }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
     });
 
-    const dungeonTiles: DungeonTile[] = Object.entries(tileData).map(([key, properties]) => {
+    return Object.entries(tileData).map(([key, properties]) => {
       const [gridX, gridY] = key.split(',').map(Number);
-      const worldCoordinates = this.layers.floor.tileToWorldXY(gridX, gridY);
+      const worldCoordinates = layers.floor.tileToWorldXY(gridX, gridY);
 
       return new DungeonTile(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties);
     });
+  }
 
-    const dungeonMarkers: Record<string, DungeonMarker> = this.markers.reduce((acc, marker) => {
-      const gridCoordinates = this.layers.floor.getTileAtWorldXY(marker.x! + x, marker.y! + y);
-      const worldCoordinates = this.layers.floor.tileToWorldXY(gridCoordinates.x, gridCoordinates.y);
+  private createDungeonMarkers(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers, x: number, y: number): Record<string, DungeonMarker> {
+    const markers = tilemap.getObjectLayer('markers').objects;
+    const dungeonMarkers: Record<string, DungeonMarker> = markers.reduce((acc, marker) => {
+      const gridCoordinates = layers.floor.getTileAtWorldXY(marker.x! + x, marker.y! + y);
+      const worldCoordinates = layers.floor.tileToWorldXY(gridCoordinates.x, gridCoordinates.y);
 
       acc[marker.name] = new DungeonMarker(marker.name, gridCoordinates.x, gridCoordinates.y, worldCoordinates.x, worldCoordinates.y);
 
       return acc;
     }, {} as Record<string, DungeonMarker>);
 
-    return new Dungeon(dungeonTiles, dungeonMarkers);
+    return dungeonMarkers;
   }
 }

@@ -1,5 +1,5 @@
 import { Depths } from "../constants/depths";
-import { DungeonCreator } from "../dungeon/dungeon-creator";
+import { DungeonFactory } from "../dungeon/dungeon-creator";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
 import { PhecsPlugin } from "phecs";
@@ -29,9 +29,8 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   create() {
-    const dungeonCreator = new DungeonCreator(this, 'level-001');
-    dungeonCreator.load();
-    this.dungeon = dungeonCreator.createDungeon(100, 100);
+    const dungeonCreator = new DungeonFactory(this);
+    this.dungeon = dungeonCreator.createDungeon('level-001', 100, 100);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
