@@ -1,5 +1,5 @@
 type DungeonTileProperties = {
-  walkable: boolean;
+  walkable?: boolean;
 };
 
 export class DungeonTile {

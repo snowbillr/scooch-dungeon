@@ -23,8 +23,6 @@ export class DungeonCreator {
   }
 
   public createDungeon(x: number, y: number): Dungeon {
-    const dungeonTiles: DungeonTile[] = [];
-
     this.layers.wallsBelow = this.level.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y);
     this.layers.wallsBelow.setDepth(Depths.wallsBelow);
 
@@ -34,25 +32,34 @@ export class DungeonCreator {
     this.layers.floor = this.level.createStaticLayer('floor', 'dungeon-tileset', x, y);
     this.layers.floor.setDepth(Depths.floor);
 
-    
-    /*
+    const tileData: Record<string, Record<string, any>> = {};
+
     this.layers.wallsBelow.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      dungeonTiles.push(new DungeonTile(tile.x, tile.y, tile.properties))
+      const key = `${tile.x},${tile.y}`;
+      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
     }, this, 0, 0, this.level.width, this.level.height, {
       isNotEmpty: true
     });
 
     this.layers.wallsAbove.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      dungeonTiles.push(new DungeonTile(tile.x, tile.y, tile.properties))
+      const key = `${tile.x},${tile.y}`;
+      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
     }, this, 0, 0, this.level.width, this.level.height, {
       isNotEmpty: true
     });
-    */
 
     this.layers.floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      dungeonTiles.push(new DungeonTile(tile.x, tile.y, tile.properties))
+      const key = `${tile.x},${tile.y}`;
+      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
     }, this, 0, 0, this.level.width, this.level.height, {
       isNotEmpty: true
+    });
+
+
+    const dungeonTiles: DungeonTile[] = Object.entries(tileData).map(([key, properties]) => {
+      const [gridX, gridY] = key.split(',').map(Number);
+
+      return new DungeonTile(gridX, gridY, properties);
     });
 
     return new Dungeon(dungeonTiles, this.layers.floor);
