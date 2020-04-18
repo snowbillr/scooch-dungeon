@@ -3,9 +3,9 @@ import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 
-type DungeonLayers = {
+export type DungeonLayers = {
   wallsBelow: Phaser.Tilemaps.StaticTilemapLayer;
-  wallsAbove: Phaser.Tilemaps.StaticTilemapLayer;
+  wallsAbove: Phaser.Tilemaps.DynamicTilemapLayer;
   floor: Phaser.Tilemaps.StaticTilemapLayer;
 };
 
@@ -18,17 +18,18 @@ export class DungeonFactory {
     const tilemap = this.scene.add.tilemap(levelKey);
     tilemap.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
 
-    const layers = this.createLayers(tilemap, x, y);
-    const dungeonTiles = this.createDungeonTiles(tilemap, layers);
-    const dungeonMarkers = this.createDungeonMarkers(tilemap, layers, x, y);
+    const dungeonLayers = this.createLayers(tilemap, x, y);
+    const dungeonTiles = this.createDungeonTiles(tilemap, dungeonLayers);
+    const dungeonMarkers = this.createDungeonMarkers(tilemap, dungeonLayers, x, y);
 
-    return new Dungeon(dungeonTiles, dungeonMarkers);
+    return new Dungeon(dungeonTiles, dungeonMarkers, dungeonLayers);
   }
 
   private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
     const layers: DungeonLayers = {
       wallsBelow: tilemap.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y),
-      wallsAbove: tilemap.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y),
+      // wallsAbove: tilemap.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y),
+      wallsAbove: tilemap.createDynamicLayer('wallsAbove', 'dungeon-tileset', x, y),
       floor: tilemap.createStaticLayer('floor', 'dungeon-tileset', x, y)
     }
 

@@ -41,7 +41,6 @@ export const MovementPlanner = {
       const nextTile = dungeon.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
 
       if (nextTile) {
-        // const nextTileWorldPosition = dungeon.getTileWorldPosition(nextTile.gridX, nextTile.gridY);
         const nextTileWorldPosition = new Phaser.Math.Vector2(nextTile.worldX, nextTile.worldY);
 
         timeline.add({
@@ -53,6 +52,25 @@ export const MovementPlanner = {
           duration: 200,
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
+            if (!dungeon.hasNeighborTile(nextTile.gridX, nextTile.gridY, Direction.DOWN)) {
+              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsAbove'))
+              scene.tweens.add({
+                targets: dungeon.getDungeonLayer('wallsAbove'),
+                props: {
+                  alpha: 0.5
+                },
+                duration: 100
+              });
+            } else {
+              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsAbove'))
+              scene.tweens.add({
+                targets: dungeon.getDungeonLayer('wallsAbove'),
+                props: {
+                  alpha: 1
+                },
+                duration: 100
+              });
+            }
           }
         });
 
