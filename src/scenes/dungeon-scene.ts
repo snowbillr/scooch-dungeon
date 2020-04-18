@@ -33,12 +33,12 @@ export class DungeonScene extends Phaser.Scene {
     dungeonCreator.load();
     this.dungeon = dungeonCreator.createDungeon(100, 100);
 
-    const heroStartGridPosition = dungeonCreator.getHeroStartGridPosition();
-    const heroStartWorldCoordinates = dungeonCreator.getHeroStartWorldPosition();
+    const heroStartMarker = this.dungeon.getMarker('hero-start');
+
     this.hero = this.phecs.add.prefab('hero', {
-      gridX: heroStartGridPosition.x,
-      gridY: heroStartGridPosition.y
-    }, heroStartWorldCoordinates.x, heroStartWorldCoordinates.y);
+      gridX: heroStartMarker.gridX,
+      gridY: heroStartMarker.gridY
+    }, heroStartMarker.worldX, heroStartMarker.worldY);
 
     const controls = this.input.keyboard.addKeys({
       'up': Phaser.Input.Keyboard.KeyCodes.UP,

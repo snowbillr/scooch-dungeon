@@ -5,6 +5,8 @@ export class SpriteComponent {
   private y: number;
   private texture: string;
   private depth: number;
+  private originX: number;
+  private originY: number;
 
   public sprite!: Phaser.GameObjects.Sprite;
 
@@ -15,11 +17,14 @@ export class SpriteComponent {
     this.y = data.y;
     this.texture = data.texture;
     this.depth = data.depth;
+    this.originX = data.originX ?? 0.5;
+    this.originY = data.originY ?? 0.5;
   }
 
   onAdd() {
     this.sprite = this.scene.add.sprite(this.x, this.y, this.texture);
     this.sprite.setDepth(this.depth);
+    this.sprite.setOrigin(this.originX, this.originY);
   }
 
   destroy() {}

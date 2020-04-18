@@ -1,11 +1,16 @@
 import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
+import { DungeonMarker } from "./dungeon-marker";
 
 export class Dungeon {
   constructor(
     private dungeonTiles: DungeonTile[],
-    private floorLayer: Phaser.Tilemaps.StaticTilemapLayer
+    private markers: Record<string, DungeonMarker>
   ) {}
+
+  public getMarker(name: string): DungeonMarker {
+    return this.markers[name];
+  }
 
   public getTile(x: number, y: number): DungeonTile {
     const tile = this.dungeonTiles

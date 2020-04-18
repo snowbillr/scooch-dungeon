@@ -30,7 +30,9 @@ export const HeroPrefab: Prefab = {
       component: SpriteComponent,
       data: {
         texture: 'hero',
-        depth: Depths.hero
+        depth: Depths.hero,
+        originX: 0,
+        originY: 0.5
       }
     },
     GridPositionComponent,
