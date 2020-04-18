@@ -10,7 +10,7 @@ export class Dungeon {
   public getTile(x: number, y: number): DungeonTile {
     const tile = this.dungeonTiles
       .filter(tile => tile.isWalkable())
-      .find(tile => tile.isPosition(x, y));
+      .find(tile => tile.isGridPosition(x, y));
 
     if (!tile) throw new Error(`No tile found for ${x}, ${y}`);
 
@@ -37,16 +37,8 @@ export class Dungeon {
     
     const neighborTile = this.dungeonTiles
       .filter(tile => tile.isWalkable())
-      .find(tile => tile.isPosition(neighborX, neighborY))
+      .find(tile => tile.isGridPosition(neighborX, neighborY))
 
     return neighborTile;
-  }
-
-  public getTileWorldPosition(gridX: number, gridY: number): Phaser.Math.Vector2 {
-    const worldPosition = this.floorLayer.tileToWorldXY(gridX, gridY);
-
-    worldPosition.add(new Phaser.Math.Vector2(16, 0)); // this centers the hero in the tile
-
-    return worldPosition;
   }
 }

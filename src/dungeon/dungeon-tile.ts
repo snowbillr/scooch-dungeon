@@ -4,8 +4,10 @@ type DungeonTileProperties = {
 
 export class DungeonTile {
   constructor(
-    public readonly x: number,
-    public readonly y: number,
+    public readonly gridX: number,
+    public readonly gridY: number,
+    public readonly worldX: number,
+    public readonly worldY: number,
     private properties: DungeonTileProperties,
   ) {
   }
@@ -14,7 +16,7 @@ export class DungeonTile {
     return this.properties.walkable;
   }
 
-  isPosition(x: number, y: number) {
-    return x === this.x && y === this.y;
+  isGridPosition(x: number, y: number) {
+    return x === this.gridX && y === this.gridY;
   }
 }

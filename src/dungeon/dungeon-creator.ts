@@ -55,11 +55,12 @@ export class DungeonCreator {
       isNotEmpty: true
     });
 
-
     const dungeonTiles: DungeonTile[] = Object.entries(tileData).map(([key, properties]) => {
       const [gridX, gridY] = key.split(',').map(Number);
+      const worldCoordinates = this.layers.floor.tileToWorldXY(gridX, gridY)
+      worldCoordinates.add(new Phaser.Math.Vector2(16, 0)); // gets the center of the tile
 
-      return new DungeonTile(gridX, gridY, properties);
+      return new DungeonTile(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties);
     });
 
     return new Dungeon(dungeonTiles, this.layers.floor);

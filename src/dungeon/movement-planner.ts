@@ -41,7 +41,8 @@ export const MovementPlanner = {
       const nextTile = dungeon.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
 
       if (nextTile) {
-        const nextTileWorldPosition = dungeon.getTileWorldPosition(nextTile.x, nextTile.y);
+        // const nextTileWorldPosition = dungeon.getTileWorldPosition(nextTile.gridX, nextTile.gridY);
+        const nextTileWorldPosition = new Phaser.Math.Vector2(nextTile.worldX, nextTile.worldY);
 
         timeline.add({
           targets: heroSprite,
@@ -51,11 +52,11 @@ export const MovementPlanner = {
           },
           duration: 200,
           onComplete() {
-            heroGridPosition.setGridPosition(nextTile.x, nextTile.y);
+            heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
           }
         });
 
-        plannerPosition.set(nextTile.x, nextTile.y);
+        plannerPosition.set(nextTile.gridX, nextTile.gridY);
       } else {
         canMove = false;
       }
