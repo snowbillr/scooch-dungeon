@@ -48,39 +48,13 @@ export class DungeonFactory {
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
     const tileData: Record<string, Record<string, any>> = {};
 
-    layers.wallsUp.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const key = `${tile.x},${tile.y}`;
-      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
-    });
-
-    layers.wallsDown.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const key = `${tile.x},${tile.y}`;
-      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
-    });
-
-    layers.wallsLeft.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const key = `${tile.x},${tile.y}`;
-      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
-    });
-
-    layers.wallsRight.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const key = `${tile.x},${tile.y}`;
-      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
-    });
-
-    layers.floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const key = `${tile.x},${tile.y}`;
-      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
+    Object.values(layers).forEach((layer: Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer) => {
+      layer.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+        const key = `${tile.x},${tile.y}`;
+        tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
+      }, this, 0, 0, tilemap.width, tilemap.height, {
+        isNotEmpty: true
+      });
     });
 
     return Object.entries(tileData).map(([key, properties]) => {
