@@ -1,7 +1,7 @@
 import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 import { DungeonMarker } from "./dungeon-marker";
-import { DungeonLayers } from "./dungeon-creator";
+import { DungeonLayers } from "./dungeon-factory";
 
 export class Dungeon {
   constructor(

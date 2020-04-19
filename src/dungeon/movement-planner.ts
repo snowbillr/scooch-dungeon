@@ -52,25 +52,8 @@ export const MovementPlanner = {
           duration: 200,
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
-            if (!dungeon.hasNeighborTile(nextTile.gridX, nextTile.gridY, Direction.DOWN)) {
-              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsDown'))
-              scene.tweens.add({
-                targets: dungeon.getDungeonLayer('wallsDown'),
-                props: {
-                  alpha: 0.5
-                },
-                duration: 100
-              });
-            } else {
-              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsDown'))
-              scene.tweens.add({
-                targets: dungeon.getDungeonLayer('wallsDown'),
-                props: {
-                  alpha: 1
-                },
-                duration: 100
-              });
-            }
+
+            nextTile.enterBehaviors.forEach(behavior => behavior());
           }
         });
 

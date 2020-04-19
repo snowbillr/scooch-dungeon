@@ -1,5 +1,5 @@
 import { Depths } from "../constants/depths";
-import { DungeonFactory } from "../dungeon/dungeon-creator";
+import { DungeonFactory } from "../dungeon/dungeon-factory";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
 import { PhecsPlugin } from "phecs";

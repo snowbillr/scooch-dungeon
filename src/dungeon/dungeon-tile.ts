@@ -1,8 +1,12 @@
-type DungeonTileProperties = {
+export type DungeonTileProperties = {
   walkable?: boolean;
 };
 
+export type DungeonTileBehavior = () => void;
+
 export class DungeonTile {
+  public readonly enterBehaviors: DungeonTileBehavior[];
+
   constructor(
     public readonly gridX: number,
     public readonly gridY: number,
@@ -10,6 +14,7 @@ export class DungeonTile {
     public readonly worldY: number,
     private properties: DungeonTileProperties,
   ) {
+    this.enterBehaviors = [];
   }
 
   isWalkable() {
@@ -18,5 +23,9 @@ export class DungeonTile {
 
   isGridPosition(x: number, y: number) {
     return x === this.gridX && y === this.gridY;
+  }
+
+  addEnterBehavior(behavior: DungeonTileBehavior) {
+    this.enterBehaviors.push(behavior);
   }
 }

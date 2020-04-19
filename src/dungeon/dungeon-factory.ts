@@ -2,6 +2,7 @@ import { Depths } from '../constants/depths';
 import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
+import { DungeonTileFactory } from './dungeon-tile-factory';
 
 export type DungeonLayers = {
   wallsUp: Phaser.Tilemaps.StaticTilemapLayer;
@@ -12,9 +13,13 @@ export type DungeonLayers = {
 };
 
 export class DungeonFactory {
+  private dungeonTileFactory: DungeonTileFactory;
+
   constructor(
     private scene: Phaser.Scene,
-  ) {}
+  ) {
+    this.dungeonTileFactory = new DungeonTileFactory(scene);
+  }
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {
     const tilemap = this.scene.add.tilemap(levelKey);
@@ -24,7 +29,11 @@ export class DungeonFactory {
     const dungeonTiles = this.createDungeonTiles(tilemap, dungeonLayers);
     const dungeonMarkers = this.createDungeonMarkers(tilemap, dungeonLayers, x, y);
 
-    return new Dungeon(dungeonTiles, dungeonMarkers, dungeonLayers);
+    const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonLayers);
+
+    dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.process(dungeonTile, dungeon));
+
+    return dungeon;
   }
 
   private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
@@ -61,7 +70,7 @@ export class DungeonFactory {
       const [gridX, gridY] = key.split(',').map(Number);
       const worldCoordinates = layers.floor.tileToWorldXY(gridX, gridY);
 
-      return new DungeonTile(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties);
+      return this.dungeonTileFactory.create(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties)
     });
   }
 
