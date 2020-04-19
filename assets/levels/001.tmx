@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="3">
+<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="3">
  <editorsettings>
   <export target="001.json" format="json"/>
  </editorsettings>
@@ -13,7 +13,7 @@
 68,68,69,54,68,68,68,68,68,68,68
 </data>
  </layer>
- <layer id="4" name="wallsBelow" width="11" height="5">
+ <layer id="4" name="wallsUp" width="11" height="5">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,
 16,16,16,16,16,16,16,16,16,16,16,
@@ -22,13 +22,31 @@
 0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="1" name="wallsAbove" width="11" height="5">
+ <layer id="1" name="wallsDown" width="11" height="5">
   <data encoding="csv">
-94,0,0,0,0,0,0,0,0,0,95,
-106,0,0,0,0,0,0,0,0,0,105,
-106,0,0,0,0,0,0,0,0,0,105,
-120,3,3,3,3,3,3,3,3,3,121,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+136,3,3,3,3,3,3,3,3,3,136,
 133,16,16,16,16,16,16,16,16,16,134
+</data>
+ </layer>
+ <layer id="7" name="wallsLeft" width="11" height="5">
+  <data encoding="csv">
+94,0,0,0,0,0,0,0,0,0,0,
+106,0,0,0,0,0,0,0,0,0,0,
+106,0,0,0,0,0,0,0,0,0,0,
+106,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="8" name="wallsRight" width="11" height="5">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,95,
+0,0,0,0,0,0,0,0,0,0,105,
+0,0,0,0,0,0,0,0,0,0,105,
+0,0,0,0,0,0,0,0,0,0,105,
+0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="markers">

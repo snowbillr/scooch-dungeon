@@ -4,8 +4,10 @@ import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 
 export type DungeonLayers = {
-  wallsBelow: Phaser.Tilemaps.StaticTilemapLayer;
-  wallsAbove: Phaser.Tilemaps.DynamicTilemapLayer;
+  wallsUp: Phaser.Tilemaps.StaticTilemapLayer;
+  wallsDown: Phaser.Tilemaps.DynamicTilemapLayer;
+  wallsLeft: Phaser.Tilemaps.StaticTilemapLayer;
+  wallsRight: Phaser.Tilemaps.StaticTilemapLayer;
   floor: Phaser.Tilemaps.StaticTilemapLayer;
 };
 
@@ -27,14 +29,17 @@ export class DungeonFactory {
 
   private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
     const layers: DungeonLayers = {
-      wallsBelow: tilemap.createStaticLayer('wallsBelow', 'dungeon-tileset', x, y),
-      // wallsAbove: tilemap.createStaticLayer('wallsAbove', 'dungeon-tileset', x, y),
-      wallsAbove: tilemap.createDynamicLayer('wallsAbove', 'dungeon-tileset', x, y),
+      wallsUp: tilemap.createStaticLayer('wallsUp', 'dungeon-tileset', x, y),
+      wallsDown: tilemap.createDynamicLayer('wallsDown', 'dungeon-tileset', x, y),
+      wallsLeft: tilemap.createStaticLayer('wallsLeft', 'dungeon-tileset', x, y),
+      wallsRight: tilemap.createStaticLayer('wallsRight', 'dungeon-tileset', x, y),
       floor: tilemap.createStaticLayer('floor', 'dungeon-tileset', x, y)
     }
 
-    layers.wallsBelow.setDepth(Depths.wallsBelow);
-    layers.wallsAbove.setDepth(Depths.wallsAbove);
+    layers.wallsUp.setDepth(Depths.wallsUp);
+    layers.wallsDown.setDepth(Depths.wallsDown);
+    layers.wallsLeft.setDepth(Depths.wallsLeft);
+    layers.wallsRight.setDepth(Depths.wallsRight);
     layers.floor.setDepth(Depths.floor);
 
     return layers;
@@ -43,14 +48,28 @@ export class DungeonFactory {
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
     const tileData: Record<string, Record<string, any>> = {};
 
-    layers.wallsBelow.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+    layers.wallsUp.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       const key = `${tile.x},${tile.y}`;
       tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
     }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
     });
 
-    layers.wallsAbove.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+    layers.wallsDown.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+      const key = `${tile.x},${tile.y}`;
+      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
+    }, this, 0, 0, tilemap.width, tilemap.height, {
+      isNotEmpty: true
+    });
+
+    layers.wallsLeft.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
+      const key = `${tile.x},${tile.y}`;
+      tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
+    }, this, 0, 0, tilemap.width, tilemap.height, {
+      isNotEmpty: true
+    });
+
+    layers.wallsRight.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       const key = `${tile.x},${tile.y}`;
       tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
     }, this, 0, 0, tilemap.width, tilemap.height, {

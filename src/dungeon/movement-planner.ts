@@ -53,18 +53,18 @@ export const MovementPlanner = {
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
             if (!dungeon.hasNeighborTile(nextTile.gridX, nextTile.gridY, Direction.DOWN)) {
-              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsAbove'))
+              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsDown'))
               scene.tweens.add({
-                targets: dungeon.getDungeonLayer('wallsAbove'),
+                targets: dungeon.getDungeonLayer('wallsDown'),
                 props: {
                   alpha: 0.5
                 },
                 duration: 100
               });
             } else {
-              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsAbove'))
+              scene.tweens.killTweensOf(dungeon.getDungeonLayer('wallsDown'))
               scene.tweens.add({
-                targets: dungeon.getDungeonLayer('wallsAbove'),
+                targets: dungeon.getDungeonLayer('wallsDown'),
                 props: {
                   alpha: 1
                 },
