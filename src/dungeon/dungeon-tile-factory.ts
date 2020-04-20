@@ -12,11 +12,11 @@ export class DungeonTileFactory {
     gridY: number,
     worldX: number,
     worldY: number,
-    properties: DungeonTileProperties,
+    properties: Record<string, any[]>,
   ): DungeonTile {
     const computedProperties: DungeonTileProperties = {}
 
-    computedProperties.walkable = !!properties.walkable;
+    computedProperties.walkable = properties.walkable?.reduce((acc, w) => acc && w, true) ?? false;
 
     return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties);
   }

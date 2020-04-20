@@ -55,19 +55,24 @@ export class DungeonFactory {
   }
 
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
-    const tileData: Record<string, Record<string, any>> = {};
+    const tileData: Record<string, Record<string, any[]>> = {};
 
     Object.values(layers).forEach((layer: Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer) => {
       layer.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-        const key = `${tile.x},${tile.y}`;
-        tileData[key] = Object.assign({}, tile.properties, tileData[key] ?? {})
+        const coordinate = `${tile.x},${tile.y}`;
+        // tileData[coordinate] = Object.assign({}, tile.properties, tileData[coordinate] ?? {})
+        tileData[coordinate] = tileData[coordinate] ?? {};
+        Object.entries(tile.properties).forEach(([key, value]) => {
+          tileData[coordinate][key] = tileData[coordinate][key] ?? [];
+          tileData[coordinate][key].push(value);
+        });
       }, this, 0, 0, tilemap.width, tilemap.height, {
         isNotEmpty: true
       });
     });
 
-    return Object.entries(tileData).map(([key, properties]) => {
-      const [gridX, gridY] = key.split(',').map(Number);
+    return Object.entries(tileData).map(([coordinate, properties]) => {
+      const [gridX, gridY] = coordinate.split(',').map(Number);
       const worldCoordinates = layers.floor.tileToWorldXY(gridX, gridY);
 
       return this.dungeonTileFactory.create(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties)

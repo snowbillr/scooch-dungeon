@@ -1,5 +1,5 @@
 export type DungeonTileProperties = {
-  walkable?: boolean;
+  walkable?: boolean[];
 };
 
 export type DungeonTileBehavior = () => void;
