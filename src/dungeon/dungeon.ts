@@ -5,12 +5,22 @@ import { DungeonLayers } from "./dungeon-factory";
 import { DungeonCursor } from "./dungeon-cursor";
 
 export class Dungeon {
+  public readonly worldWidth: number;
+  public readonly worldHeight: number;
+  public readonly gridWidth: number;
+  public readonly gridHeight: number;
+
   constructor(
     private dungeonTiles: DungeonTile[],
     private markers: Record<string, DungeonMarker>,
     private layers: DungeonLayers,
-    public readonly tilemap: Phaser.Tilemaps.Tilemap
-  ) {}
+    tilemap: Phaser.Tilemaps.Tilemap
+  ) {
+    this.worldWidth = tilemap.widthInPixels;
+    this.worldHeight = tilemap.heightInPixels;
+    this.gridWidth = tilemap.width;
+    this.gridHeight = tilemap.height;
+  }
 
   public getMarker(name: string): DungeonMarker {
     return this.markers[name];

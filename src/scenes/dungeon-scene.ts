@@ -51,7 +51,7 @@ export class DungeonScene extends Phaser.Scene {
     controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
     controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
 
-    var { x, y, width, height } = this.calculateCameraBounds(this.dungeon.tilemap);
+    var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
@@ -64,11 +64,11 @@ export class DungeonScene extends Phaser.Scene {
     movementTimeline.play();
   }
 
-  private calculateCameraBounds(map: Phaser.Tilemaps.Tilemap) {
+  private calculateCameraBounds() {
     let x = 0;
     let y = 0;
-    const width = map.widthInPixels;
-    const height = map.heightInPixels;
+    const width = this.dungeon.worldWidth;
+    const height = this.dungeon.worldHeight;
 
     if (width < Viewport.WIDTH) {
       x = x - (Viewport.WIDTH - width) / 2;
