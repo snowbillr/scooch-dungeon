@@ -22,6 +22,7 @@ export class DungeonTileFactory {
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
+    /*
     const cursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
 
     if (!dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY).down()) {
@@ -56,5 +57,6 @@ export class DungeonTileFactory {
         }
       });
     }
+    */
   }
 }

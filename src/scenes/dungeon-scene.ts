@@ -9,6 +9,7 @@ import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { MovementPlanner } from "../dungeon/movement-planner";
+import { Viewport } from "../constants/viewport";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
@@ -30,7 +31,7 @@ export class DungeonScene extends Phaser.Scene {
 
   create() {
     const dungeonCreator = new DungeonFactory(this);
-    this.dungeon = dungeonCreator.createDungeon('level-001', 100, 100);
+    this.dungeon = dungeonCreator.createDungeon('level-001', 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -50,7 +51,9 @@ export class DungeonScene extends Phaser.Scene {
     controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
     controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
 
-    this.cameras.main.setBackgroundColor(0xCCCCCC);
+    var { x, y, width, height } = this.calculateCameraBounds();
+    this.cameras.main.setBounds(x, y, width, height);
+    this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
   }
 
@@ -59,5 +62,22 @@ export class DungeonScene extends Phaser.Scene {
 
     const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
     movementTimeline.play();
+  }
+
+  private calculateCameraBounds() {
+    let x = 0;
+    let y = 0;
+    const width = this.dungeon.worldWidth;
+    const height = this.dungeon.worldHeight;
+
+    if (width < Viewport.WIDTH) {
+      x = x - (Viewport.WIDTH - width) / 2;
+    }
+
+    if (height < Viewport.HEIGHT) {
+      y = y - (Viewport.HEIGHT - height) / 2;
+    }
+
+    return { x, y, width, height };
   }
 }

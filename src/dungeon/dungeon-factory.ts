@@ -1,15 +1,10 @@
-import { Depths } from '../constants/depths';
 import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 import { DungeonTileFactory } from './dungeon-tile-factory';
 
 export type DungeonLayers = {
-  wallsUp: Phaser.Tilemaps.StaticTilemapLayer;
-  wallsDown: Phaser.Tilemaps.DynamicTilemapLayer;
-  wallsLeft: Phaser.Tilemaps.StaticTilemapLayer;
-  wallsRight: Phaser.Tilemaps.StaticTilemapLayer;
-  floor: Phaser.Tilemaps.StaticTilemapLayer;
+  floor: Phaser.Tilemaps.DynamicTilemapLayer;
 };
 
 export class DungeonFactory {
@@ -29,7 +24,7 @@ export class DungeonFactory {
     const dungeonTiles = this.createDungeonTiles(tilemap, dungeonLayers);
     const dungeonMarkers = this.createDungeonMarkers(tilemap, dungeonLayers, x, y);
 
-    const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonLayers);
+    const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonLayers, tilemap);
 
     dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.process(dungeonTile, dungeon));
 
@@ -37,21 +32,9 @@ export class DungeonFactory {
   }
 
   private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
-    const layers: DungeonLayers = {
-      wallsUp: tilemap.createStaticLayer('wallsUp', 'dungeon-tileset', x, y),
-      wallsDown: tilemap.createDynamicLayer('wallsDown', 'dungeon-tileset', x, y),
-      wallsLeft: tilemap.createStaticLayer('wallsLeft', 'dungeon-tileset', x, y),
-      wallsRight: tilemap.createStaticLayer('wallsRight', 'dungeon-tileset', x, y),
-      floor: tilemap.createStaticLayer('floor', 'dungeon-tileset', x, y)
-    }
-
-    layers.wallsUp.setDepth(Depths.wallsUp);
-    layers.wallsDown.setDepth(Depths.wallsDown);
-    layers.wallsLeft.setDepth(Depths.wallsLeft);
-    layers.wallsRight.setDepth(Depths.wallsRight);
-    layers.floor.setDepth(Depths.floor);
-
-    return layers;
+    return {
+      floor: tilemap.createDynamicLayer('floor', 'dungeon-tileset', x, y)
+    };
   }
 
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
@@ -60,7 +43,6 @@ export class DungeonFactory {
     Object.values(layers).forEach((layer: Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer) => {
       layer.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
         const coordinate = `${tile.x},${tile.y}`;
-        // tileData[coordinate] = Object.assign({}, tile.properties, tileData[coordinate] ?? {})
         tileData[coordinate] = tileData[coordinate] ?? {};
         Object.entries(tile.properties).forEach(([key, value]) => {
           tileData[coordinate][key] = tileData[coordinate][key] ?? [];
