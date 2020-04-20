@@ -7,72 +7,24 @@
          "target":"001.json"
         }
     },
- "height":5,
+ "height":7,
  "infinite":false,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 56, 55, 54, 124, 54, 55, 54, 54, 55, 54, 55, 54, 54, 54, 54, 54, 55, 54, 54, 54, 55, 68, 68, 69, 54, 68, 68, 68, 68, 68, 68, 68],
-         "height":5,
-         "id":2,
-         "name":"floor",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":11,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 16, 16, 16, 43, 16, 16, 16, 30, 16, 16, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":5,
-         "id":4,
-         "name":"wallsUp",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":11,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":5,
-         "id":8,
-         "name":"wallsRight",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":11,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[94, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":5,
-         "id":7,
-         "name":"wallsLeft",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":11,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 3, 3, 3, 3, 3, 3, 3, 3, 3, 121, 133, 16, 16, 16, 16, 16, 16, 16, 16, 16, 134],
-         "height":5,
+         "data":[79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 1, 2, 4, 2, 2, 4, 4, 6, 79, 79, 11, 23, 23, 23, 23, 23, 23, 36, 79, 79, 41, 42, 43, 44, 45, 42, 43, 46, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79],
+         "height":7,
          "id":1,
-         "name":"wallsDown",
+         "name":"map",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":11,
+         "width":10,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "id":3,
+         "id":2,
          "name":"markers",
          "objects":[
                 {
@@ -84,8 +36,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":43.4635,
-                 "y":86.0215
+                 "x":80.878324844369,
+                 "y":112.26259196378
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -93,27 +45,27 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":9,
- "nextobjectid":3,
+ "nextlayerid":3,
+ "nextobjectid":2,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.3.1",
  "tileheight":32,
  "tilesets":[
         {
-         "columns":13,
+         "columns":10,
          "firstgid":1,
          "image":"..\/maps\/dungeon-spritesheet.png",
-         "imageheight":672,
-         "imagewidth":416,
+         "imageheight":320,
+         "imagewidth":320,
          "margin":0,
          "name":"dungeon-tileset",
          "spacing":0,
-         "tilecount":273,
+         "tilecount":100,
          "tileheight":32,
          "tiles":[
                 {
-                 "id":53,
+                 "id":11,
                  "properties":[
                         {
                          "name":"walkable",
@@ -122,7 +74,7 @@
                         }]
                 }, 
                 {
-                 "id":54,
+                 "id":12,
                  "properties":[
                         {
                          "name":"walkable",
@@ -131,7 +83,7 @@
                         }]
                 }, 
                 {
-                 "id":55,
+                 "id":13,
                  "properties":[
                         {
                          "name":"walkable",
@@ -140,7 +92,7 @@
                         }]
                 }, 
                 {
-                 "id":66,
+                 "id":14,
                  "properties":[
                         {
                          "name":"walkable",
@@ -149,7 +101,7 @@
                         }]
                 }, 
                 {
-                 "id":67,
+                 "id":21,
                  "properties":[
                         {
                          "name":"walkable",
@@ -158,7 +110,7 @@
                         }]
                 }, 
                 {
-                 "id":68,
+                 "id":22,
                  "properties":[
                         {
                          "name":"walkable",
@@ -167,7 +119,7 @@
                         }]
                 }, 
                 {
-                 "id":79,
+                 "id":23,
                  "properties":[
                         {
                          "name":"walkable",
@@ -176,7 +128,43 @@
                         }]
                 }, 
                 {
-                 "id":80,
+                 "id":24,
+                 "properties":[
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":31,
+                 "properties":[
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":32,
+                 "properties":[
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":33,
+                 "properties":[
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":34,
                  "properties":[
                         {
                          "name":"walkable",
@@ -189,5 +177,5 @@
  "tilewidth":32,
  "type":"map",
  "version":1.2,
- "width":11
+ "width":10
 }
