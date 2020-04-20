@@ -30,7 +30,7 @@ export class DungeonScene extends Phaser.Scene {
 
   create() {
     const dungeonCreator = new DungeonFactory(this);
-    this.dungeon = dungeonCreator.createDungeon('level-001', 100, 100);
+    this.dungeon = dungeonCreator.createDungeon('level-001', 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -50,7 +50,7 @@ export class DungeonScene extends Phaser.Scene {
     controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
     controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
 
-    this.cameras.main.setBackgroundColor(0xCCCCCC);
+    this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
   }
 
