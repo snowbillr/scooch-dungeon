@@ -2,6 +2,7 @@ import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 import { DungeonMarker } from "./dungeon-marker";
 import { DungeonLayers } from "./dungeon-factory";
+import { DungeonCursor } from "./dungeon-cursor";
 
 export class Dungeon {
   constructor(
@@ -14,9 +15,16 @@ export class Dungeon {
     return this.markers[name];
   }
 
+  public getCursor(x: number, y: number): DungeonCursor {
+    return new DungeonCursor(this, x, y);
+  }
+
+  public hasTile(x: number, y: number): boolean {
+    return this.dungeonTiles.some(tile => tile.isGridPosition(x, y));
+  }
+
   public getTile(x: number, y: number): DungeonTile {
     const tile = this.dungeonTiles
-      .filter(tile => tile.isWalkable())
       .find(tile => tile.isGridPosition(x, y));
 
     if (!tile) throw new Error(`No tile found for ${x}, ${y}`);
@@ -24,50 +32,17 @@ export class Dungeon {
     return tile;
   }
 
-  public hasNeighborTile(x: number, y: number, direction: Direction): boolean {
-    let neighborX = x;
-    let neighborY = y;
-    switch (direction) {
-      case Direction.UP:
-        neighborY -= 1;
-        break;
-      case Direction.DOWN:
-        neighborY += 1;
-        break;
-      case Direction.LEFT:
-        neighborX -= 1;
-        break;
-      case Direction.RIGHT:
-        neighborX += 1;
-        break;
-    }
-    
-    return this.dungeonTiles.some(tile => tile.isGridPosition(neighborX, neighborY))
-  }
-
   public getWalkableNeighborTile(x: number, y: number, direction: Direction): DungeonTile | undefined {
-    let neighborX = x;
-    let neighborY = y;
-    switch (direction) {
-      case Direction.UP:
-        neighborY -= 1;
-        break;
-      case Direction.DOWN:
-        neighborY += 1;
-        break;
-      case Direction.LEFT:
-        neighborX -= 1;
-        break;
-      case Direction.RIGHT:
-        neighborX += 1;
-        break;
-    }
-    
-    const neighborTile = this.dungeonTiles
-      .filter(tile => tile.isWalkable())
-      .find(tile => tile.isGridPosition(neighborX, neighborY))
+    const dungeonCursor = this.getCursor(x, y);
+    dungeonCursor.move(direction);
 
-    return neighborTile;
+    if (dungeonCursor.exists()) {
+      const tile = dungeonCursor.getTile();
+
+      return tile.isWalkable() ? tile : undefined;
+    } else {
+      return undefined;
+    }
   }
 
   public getDungeonLayer(name: keyof DungeonLayers): Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer {
