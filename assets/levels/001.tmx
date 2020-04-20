@@ -4,7 +4,7 @@
   <export target="001.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
- <layer id="1" name="map" width="10" height="7">
+ <layer id="1" name="floor" width="10" height="7">
   <data encoding="csv">
 79,79,79,79,79,79,79,79,79,79,
 79,79,79,79,79,79,79,79,79,79,

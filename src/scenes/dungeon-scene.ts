@@ -50,6 +50,8 @@ export class DungeonScene extends Phaser.Scene {
     controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
     controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
 
+    // var { x, y, width, height } = this.calculateCameraBounds(map, tileset);
+    // this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
   }
@@ -59,5 +61,22 @@ export class DungeonScene extends Phaser.Scene {
 
     const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
     movementTimeline.play();
+  }
+
+  private calculateCameraBounds(map: Phaser.Tilemaps.Tilemap, tileset: Phaser.Tilemaps.Tileset) {
+    let x = 0;
+    let y = 0;
+    const width = map.width * tileset.tileWidth;
+    const height = map.height * tileset.tileHeight;
+
+    if (width < 800) {
+      x = x - (800 - width) / 2;
+    }
+
+    if (height < 450) {
+      y = y - (450 - height) / 2;
+    }
+
+    return { x, y, width, height };
   }
 }
