@@ -24,27 +24,39 @@ export class DungeonCursor {
         this.right();
         break;
     }
+
+    return this.exists();
   }
 
   up() {
     this.y -= 1;
+
+    return this.exists();
   }
 
   down() {
     this.y += 1;
+
+    return this.exists();
   }
 
   left() {
     this.x -= 1;
+
+    return this.exists();
   }
 
   right() {
     this.x += 1;
+
+    return this.exists();
   }
 
   set(x: number, y: number) {
     this.x = x;
     this.y = y;
+
+    return this.exists();
   }
 
   exists(): boolean {

@@ -22,11 +22,9 @@ export class DungeonTileFactory {
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    const bottomRowCursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
-    bottomRowCursor.down();
+    const cursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
 
-    // wallBottom visibility behavior
-    if (!bottomRowCursor.exists()) {
+    if (!dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY).down()) {
       dungeonTile.addEnterBehavior(() => {
         const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
         if (Phaser.Math.Within(wallsDownLayer.alpha, 1, 0.01)) {
@@ -42,10 +40,8 @@ export class DungeonTileFactory {
       });
     }
 
-    const secondToBottomRowCursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
-    secondToBottomRowCursor.down();
-    secondToBottomRowCursor.down();
-    if (!secondToBottomRowCursor.exists() && bottomRowCursor.exists()) {
+    cursor.set(dungeonTile.gridX, dungeonTile.gridY);
+    if (cursor.down() && !cursor.down()) {
       dungeonTile.addEnterBehavior(() => {
         const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
         if (Phaser.Math.Within(wallsDownLayer.alpha, 0.5, 0.01)) {
