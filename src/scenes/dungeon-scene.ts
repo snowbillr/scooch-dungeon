@@ -9,6 +9,7 @@ import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { MovementPlanner } from "../dungeon/movement-planner";
+import { Viewport } from "../constants/viewport";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
@@ -50,8 +51,8 @@ export class DungeonScene extends Phaser.Scene {
     controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
     controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
 
-    // var { x, y, width, height } = this.calculateCameraBounds(map, tileset);
-    // this.cameras.main.setBounds(x, y, width, height);
+    var { x, y, width, height } = this.calculateCameraBounds(this.dungeon.tilemap);
+    this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
   }
@@ -63,18 +64,18 @@ export class DungeonScene extends Phaser.Scene {
     movementTimeline.play();
   }
 
-  private calculateCameraBounds(map: Phaser.Tilemaps.Tilemap, tileset: Phaser.Tilemaps.Tileset) {
+  private calculateCameraBounds(map: Phaser.Tilemaps.Tilemap) {
     let x = 0;
     let y = 0;
-    const width = map.width * tileset.tileWidth;
-    const height = map.height * tileset.tileHeight;
+    const width = map.widthInPixels;
+    const height = map.heightInPixels;
 
-    if (width < 800) {
-      x = x - (800 - width) / 2;
+    if (width < Viewport.WIDTH) {
+      x = x - (Viewport.WIDTH - width) / 2;
     }
 
-    if (height < 450) {
-      y = y - (450 - height) / 2;
+    if (height < Viewport.HEIGHT) {
+      y = y - (Viewport.HEIGHT - height) / 2;
     }
 
     return { x, y, width, height };

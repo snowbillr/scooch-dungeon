@@ -8,7 +8,8 @@ export class Dungeon {
   constructor(
     private dungeonTiles: DungeonTile[],
     private markers: Record<string, DungeonMarker>,
-    private layers: DungeonLayers
+    private layers: DungeonLayers,
+    public readonly tilemap: Phaser.Tilemaps.Tilemap
   ) {}
 
   public getMarker(name: string): DungeonMarker {

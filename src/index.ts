@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
 import { DungeonScene } from './scenes/dungeon-scene';
+import { Viewport } from './constants/viewport';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -31,8 +32,8 @@ class GameScene extends Phaser.Scene {
 }
 
 const game = new Phaser.Game({
-  width: 352,
-  height: 600,
+  width: Viewport.WIDTH,
+  height: Viewport.HEIGHT,
   scene: [DungeonScene],
   plugins: {
     scene: [
