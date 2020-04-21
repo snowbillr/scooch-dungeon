@@ -1,3 +1,5 @@
+import { LEVELS_COUNT } from "../plugins/level-manager-plugin";
+
 export class PreloadScene extends Phaser.Scene {
   constructor() {
     super({ key: 'preload' });
@@ -5,9 +7,11 @@ export class PreloadScene extends Phaser.Scene {
 
   preload() {
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-    this.load.tilemapTiledJSON('level-001', 'assets/levels/001.json');
-    this.load.tilemapTiledJSON('level-002', 'assets/levels/002.json');
-    this.load.tilemapTiledJSON('level-003', 'assets/levels/003.json');
+
+    for (let i = 1; i <= LEVELS_COUNT; i++) {
+      const levelKey = String(i).padStart(3, '0');
+      this.load.tilemapTiledJSON(`level-${levelKey}`, `assets/levels/${levelKey}.json`);
+    }
 
     this.load.spritesheet('hero', 'assets/characters/hero/spritesheet.png', { frameWidth: 32, frameHeight: 56 });
     this.load.animation('hero-animations', 'assets/characters/hero/animations.json');

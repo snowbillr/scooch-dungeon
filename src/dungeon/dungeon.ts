@@ -22,6 +22,18 @@ export class Dungeon {
     this.gridHeight = tilemap.height;
   }
 
+  public destroy() {
+    this.dungeonTiles.forEach(dt => dt.destroy());
+    delete this.dungeonTiles;
+
+    delete this.markers;
+
+    this.layers.floor.destroy();
+    this.layers.objects.destroy();
+
+    delete this.layers;
+  }
+
   public getMarker(name: string): DungeonMarker {
     return this.markers[name];
   }

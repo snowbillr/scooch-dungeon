@@ -18,6 +18,10 @@ export class DungeonTile {
     this.enterBehaviors = [];
   }
 
+  destroy() {
+    delete this.properties;
+  }
+
   isWalkable() {
     return this.properties.walkable;
   }
