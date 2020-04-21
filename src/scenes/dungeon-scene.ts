@@ -17,6 +17,8 @@ export class DungeonScene extends Phaser.Scene {
   private dungeon!: Dungeon;
   private hero!: Entity;
 
+  private levelNumber!: number;
+
   constructor() {
     super({ key: 'dungeon' });
   }
@@ -26,8 +28,9 @@ export class DungeonScene extends Phaser.Scene {
   }
 
   create(data: any) {
-    const dungeonCreator = new DungeonFactory(this);
-    this.dungeon = dungeonCreator.createDungeon(data.levelKey, 0, 0);
+    this.levelNumber = data.levelNumber;
+    const dungeonFactory = new DungeonFactory(this);
+    this.dungeon = dungeonFactory.createDungeon(this.createLevelKey(this.levelNumber), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -53,6 +56,11 @@ export class DungeonScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
   }
 
+  private createLevelKey(levelNumber: number) {
+    const levelKey = `${levelNumber}`.padStart(3, '0');
+    return `level-${levelKey}`;
+  }
+
   private handleInput(direction: Direction) {
     if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') return;
 
@@ -64,7 +72,7 @@ export class DungeonScene extends Phaser.Scene {
       const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
-      this.scene.restart({ levelKey: 'level-002' });
+      this.scene.restart({ levelNumber: this.levelNumber + 1 });
     }
   }
 
