@@ -58,6 +58,7 @@ export class DungeonScene extends Phaser.Scene {
     this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
+    this.cameras.main.fadeIn(500);
   }
 
   destroy() {
@@ -79,7 +80,10 @@ export class DungeonScene extends Phaser.Scene {
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
       if (this.levelManager.hasLevel(this.levelNumber + 1)) {
-        this.scene.restart({ levelNumber: this.levelNumber + 1 });
+        this.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
+          if (progress < 1) return;
+          this.scene.restart({ levelNumber: this.levelNumber + 1 });
+        });
       } else {
         console.log('beat all the levels')
       }
