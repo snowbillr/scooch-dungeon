@@ -80,10 +80,10 @@ export class DungeonScene extends Phaser.Scene {
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
       if (this.levelManager.hasLevel(this.levelNumber + 1)) {
-        this.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
-          if (progress < 1) return;
+        this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart({ levelNumber: this.levelNumber + 1 });
-        });
+        })
+        this.cameras.main.fadeOut(500);
       } else {
         console.log('beat all the levels')
       }
