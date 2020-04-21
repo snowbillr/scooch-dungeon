@@ -17,22 +17,17 @@ export class DungeonScene extends Phaser.Scene {
   private dungeon!: Dungeon;
   private hero!: Entity;
 
+  constructor() {
+    super({ key: 'dungeon' });
+  }
+
   init() {
     this.phecs.register.prefab('hero', HeroPrefab);
   }
 
-  preload() {
-    this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-    this.load.tilemapTiledJSON('level-001', 'assets/levels/001.json');
-    this.load.tilemapTiledJSON('level-002', 'assets/levels/002.json');
-
-    this.load.spritesheet('hero', 'assets/characters/hero/spritesheet.png', { frameWidth: 32, frameHeight: 56 });
-    this.load.animation('hero-animations', 'assets/characters/hero/animations.json');
-  }
-
-  create() {
+  create(data: any) {
     const dungeonCreator = new DungeonFactory(this);
-    this.dungeon = dungeonCreator.createDungeon('level-002', 0, 0);
+    this.dungeon = dungeonCreator.createDungeon(data.levelKey, 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -69,7 +64,7 @@ export class DungeonScene extends Phaser.Scene {
       const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
-      console.log('win');
+      this.scene.restart({ levelKey: 'level-002' });
     }
   }
 
