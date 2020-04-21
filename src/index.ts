@@ -3,6 +3,7 @@ import { PhecsPlugin } from 'phecs';
 import { DungeonScene } from './scenes/dungeon-scene';
 import { Viewport } from './constants/viewport';
 import { PreloadScene } from './scenes/preload-scene';
+import { LevelManagerPlugin } from './plugins/level-manager-plugin';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -43,6 +44,9 @@ const game = new Phaser.Game({
         plugin: PhecsPlugin,
         mapping: 'phecs',
       }
-    ]
+    ],
+    global: [
+      { key: 'LeveLManagerPlugin', plugin: LevelManagerPlugin, mapping: 'levelManager', start: true },
+    ],
   }
 });
