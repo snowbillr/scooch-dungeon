@@ -1,4 +1,3 @@
-import { Depths } from "../constants/depths";
 import { DungeonFactory } from "../dungeon/dungeon-factory";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
@@ -10,28 +9,32 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { MovementPlanner } from "../dungeon/movement-planner";
 import { Viewport } from "../constants/viewport";
+import { LevelManagerPlugin } from "../plugins/level-manager-plugin";
 
 export class DungeonScene extends Phaser.Scene {
   private phecs!: PhecsPlugin;
+  private levelManager!: LevelManagerPlugin;
 
   private dungeon!: Dungeon;
   private hero!: Entity;
+  private controls!: Record<string, Phaser.Input.Keyboard.Key>;
+
+  private levelNumber!: number;
+
+  constructor() {
+    super({ key: 'dungeon' });
+  }
 
   init() {
     this.phecs.register.prefab('hero', HeroPrefab);
+
+    this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => this.destroy());
   }
 
-  preload() {
-    this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-    this.load.tilemapTiledJSON('level-001', 'assets/levels/001.json');
-
-    this.load.spritesheet('hero', 'assets/characters/hero/spritesheet.png', { frameWidth: 32, frameHeight: 56 });
-    this.load.animation('hero-animations', 'assets/characters/hero/animations.json');
-  }
-
-  create() {
-    const dungeonCreator = new DungeonFactory(this);
-    this.dungeon = dungeonCreator.createDungeon('level-001', 0, 0);
+  create(data: any) {
+    this.levelNumber = data.levelNumber;
+    const dungeonFactory = new DungeonFactory(this);
+    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(this.levelNumber), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -40,28 +43,51 @@ export class DungeonScene extends Phaser.Scene {
       gridY: heroStartMarker.gridY
     }, heroStartMarker.worldX, heroStartMarker.worldY);
 
-    const controls = this.input.keyboard.addKeys({
+    this.controls = this.input.keyboard.addKeys({
       'up': Phaser.Input.Keyboard.KeyCodes.UP,
       'down': Phaser.Input.Keyboard.KeyCodes.DOWN,
       'left': Phaser.Input.Keyboard.KeyCodes.LEFT,
       'right': Phaser.Input.Keyboard.KeyCodes.RIGHT,
     }) as Record<string, Phaser.Input.Keyboard.Key>;
-    controls.up.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.UP));
-    controls.down.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.DOWN));
-    controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.LEFT));
-    controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.moveHero(Direction.RIGHT));
+    this.controls.up.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.UP));
+    this.controls.down.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.DOWN));
+    this.controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.LEFT));
+    this.controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.RIGHT));
 
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
+    this.cameras.main.fadeIn(500);
   }
 
-  private moveHero(direction: Direction) {
+  destroy() {
+    this.controls.up.off(Phaser.Input.Keyboard.Events.DOWN);
+    this.controls.down.off(Phaser.Input.Keyboard.Events.DOWN);
+    this.controls.left.off(Phaser.Input.Keyboard.Events.DOWN);
+    this.controls.right.off(Phaser.Input.Keyboard.Events.DOWN);
+  }
+
+  private handleInput(direction: Direction) {
     if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') return;
 
-    const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
-    movementTimeline.play();
+    const coordinates = this.hero.getComponent(GridPositionComponent);
+    const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
+    cursor.move(direction);
+
+    if (cursor.getTile().isWalkable()) {
+      const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
+      movementTimeline.play();
+    } else if (cursor.getTile().isObjective()) {
+      if (this.levelManager.hasLevel(this.levelNumber + 1)) {
+        this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+          this.scene.restart({ levelNumber: this.levelNumber + 1 });
+        })
+        this.cameras.main.fadeOut(500);
+      } else {
+        console.log('beat all the levels')
+      }
+    }
   }
 
   private calculateCameraBounds() {

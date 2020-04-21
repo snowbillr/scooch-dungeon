@@ -5,6 +5,7 @@ import { DungeonTileFactory } from './dungeon-tile-factory';
 
 export type DungeonLayers = {
   floor: Phaser.Tilemaps.DynamicTilemapLayer;
+  objects: Phaser.Tilemaps.DynamicTilemapLayer;
 };
 
 export class DungeonFactory {
@@ -33,14 +34,15 @@ export class DungeonFactory {
 
   private createLayers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): DungeonLayers {
     return {
-      floor: tilemap.createDynamicLayer('floor', 'dungeon-tileset', x, y)
+      floor: tilemap.createDynamicLayer('floor', 'dungeon-tileset', x, y),
+      objects: tilemap.createDynamicLayer('objects', 'dungeon-tileset', x, y)
     };
   }
 
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, layers: DungeonLayers): DungeonTile[] {
     const tileData: Record<string, Record<string, any[]>> = {};
 
-    Object.values(layers).forEach((layer: Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer) => {
+    Object.values(layers).forEach((layer: Phaser.Tilemaps.DynamicTilemapLayer) => {
       layer.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
         const coordinate = `${tile.x},${tile.y}`;
         tileData[coordinate] = tileData[coordinate] ?? {};
