@@ -1,5 +1,6 @@
 export type DungeonTileProperties = {
-  walkable?: boolean[];
+  walkable: boolean;
+  objective: boolean;
 };
 
 export type DungeonTileBehavior = () => void;
@@ -19,6 +20,10 @@ export class DungeonTile {
 
   isWalkable() {
     return this.properties.walkable;
+  }
+
+  isObjective() {
+    return this.properties.objective;
   }
 
   isGridPosition(x: number, y: number) {
