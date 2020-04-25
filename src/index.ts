@@ -47,6 +47,10 @@ const game = new Phaser.Game({
   width: Viewport.WIDTH,
   height: Viewport.HEIGHT,
   scene: scenes,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
   render: {
     pixelArt: true
   },
