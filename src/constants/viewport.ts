@@ -1,4 +1,4 @@
 export const Viewport = {
-  WIDTH: 352,
-  HEIGHT: 600
+  WIDTH: 38 * 9,
+  HEIGHT: 38 * 16
 };
