@@ -14,7 +14,6 @@ import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 export class DungeonScene extends ScoochDungeonScene {
   private dungeon!: Dungeon;
   private hero!: Entity;
-  private controls!: Record<string, Phaser.Input.Keyboard.Key>;
 
   private levelNumber!: number;
 
@@ -24,8 +23,6 @@ export class DungeonScene extends ScoochDungeonScene {
 
   init() {
     this.phecs.register.prefab('hero', HeroPrefab);
-
-    this.events.on(Phaser.Scenes.Events.SHUTDOWN, () => this.destroy());
   }
 
   create(data: any) {
@@ -50,29 +47,15 @@ export class DungeonScene extends ScoochDungeonScene {
       gridY: heroStartMarker.gridY
     }, heroStartMarker.worldX, heroStartMarker.worldY);
 
-    this.controls = this.input.keyboard.addKeys({
-      'up': Phaser.Input.Keyboard.KeyCodes.UP,
-      'down': Phaser.Input.Keyboard.KeyCodes.DOWN,
-      'left': Phaser.Input.Keyboard.KeyCodes.LEFT,
-      'right': Phaser.Input.Keyboard.KeyCodes.RIGHT,
-    }) as Record<string, Phaser.Input.Keyboard.Key>;
-    this.controls.up.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.UP));
-    this.controls.down.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.DOWN));
-    this.controls.left.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.LEFT));
-    this.controls.right.on(Phaser.Input.Keyboard.Events.DOWN, () => this.handleInput(Direction.RIGHT));
+    this.swipe.addListener(direction => {
+      this.handleInput(direction);
+    });
 
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
     this.cameras.main.fadeIn(500);
-  }
-
-  destroy() {
-    this.controls.up.off(Phaser.Input.Keyboard.Events.DOWN);
-    this.controls.down.off(Phaser.Input.Keyboard.Events.DOWN);
-    this.controls.left.off(Phaser.Input.Keyboard.Events.DOWN);
-    this.controls.right.off(Phaser.Input.Keyboard.Events.DOWN);
   }
 
   private handleInput(direction: Direction) {

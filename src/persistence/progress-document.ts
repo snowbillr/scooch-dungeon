@@ -1,4 +1,4 @@
-import { PersistenceDocument } from "../plugins/persistence-plugin";
+import { PersistenceDocument } from "../plugins/global/persistence-plugin";
 
 export class ProgressDocument implements PersistenceDocument {
   public readonly name = 'progress';

@@ -4,9 +4,10 @@ import { DungeonScene } from './scenes/dungeon-scene';
 import { PreloadScene } from './scenes/preload-scene';
 import { TitleScene } from './scenes/title-scene';
 import { Viewport } from './constants/viewport';
-import { LevelManagerPlugin } from './plugins/level-manager-plugin';
-import { PersistencePlugin } from './plugins/persistence-plugin';
+import { LevelManagerPlugin } from './plugins/global/level-manager-plugin';
+import { PersistencePlugin } from './plugins/global/persistence-plugin';
 import { BootScene } from './scenes/boot-scene';
+import { SwipePlugin } from './plugins/scene/swipe-plugin';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -60,6 +61,11 @@ const game = new Phaser.Game({
         key: 'Phecs',
         plugin: PhecsPlugin,
         mapping: 'phecs',
+      },
+      {
+        key: 'Swipe',
+        plugin: SwipePlugin,
+        mapping: 'swipe',
       }
     ],
     global: [

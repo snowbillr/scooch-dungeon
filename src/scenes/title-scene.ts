@@ -1,6 +1,7 @@
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { ProgressDocument } from "../persistence/progress-document";
+import { Direction } from "../constants/directions";
 
 export class TitleScene extends ScoochDungeonScene {
   constructor() {
