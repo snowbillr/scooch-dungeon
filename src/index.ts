@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
 import { PhecsPlugin } from 'phecs';
 import { DungeonScene } from './scenes/dungeon-scene';
-import { Viewport } from './constants/viewport';
 import { PreloadScene } from './scenes/preload-scene';
-import { LevelManagerPlugin } from './plugins/level-manager-plugin';
 import { TitleScene } from './scenes/title-scene';
+import { Viewport } from './constants/viewport';
+import { LevelManagerPlugin } from './plugins/level-manager-plugin';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
