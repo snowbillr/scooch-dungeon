@@ -11,7 +11,7 @@ export class TitleScene extends Phaser.Scene {
 
     const playText = this.add.bitmapText(this.cameras.main.centerX, 300, 'matchup-32', 'PLAY').setOrigin(0.5);
     playText.setInteractive();
-    playText.on('pointerdown', () => {
+    playText.on(Phaser.Input.Events.POINTER_DOWN, () => {
       this.scene.start('dungeon', { levelNumber: 1 });
     })
   }
