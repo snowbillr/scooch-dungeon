@@ -29,6 +29,16 @@ export class DungeonScene extends ScoochDungeonScene {
   }
 
   create(data: any) {
+    this.add.image(this.scale.width - 40, this.scale.height - 40, 'hud-restart')
+      .setScrollFactor(0)
+      .setInteractive()
+      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+          this.scene.restart(data);
+        });
+        this.cameras.main.fadeOut(500);
+      });
+
     this.levelNumber = data.levelNumber;
     const dungeonFactory = new DungeonFactory(this);
     this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(this.levelNumber), 0, 0);
@@ -83,7 +93,7 @@ export class DungeonScene extends ScoochDungeonScene {
       if (this.levelManager.hasLevel(this.levelNumber + 1)) {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart({ levelNumber: this.levelNumber + 1 });
-        })
+        });
         this.cameras.main.fadeOut(500);
       } else {
         console.log('beat all the levels')
