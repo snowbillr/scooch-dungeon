@@ -1,10 +1,7 @@
-import { PersistencePlugin } from "../plugins/persistence-plugin";
-
 import { ProgressDocument } from "../persistence/progress-document";
+import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
-export class BootScene extends Phaser.Scene {
-  private persistence!: PersistencePlugin;
-
+export class BootScene extends ScoochDungeonScene {
   constructor() {
     super({ key: 'boot' });
   }

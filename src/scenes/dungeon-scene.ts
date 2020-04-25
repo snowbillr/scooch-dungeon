@@ -1,7 +1,6 @@
 import { DungeonFactory } from "../dungeon/dungeon-factory";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
-import { PhecsPlugin } from "phecs";
 import { HeroPrefab } from "../prefabs/hero/prefab";
 import { GridPositionComponent } from "../components/grid-position-component";
 import { SpriteComponent } from "../components/sprite-component";
@@ -9,15 +8,10 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { MovementPlanner } from "../dungeon/movement-planner";
 import { Viewport } from "../constants/viewport";
-import { LevelManagerPlugin } from "../plugins/level-manager-plugin";
-import { PersistencePlugin } from "../plugins/persistence-plugin";
 import { ProgressDocument } from "../persistence/progress-document";
+import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
-export class DungeonScene extends Phaser.Scene {
-  private persistence!: PersistencePlugin;
-  private phecs!: PhecsPlugin;
-  private levelManager!: LevelManagerPlugin;
-
+export class DungeonScene extends ScoochDungeonScene {
   private dungeon!: Dungeon;
   private hero!: Entity;
   private controls!: Record<string, Phaser.Input.Keyboard.Key>;

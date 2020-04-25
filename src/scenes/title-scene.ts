@@ -1,6 +1,7 @@
 import { Viewport } from "../constants/viewport";
+import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
-export class TitleScene extends Phaser.Scene {
+export class TitleScene extends ScoochDungeonScene {
   constructor() {
     super({ key: 'title' });
   }

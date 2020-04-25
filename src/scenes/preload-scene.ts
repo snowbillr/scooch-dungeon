@@ -1,9 +1,8 @@
 import { LEVELS_COUNT } from "../plugins/level-manager-plugin";
 import { PersistencePlugin } from "../plugins/persistence-plugin";
+import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
-export class PreloadScene extends Phaser.Scene {
-  private persistence!: PersistencePlugin;
-
+export class PreloadScene extends ScoochDungeonScene {
   constructor() {
     super({ key: 'preload' });
   }
