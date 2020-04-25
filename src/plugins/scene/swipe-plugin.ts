@@ -14,8 +14,8 @@ export class SwipePlugin extends Phaser.Plugins.ScenePlugin  {
     this.listeners = [];
     this.hasSwiped = false;
 
-    scene.events.once(Phaser.Scenes.Events.START, this.startListening, this);
-    scene.events.once(Phaser.Scenes.Events.SHUTDOWN, this.stopListening, this);
+    scene.events.on(Phaser.Scenes.Events.START, this.startListening, this);
+    scene.events.on(Phaser.Scenes.Events.SHUTDOWN, this.stopListening, this);
   }
 
   addListener(listener: SwipeListener) {
