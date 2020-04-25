@@ -6,6 +6,9 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
+    this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
+
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
@@ -18,6 +21,7 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start('dungeon', { levelNumber: 1 });
+    this.scene.start('title');
+    // this.scene.start('dungeon', { levelNumber: 1 });
   }
 }

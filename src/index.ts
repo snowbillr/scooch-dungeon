@@ -4,6 +4,7 @@ import { DungeonScene } from './scenes/dungeon-scene';
 import { Viewport } from './constants/viewport';
 import { PreloadScene } from './scenes/preload-scene';
 import { LevelManagerPlugin } from './plugins/level-manager-plugin';
+import { TitleScene } from './scenes/title-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -33,10 +34,16 @@ class GameScene extends Phaser.Scene {
   }
 }
 
+const scenes = [
+  PreloadScene,
+  TitleScene,
+  DungeonScene
+];
+
 const game = new Phaser.Game({
   width: Viewport.WIDTH,
   height: Viewport.HEIGHT,
-  scene: [PreloadScene, DungeonScene],
+  scene: scenes,
   plugins: {
     scene: [
       {
