@@ -8,7 +8,7 @@ export class TitleScene extends ScoochDungeonScene {
   }
 
   create() {
-    this.cameras.main.setBackgroundColor(0x25131a);
+    this.cameras.main.setBackgroundColor(0x3D253B);
 
     const logo = this.add.image(-300, 100, 'logo')
       .setScale(0.6);
