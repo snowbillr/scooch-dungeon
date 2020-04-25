@@ -76,8 +76,8 @@ export class DungeonScene extends ScoochDungeonScene {
       const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
-      const progressDocument = this.persistence.getDocument('progress') as ProgressDocument;
-      progressDocument.levelNumber = this.levelNumber;
+      const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
+      progressDocument.lastCompletedLevelNumber = this.levelNumber;
       this.persistence.store();
 
       if (this.levelManager.hasLevel(this.levelNumber + 1)) {

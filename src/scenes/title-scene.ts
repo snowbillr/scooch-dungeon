@@ -1,5 +1,6 @@
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+import { ProgressDocument } from "../persistence/progress-document";
 
 export class TitleScene extends ScoochDungeonScene {
   constructor() {
@@ -12,7 +13,10 @@ export class TitleScene extends ScoochDungeonScene {
     const logo = this.add.image(-300, 100, 'logo')
       .setScale(0.6);
 
-    const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, 'PLAY', () => this.scene.start('dungeon', { levelNumber: 1 }));
+    const progress = this.persistence.getDocument<ProgressDocument>('progress');
+    const isNewGame = progress.lastCompletedLevelNumber === 0;
+    const playButtonText = isNewGame ? 'PLAY' : 'CONTINUE';
+    const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => this.scene.start('dungeon', { levelNumber: progress.lastCompletedLevelNumber + 1 }));
 
     this.tweens.timeline({
       tweens: [
@@ -38,7 +42,7 @@ export class TitleScene extends ScoochDungeonScene {
   }
 
   private addButton(x: number, y: number, text: string, onPress: () => void) {
-    const width = 200;
+    const width = 240;
     const height = 80;
     const borderWidth = 10;
     const borderHeight = 10;
@@ -54,7 +58,7 @@ export class TitleScene extends ScoochDungeonScene {
     const buttonInner = this.add.rectangle(0, 0, width - borderWidth, height - borderHeight, 0xEE8D2E)
       .setOrigin(0.5)
 
-    const playText = this.add.bitmapText(0, -5, 'matchup-64', 'PLAY')
+    const playText = this.add.bitmapText(0, -5, 'matchup-64', text)
       .setOrigin(0.5)
 
     container.add(buttonOuter);

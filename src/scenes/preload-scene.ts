@@ -25,8 +25,6 @@ export class PreloadScene extends ScoochDungeonScene {
   create() {
     this.persistence.read();
 
-    console.log(this.persistence)
-
     this.scene.start('title');
   }
 }

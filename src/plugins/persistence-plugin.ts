@@ -19,12 +19,12 @@ export class PersistencePlugin extends Phaser.Plugins.BasePlugin {
     this.documents.push(document);
   }
 
-  getDocument(name: string): PersistenceDocument {
+  getDocument<T extends PersistenceDocument>(name: string): T {
     const document = this.documents.find(doc => doc.name === name);
 
     if (!document) throw new Error(`No persistence document found: ${name}`);
 
-    return document;
+    return document as T;
   }
 
   store() {

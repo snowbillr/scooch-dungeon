@@ -3,15 +3,15 @@ import { PersistenceDocument } from "../plugins/persistence-plugin";
 export class ProgressDocument implements PersistenceDocument {
   public readonly name = 'progress';
 
-  levelNumber: number = 0;
+  lastCompletedLevelNumber: number = 0;
 
   public toJson() {
     return {
-      levelNumber: this.levelNumber
+      levelNumber: this.lastCompletedLevelNumber
     };
   }
 
   public fromJson(data: Record<string, any>) {
-    this.levelNumber = data.levelNumber;
+    this.lastCompletedLevelNumber = data.levelNumber;
   }
 }
