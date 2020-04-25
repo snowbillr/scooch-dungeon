@@ -1,6 +1,9 @@
 import { LEVELS_COUNT } from "../plugins/level-manager-plugin";
+import { PersistencePlugin } from "../plugins/persistence-plugin";
 
 export class PreloadScene extends Phaser.Scene {
+  private persistence!: PersistencePlugin;
+
   constructor() {
     super({ key: 'preload' });
   }
@@ -21,6 +24,10 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   create() {
+    this.persistence.read();
+
+    console.log(this.persistence)
+
     this.scene.start('title');
   }
 }

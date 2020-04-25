@@ -10,8 +10,11 @@ import { Entity } from "phecs/dist/entity";
 import { MovementPlanner } from "../dungeon/movement-planner";
 import { Viewport } from "../constants/viewport";
 import { LevelManagerPlugin } from "../plugins/level-manager-plugin";
+import { PersistencePlugin } from "../plugins/persistence-plugin";
+import { ProgressDocument } from "../persistence/progress-document";
 
 export class DungeonScene extends Phaser.Scene {
+  private persistence!: PersistencePlugin;
   private phecs!: PhecsPlugin;
   private levelManager!: LevelManagerPlugin;
 
@@ -79,6 +82,10 @@ export class DungeonScene extends Phaser.Scene {
       const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
       movementTimeline.play();
     } else if (cursor.getTile().isObjective()) {
+      const progressDocument = this.persistence.getDocument('progress') as ProgressDocument;
+      progressDocument.levelNumber = this.levelNumber;
+      this.persistence.store();
+
       if (this.levelManager.hasLevel(this.levelNumber + 1)) {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart({ levelNumber: this.levelNumber + 1 });

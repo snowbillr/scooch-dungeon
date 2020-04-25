@@ -5,6 +5,8 @@ import { PreloadScene } from './scenes/preload-scene';
 import { TitleScene } from './scenes/title-scene';
 import { Viewport } from './constants/viewport';
 import { LevelManagerPlugin } from './plugins/level-manager-plugin';
+import { PersistencePlugin } from './plugins/persistence-plugin';
+import { BootScene } from './scenes/boot-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -35,6 +37,7 @@ class GameScene extends Phaser.Scene {
 }
 
 const scenes = [
+  BootScene,
   PreloadScene,
   TitleScene,
   DungeonScene
@@ -56,7 +59,8 @@ const game = new Phaser.Game({
       }
     ],
     global: [
-      { key: 'LeveLManagerPlugin', plugin: LevelManagerPlugin, mapping: 'levelManager', start: true },
+      { key: 'LevelManagerPlugin', plugin: LevelManagerPlugin, mapping: 'levelManager', start: true },
+      { key: 'PersistencePlugin', plugin: PersistencePlugin, mapping: 'persistence', start: true },
     ],
   }
 });
