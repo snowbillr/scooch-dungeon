@@ -44,6 +44,9 @@ const game = new Phaser.Game({
   width: Viewport.WIDTH,
   height: Viewport.HEIGHT,
   scene: scenes,
+  render: {
+    pixelArt: true
+  },
   plugins: {
     scene: [
       {
