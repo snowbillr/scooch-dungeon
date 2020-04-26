@@ -2,14 +2,17 @@ import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 import { DungeonTileFactory } from './dungeon-tile-factory';
+import { DungeonObjectFactory } from './dungeon-object-factory';
 
 export class DungeonFactory {
   private dungeonTileFactory: DungeonTileFactory;
+  private dungeonObjectFactory: DungeonObjectFactory;
 
   constructor(
     private scene: Phaser.Scene,
   ) {
     this.dungeonTileFactory = new DungeonTileFactory(scene);
+    this.dungeonObjectFactory = new DungeonObjectFactory(scene);
   }
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {
@@ -35,14 +38,11 @@ export class DungeonFactory {
   }
 
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): DungeonTile[] {
-    const tileData: Record<string, Record<string, any[]>> = {};
+    const tileData = new TileData();
 
     floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      const coordinate = `${tile.x},${tile.y}`;
-      tileData[coordinate] = tileData[coordinate] ?? {};
       Object.entries(tile.properties).forEach(([key, value]) => {
-        tileData[coordinate][key] = tileData[coordinate][key] ?? [];
-        tileData[coordinate][key].push(value);
+        tileData.add(tile.x, tile.y, key, value);
       });
     }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
@@ -53,28 +53,23 @@ export class DungeonFactory {
       .filter(tile => tile.index !== -1)
       .forEach(tile => {
         const worldCoordinates = tilemap.tileToWorldXY(tile.x, tile.y);
-        if (tile.index === 85) {
-          this.scene.add.sprite(worldCoordinates.x, worldCoordinates.y, 'objective', 0)
-            .setOrigin(0);
-        } else if (tile.index === 50) {
-          this.scene.add.image(worldCoordinates.x, worldCoordinates.y, 'rock')
-            .setOrigin(0);
-        }
 
-        const coordinate = `${tile.x},${tile.y}`;
-        tileData[coordinate] = tileData[coordinate] ?? {};
+        this.dungeonObjectFactory.create(worldCoordinates.x, worldCoordinates.y, tile.index);
+
         Object.entries(tile.properties).forEach(([key, value]) => {
-          tileData[coordinate][key] = tileData[coordinate][key] ?? [];
-          tileData[coordinate][key].push(value);
+          tileData.add(tile.x, tile.y, key, value);
         });
       });
 
-    return Object.entries(tileData).map(([coordinate, properties]) => {
-      const [gridX, gridY] = coordinate.split(',').map(Number);
-      const worldCoordinates = tilemap.tileToWorldXY(gridX, gridY);
+    const dungeonTiles: DungeonTile[] = [];
+    tileData.forEach((coordinates, properties) => {
+      const worldCoordinates = tilemap.tileToWorldXY(coordinates.x, coordinates.y);
 
-      return this.dungeonTileFactory.create(gridX, gridY, worldCoordinates.x, worldCoordinates.y, properties)
+      const dungeonTile = this.dungeonTileFactory.create(coordinates.x, coordinates.y, worldCoordinates.x, worldCoordinates.y, properties)
+      dungeonTiles.push(dungeonTile);
     });
+
+    return dungeonTiles;
   }
 
   private createDungeonMarkers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): Record<string, DungeonMarker> {
@@ -89,5 +84,40 @@ export class DungeonFactory {
     }, {} as Record<string, DungeonMarker>);
 
     return dungeonMarkers;
+  }
+}
+
+type TileDataForEachCallback = (coordinates: { x: number; y: number }, data: Record<string, any>) => void;
+class TileData {
+  private tileData: Record<string, Record<string, any[]>>;
+
+  constructor() {
+    this.tileData = {};
+  }
+
+  add(x: number, y: number, key: string, value: any) {
+    const tileKey = this.coordinatesToTileKey(x, y);
+    this.tileData[tileKey] = this.tileData[tileKey] ?? {}
+
+    this.tileData[tileKey][key] = this.tileData[tileKey][key] ?? [];
+    this.tileData[tileKey][key].push(value);
+  }
+
+  forEach(fn: TileDataForEachCallback) {
+    Object.entries(this.tileData).forEach(([tileKey, data]) => {
+      const coordinates = this.tileKeyToCoordinates(tileKey);
+
+      fn(coordinates, data);
+    });
+  }
+
+  private coordinatesToTileKey(x: number, y: number) {
+    return `${x},${y}`;
+  }
+
+  private tileKeyToCoordinates(tileKey: string) {
+    const [x, y] = tileKey.split(',').map(Number);
+
+    return { x, y };
   }
 }

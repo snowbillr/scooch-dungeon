@@ -3,13 +3,13 @@
     {
       "key": "objective-win",
       "frames": [
+        { "key": "objective", "frame": 0 },
         { "key": "objective", "frame": 1 },
         { "key": "objective", "frame": 2 },
         { "key": "objective", "frame": 3 },
-        { "key": "objective", "frame": 4 },
-        { "key": "objective", "frame": 5 }
+        { "key": "objective", "frame": 4 }
       ],
-      "repeat": -1,
+      "repeat": 0,
       "frameRate": 6
     }
   ]
