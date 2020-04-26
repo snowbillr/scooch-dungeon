@@ -67,8 +67,4 @@ export class Dungeon {
       return undefined;
     }
   }
-
-  public getDungeonLayer(name: keyof DungeonLayers): Phaser.Tilemaps.StaticTilemapLayer | Phaser.Tilemaps.DynamicTilemapLayer {
-    return this.layers[name];
-  }
 }
