@@ -19,7 +19,7 @@ export class DungeonTileFactory {
       objective: properties.objective.reduce((acc, o) => acc || o, false)
     };
 
-    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties);
+    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects);
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {

@@ -1,3 +1,5 @@
+import { DungeonObject } from './dungeon-object';
+
 export type DungeonTileProperties = {
   walkable: boolean;
   objective: boolean;
@@ -14,6 +16,7 @@ export class DungeonTile {
     public readonly worldX: number,
     public readonly worldY: number,
     private properties: DungeonTileProperties,
+    private objects: DungeonObject[]
   ) {
     this.enterBehaviors = [];
   }

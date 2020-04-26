@@ -42,7 +42,7 @@ export class DungeonFactory {
 
     floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       Object.entries(tile.properties).forEach(([key, value]) => {
-        tileData.add(tile.x, tile.y, key, value);
+        tileData.addKeyValue(tile.x, tile.y, key, value);
       });
     }, this, 0, 0, tilemap.width, tilemap.height, {
       isNotEmpty: true
@@ -54,10 +54,11 @@ export class DungeonFactory {
       .forEach(tile => {
         const worldCoordinates = tilemap.tileToWorldXY(tile.x, tile.y);
 
-        this.dungeonObjectFactory.create(worldCoordinates.x, worldCoordinates.y, tile.index);
+        const dungeonObject = this.dungeonObjectFactory.create(worldCoordinates.x, worldCoordinates.y, tile.index);
+        tileData.addKeyValue(tile.x, tile.y, 'objects', dungeonObject);
 
         Object.entries(tile.properties).forEach(([key, value]) => {
-          tileData.add(tile.x, tile.y, key, value);
+          tileData.addKeyValue(tile.x, tile.y, key, value);
         });
       });
 
@@ -95,7 +96,7 @@ class TileData {
     this.tileData = {};
   }
 
-  add(x: number, y: number, key: string, value: any) {
+  addKeyValue(x: number, y: number, key: string, value: any) {
     const tileKey = this.coordinatesToTileKey(x, y);
     this.tileData[tileKey] = this.tileData[tileKey] ?? {}
 
