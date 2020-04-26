@@ -9,6 +9,11 @@ const tileIndexToFrame: Record<number, number | string> = {
   85: 0
 };
 
+const tileIndexToName: Record<number, string> = {
+  85: 'objective',
+  50: 'rock'
+};
+
 export class DungeonObjectFactory {
   constructor(
     private readonly scene: Phaser.Scene
@@ -21,6 +26,8 @@ export class DungeonObjectFactory {
     const sprite = this.scene.add.sprite(worldX, worldY, texture, frame)
       .setOrigin(0);
 
-    return new DungeonObject(sprite);
+    const name = tileIndexToName[tileIndex];
+
+    return new DungeonObject(name, sprite);
   }
 }

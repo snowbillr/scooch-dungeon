@@ -1,5 +1,6 @@
 export class DungeonObject {
   constructor(
-    private sprite: Phaser.GameObjects.Sprite,
+    public name: string,
+    public sprite: Phaser.GameObjects.Sprite,
   ) {}
 }

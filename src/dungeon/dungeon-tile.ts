@@ -25,6 +25,10 @@ export class DungeonTile {
     delete this.properties;
   }
 
+  getObject(name: string) {
+    return this.objects.find(object => object.name === name);
+  }
+
   isWalkable() {
     return this.properties.walkable;
   }
