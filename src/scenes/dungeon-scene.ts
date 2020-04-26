@@ -80,7 +80,7 @@ export class DungeonScene extends ScoochDungeonScene {
           this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
             this.scene.restart({ levelNumber: this.levelNumber + 1 });
           });
-          this.cameras.main.fadeOut(500);
+          this.cameras.main.fadeOut(700);
         } else {
           console.log('beat all the levels')
         }
