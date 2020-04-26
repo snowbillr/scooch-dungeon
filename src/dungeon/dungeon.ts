@@ -1,7 +1,6 @@
 import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 import { DungeonMarker } from "./dungeon-marker";
-import { DungeonLayers } from "./dungeon-factory";
 import { DungeonCursor } from "./dungeon-cursor";
 
 export class Dungeon {
@@ -13,7 +12,7 @@ export class Dungeon {
   constructor(
     private dungeonTiles: DungeonTile[],
     private markers: Record<string, DungeonMarker>,
-    private layers: DungeonLayers,
+    private floor: Phaser.Tilemaps.DynamicTilemapLayer  ,
     tilemap: Phaser.Tilemaps.Tilemap
   ) {
     this.worldWidth = tilemap.widthInPixels;
@@ -28,10 +27,9 @@ export class Dungeon {
 
     delete this.markers;
 
-    this.layers.floor.destroy();
-    this.layers.objects.destroy();
+    this.floor.destroy();
 
-    delete this.layers;
+    delete this.floor;
   }
 
   public getMarker(name: string): DungeonMarker {

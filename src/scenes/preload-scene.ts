@@ -15,6 +15,7 @@ export class PreloadScene extends ScoochDungeonScene {
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
     this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.animation('objective-animations', 'assets/objects/objective-animations.json');
     this.load.image('rock', 'assets/objects/rock.png');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
