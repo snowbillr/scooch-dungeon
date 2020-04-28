@@ -18,7 +18,7 @@ export class TitleScene extends ScoochDungeonScene {
     const isNewGame = progress.lastCompletedLevelNumber === 0;
     const playButtonText = isNewGame ? 'PLAY' : 'CONTINUE';
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
-      this.levelManager.setLevelNumber(this.persistence.getDocument<ProgressDocument>('progress').lastCompletedLevelNumber + 1);
+      this.levelManager.setCurrentLevelNumber(this.persistence.getDocument<ProgressDocument>('progress').lastCompletedLevelNumber + 1);
       this.scene.start('dungeon');
     });
 

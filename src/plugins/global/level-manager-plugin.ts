@@ -15,11 +15,11 @@ export class LevelManagerPlugin extends Phaser.Plugins.BasePlugin {
     this.levelNumber = 0;
   }
 
-  setLevelNumber(levelNumber: number) {
+  setCurrentLevelNumber(levelNumber: number) {
     this.levelNumber = levelNumber;
   }
 
-  getLevelNumber() {
+  getCurrentLevelNumber() {
     return this.levelNumber;
   }
 
@@ -31,7 +31,7 @@ export class LevelManagerPlugin extends Phaser.Plugins.BasePlugin {
     return Boolean(levels[levelNumberToCheck ?? this.levelNumber]);
   }
 
-  getLevelKey() {
+  getCurrentLevelKey() {
     return levels[this.levelNumber];
   }
 }

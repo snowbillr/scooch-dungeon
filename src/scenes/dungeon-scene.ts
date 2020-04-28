@@ -33,7 +33,7 @@ export class DungeonScene extends ScoochDungeonScene {
       });
 
     const dungeonFactory = new DungeonFactory(this);
-    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(), 0, 0);
+    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getCurrentLevelKey(), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
