@@ -2,15 +2,11 @@ import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
 import { Dungeon } from "../../dungeon/dungeon";
 import { Entity } from "phecs/dist/entity";
 import { Direction } from "../../constants/directions";
-import { ScoochDungeonScene } from "../../scenes/scooch-dungeon-scene";
-import { MovementPlanner } from "../../dungeon/movement-planner";
-import { SpriteComponent } from "../../components/sprite-component";
-import { GridPositionComponent } from "../../components/grid-position-component";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
 
 export const WinBehavior: DungeonTileBehavior = {
-  isApplicable(dungeon: Dungeon, dungeonTile: DungeonTile) {
+  isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
     let isApplicable = false;

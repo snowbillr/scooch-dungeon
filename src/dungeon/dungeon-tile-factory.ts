@@ -1,13 +1,10 @@
 import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
-import { Direction } from "../constants/directions";
 import { MoveBehavior } from "../behaviors/input/move";
 import { WinBehavior } from "../behaviors/input/win";
 
 export class DungeonTileFactory {
-  constructor(
-    private readonly scene: Phaser.Scene
-  ) {}
+  constructor() {}
 
   create(
     gridX: number,
@@ -25,52 +22,12 @@ export class DungeonTileFactory {
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    // const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, dungeon, this);
-    // movementTimeline.play();
-    if (MoveBehavior.isApplicable(dungeon, dungeonTile)) {
+    if (MoveBehavior.isApplicable(dungeonTile, dungeon)) {
       dungeonTile.addInputBehavior(MoveBehavior);
     }
 
-    if (WinBehavior.isApplicable(dungeon, dungeonTile)) {
+    if (WinBehavior.isApplicable(dungeonTile, dungeon)) {
       dungeonTile.addInputBehavior(WinBehavior);
     }
-
-
-    /*
-    const cursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
-
-    if (!dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY).down()) {
-      dungeonTile.addEnterBehavior(() => {
-        const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
-        if (Phaser.Math.Within(wallsDownLayer.alpha, 1, 0.01)) {
-          this.scene.tweens.killTweensOf(wallsDownLayer)
-          this.scene.tweens.add({
-            targets: dungeon.getDungeonLayer('wallsDown'),
-            props: {
-              alpha: 0.5
-            },
-            duration: 100
-          });
-        }
-      });
-    }
-
-    cursor.set(dungeonTile.gridX, dungeonTile.gridY);
-    if (cursor.down() && !cursor.down()) {
-      dungeonTile.addEnterBehavior(() => {
-        const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
-        if (Phaser.Math.Within(wallsDownLayer.alpha, 0.5, 0.01)) {
-          this.scene.tweens.killTweensOf(wallsDownLayer)
-          this.scene.tweens.add({
-            targets: dungeon.getDungeonLayer('wallsDown'),
-            props: {
-              alpha: 1
-            },
-            duration: 100
-          });
-        }
-      });
-    }
-    */
   }
 }

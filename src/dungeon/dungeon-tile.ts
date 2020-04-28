@@ -2,7 +2,6 @@ import { DungeonObject } from './dungeon-object';
 import { Entity } from 'phecs/dist/entity';
 import { Direction } from '../constants/directions';
 import { Dungeon } from './dungeon';
-import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { DungeonScene } from '../scenes/dungeon-scene';
 
 export type DungeonTileProperties = {
@@ -11,7 +10,7 @@ export type DungeonTileProperties = {
 };
 
 export type DungeonTileBehavior = {
-  isApplicable: (dungeon: Dungeon, dungeonTile: DungeonTile) => boolean,
+  isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean,
   run: (hero: Entity, direction: Direction, dungeon: Dungeon, dungeonTile: DungeonTile, scene: DungeonScene) => void
 };
 
@@ -33,7 +32,7 @@ export class DungeonTile {
   destroy() {
     delete this.properties;
 
-    // destroy dungeon objects
+    this.objects.forEach(object => object.destroy());
 
     this.inputBehaviors = [];
     delete this.inputBehaviors;

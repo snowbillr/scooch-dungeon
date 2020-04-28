@@ -11,7 +11,7 @@ export class DungeonFactory {
   constructor(
     private scene: Phaser.Scene,
   ) {
-    this.dungeonTileFactory = new DungeonTileFactory(scene);
+    this.dungeonTileFactory = new DungeonTileFactory();
     this.dungeonObjectFactory = new DungeonObjectFactory(scene);
   }
 

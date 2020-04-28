@@ -63,36 +63,10 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const coordinates = this.hero.getComponent(GridPositionComponent);
     const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
-    // cursor.move(direction);
 
     const tile = cursor.getTile();
 
     tile.inputBehaviors.forEach(behavior => behavior.run(this.hero, direction, this.dungeon, tile, this));
-
-    /*
-    if (tile.isWalkable()) {
-      const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
-      movementTimeline.play();
-    } else if (tile.isObjective()) {
-      const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
-      progressDocument.lastCompletedLevelNumber = this.levelNumber;
-      this.persistence.store();
-
-      tile.getObject('objective')?.sprite.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-        if (this.levelManager.hasLevel(this.levelNumber + 1)) {
-          this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-            this.scene.restart({ levelNumber: this.levelNumber + 1 });
-          });
-          this.cameras.main.fadeOut(700);
-        } else {
-          console.log('beat all the levels')
-        }
-        });
-
-      tile.getObject('objective')?.sprite.anims.play('objective-win');
-
-    }
-    */
   }
 
   private calculateCameraBounds() {
