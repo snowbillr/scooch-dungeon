@@ -37,7 +37,9 @@ export const WinBehavior: DungeonTileBehavior = {
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return;
 
-    cursor.getTile().getObject('objective')?.sprite.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+    const objectiveSprite = cursor.getTile().getObject('objective')?.sprite;
+
+    objectiveSprite?.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
       if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
@@ -53,6 +55,6 @@ export const WinBehavior: DungeonTileBehavior = {
       }
       });
 
-    cursor.getTile().getObject('objective')?.sprite.anims.play('objective-win');
+    objectiveSprite?.anims.play('objective-win');
   }
 };
