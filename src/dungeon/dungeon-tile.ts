@@ -1,5 +1,4 @@
 import { DungeonObject } from './dungeon-object';
-import { Entity } from 'phecs/dist/entity';
 import { Direction } from '../constants/directions';
 import { Dungeon } from './dungeon';
 import { DungeonScene } from '../scenes/dungeon-scene';
@@ -11,7 +10,7 @@ export type DungeonTileProperties = {
 
 export type DungeonTileBehavior = {
   isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean,
-  run: (hero: Entity, direction: Direction, dungeon: Dungeon, dungeonTile: DungeonTile, scene: DungeonScene) => void
+  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => void
 };
 
 export class DungeonTile {

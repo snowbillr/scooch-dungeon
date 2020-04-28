@@ -33,8 +33,8 @@ export const WinBehavior: DungeonTileBehavior = {
     return isApplicable;
   },
 
-  run(hero: Entity, direction: Direction, dungeon: Dungeon, dungeonTile: DungeonTile, scene: DungeonScene) {
-    const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
+  run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return;
 

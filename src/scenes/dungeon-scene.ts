@@ -6,15 +6,13 @@ import { GridPositionComponent } from "../components/grid-position-component";
 import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
-import { MovementPlanner } from "../dungeon/movement-planner";
 import { Viewport } from "../constants/viewport";
 import { ProgressDocument } from "../persistence/progress-document";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
-  private dungeon!: Dungeon;
-  private hero!: Entity;
-
+  public dungeon!: Dungeon;
+  public hero!: Entity;
   public levelNumber!: number;
 
   constructor() {
@@ -66,7 +64,7 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const tile = cursor.getTile();
 
-    tile.inputBehaviors.forEach(behavior => behavior.run(this.hero, direction, this.dungeon, tile, this));
+    tile.inputBehaviors.forEach(behavior => behavior.run(direction, tile, this));
   }
 
   private calculateCameraBounds() {

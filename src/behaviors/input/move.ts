@@ -10,8 +10,8 @@ export const MoveBehavior: DungeonTileBehavior = {
     return dungeonTile.isWalkable();
   },
 
-  run(hero: Entity, direction: Direction, dungeon: Dungeon, dungeonTile: DungeonTile, scene: DungeonScene) {
-    const movementTimeline = MovementPlanner.buildMovementTimeline(hero, direction, dungeon, scene);
+  run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    const movementTimeline = MovementPlanner.buildMovementTimeline(scene.hero, direction, scene.dungeon, scene);
     movementTimeline.play();
   }
 }
