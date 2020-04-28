@@ -25,7 +25,6 @@ export class DungeonFactory {
     const dungeonTiles = this.createDungeonTiles(tilemap, dungeonFloor);
     const dungeonMarkers = this.createDungeonMarkers(tilemap, x, y);
 
-
     const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonFloor, tilemap);
 
     dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.process(dungeonTile, dungeon));

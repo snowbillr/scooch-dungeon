@@ -1,14 +1,23 @@
 import { DungeonObject } from './dungeon-object';
+import { Entity } from 'phecs/dist/entity';
+import { Direction } from '../constants/directions';
+import { Dungeon } from './dungeon';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
+import { DungeonScene } from '../scenes/dungeon-scene';
 
 export type DungeonTileProperties = {
   walkable: boolean;
   objective: boolean;
 };
 
-export type DungeonTileBehavior = () => void;
+export type DungeonTileBehavior = {
+  isApplicable: (dungeon: Dungeon, dungeonTile: DungeonTile) => boolean,
+  run: (hero: Entity, direction: Direction, dungeon: Dungeon, dungeonTile: DungeonTile, scene: DungeonScene) => void
+};
 
 export class DungeonTile {
-  public readonly enterBehaviors: DungeonTileBehavior[];
+  public inputBehaviors: DungeonTileBehavior[];
+  // public readonly enterBehaviors: DungeonTileBehavior[];
 
   constructor(
     public readonly gridX: number,
@@ -18,11 +27,16 @@ export class DungeonTile {
     private properties: DungeonTileProperties,
     private objects: DungeonObject[]
   ) {
-    this.enterBehaviors = [];
+    this.inputBehaviors = [];
   }
 
   destroy() {
     delete this.properties;
+
+    // destroy dungeon objects
+
+    this.inputBehaviors = [];
+    delete this.inputBehaviors;
   }
 
   getObject(name: string) {
@@ -41,7 +55,13 @@ export class DungeonTile {
     return x === this.gridX && y === this.gridY;
   }
 
+  addInputBehavior(behavior: DungeonTileBehavior) {
+    this.inputBehaviors.push(behavior);
+  }
+
+  /*
   addEnterBehavior(behavior: DungeonTileBehavior) {
     this.enterBehaviors.push(behavior);
   }
+  */
 }

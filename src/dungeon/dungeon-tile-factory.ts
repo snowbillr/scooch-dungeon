@@ -1,6 +1,8 @@
 import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
 import { Direction } from "../constants/directions";
+import { MoveBehavior } from "../behaviors/input/move";
+import { WinBehavior } from "../behaviors/input/win";
 
 export class DungeonTileFactory {
   constructor(
@@ -19,10 +21,21 @@ export class DungeonTileFactory {
       objective: properties.objective.reduce((acc, o) => acc || o, false)
     };
 
-    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects);
+    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects || []);
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
+    // const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, dungeon, this);
+    // movementTimeline.play();
+    if (MoveBehavior.isApplicable(dungeon, dungeonTile)) {
+      dungeonTile.addInputBehavior(MoveBehavior);
+    }
+
+    if (WinBehavior.isApplicable(dungeon, dungeonTile)) {
+      dungeonTile.addInputBehavior(WinBehavior);
+    }
+
+
     /*
     const cursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
 

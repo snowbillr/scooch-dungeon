@@ -15,7 +15,7 @@ export class DungeonScene extends ScoochDungeonScene {
   private dungeon!: Dungeon;
   private hero!: Entity;
 
-  private levelNumber!: number;
+  public levelNumber!: number;
 
   constructor() {
     super({ key: 'dungeon' });
@@ -63,10 +63,13 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const coordinates = this.hero.getComponent(GridPositionComponent);
     const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
-    cursor.move(direction);
+    // cursor.move(direction);
 
     const tile = cursor.getTile();
 
+    tile.inputBehaviors.forEach(behavior => behavior.run(this.hero, direction, this.dungeon, tile, this));
+
+    /*
     if (tile.isWalkable()) {
       const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
       movementTimeline.play();
@@ -89,6 +92,7 @@ export class DungeonScene extends ScoochDungeonScene {
       tile.getObject('objective')?.sprite.anims.play('objective-win');
 
     }
+    */
   }
 
   private calculateCameraBounds() {
