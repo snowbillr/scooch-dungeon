@@ -1,7 +1,6 @@
 import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
-import { MoveBehavior } from "../behaviors/input/move";
-import { WinBehavior } from "../behaviors/input/win";
+import { InputBehaviors } from "../behaviors/input-behaviors";
 
 export class DungeonTileFactory {
   constructor() {}
@@ -22,12 +21,10 @@ export class DungeonTileFactory {
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    if (MoveBehavior.isApplicable(dungeonTile, dungeon)) {
-      dungeonTile.addInputBehavior(MoveBehavior);
-    }
-
-    if (WinBehavior.isApplicable(dungeonTile, dungeon)) {
-      dungeonTile.addInputBehavior(WinBehavior);
-    }
+    InputBehaviors.forEach(behavior => {
+      if (behavior.isApplicable(dungeonTile, dungeon)) {
+        dungeonTile.addInputBehavior(behavior);
+      }
+    })
   }
 }
