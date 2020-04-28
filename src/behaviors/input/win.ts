@@ -45,6 +45,7 @@ export const WinBehavior: DungeonTileBehavior = {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
           progressDocument.lastCompletedLevelNumber = scene.levelManager.getCurrentLevelNumber();
           scene.persistence.store();
+
           scene.levelManager.setCurrentLevelNumber(scene.levelManager.getCurrentLevelNumber() + 1);
 
           scene.scene.restart();
