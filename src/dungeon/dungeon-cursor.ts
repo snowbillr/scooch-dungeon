@@ -3,11 +3,17 @@ import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 
 export class DungeonCursor {
+  private initialX: number;
+  private initialY: number;
+
   constructor(
     private dungeon: Dungeon,
     private x: number,
     private y: number
-  ) {}
+  ) {
+    this.initialX = x;
+    this.initialY = y;
+  }
 
   move(direction: Direction) {
     switch (direction) {
@@ -57,6 +63,11 @@ export class DungeonCursor {
     this.y = y;
 
     return this.exists();
+  }
+
+  reset() {
+    this.x = this.initialX;
+    this.y = this.initialY;
   }
 
   exists(): boolean {

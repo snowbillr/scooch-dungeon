@@ -6,16 +6,12 @@ import { GridPositionComponent } from "../components/grid-position-component";
 import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
-import { MovementPlanner } from "../dungeon/movement-planner";
 import { Viewport } from "../constants/viewport";
-import { ProgressDocument } from "../persistence/progress-document";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
-  private dungeon!: Dungeon;
-  private hero!: Entity;
-
-  private levelNumber!: number;
+  public dungeon!: Dungeon;
+  public hero!: Entity;
 
   constructor() {
     super({ key: 'dungeon' });
@@ -25,20 +21,19 @@ export class DungeonScene extends ScoochDungeonScene {
     this.phecs.register.prefab('hero', HeroPrefab);
   }
 
-  create(data: any) {
+  create() {
     this.add.image(this.scale.width - 40, this.scale.height - 40, 'hud-restart')
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-          this.scene.restart(data);
+          this.scene.restart();
         });
         this.cameras.main.fadeOut(500);
       });
 
-    this.levelNumber = data.levelNumber;
     const dungeonFactory = new DungeonFactory(this);
-    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(this.levelNumber), 0, 0);
+    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getCurrentLevelKey(), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -63,32 +58,10 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const coordinates = this.hero.getComponent(GridPositionComponent);
     const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
-    cursor.move(direction);
 
     const tile = cursor.getTile();
 
-    if (tile.isWalkable()) {
-      const movementTimeline = MovementPlanner.buildMovementTimeline(this.hero, direction, this.dungeon, this);
-      movementTimeline.play();
-    } else if (tile.isObjective()) {
-      const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
-      progressDocument.lastCompletedLevelNumber = this.levelNumber;
-      this.persistence.store();
-
-      tile.getObject('objective')?.sprite.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-        if (this.levelManager.hasLevel(this.levelNumber + 1)) {
-          this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-            this.scene.restart({ levelNumber: this.levelNumber + 1 });
-          });
-          this.cameras.main.fadeOut(500);
-        } else {
-          console.log('beat all the levels')
-        }
-        });
-
-      tile.getObject('objective')?.sprite.anims.play('objective-win');
-
-    }
+    tile.inputBehaviors.forEach(behavior => behavior.run(direction, tile, this));
   }
 
   private calculateCameraBounds() {

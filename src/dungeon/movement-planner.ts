@@ -7,10 +7,10 @@ import { StateMachineComponent } from "../components/state-machine-component";
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: Phaser.Scene) {
-    let canMove = true;
     const heroSprite = hero.getComponent(SpriteComponent).sprite;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);
+    let canMove = dungeon.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
 
     const timeline = scene.tweens.timeline({
       // Setting the `tweens` array go an empty tween because the timeline won't set the onStart and
@@ -53,7 +53,7 @@ export const MovementPlanner = {
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 
-            nextTile.enterBehaviors.forEach(behavior => behavior());
+            // nextTile.enterBehaviors.forEach(behavior => behavior());
           }
         });
 

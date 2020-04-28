@@ -1,5 +1,4 @@
 import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
-import { PersistencePlugin } from "../plugins/global/persistence-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
 export class PreloadScene extends ScoochDungeonScene {

@@ -1,14 +1,21 @@
 import { DungeonObject } from './dungeon-object';
+import { Direction } from '../constants/directions';
+import { Dungeon } from './dungeon';
+import { DungeonScene } from '../scenes/dungeon-scene';
 
 export type DungeonTileProperties = {
   walkable: boolean;
   objective: boolean;
 };
 
-export type DungeonTileBehavior = () => void;
+export type DungeonTileBehavior = {
+  isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean,
+  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => void
+};
 
 export class DungeonTile {
-  public readonly enterBehaviors: DungeonTileBehavior[];
+  public inputBehaviors: DungeonTileBehavior[];
+  // public readonly enterBehaviors: DungeonTileBehavior[];
 
   constructor(
     public readonly gridX: number,
@@ -18,11 +25,16 @@ export class DungeonTile {
     private properties: DungeonTileProperties,
     private objects: DungeonObject[]
   ) {
-    this.enterBehaviors = [];
+    this.inputBehaviors = [];
   }
 
   destroy() {
     delete this.properties;
+
+    this.objects.forEach(object => object.destroy());
+
+    this.inputBehaviors = [];
+    delete this.inputBehaviors;
   }
 
   getObject(name: string) {
@@ -41,7 +53,13 @@ export class DungeonTile {
     return x === this.gridX && y === this.gridY;
   }
 
+  addInputBehavior(behavior: DungeonTileBehavior) {
+    this.inputBehaviors.push(behavior);
+  }
+
+  /*
   addEnterBehavior(behavior: DungeonTileBehavior) {
     this.enterBehaviors.push(behavior);
   }
+  */
 }

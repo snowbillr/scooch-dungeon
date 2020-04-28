@@ -1,11 +1,9 @@
 import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
-import { Direction } from "../constants/directions";
+import { InputBehaviors } from "../behaviors/input-behaviors";
 
 export class DungeonTileFactory {
-  constructor(
-    private readonly scene: Phaser.Scene
-  ) {}
+  constructor() {}
 
   create(
     gridX: number,
@@ -19,45 +17,14 @@ export class DungeonTileFactory {
       objective: properties.objective.reduce((acc, o) => acc || o, false)
     };
 
-    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects);
+    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects || []);
   }
 
   process(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    /*
-    const cursor = dungeon.getCursor(dungeonTile.gridY, dungeonTile.gridY);
-
-    if (!dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY).down()) {
-      dungeonTile.addEnterBehavior(() => {
-        const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
-        if (Phaser.Math.Within(wallsDownLayer.alpha, 1, 0.01)) {
-          this.scene.tweens.killTweensOf(wallsDownLayer)
-          this.scene.tweens.add({
-            targets: dungeon.getDungeonLayer('wallsDown'),
-            props: {
-              alpha: 0.5
-            },
-            duration: 100
-          });
-        }
-      });
-    }
-
-    cursor.set(dungeonTile.gridX, dungeonTile.gridY);
-    if (cursor.down() && !cursor.down()) {
-      dungeonTile.addEnterBehavior(() => {
-        const wallsDownLayer = dungeon.getDungeonLayer('wallsDown');
-        if (Phaser.Math.Within(wallsDownLayer.alpha, 0.5, 0.01)) {
-          this.scene.tweens.killTweensOf(wallsDownLayer)
-          this.scene.tweens.add({
-            targets: dungeon.getDungeonLayer('wallsDown'),
-            props: {
-              alpha: 1
-            },
-            duration: 100
-          });
-        }
-      });
-    }
-    */
+    InputBehaviors.forEach(behavior => {
+      if (behavior.isApplicable(dungeonTile, dungeon)) {
+        dungeonTile.addInputBehavior(behavior);
+      }
+    })
   }
 }

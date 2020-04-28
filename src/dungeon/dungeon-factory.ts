@@ -11,7 +11,7 @@ export class DungeonFactory {
   constructor(
     private scene: Phaser.Scene,
   ) {
-    this.dungeonTileFactory = new DungeonTileFactory(scene);
+    this.dungeonTileFactory = new DungeonTileFactory();
     this.dungeonObjectFactory = new DungeonObjectFactory(scene);
   }
 
@@ -24,7 +24,6 @@ export class DungeonFactory {
 
     const dungeonTiles = this.createDungeonTiles(tilemap, dungeonFloor);
     const dungeonMarkers = this.createDungeonMarkers(tilemap, x, y);
-
 
     const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonFloor, tilemap);
 

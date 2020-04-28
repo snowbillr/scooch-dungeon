@@ -3,4 +3,8 @@ export class DungeonObject {
     public name: string,
     public sprite: Phaser.GameObjects.Sprite,
   ) {}
+
+  destroy() {
+    this.sprite.destroy();
+  }
 }
