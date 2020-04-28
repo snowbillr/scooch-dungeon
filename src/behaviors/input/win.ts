@@ -1,6 +1,5 @@
 import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
 import { Dungeon } from "../../dungeon/dungeon";
-import { Entity } from "phecs/dist/entity";
 import { Direction } from "../../constants/directions";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
@@ -39,13 +38,14 @@ export const WinBehavior: DungeonTileBehavior = {
     if (!cursor.getTile().isObjective()) return;
 
     cursor.getTile().getObject('objective')?.sprite.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-      if (scene.levelManager.hasLevel(scene.levelNumber + 1)) {
+      if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
-          progressDocument.lastCompletedLevelNumber = scene.levelNumber;
+          progressDocument.lastCompletedLevelNumber = scene.levelManager.getLevelNumber();
           scene.persistence.store();
+          scene.levelManager.setLevelNumber(scene.levelManager.getLevelNumber() + 1);
 
-          scene.scene.restart({ levelNumber: scene.levelNumber + 1 });
+          scene.scene.restart();
         });
         scene.cameras.main.fadeOut(700);
       } else {

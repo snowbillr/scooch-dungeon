@@ -1,6 +1,5 @@
 import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
 import { MovementPlanner } from "../../dungeon/movement-planner";
-import { Entity } from "phecs/dist/entity";
 import { Direction } from "../../constants/directions";
 import { Dungeon } from "../../dungeon/dungeon";
 import { DungeonScene } from "../../scenes/dungeon-scene";

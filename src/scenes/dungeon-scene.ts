@@ -7,13 +7,11 @@ import { SpriteComponent } from "../components/sprite-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
-import { ProgressDocument } from "../persistence/progress-document";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
   public hero!: Entity;
-  public levelNumber!: number;
 
   constructor() {
     super({ key: 'dungeon' });
@@ -23,20 +21,19 @@ export class DungeonScene extends ScoochDungeonScene {
     this.phecs.register.prefab('hero', HeroPrefab);
   }
 
-  create(data: any) {
+  create() {
     this.add.image(this.scale.width - 40, this.scale.height - 40, 'hud-restart')
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-          this.scene.restart(data);
+          this.scene.restart();
         });
         this.cameras.main.fadeOut(500);
       });
 
-    this.levelNumber = data.levelNumber;
     const dungeonFactory = new DungeonFactory(this);
-    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(this.levelNumber), 0, 0);
+    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getLevelKey(), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
