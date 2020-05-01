@@ -8,6 +8,7 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+import { SfxScene } from "./sfx-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -26,10 +27,13 @@ export class DungeonScene extends ScoochDungeonScene {
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        this.sfx.pauseLevelMusic();
+        this.sfx.playResetSfx();
+        
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart();
         });
-        this.cameras.main.fadeOut(500);
+        this.cameras.main.fadeOut(1000);
       });
 
     const dungeonFactory = new DungeonFactory(this);
@@ -51,6 +55,8 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
     this.cameras.main.fadeIn(500);
+
+    this.sfx.playLevelMusic();
   }
 
   private handleInput(direction: Direction) {

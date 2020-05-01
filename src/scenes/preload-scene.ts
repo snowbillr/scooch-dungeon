@@ -7,6 +7,14 @@ export class PreloadScene extends ScoochDungeonScene {
   }
 
   preload() {
+    this.load.audio('coin', ['assets/sfx/coin.mp3', 'assets/sfx/coin.ogg']);
+    this.load.audio('die', ['assets/sfx/die.mp3', 'assets/sfx/die.ogg']);
+    this.load.audio('level-complete', ['assets/sfx/level-complete.mp3', 'assets/sfx/level-complete.ogg']);
+    this.load.audio('level-reset', ['assets/sfx/level-reset.mp3', 'assets/sfx/level-reset.ogg']);
+
+    this.load.audio('level-music', ['assets/music/level-music.mp3', 'assets/music/level-music.ogg'])
+    this.load.audio('level-complete-music', ['assets/music/level-complete-music.mp3', 'assets/music/level-complete-music.ogg'])
+
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
     this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
 
