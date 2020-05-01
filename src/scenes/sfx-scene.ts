@@ -1,6 +1,6 @@
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 
-export class MusicScene extends ScoochDungeonScene {
+export class SfxScene extends ScoochDungeonScene {
   private levelMusic!: Phaser.Sound.BaseSound;
 
   constructor() {

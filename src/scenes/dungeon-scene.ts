@@ -8,7 +8,7 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
-import { MusicScene } from "./music-scene";
+import { SfxScene } from "./sfx-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
