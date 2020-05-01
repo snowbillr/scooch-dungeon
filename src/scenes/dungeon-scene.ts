@@ -26,10 +26,11 @@ export class DungeonScene extends ScoochDungeonScene {
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        this.sound.play('level-reset');
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart();
         });
-        this.cameras.main.fadeOut(500);
+        this.cameras.main.fadeOut(1000);
       });
 
     const dungeonFactory = new DungeonFactory(this);
