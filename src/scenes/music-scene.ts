@@ -32,4 +32,21 @@ export class MusicScene extends ScoochDungeonScene {
   pauseLevelMusic() {
     this.levelMusic.pause();
   }
+
+  playWinSfx(): Promise<void> {
+    const winSfx = this.sound.add('level-complete');
+
+    winSfx.play();
+
+    return new Promise(resolve => {
+      winSfx.once(Phaser.Sound.Events.COMPLETE, () => {
+        winSfx.destroy();
+        resolve();
+      });
+    });
+  }
+
+  playResetSfx() {
+    this.sound.play('level-reset');
+  }
 }

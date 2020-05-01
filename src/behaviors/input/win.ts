@@ -38,25 +38,19 @@ export const WinBehavior: DungeonTileBehavior = {
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return;
 
+    const musicScene = scene.scene.get('music') as MusicScene;
+
     const objectiveSprite = cursor.getTile().getObject('objective')?.sprite;
-    const completeSfx = scene.sound.add('level-complete');
+    // const completeSfx = scene.sound.add('level-complete');
 
     const animPromise = new Promise(resolve => {
       objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
     });
 
-    const sfxPromise = new Promise(resolve => {
-      completeSfx.once(Phaser.Sound.Events.COMPLETE, () => {
-        completeSfx.destroy();
-        resolve();
-      });
-    });
-
-    (scene.scene.get('music') as MusicScene).pauseLevelMusic();
+    musicScene.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
-    completeSfx.play();
 
-    Promise.all([animPromise, sfxPromise]).then(() => {
+    Promise.all([animPromise, musicScene.playWinSfx()]).then(() => {
       if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
