@@ -3,6 +3,7 @@ import { Dungeon } from "../../dungeon/dungeon";
 import { Direction } from "../../constants/directions";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
+import { MusicScene } from "../../scenes/music-scene";
 
 export const WinBehavior: DungeonTileBehavior = {
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
@@ -51,6 +52,7 @@ export const WinBehavior: DungeonTileBehavior = {
       });
     });
 
+    (scene.scene.get('music') as MusicScene).pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
     completeSfx.play();
 

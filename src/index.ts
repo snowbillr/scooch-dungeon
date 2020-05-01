@@ -8,6 +8,7 @@ import { LevelManagerPlugin } from './plugins/global/level-manager-plugin';
 import { PersistencePlugin } from './plugins/global/persistence-plugin';
 import { BootScene } from './scenes/boot-scene';
 import { SwipePlugin } from './plugins/scene/swipe-plugin';
+import { MusicScene } from './scenes/music-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -41,7 +42,9 @@ const scenes = [
   BootScene,
   PreloadScene,
   TitleScene,
-  DungeonScene
+  DungeonScene,
+
+  MusicScene
 ];
 
 const game = new Phaser.Game({

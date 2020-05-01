@@ -8,6 +8,7 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+import { MusicScene } from "./music-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -52,6 +53,9 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
     this.cameras.main.fadeIn(500);
+
+    const musicScene = this.scene.get('music') as MusicScene;
+    musicScene.playLevelMusic();
   }
 
   private handleInput(direction: Direction) {
