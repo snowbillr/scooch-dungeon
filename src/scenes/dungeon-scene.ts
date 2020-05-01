@@ -27,6 +27,7 @@ export class DungeonScene extends ScoochDungeonScene {
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        (this.scene.get('music') as MusicScene).pauseLevelMusic();
         this.sound.play('level-reset');
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart();
