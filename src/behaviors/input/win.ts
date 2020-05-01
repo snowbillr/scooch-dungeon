@@ -38,8 +38,23 @@ export const WinBehavior: DungeonTileBehavior = {
     if (!cursor.getTile().isObjective()) return;
 
     const objectiveSprite = cursor.getTile().getObject('objective')?.sprite;
+    const completeSfx = scene.sound.add('level-complete');
 
-    objectiveSprite?.on(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+    const animPromise = new Promise(resolve => {
+      objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
+    });
+
+    const sfxPromise = new Promise(resolve => {
+      completeSfx.once(Phaser.Sound.Events.COMPLETE, () => {
+        completeSfx.destroy();
+        resolve();
+      });
+    });
+
+    objectiveSprite?.anims.play('objective-win');
+    completeSfx.play();
+
+    Promise.all([animPromise, sfxPromise]).then(() => {
       if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
@@ -54,8 +69,6 @@ export const WinBehavior: DungeonTileBehavior = {
       } else {
         console.log('beat all the levels')
       }
-      });
-
-    objectiveSprite?.anims.play('objective-win');
+    });
   }
 };
