@@ -44,10 +44,10 @@ export const WinBehavior: DungeonTileBehavior = {
       objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
     });
 
-    scene.MusicScene.pauseLevelMusic();
+    scene.sfx.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
 
-    Promise.all([animPromise, scene.MusicScene.playWinSfx()]).then(() => {
+    Promise.all([animPromise, scene.sfx.playWinSfx()]).then(() => {
       if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');

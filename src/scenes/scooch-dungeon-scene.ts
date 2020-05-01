@@ -10,7 +10,7 @@ export abstract class ScoochDungeonScene extends Phaser.Scene {
   public levelManager!: LevelManagerPlugin;
   public swipe!: SwipePlugin;
 
-  public get MusicScene() {
+  public get sfx() {
     return this.scene.get('music') as MusicScene;
   }
 }

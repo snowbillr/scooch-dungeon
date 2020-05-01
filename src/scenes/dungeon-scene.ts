@@ -27,8 +27,8 @@ export class DungeonScene extends ScoochDungeonScene {
       .setScrollFactor(0)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
-        this.MusicScene.pauseLevelMusic();
-        this.MusicScene.playResetSfx();
+        this.sfx.pauseLevelMusic();
+        this.sfx.playResetSfx();
         
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           this.scene.restart();
@@ -56,7 +56,7 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
     this.cameras.main.fadeIn(500);
 
-    this.MusicScene.playLevelMusic();
+    this.sfx.playLevelMusic();
   }
 
   private handleInput(direction: Direction) {
