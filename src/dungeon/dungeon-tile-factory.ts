@@ -21,7 +21,7 @@ export class DungeonTileFactory {
     return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects || []);
   }
 
-  process(dungeonTile: DungeonTile, dungeon: Dungeon) {
+  addBehaviors(dungeonTile: DungeonTile, dungeon: Dungeon) {
     InputBehaviors.forEach(behavior => {
       if (behavior.isApplicable(dungeonTile, dungeon)) {
         dungeonTile.addInputBehavior(behavior);

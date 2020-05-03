@@ -12,6 +12,7 @@ export const CollectCoinBehavior: DungeonTileBehavior = {
     const coinSprite = dungeonTile.getObject('coin')?.sprite;
 
     scene.sfx.playCoinSfx();
+    scene.hud.incrementCollectedCoins();
 
     scene.tweens.add({
       targets: coinSprite,

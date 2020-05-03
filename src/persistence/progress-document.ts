@@ -3,7 +3,7 @@ import { PersistenceDocument } from "../plugins/global/persistence-plugin";
 export class ProgressDocument implements PersistenceDocument {
   public readonly name = 'progress';
 
-  lastCompletedLevelNumber: number = 0;
+  public lastCompletedLevelNumber: number = 0;
 
   public toJson() {
     return {

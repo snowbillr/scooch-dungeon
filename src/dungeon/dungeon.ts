@@ -9,6 +9,8 @@ export class Dungeon {
   public readonly gridWidth: number;
   public readonly gridHeight: number;
 
+  public readonly coinCount: number;
+
   constructor(
     private dungeonTiles: DungeonTile[],
     private markers: Record<string, DungeonMarker>,
@@ -19,6 +21,14 @@ export class Dungeon {
     this.worldHeight = tilemap.heightInPixels;
     this.gridWidth = tilemap.width;
     this.gridHeight = tilemap.height;
+
+    this.coinCount = dungeonTiles.reduce((count, dungeonTile) => {
+      if (Boolean(dungeonTile.getObject('coin'))) {
+        return count + 1;
+      } else {
+        return count;
+      }
+    }, 0);
   }
 
   public destroy() {

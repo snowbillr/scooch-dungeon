@@ -8,10 +8,13 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+import { HUDScene } from "./hud-scene";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
   public hero!: Entity;
+
+  public hud!: HUDScene;
 
   constructor() {
     super({ key: 'dungeon' });
@@ -22,8 +25,6 @@ export class DungeonScene extends ScoochDungeonScene {
   }
 
   create() {
-    this.scene.launch('hud');
-
     const dungeonFactory = new DungeonFactory(this);
     this.dungeon = dungeonFactory.createDungeon(this.levelManager.getCurrentLevelKey(), 0, 0);
 
@@ -45,6 +46,9 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.fadeIn(500);
 
     this.sfx.playLevelMusic();
+
+    this.scene.launch('hud', { totalCoins: this.dungeon.coinCount });
+    this.hud = this.scene.get('hud') as HUDScene;
   }
 
   private handleInput(direction: Direction) {
