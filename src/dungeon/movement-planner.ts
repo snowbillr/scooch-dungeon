@@ -4,9 +4,10 @@ import { Entity } from "phecs/dist/entity";
 import { SpriteComponent } from "../components/sprite-component";
 import { GridPositionComponent } from "../components/grid-position-component";
 import { StateMachineComponent } from "../components/state-machine-component";
+import { DungeonScene } from "../scenes/dungeon-scene";
 
 export const MovementPlanner = {
-  buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: Phaser.Scene) {
+  buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: DungeonScene) {
     const heroSprite = hero.getComponent(SpriteComponent).sprite;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);
@@ -53,7 +54,7 @@ export const MovementPlanner = {
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 
-            // nextTile.enterBehaviors.forEach(behavior => behavior());
+            nextTile.enterBehaviors.forEach(behavior => behavior.run(direction, nextTile, scene));
           }
         });
 
