@@ -9,6 +9,19 @@ export const CollectCoinBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    console.log('collect coin')
+    const coinSprite = dungeonTile.getObject('coin')?.sprite;
+
+    scene.sfx.playCoinSfx();
+
+    scene.tweens.add({
+      targets: coinSprite,
+      props: {
+        y: '-=50',
+        alpha: 0,
+      },
+      duration: 200
+    });
+
+    dungeonTile.removeEnterBehavior(this);
   }
 }

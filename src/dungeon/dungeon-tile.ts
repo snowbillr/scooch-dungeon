@@ -64,4 +64,9 @@ export class DungeonTile {
   addEnterBehavior(behavior: DungeonTileBehavior) {
     this.enterBehaviors.push(behavior);
   }
+
+  removeEnterBehavior(behavior: DungeonTileBehavior) {
+    const behaviorIndex = this.enterBehaviors.findIndex(enterBehavior => enterBehavior ==  behavior);
+    this.enterBehaviors.splice(behaviorIndex, 1);
+  }
 }

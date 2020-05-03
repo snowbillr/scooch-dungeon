@@ -1,4 +1,5 @@
 import { DungeonObject } from "./dungeon-object";
+import { Depths } from "../constants/depths";
 
 const tileIndexToTexture: Record<number, string> = {
   85: 'objective',
@@ -21,6 +22,12 @@ const tileIndexToAnimation: Record<number, string> = {
   87: 'coin-spin'
 };
 
+const tileIndexToDepth: Record<number, number> = {
+  85: Depths.objective,
+  87: Depths.coin,
+  50: Depths.rock
+};
+
 export class DungeonObjectFactory {
   constructor(
     private readonly scene: Phaser.Scene
@@ -29,9 +36,11 @@ export class DungeonObjectFactory {
   create(worldX: number, worldY: number, tileIndex: number) {
     const texture = tileIndexToTexture[tileIndex];
     const frame = tileIndexToFrame[tileIndex];
+    const depth = tileIndexToDepth[tileIndex];
 
     const sprite = this.scene.add.sprite(worldX, worldY, texture, frame)
-      .setOrigin(0);
+      .setOrigin(0)
+      .setDepth(depth);
 
     const name = tileIndexToName[tileIndex];
 

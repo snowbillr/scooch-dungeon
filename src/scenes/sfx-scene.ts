@@ -1,6 +1,4 @@
-import { ScoochDungeonScene } from "./scooch-dungeon-scene";
-
-export class SfxScene extends ScoochDungeonScene {
+export class SfxScene extends Phaser.Scene {
   private levelMusic!: Phaser.Sound.BaseSound;
 
   constructor() {
@@ -48,5 +46,9 @@ export class SfxScene extends ScoochDungeonScene {
 
   playResetSfx() {
     this.sound.play('level-reset');
+  }
+
+  playCoinSfx() {
+    this.sound.play('coin');
   }
 }
