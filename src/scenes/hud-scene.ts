@@ -28,14 +28,16 @@ export class HUDScene extends ScoochDungeonScene {
         dungeonScene.cameras.main.fadeOut(1000);
       });
 
-    this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING + 3, 'coin')
-      .setOrigin(0.5)
-    this.collectedCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 20, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '0')
-      .setOrigin(0, 0.5);
-    this.add.bitmapText(VIEWPORT_PADDING + 40, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '/')
-      .setOrigin(0, 0.5);
-    this.totalCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 60, this.scale.height - VIEWPORT_PADDING, 'matchup-32', data.totalCoins)
-      .setOrigin(0, 0.5); 
+    if (data.totalCoins > 0) {
+      this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING + 3, 'coin')
+        .setOrigin(0.5)
+      this.collectedCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 20, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '0')
+        .setOrigin(0, 0.5);
+      this.add.bitmapText(VIEWPORT_PADDING + 40, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '/')
+        .setOrigin(0, 0.5);
+      this.totalCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 60, this.scale.height - VIEWPORT_PADDING, 'matchup-32', data.totalCoins)
+        .setOrigin(0, 0.5); 
+    }
   }
 
   setTotalCoins(totalCoins: number) {
