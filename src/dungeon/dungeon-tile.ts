@@ -15,7 +15,7 @@ export type DungeonTileBehavior = {
 
 export class DungeonTile {
   public inputBehaviors: DungeonTileBehavior[];
-  // public readonly enterBehaviors: DungeonTileBehavior[];
+  public enterBehaviors: DungeonTileBehavior[];
 
   constructor(
     public readonly gridX: number,
@@ -26,6 +26,7 @@ export class DungeonTile {
     private objects: DungeonObject[]
   ) {
     this.inputBehaviors = [];
+    this.enterBehaviors = [];
   }
 
   destroy() {
@@ -35,6 +36,9 @@ export class DungeonTile {
 
     this.inputBehaviors = [];
     delete this.inputBehaviors;
+
+    this.enterBehaviors = [];
+    delete this.enterBehaviors;
   }
 
   getObject(name: string) {
@@ -57,9 +61,12 @@ export class DungeonTile {
     this.inputBehaviors.push(behavior);
   }
 
-  /*
   addEnterBehavior(behavior: DungeonTileBehavior) {
     this.enterBehaviors.push(behavior);
   }
-  */
+
+  removeEnterBehavior(behavior: DungeonTileBehavior) {
+    const behaviorIndex = this.enterBehaviors.findIndex(enterBehavior => enterBehavior ==  behavior);
+    this.enterBehaviors.splice(behaviorIndex, 1);
+  }
 }

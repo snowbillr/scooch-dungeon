@@ -27,7 +27,7 @@ export class DungeonFactory {
 
     const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonFloor, tilemap);
 
-    dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.process(dungeonTile, dungeon));
+    dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.addBehaviors(dungeonTile, dungeon));
 
     return dungeon;
   }

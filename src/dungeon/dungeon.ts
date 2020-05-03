@@ -2,12 +2,17 @@ import { DungeonTile } from "./dungeon-tile";
 import { Direction } from "../constants/directions";
 import { DungeonMarker } from "./dungeon-marker";
 import { DungeonCursor } from "./dungeon-cursor";
+import { DungeonStats } from "./dungeon-stats";
 
 export class Dungeon {
   public readonly worldWidth: number;
   public readonly worldHeight: number;
   public readonly gridWidth: number;
   public readonly gridHeight: number;
+
+  public readonly stats: DungeonStats;
+
+  public readonly coinCount: number;
 
   constructor(
     private dungeonTiles: DungeonTile[],
@@ -19,6 +24,16 @@ export class Dungeon {
     this.worldHeight = tilemap.heightInPixels;
     this.gridWidth = tilemap.width;
     this.gridHeight = tilemap.height;
+
+    this.coinCount = dungeonTiles.reduce((count, dungeonTile) => {
+      if (Boolean(dungeonTile.getObject('coin'))) {
+        return count + 1;
+      } else {
+        return count;
+      }
+    }, 0);
+
+    this.stats = new DungeonStats();
   }
 
   public destroy() {

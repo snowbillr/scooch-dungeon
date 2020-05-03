@@ -3,7 +3,6 @@ import { Dungeon } from "../../dungeon/dungeon";
 import { Direction } from "../../constants/directions";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
-import { SfxScene } from "../../scenes/sfx-scene";
 
 export const WinBehavior: DungeonTileBehavior = {
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
@@ -52,6 +51,7 @@ export const WinBehavior: DungeonTileBehavior = {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
           progressDocument.lastCompletedLevelNumber = scene.levelManager.getCurrentLevelNumber();
+          progressDocument.coinsCollected = progressDocument.coinsCollected + scene.dungeon.stats.getCoins();
           scene.persistence.store();
 
           scene.levelManager.setCurrentLevelNumber(scene.levelManager.getCurrentLevelNumber() + 1);

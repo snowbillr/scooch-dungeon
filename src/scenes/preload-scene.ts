@@ -17,12 +17,15 @@ export class PreloadScene extends ScoochDungeonScene {
 
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
     this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
+    this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
 
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
     this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('objective-animations', 'assets/objects/objective-animations.json');
+    this.load.spritesheet('coin', 'assets/objects/coin.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.animation('coin-animations', 'assets/objects/coin-animations.json');
     this.load.image('rock', 'assets/objects/rock.png');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
