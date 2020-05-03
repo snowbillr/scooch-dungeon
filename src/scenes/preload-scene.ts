@@ -17,6 +17,7 @@ export class PreloadScene extends ScoochDungeonScene {
 
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
     this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
+    this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
 
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
 
