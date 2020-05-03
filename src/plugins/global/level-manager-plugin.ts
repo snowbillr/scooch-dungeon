@@ -1,4 +1,4 @@
-export const LEVELS_COUNT = 3;
+export const LEVELS_COUNT = 4;
 
 const levels = Array.from({ length: LEVELS_COUNT }, (v, i) => i + 1).reduce((acc, i) => {
   const levelKey = String(i).padStart(3, '0');
@@ -7,31 +7,31 @@ const levels = Array.from({ length: LEVELS_COUNT }, (v, i) => i + 1).reduce((acc
 }, {} as Record<number, string>);
 
 export class LevelManagerPlugin extends Phaser.Plugins.BasePlugin {
-  private levelNumber: number;
+  private currentLevelNumber: number;
 
   constructor(pluginManager: Phaser.Plugins.PluginManager) {
     super(pluginManager);
 
-    this.levelNumber = 0;
+    this.currentLevelNumber = 0;
   }
 
   setCurrentLevelNumber(levelNumber: number) {
-    this.levelNumber = levelNumber;
+    this.currentLevelNumber = levelNumber;
   }
 
   getCurrentLevelNumber() {
-    return this.levelNumber;
+    return this.currentLevelNumber;
   }
 
   hasNextLevel() {
-    return this.hasLevel(this.levelNumber + 1);
+    return this.hasLevel(this.currentLevelNumber + 1);
   }
 
   hasLevel(levelNumberToCheck?: number) {
-    return Boolean(levels[levelNumberToCheck ?? this.levelNumber]);
+    return Boolean(levels[levelNumberToCheck ?? this.currentLevelNumber]);
   }
 
   getCurrentLevelKey() {
-    return levels[this.levelNumber];
+    return levels[this.currentLevelNumber];
   }
 }
