@@ -9,6 +9,7 @@ import { PersistencePlugin } from './plugins/global/persistence-plugin';
 import { BootScene } from './scenes/boot-scene';
 import { SwipePlugin } from './plugins/scene/swipe-plugin';
 import { SfxScene } from './scenes/sfx-scene';
+import { HUDScene } from './scenes/hud-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -44,6 +45,7 @@ const scenes = [
   TitleScene,
   DungeonScene,
 
+  HUDScene,
   SfxScene
 ];
 
