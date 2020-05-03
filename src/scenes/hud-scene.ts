@@ -52,4 +52,12 @@ export class HUDScene extends ScoochDungeonScene {
     const currentCoins = Number(this.collectedCoinsText.text);
     this.collectedCoinsText.setText(`${currentCoins + 1}`);
   }
+
+  getCollectedCoins() {
+    if (this.collectedCoinsText) {
+      return Number(this.collectedCoinsText?.text);
+    } else {
+      return 0;
+    }
+  }
 }
