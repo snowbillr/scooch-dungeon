@@ -14,18 +14,15 @@ type LevelRecord = {
 export class ProgressDocument implements PersistenceDocument {
   public readonly name = 'progress';
 
-  public lastCompletedLevelNumber: number = 0;
   public levelRecords: Record<number, LevelRecord> = {};
 
   public toJson() {
     return {
-      lastCompletedLevelNumber: this.lastCompletedLevelNumber,
       levelRecords: this.levelRecords
     };
   }
 
   public fromJson(data: Record<string, any>) {
-    this.lastCompletedLevelNumber = data.lastCompletedLevelNumber;
     this.levelRecords = data.levelRecords;
   }
 
@@ -37,5 +34,10 @@ export class ProgressDocument implements PersistenceDocument {
     });
 
     this.levelRecords[levelNumber] = levelRecord;
+  }
+
+  public getLastCompletedLevelNumber() {
+    const sortedLevelNumbers = Object.keys(this.levelRecords).map(Number).sort();
+    return sortedLevelNumbers[sortedLevelNumbers.length - 1] || 0;
   }
 }

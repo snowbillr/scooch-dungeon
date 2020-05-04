@@ -52,7 +52,6 @@ export const WinBehavior: DungeonTileBehavior = {
       if (scene.levelManager.hasNextLevel()) {
         scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
           const progressDocument = scene.persistence.getDocument<ProgressDocument>('progress');
-          progressDocument.lastCompletedLevelNumber = scene.levelManager.getCurrentLevelNumber();
           progressDocument.completeLevel(scene.levelManager.getCurrentLevelNumber(), scene.dungeon.stats);
           scene.persistence.store();
 
