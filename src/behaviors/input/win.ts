@@ -5,6 +5,9 @@ import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
 
 export const WinBehavior: DungeonTileBehavior = {
+  priority: 100,
+  stopPropagation: true,
+
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
@@ -33,6 +36,7 @@ export const WinBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    console.log('run win behavior')
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return;

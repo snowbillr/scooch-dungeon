@@ -9,8 +9,11 @@ export type DungeonTileProperties = {
 };
 
 export type DungeonTileBehavior = {
-  isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean,
-  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => void
+  priority: number;
+  stopPropagation: boolean;
+
+  isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean;
+  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => void;
 };
 
 export class DungeonTile {
