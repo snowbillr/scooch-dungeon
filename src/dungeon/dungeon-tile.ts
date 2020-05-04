@@ -10,10 +10,9 @@ export type DungeonTileProperties = {
 
 export type DungeonTileBehavior = {
   priority: number;
-  stopPropagation: boolean;
 
   isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean;
-  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => void;
+  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => boolean | void;
 };
 
 export class DungeonTile {
@@ -71,5 +70,25 @@ export class DungeonTile {
   removeEnterBehavior(behavior: DungeonTileBehavior) {
     const behaviorIndex = this.enterBehaviors.findIndex(enterBehavior => enterBehavior ==  behavior);
     this.enterBehaviors.splice(behaviorIndex, 1);
+  }
+
+  runInputBehaviors(direction: Direction, scene: DungeonScene) {
+    const sortedInputBehaviors = this.inputBehaviors.slice().sort((a, b) => b.priority - a.priority);
+
+    for (let inputBehavior of sortedInputBehaviors) {
+      const stopPropagation = inputBehavior.run(direction, this, scene)
+
+      if (stopPropagation) break;
+    };
+  }
+
+  runEnterBehaviors(direction: Direction, scene: DungeonScene) {
+    const sortedEnterBehaviors = this.enterBehaviors.slice().sort((a, b) => a.priority - b.priority);
+
+    for (let enterBehavior of sortedEnterBehaviors) {
+      const stopPropagation = enterBehavior.run(direction, this, scene)
+
+      if (stopPropagation) break;
+    };
   }
 }

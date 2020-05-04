@@ -5,14 +5,12 @@ import { DungeonScene } from "../../scenes/dungeon-scene";
 
 export const CollectCoinBehavior: DungeonTileBehavior = {
   priority: 100,
-  stopPropagation: false,
 
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     return Boolean(dungeonTile.getObject('coin'));
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    console.log('run collect coin behavior')
     const coinSprite = dungeonTile.getObject('coin')?.sprite;
 
     scene.sfx.playCoinSfx();

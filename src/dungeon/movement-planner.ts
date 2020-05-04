@@ -54,13 +54,7 @@ export const MovementPlanner = {
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 
-            const sortedEnterBehaviors = nextTile.enterBehaviors.slice().sort((a, b) => a.priority - b.priority);
-
-            for (let enterBehavior of sortedEnterBehaviors) {
-              enterBehavior.run(direction, nextTile, scene)
-
-              if (enterBehavior.stopPropagation) break;
-            };
+            nextTile.runEnterBehaviors(direction, scene);
           }
         });
 
