@@ -71,16 +71,7 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const tile = cursor.getTile();
 
-    /*
-    const sortedInputBehaviors = tile.inputBehaviors.slice().sort((a, b) => b.priority - a.priority);
-
-    for (let inputBehavior of sortedInputBehaviors) {
-      inputBehavior.run(direction, tile, this)
-
-      if (inputBehavior.stopPropagation) break;
-    };
-    */
-   tile.runInputBehaviors(direction, this);
+    tile.runInputBehaviors(direction, this);
   }
 
   private calculateCameraBounds() {
