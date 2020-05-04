@@ -3,7 +3,7 @@ export const Depths = {
   hero: 50,
 
   // objects
-  coin: 40,
+  coin: 60,
   rock: 40,
   objective: 40
 };
