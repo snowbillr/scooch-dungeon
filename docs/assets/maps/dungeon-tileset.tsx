@@ -520,7 +520,7 @@
  <tile id="86">
   <properties>
    <property name="objective" type="bool" value="false"/>
-   <property name="walkable" type="bool" value="false"/>
+   <property name="walkable" type="bool" value="true"/>
   </properties>
  </tile>
  <tile id="87">
