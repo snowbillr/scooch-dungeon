@@ -4,6 +4,8 @@ import { Dungeon } from "../../dungeon/dungeon";
 import { DungeonScene } from "../../scenes/dungeon-scene";
 
 export const CollectCoinBehavior: DungeonTileBehavior = {
+  priority: 100,
+
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     return Boolean(dungeonTile.getObject('coin'));
   },

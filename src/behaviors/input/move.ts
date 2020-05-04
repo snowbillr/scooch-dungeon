@@ -5,11 +5,15 @@ import { Dungeon } from "../../dungeon/dungeon";
 import { DungeonScene } from "../../scenes/dungeon-scene";
 
 export const MoveBehavior: DungeonTileBehavior = {
+  priority: 90,
+
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     return dungeonTile.isWalkable();
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    scene.dungeon.stats.incrementMoves();
+
     const movementTimeline = MovementPlanner.buildMovementTimeline(scene.hero, direction, scene.dungeon, scene);
     movementTimeline.play();
   }

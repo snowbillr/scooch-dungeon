@@ -54,7 +54,7 @@ export const MovementPlanner = {
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 
-            nextTile.enterBehaviors.forEach(behavior => behavior.run(direction, nextTile, scene));
+            nextTile.runEnterBehaviors(direction, scene);
           }
         });
 

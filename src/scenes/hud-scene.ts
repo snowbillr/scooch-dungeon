@@ -18,14 +18,7 @@ export class HUDScene extends ScoochDungeonScene {
       .setOrigin(0.5)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
-        this.sfx.pauseLevelMusic();
-        this.sfx.playResetSfx();
-
-        dungeonScene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-          this.scene.stop();
-          dungeonScene.scene.restart();
-        });
-        dungeonScene.cameras.main.fadeOut(1000);
+        dungeonScene.resetLevel();
       });
 
     if (data.totalCoins > 0) {
