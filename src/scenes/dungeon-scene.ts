@@ -51,6 +51,18 @@ export class DungeonScene extends ScoochDungeonScene {
     this.hud = this.scene.get('hud') as HUDScene;
   }
 
+  public resetLevel() {
+    this.dungeon.stats.reset();
+    this.sfx.pauseLevelMusic();
+    this.sfx.playResetSfx();
+
+    this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+      this.scene.stop();
+      this.scene.restart();
+    });
+    this.cameras.main.fadeOut(1000);
+  }
+
   private handleInput(direction: Direction) {
     if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') return;
 

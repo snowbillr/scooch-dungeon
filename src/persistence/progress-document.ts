@@ -3,7 +3,7 @@ import { DungeonStats } from "../dungeon/dungeon-stats";
 
 type LevelAttempt = {
   coins: number;
-  // moves: number;
+  moves: number;
 };
 
 type LevelRecord = {
@@ -32,7 +32,8 @@ export class ProgressDocument implements PersistenceDocument {
   public completeLevel(levelNumber: number, stats: DungeonStats) {
     const levelRecord = this.levelRecords[levelNumber] ?? { levelNumber, attempts: [] };
     levelRecord.attempts.push({
-      coins: stats.getCoins()
+      coins: stats.getCoins(),
+      moves: stats.getMoves()
     });
 
     this.levelRecords[levelNumber] = levelRecord;
