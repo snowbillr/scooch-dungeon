@@ -5,5 +5,8 @@ export const Depths = {
   // objects
   coin: 60,
   rock: 40,
-  objective: 40
+  objective: 40,
+
+  // interface
+  arrow: 60,
 };

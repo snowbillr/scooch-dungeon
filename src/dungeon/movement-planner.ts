@@ -39,6 +39,7 @@ export const MovementPlanner = {
     });
 
     while(canMove) {
+      const currentTile = dungeon.getTile(plannerPosition.x, plannerPosition.y);
       const nextTile = dungeon.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
 
       if (nextTile) {
@@ -51,6 +52,9 @@ export const MovementPlanner = {
             y: nextTileWorldPosition.y
           },
           duration: 200,
+          onStart() {
+            currentTile.runExitBehaviors(direction, scene);
+          },
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 

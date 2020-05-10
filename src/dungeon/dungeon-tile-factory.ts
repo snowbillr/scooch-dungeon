@@ -2,6 +2,7 @@ import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dunge
 import { Dungeon } from "./dungeon";
 import { InputBehaviors } from "../behaviors/input-behaviors";
 import { EnterBehaviors } from "../behaviors/enter-behaviors";
+import { ExitBehaviors } from "../behaviors/exit-behaviors";
 
 export class DungeonTileFactory {
   constructor() {}
@@ -31,6 +32,12 @@ export class DungeonTileFactory {
     EnterBehaviors.forEach(behavior => {
       if (behavior.isApplicable(dungeonTile, dungeon)) {
         dungeonTile.addEnterBehavior(behavior);
+      }
+    });
+
+    ExitBehaviors.forEach(behavior => {
+      if (behavior.isApplicable(dungeonTile, dungeon)) {
+        dungeonTile.addExitBehavior(behavior);
       }
     });
   }

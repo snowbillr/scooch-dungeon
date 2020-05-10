@@ -2,6 +2,7 @@ import { DungeonObject } from './dungeon-object';
 import { Direction } from '../constants/directions';
 import { Dungeon } from './dungeon';
 import { DungeonScene } from '../scenes/dungeon-scene';
+import { DungeonObjectFactory } from './dungeon-object-factory';
 
 export type DungeonTileProperties = {
   walkable: boolean;
@@ -18,6 +19,7 @@ export type DungeonTileBehavior = {
 export class DungeonTile {
   public inputBehaviors: DungeonTileBehavior[];
   public enterBehaviors: DungeonTileBehavior[];
+  public exitBehaviors: DungeonTileBehavior[];
 
   constructor(
     public readonly gridX: number,
@@ -29,6 +31,7 @@ export class DungeonTile {
   ) {
     this.inputBehaviors = [];
     this.enterBehaviors = [];
+    this.exitBehaviors = [];
   }
 
   destroy() {
@@ -41,10 +44,9 @@ export class DungeonTile {
 
     this.enterBehaviors = [];
     delete this.enterBehaviors;
-  }
 
-  getObject(name: string) {
-    return this.objects.find(object => object.name === name);
+    this.exitBehaviors = [];
+    delete this.exitBehaviors;
   }
 
   isWalkable() {
@@ -59,12 +61,31 @@ export class DungeonTile {
     return x === this.gridX && y === this.gridY;
   }
 
+  getObject(name: string) {
+    return this.objects.find(object => object.name === name);
+  }
+
+  addObject(dungeonObject: DungeonObject) {
+    this.objects.push(dungeonObject);
+  }
+
+  removeObject(name: string) {
+    const dungeonObjectIndex = this.objects.findIndex(dungeonObject => dungeonObject.name === name);
+    // debugger;
+    const [dungeonObject] = this.objects.splice(dungeonObjectIndex, 1);
+    dungeonObject.destroy();
+  }
+
   addInputBehavior(behavior: DungeonTileBehavior) {
     this.inputBehaviors.push(behavior);
   }
 
   addEnterBehavior(behavior: DungeonTileBehavior) {
     this.enterBehaviors.push(behavior);
+  }
+
+  addExitBehavior(behavior: DungeonTileBehavior) {
+    this.exitBehaviors.push(behavior);
   }
 
   removeEnterBehavior(behavior: DungeonTileBehavior) {
@@ -87,6 +108,16 @@ export class DungeonTile {
 
     for (let enterBehavior of sortedEnterBehaviors) {
       const stopPropagation = enterBehavior.run(direction, this, scene)
+
+      if (stopPropagation) break;
+    };
+  }
+
+  runExitBehaviors(direction: Direction, scene: DungeonScene) {
+    const sortedExitBehaviors = this.exitBehaviors.slice().sort((a, b) => a.priority - b.priority);
+
+    for (let exitBehavior of sortedExitBehaviors) {
+      const stopPropagation = exitBehavior.run(direction, this, scene)
 
       if (stopPropagation) break;
     };

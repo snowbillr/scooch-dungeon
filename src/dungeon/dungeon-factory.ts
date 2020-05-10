@@ -53,7 +53,7 @@ export class DungeonFactory {
       .forEach(tile => {
         const worldCoordinates = tilemap.tileToWorldXY(tile.x, tile.y);
 
-        const dungeonObject = this.dungeonObjectFactory.create(worldCoordinates.x, worldCoordinates.y, tile.index);
+        const dungeonObject = this.dungeonObjectFactory.createByIndex(worldCoordinates.x, worldCoordinates.y, tile.index);
         tileData.addKeyValue(tile.x, tile.y, 'objects', dungeonObject);
 
         Object.entries(tile.properties).forEach(([key, value]) => {

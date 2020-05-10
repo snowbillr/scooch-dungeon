@@ -1,50 +1,102 @@
 import { DungeonObject } from "./dungeon-object";
 import { Depths } from "../constants/depths";
 
-const tileIndexToTexture: Record<number, string> = {
-  85: 'objective',
-  87: 'coin',
-  50: 'rock'
-};
+type ObjectProperties = {
+  name: string;
+  tileIndex?: number;
+  texture: string;
+  frame?: number | string;
+  animation?: string;
+  depth: number;
+}
 
-const tileIndexToFrame: Record<number, number | string> = {
-  85: 0,
-  87: 0
+/*
+const tileIndexToObjectProperties: Record<string, ObjectProperties> = {
+  50: {
+    name: 'rock',
+    texture: 'rock',
+    depth: Depths.rock
+  },
+  85: {
+    name: 'objective',
+    texture: 'objective',
+    frame: 0,
+    depth: Depths.objective
+  },
+  87: {
+    name: 'coin',
+    texture: 'coin',
+    frame: 0,
+    animation: 'coin-spin',
+    depth: Depths.coin
+  }
 };
+*/
 
-const tileIndexToName: Record<number, string> = {
-  85: 'objective',
-  87: 'coin',
-  50: 'rock'
-};
-
-const tileIndexToAnimation: Record<number, string> = {
-  87: 'coin-spin'
-};
-
-const tileIndexToDepth: Record<number, number> = {
-  85: Depths.objective,
-  87: Depths.coin,
-  50: Depths.rock
-};
+const objectPropertiesList = [
+  {
+    name: 'rock',
+    tileIndex: 50,
+    texture: 'rock',
+    depth: Depths.rock
+  },
+  {
+    name: 'objective',
+    tileIndex: 85,
+    texture: 'objective',
+    frame: 0,
+    depth: Depths.objective
+  },
+  {
+    name: 'coin',
+    tileIndex: 87,
+    texture: 'coin',
+    frame: 0,
+    animation: 'coin-spin',
+    depth: Depths.coin
+  },
+  {
+    name: 'arrow',
+    texture: 'arrow',
+    frame: 0,
+    animation: 'arrow-point',
+    depth: Depths.arrow
+  }
+];
 
 export class DungeonObjectFactory {
   constructor(
     private readonly scene: Phaser.Scene
   ) {}
 
-  create(worldX: number, worldY: number, tileIndex: number) {
-    const texture = tileIndexToTexture[tileIndex];
-    const frame = tileIndexToFrame[tileIndex];
-    const depth = tileIndexToDepth[tileIndex];
+  createByIndex(worldX: number, worldY: number, tileIndex: number) {
+    const objectProperties = Object.values(objectPropertiesList).find(p => p.tileIndex === tileIndex);
 
-    const sprite = this.scene.add.sprite(worldX, worldY, texture, frame)
+    if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${tileIndex}`);
+
+    return this.create(worldX, worldY, objectProperties);
+  }
+
+  createByName(worldX: number, worldY: number, name: string) {
+    const objectProperties = Object.values(objectPropertiesList).find(p => p.name === name);
+
+    if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${name}`);
+
+    return this.create(worldX, worldY, objectProperties);
+  }
+
+  private create(x: number, y: number, objectProperties: ObjectProperties) {
+    const texture = objectProperties.texture;
+    const frame = objectProperties.frame;
+    const depth = objectProperties.depth;
+
+    const sprite = this.scene.add.sprite(x, y, texture, frame)
       .setOrigin(0)
       .setDepth(depth);
 
-    const name = tileIndexToName[tileIndex];
+    const name = objectProperties.name;
 
-    const animationName = tileIndexToAnimation[tileIndex];
+    const animationName = objectProperties.animation;
     if (animationName) {
       sprite.anims.play(animationName);
     }
