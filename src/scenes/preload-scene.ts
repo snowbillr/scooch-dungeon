@@ -20,8 +20,8 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
 
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
-    this.load.spritesheet('arrow', 'assets/interface/arrow.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.animation('arrow-animations', 'assets/interface/arrow-animations.json');
+    this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
     this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });

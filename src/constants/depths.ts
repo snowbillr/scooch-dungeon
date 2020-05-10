@@ -8,5 +8,5 @@ export const Depths = {
   objective: 40,
 
   // interface
-  arrow: 60,
+  "swipe-indicator": 60,
 };

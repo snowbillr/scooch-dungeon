@@ -1,9 +1,10 @@
-import { DungeonTile, DungeonTileBehavior } from "../../dungeon/dungeon-tile";
+import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
 import { Dungeon } from "../../dungeon/dungeon";
-import { Direction, OppositeDirection } from "../../constants/directions";
+import { Direction } from "../../constants/directions";
 import { DungeonScene } from "../../scenes/dungeon-scene";
+import { DungeonObjectFactory } from "../../dungeon/dungeon-object-factory";
 
-export const RemoveArrowBehavior: DungeonTileBehavior = {
+export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
   priority: 100,
 
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
@@ -37,28 +38,44 @@ export const RemoveArrowBehavior: DungeonTileBehavior = {
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
     let objectiveTile;
+    let objectiveDirection;
     if (cursor.up() && cursor.getTile().isObjective()) {
       objectiveTile = cursor.getTile();
+      objectiveDirection = Direction.UP;
     }
     cursor.reset();
     if (cursor.down() && cursor.getTile().isObjective()) {
       objectiveTile = cursor.getTile();
+      objectiveDirection = Direction.DOWN;
     }
     cursor.reset();
     if (cursor.left() && cursor.getTile().isObjective()) {
       objectiveTile = cursor.getTile();
+      objectiveDirection = Direction.LEFT;
     }
     cursor.reset();
     if (cursor.right() && cursor.getTile().isObjective()) {
       objectiveTile = cursor.getTile();
+      objectiveDirection = Direction.RIGHT;
     }
+    if (!objectiveTile || !objectiveDirection) throw new Error('EnterBehavior - ShowSwipeIndicator - no objective neighbor found');
 
-    // find objective tile around it, then remove the arrow. opposite direction doesn't work
-    // cursor.move(OppositeDirection(direction));
-    // const objectiveTile = cursor.getTile();
+    const rotation = {
+      [Direction.DOWN]: 0,
+      [Direction.LEFT]: Math.PI / 2,
+      [Direction.UP]: Math.PI,
+      [Direction.RIGHT]: Math.PI + Math.PI / 2,
+    }[objectiveDirection];
 
-    if (!objectiveTile) throw new Error('ExitBehavior - RemoveArrow - no objective neighbor found');
+    const objectFactory = new DungeonObjectFactory(scene);
+    const swipeIndicatorDungeonObject = objectFactory.createByName(objectiveTile.worldX, objectiveTile.worldY, 'swipe-indicator');
 
-    objectiveTile.removeObject('arrow');
+    // TODO get half the tile width/height in a better way
+    swipeIndicatorDungeonObject.sprite
+      .setPosition(objectiveTile.worldX + 16, objectiveTile.worldY + 16)
+      .setOrigin(0.5)
+      .setRotation(rotation);
+
+    objectiveTile.addObject(swipeIndicatorDungeonObject);
   }
-};
+}

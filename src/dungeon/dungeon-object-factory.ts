@@ -56,11 +56,11 @@ const objectPropertiesList = [
     depth: Depths.coin
   },
   {
-    name: 'arrow',
-    texture: 'arrow',
+    name: 'swipe-indicator',
+    texture: 'swipe-indicator',
     frame: 0,
-    animation: 'arrow-point',
-    depth: Depths.arrow
+    animation: 'swipe-indicator-bounce',
+    depth: Depths['swipe-indicator']
   }
 ];
 

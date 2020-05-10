@@ -1,7 +1,7 @@
 import { CollectCoinBehavior } from './enter/collect-coin';
-import { ShowArrowBehavior } from './enter/show-arrow';
+import { ShowSwipeIndicatorBehavior } from './enter/show-swipe-indicator';
 
 export const EnterBehaviors = [
   CollectCoinBehavior,
-  ShowArrowBehavior
+  ShowSwipeIndicatorBehavior
 ];
