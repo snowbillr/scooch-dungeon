@@ -9,6 +9,7 @@ import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { HUDScene } from "./hud-scene";
+import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -71,7 +72,7 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const tile = cursor.getTile();
 
-    tile.runInputBehaviors(direction, this);
+    tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, this);
   }
 
   private calculateCameraBounds() {

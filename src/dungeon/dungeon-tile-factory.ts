@@ -1,4 +1,4 @@
-import { DungeonTileProperties, DungeonTile, DungeonTileBehavior } from "./dungeon-tile";
+import { DungeonTileProperties, DungeonTile, DungeonTileBehavior, DungeonTileBehaviorType } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
 import { InputBehaviors } from "../behaviors/input-behaviors";
 import { EnterBehaviors } from "../behaviors/enter-behaviors";
@@ -25,19 +25,19 @@ export class DungeonTileFactory {
   addBehaviors(dungeonTile: DungeonTile, dungeon: Dungeon) {
     InputBehaviors.forEach(behavior => {
       if (behavior.isApplicable(dungeonTile, dungeon)) {
-        dungeonTile.addInputBehavior(behavior);
+        dungeonTile.addBehavior(DungeonTileBehaviorType.INPUT, behavior);
       }
     });
 
     EnterBehaviors.forEach(behavior => {
       if (behavior.isApplicable(dungeonTile, dungeon)) {
-        dungeonTile.addEnterBehavior(behavior);
+        dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, behavior);
       }
     });
 
     ExitBehaviors.forEach(behavior => {
       if (behavior.isApplicable(dungeonTile, dungeon)) {
-        dungeonTile.addExitBehavior(behavior);
+        dungeonTile.addBehavior(DungeonTileBehaviorType.EXIT, behavior);
       }
     });
   }

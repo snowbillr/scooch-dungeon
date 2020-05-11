@@ -1,4 +1,4 @@
-import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
+import { DungeonTileBehavior, DungeonTile, DungeonTileBehaviorType } from "../../dungeon/dungeon-tile";
 import { Direction } from "../../constants/directions";
 import { Dungeon } from "../../dungeon/dungeon";
 import { DungeonScene } from "../../scenes/dungeon-scene";
@@ -27,6 +27,6 @@ export const CollectCoinBehavior: DungeonTileBehavior = {
       duration: 200
     });
 
-    dungeonTile.removeEnterBehavior(this);
+    dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, this);
   }
 }

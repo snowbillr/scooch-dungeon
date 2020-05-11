@@ -5,6 +5,7 @@ import { SpriteComponent } from "../components/sprite-component";
 import { GridPositionComponent } from "../components/grid-position-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { DungeonScene } from "../scenes/dungeon-scene";
+import { DungeonTileBehaviorType } from "./dungeon-tile";
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: DungeonScene) {
@@ -53,12 +54,12 @@ export const MovementPlanner = {
           },
           duration: 200,
           onStart() {
-            currentTile.runExitBehaviors(direction, scene);
+            currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
           },
           onComplete() {
             heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
 
-            nextTile.runEnterBehaviors(direction, scene);
+            nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
           }
         });
 
