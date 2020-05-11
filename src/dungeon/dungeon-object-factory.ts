@@ -10,29 +10,6 @@ type ObjectProperties = {
   depth: number;
 }
 
-/*
-const tileIndexToObjectProperties: Record<string, ObjectProperties> = {
-  50: {
-    name: 'rock',
-    texture: 'rock',
-    depth: Depths.rock
-  },
-  85: {
-    name: 'objective',
-    texture: 'objective',
-    frame: 0,
-    depth: Depths.objective
-  },
-  87: {
-    name: 'coin',
-    texture: 'coin',
-    frame: 0,
-    animation: 'coin-spin',
-    depth: Depths.coin
-  }
-};
-*/
-
 const objectPropertiesList = [
   {
     name: 'rock',

@@ -71,7 +71,6 @@ export class DungeonTile {
 
   removeObject(name: string) {
     const dungeonObjectIndex = this.objects.findIndex(dungeonObject => dungeonObject.name === name);
-    // debugger;
     const [dungeonObject] = this.objects.splice(dungeonObjectIndex, 1);
     dungeonObject.destroy();
   }

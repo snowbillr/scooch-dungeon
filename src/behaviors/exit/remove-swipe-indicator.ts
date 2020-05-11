@@ -9,49 +9,16 @@ export const RemoveSwipeIndicatorBehavior: DungeonTileBehavior = {
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let applicable = false;
-
-    if (cursor.up()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.right()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.down()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.left()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    return applicable;
+    return cursor.getCardinalNeighbors()
+      .some(({ dungeonTile }) => dungeonTile.isObjective());
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let objectiveTile;
-    if (cursor.up() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-    }
-    cursor.reset();
-    if (cursor.down() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-    }
-    cursor.reset();
-    if (cursor.left() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-    }
-    cursor.reset();
-    if (cursor.right() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-    }
+    let objectiveTile: DungeonTile | undefined = cursor.getCardinalNeighbors()
+                                                       .find(({ dungeonTile }) => dungeonTile.isObjective())
+                                                       ?.dungeonTile;
 
     if (!objectiveTile) throw new Error('ExitBehavior - RemoveSwipeIndicator - no objective neighbor found');
 

@@ -10,28 +10,8 @@ export const WinBehavior: DungeonTileBehavior = {
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let isApplicable = false;
-
-    if (cursor.right()) {
-      isApplicable = isApplicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.left()) {
-      isApplicable = isApplicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.up()) {
-      isApplicable = isApplicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.down()) {
-      isApplicable = isApplicable || cursor.getTile().isObjective();
-    }
-
-    return isApplicable;
+    return cursor.getCardinalNeighbors()
+      .some(({ dungeonTile }) => dungeonTile.isObjective());
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {

@@ -77,4 +77,42 @@ export class DungeonCursor {
   getTile(): DungeonTile {
     return this.dungeon.getTile(this.x, this.y);
   }
+
+  getCardinalNeighbors(): { dungeonTile: DungeonTile, direction: Direction }[] {
+    const cardinalNeighbors = [];
+
+    if (this.up()) {
+      cardinalNeighbors.push({
+        direction: Direction.UP,
+        dungeonTile: this.getTile()
+      });
+    }
+    this.down();
+
+    if (this.down()) {
+      cardinalNeighbors.push({
+        direction: Direction.DOWN,
+        dungeonTile: this.getTile()
+      });
+    }
+    this.up();
+
+    if (this.left()) {
+      cardinalNeighbors.push({
+        direction: Direction.LEFT,
+        dungeonTile: this.getTile()
+      });
+    }
+    this.right();
+    
+    if (this.right()) {
+      cardinalNeighbors.push({
+        direction: Direction.RIGHT,
+        dungeonTile: this.getTile()
+      });
+    }
+    this.left();
+
+    return cardinalNeighbors;
+  }
 }

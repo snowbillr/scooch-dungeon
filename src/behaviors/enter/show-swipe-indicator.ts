@@ -10,54 +10,22 @@ export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
   isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
     const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let applicable = false;
-
-    if (cursor.up()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.right()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.down()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    cursor.reset();
-    if (cursor.left()) {
-      applicable = applicable || cursor.getTile().isObjective();
-    }
-
-    return applicable;
+    return cursor.getCardinalNeighbors()
+                 .some(({ dungeonTile }) => dungeonTile.isObjective());
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let objectiveTile;
-    let objectiveDirection;
-    if (cursor.up() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-      objectiveDirection = Direction.UP;
-    }
-    cursor.reset();
-    if (cursor.down() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-      objectiveDirection = Direction.DOWN;
-    }
-    cursor.reset();
-    if (cursor.left() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-      objectiveDirection = Direction.LEFT;
-    }
-    cursor.reset();
-    if (cursor.right() && cursor.getTile().isObjective()) {
-      objectiveTile = cursor.getTile();
-      objectiveDirection = Direction.RIGHT;
-    }
+    let objectiveTile: DungeonTile | undefined;
+    let objectiveDirection: Direction | undefined;
+    cursor.getCardinalNeighbors().forEach(({ dungeonTile, direction }) => {
+      if (dungeonTile.isObjective()) {
+        objectiveTile = dungeonTile;
+        objectiveDirection = direction;
+      }
+    });
+
     if (!objectiveTile || !objectiveDirection) throw new Error('EnterBehavior - ShowSwipeIndicator - no objective neighbor found');
 
     const rotation = {
