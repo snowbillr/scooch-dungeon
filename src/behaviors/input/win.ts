@@ -15,6 +15,7 @@ export const WinBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    console.log('run win behavior')
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return false;

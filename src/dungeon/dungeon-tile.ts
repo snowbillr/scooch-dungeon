@@ -93,30 +93,22 @@ export class DungeonTile {
   }
 
   runInputBehaviors(direction: Direction, scene: DungeonScene) {
-    const sortedInputBehaviors = this.inputBehaviors.slice().sort((a, b) => b.priority - a.priority);
-
-    for (let inputBehavior of sortedInputBehaviors) {
-      const stopPropagation = inputBehavior.run(direction, this, scene)
-
-      if (stopPropagation) break;
-    };
+    this.runBehaviors(this.inputBehaviors, direction, scene);
   }
 
   runEnterBehaviors(direction: Direction, scene: DungeonScene) {
-    const sortedEnterBehaviors = this.enterBehaviors.slice().sort((a, b) => a.priority - b.priority);
-
-    for (let enterBehavior of sortedEnterBehaviors) {
-      const stopPropagation = enterBehavior.run(direction, this, scene)
-
-      if (stopPropagation) break;
-    };
+    this.runBehaviors(this.enterBehaviors, direction, scene);
   }
 
   runExitBehaviors(direction: Direction, scene: DungeonScene) {
-    const sortedExitBehaviors = this.exitBehaviors.slice().sort((a, b) => a.priority - b.priority);
+    this.runBehaviors(this.exitBehaviors, direction, scene);
+  }
 
-    for (let exitBehavior of sortedExitBehaviors) {
-      const stopPropagation = exitBehavior.run(direction, this, scene)
+  runBehaviors(behaviors: DungeonTileBehavior[], direction: Direction, scene: DungeonScene) {
+    const sortedBehaviors = behaviors.slice().sort((a, b) => b.priority - a.priority);
+
+    for (let behavior of sortedBehaviors) {
+      const stopPropagation = behavior.run(direction, this, scene)
 
       if (stopPropagation) break;
     };

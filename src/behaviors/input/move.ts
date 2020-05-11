@@ -12,6 +12,7 @@ export const MoveBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    console.log('run move behavior')
     scene.dungeon.stats.incrementMoves();
 
     const movementTimeline = MovementPlanner.buildMovementTimeline(scene.hero, direction, scene.dungeon, scene);
