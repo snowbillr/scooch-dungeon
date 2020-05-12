@@ -1,0 +1,15 @@
+{
+  "anims": [
+    {
+      "key": "swipe-indicator-bounce",
+      "frames": [
+        { "key": "swipe-indicator", "frame": 3 },
+        { "key": "swipe-indicator", "frame": 2 },
+        { "key": "swipe-indicator", "frame": 1 },
+        { "key": "swipe-indicator", "frame": 0 }
+      ],
+      "repeat": -1,
+      "frameRate": 6
+    }
+  ]
+}
