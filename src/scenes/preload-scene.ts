@@ -1,5 +1,6 @@
 import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+import { Viewport } from "../constants/viewport";
 
 export class PreloadScene extends ScoochDungeonScene {
   constructor() {
@@ -7,6 +8,25 @@ export class PreloadScene extends ScoochDungeonScene {
   }
 
   preload() {
+    this.cameras.main.setBackgroundColor(0x3D253B);
+
+    const centerX = Viewport.WIDTH / 2;
+    const centerY = Viewport.HEIGHT / 2;
+
+    const loaderWidth = 150;
+    const loaderHeight = 40;
+    const borderSize = 3;
+
+    const loaderBorder = this.add.rectangle(centerX - loaderWidth / 2, centerY, loaderWidth, loaderHeight, 0xDA4E38)
+      .setOrigin(0, 0.5)
+    const loaderBar = this.add.rectangle(centerX - loaderWidth / 2 + borderSize, centerY, 0, loaderHeight - borderSize * 2, 0xEE8D2E)
+      .setOrigin(0, 0.5)
+
+    this.load.on(Phaser.Loader.Events.PROGRESS, (progress: number) => {
+      const loaderBarWidth = progress * (loaderWidth - borderSize * 2);
+      loaderBar.width = loaderBarWidth;
+    });
+
     this.load.audio('coin', ['assets/sfx/coin.mp3', 'assets/sfx/coin.ogg']);
     this.load.audio('die', ['assets/sfx/die.mp3', 'assets/sfx/die.ogg']);
     this.load.audio('level-complete', ['assets/sfx/level-complete.mp3', 'assets/sfx/level-complete.ogg']);
