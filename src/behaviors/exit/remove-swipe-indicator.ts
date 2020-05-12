@@ -14,14 +14,6 @@ export const RemoveSwipeIndicatorBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
-
-    let objectiveTile: DungeonTile | undefined = cursor.getCardinalNeighbors()
-                                                       .find(({ dungeonTile }) => dungeonTile.isObjective())
-                                                       ?.dungeonTile;
-
-    if (!objectiveTile) throw new Error('ExitBehavior - RemoveSwipeIndicator - no objective neighbor found');
-
-    objectiveTile.removeObject('swipe-indicator');
+    dungeonTile.removeObject('swipe-indicator');
   }
 };

@@ -17,16 +17,14 @@ export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
 
-    let objectiveTile: DungeonTile | undefined;
     let objectiveDirection: Direction | undefined;
     cursor.getCardinalNeighbors().forEach(({ dungeonTile, direction }) => {
       if (dungeonTile.isObjective()) {
-        objectiveTile = dungeonTile;
         objectiveDirection = direction;
       }
     });
 
-    if (!objectiveTile || !objectiveDirection) throw new Error('EnterBehavior - ShowSwipeIndicator - no objective neighbor found');
+    if (!objectiveDirection) throw new Error('EnterBehavior - ShowSwipeIndicator - no objective neighbor found');
 
     const rotation = {
       [Direction.DOWN]: 0,
@@ -35,15 +33,30 @@ export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
       [Direction.RIGHT]: Math.PI + Math.PI / 2,
     }[objectiveDirection];
 
+    const tileWidth = 32;
+    const xOffset = {
+      [Direction.DOWN]: tileWidth / 2,
+      [Direction.LEFT]: 0,
+      [Direction.UP]: tileWidth / 2,
+      [Direction.RIGHT]: tileWidth,
+    }[objectiveDirection];
+
+    const yOffset = {
+      [Direction.DOWN]: tileWidth,
+      [Direction.LEFT]: tileWidth / 2,
+      [Direction.UP]: 0,
+      [Direction.RIGHT]: tileWidth / 2,
+    }[objectiveDirection];
+
     const objectFactory = new DungeonObjectFactory(scene);
-    const swipeIndicatorDungeonObject = objectFactory.createByName(objectiveTile.worldX, objectiveTile.worldY, 'swipe-indicator');
+    const swipeIndicatorDungeonObject = objectFactory.createByName(dungeonTile.worldX, dungeonTile.worldY, 'swipe-indicator');
 
     // TODO get half the tile width/height in a better way
     swipeIndicatorDungeonObject.sprite
-      .setPosition(objectiveTile.worldX + 16, objectiveTile.worldY + 16)
+      .setPosition(dungeonTile.worldX + xOffset, dungeonTile.worldY + yOffset)
       .setOrigin(0.5)
       .setRotation(rotation);
 
-    objectiveTile.addObject(swipeIndicatorDungeonObject);
+    dungeonTile.addObject(swipeIndicatorDungeonObject);
   }
 }
