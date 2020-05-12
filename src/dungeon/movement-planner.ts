@@ -6,6 +6,7 @@ import { GridPositionComponent } from "../components/grid-position-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { DungeonScene } from "../scenes/dungeon-scene";
 import { DungeonTileBehaviorType } from "./dungeon-tile";
+import { CallbackOrderEnforcer } from '../lib/callback-order-enforcer';
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: DungeonScene) {
@@ -14,29 +15,38 @@ export const MovementPlanner = {
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);
     let canMove = dungeon.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
 
+    // https://codepen.io/snowbillr/pen/vYNaEJd?editors=1111
+    // Phaser doesn't reliably call timeline tween's callbacks in order.
+    // This utility class enforces callback order in tandem with the timeline.
+    const callbackOrderEnforcer = new CallbackOrderEnforcer();
+
     const timeline = scene.tweens.timeline({
       // Setting the `tweens` array go an empty tween because the timeline won't set the onStart and
       // onComplete if the tweens array is empty. Also need to set `paused` to true explicitly.
       tweens: [{targets: [], duration: 0}],
       paused: true,
       onStart() {
-        hero.getComponent(StateMachineComponent).stateMachine.doTransition({
-          to: 'moving',
-          onTransition(hero: Entity) {
-            const sprite = hero.getComponent(SpriteComponent).sprite;
-
-            if (direction === Direction.LEFT) {
-              sprite.flipX = true;
-            } else if (direction === Direction.RIGHT) {
-              sprite.flipX = false;
-            }
-          }
-        });
+        callbackOrderEnforcer.runNext();
       },
 
       onComplete() {
-        hero.getComponent(StateMachineComponent).stateMachine.doTransition({ to: 'idle' });
+        callbackOrderEnforcer.runNext();
       }
+    });
+
+    callbackOrderEnforcer.addCallback(() => {
+      hero.getComponent(StateMachineComponent).stateMachine.doTransition({
+        to: 'moving',
+        onTransition(hero: Entity) {
+          const sprite = hero.getComponent(SpriteComponent).sprite;
+
+          if (direction === Direction.LEFT) {
+            sprite.flipX = true;
+          } else if (direction === Direction.RIGHT) {
+            sprite.flipX = false;
+          }
+        }
+      });
     });
 
     while(canMove) {
@@ -54,13 +64,18 @@ export const MovementPlanner = {
           },
           duration: 200,
           onStart() {
-            currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
+            callbackOrderEnforcer.runNext();
           },
           onComplete() {
-            heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
-
-            nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
+            callbackOrderEnforcer.runNext();
           }
+        });
+        callbackOrderEnforcer.addCallback(() => {
+          currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
+        });
+        callbackOrderEnforcer.addCallback(() => {
+          heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
+          nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
         });
 
         plannerPosition.set(nextTile.gridX, nextTile.gridY);
@@ -68,6 +83,10 @@ export const MovementPlanner = {
         canMove = false;
       }
     }
+
+    callbackOrderEnforcer.addCallback(() => {
+      hero.getComponent(StateMachineComponent).stateMachine.doTransition({ to: 'idle' });
+    });
 
     return timeline;
   }
