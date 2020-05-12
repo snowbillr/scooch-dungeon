@@ -19,6 +19,7 @@ export const WinBehavior: DungeonTileBehavior = {
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return false;
 
+    dungeonTile.removeObject('swipe-indicator');
     const objectiveSprite = cursor.getTile().getObject('objective')?.sprite;
 
     const animPromise = new Promise(resolve => {
