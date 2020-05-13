@@ -9,16 +9,16 @@ import { DungeonTileBehaviorType } from "./dungeon-tile";
 import { CallbackQueue } from '../lib/callback-queue';
 
 export const MovementPlanner = {
-  buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: DungeonScene) {
+  buildMovementTimeline(hero: Entity, direction: Direction, scene: DungeonScene) {
     const heroSprite = hero.getComponent(SpriteComponent).sprite;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);
-    let canMove = dungeon.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
+    let canMove = scene.dungeon.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
 
     // https://codepen.io/snowbillr/pen/vYNaEJd?editors=1111
     // Phaser doesn't reliably call timeline tween's callbacks in order.
     // This utility class enforces callback order in tandem with the timeline.
-    const callbackOrderEnforcer = new CallbackQueue();
+    const callbackQueue = new CallbackQueue();
 
     const timeline = scene.tweens.timeline({
       // Setting the `tweens` array go an empty tween because the timeline won't set the onStart and
@@ -26,15 +26,15 @@ export const MovementPlanner = {
       tweens: [{targets: [], duration: 0}],
       paused: true,
       onStart() {
-        callbackOrderEnforcer.runNext();
+        callbackQueue.runNext();
       },
 
       onComplete() {
-        callbackOrderEnforcer.runNext();
+        callbackQueue.runNext();
       }
     });
 
-    callbackOrderEnforcer.addCallback(() => {
+    callbackQueue.addCallback(() => {
       hero.getComponent(StateMachineComponent).stateMachine.doTransition({
         to: 'moving',
         onTransition(hero: Entity) {
@@ -50,8 +50,8 @@ export const MovementPlanner = {
     });
 
     while(canMove) {
-      const currentTile = dungeon.getTile(plannerPosition.x, plannerPosition.y);
-      const nextTile = dungeon.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
+      const currentTile = scene.dungeon.getTile(plannerPosition.x, plannerPosition.y);
+      const nextTile = scene.dungeon.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
 
       if (nextTile) {
         const nextTileWorldPosition = new Phaser.Math.Vector2(nextTile.worldX, nextTile.worldY);
@@ -64,16 +64,16 @@ export const MovementPlanner = {
           },
           duration: 200,
           onStart() {
-            callbackOrderEnforcer.runNext();
+            callbackQueue.runNext();
           },
           onComplete() {
-            callbackOrderEnforcer.runNext();
+            callbackQueue.runNext();
           }
         });
-        callbackOrderEnforcer.addCallback(() => {
+        callbackQueue.addCallback(() => {
           currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
         });
-        callbackOrderEnforcer.addCallback(() => {
+        callbackQueue.addCallback(() => {
           heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
           nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
         });
@@ -84,7 +84,7 @@ export const MovementPlanner = {
       }
     }
 
-    callbackOrderEnforcer.addCallback(() => {
+    callbackQueue.addCallback(() => {
       hero.getComponent(StateMachineComponent).stateMachine.doTransition({ to: 'idle' });
     });
 
