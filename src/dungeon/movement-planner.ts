@@ -6,7 +6,7 @@ import { GridPositionComponent } from "../components/grid-position-component";
 import { StateMachineComponent } from "../components/state-machine-component";
 import { DungeonScene } from "../scenes/dungeon-scene";
 import { DungeonTileBehaviorType } from "./dungeon-tile";
-import { CallbackOrderEnforcer } from '../lib/callback-order-enforcer';
+import { CallbackQueue } from '../lib/callback-queue';
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, dungeon: Dungeon, scene: DungeonScene) {
@@ -18,7 +18,7 @@ export const MovementPlanner = {
     // https://codepen.io/snowbillr/pen/vYNaEJd?editors=1111
     // Phaser doesn't reliably call timeline tween's callbacks in order.
     // This utility class enforces callback order in tandem with the timeline.
-    const callbackOrderEnforcer = new CallbackOrderEnforcer();
+    const callbackOrderEnforcer = new CallbackQueue();
 
     const timeline = scene.tweens.timeline({
       // Setting the `tweens` array go an empty tween because the timeline won't set the onStart and
