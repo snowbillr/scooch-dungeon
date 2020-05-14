@@ -17,6 +17,8 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public hud!: HUDScene;
 
+  public queuedInput?: Direction;
+
   constructor() {
     super({ key: 'dungeon' });
   }
@@ -35,6 +37,10 @@ export class DungeonScene extends ScoochDungeonScene {
       gridX: heroStartMarker.gridX,
       gridY: heroStartMarker.gridY
     }, heroStartMarker.worldX, heroStartMarker.worldY);
+
+    this.swipe.addListener(direction => {
+      this.handleInput(direction);
+    });
 
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
@@ -58,6 +64,12 @@ export class DungeonScene extends ScoochDungeonScene {
       this.scene.restart();
     });
     this.cameras.main.fadeOut(1000);
+  }
+
+  private handleInput(direction: Direction) {
+    if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') {
+      this.queuedInput = direction;
+    };
   }
 
   private calculateCameraBounds() {
