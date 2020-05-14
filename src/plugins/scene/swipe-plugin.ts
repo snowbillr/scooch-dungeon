@@ -22,6 +22,13 @@ export class SwipePlugin extends Phaser.Plugins.ScenePlugin  {
     this.listeners.push(listener);
   }
 
+  removeListener(listener: SwipeListener) {
+    const listenerIndex = this.listeners.findIndex(l => l === listener);
+    if (listenerIndex >= 0) {
+      this.listeners.splice(listenerIndex, 1);
+    }
+  }
+
   private startListening() {
     this.scene.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
     this.scene.input.on(Phaser.Input.Events.POINTER_UP, this.onPointerUp, this);

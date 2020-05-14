@@ -36,10 +36,6 @@ export class DungeonScene extends ScoochDungeonScene {
       gridY: heroStartMarker.gridY
     }, heroStartMarker.worldX, heroStartMarker.worldY);
 
-    this.swipe.addListener(direction => {
-      this.handleInput(direction);
-    });
-
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
     this.cameras.main.setBackgroundColor(0x25131A);
@@ -62,17 +58,6 @@ export class DungeonScene extends ScoochDungeonScene {
       this.scene.restart();
     });
     this.cameras.main.fadeOut(1000);
-  }
-
-  private handleInput(direction: Direction) {
-    if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') return;
-
-    const coordinates = this.hero.getComponent(GridPositionComponent);
-    const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
-
-    const tile = cursor.getTile();
-
-    tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, this);
   }
 
   private calculateCameraBounds() {

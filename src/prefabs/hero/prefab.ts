@@ -4,16 +4,50 @@ import { GridPositionComponent } from "../../components/grid-position-component"
 import { StateMachineComponent } from "../../components/state-machine-component";
 import { Prefab } from "phecs/dist/entity-manager";
 import { Entity } from "phecs/dist/entity";
-import { State } from 'phinite-state-machine';
+import { State, Transition } from 'phinite-state-machine';
+import { TransitionCallback, TriggerActivator } from 'phinite-state-machine/dist/transition';
+import { DungeonScene } from '../../scenes/dungeon-scene';
+import { DungeonTileBehaviorType } from '../../dungeon/dungeon-tile';
+import { Direction } from '../../constants/directions';
+
+class SwipeTransition extends Transition<Entity, DungeonScene> {
+  private direction?: Direction;
+
+  constructor(to: string) {
+    super(to);
+  }
+
+  registerTrigger(activateTrigger: TriggerActivator, scene: DungeonScene) {
+    const handleSwipe = (direction: Direction) => {
+      this.direction = direction;
+      activateTrigger();
+    }
+
+    scene.swipe.addListener(handleSwipe);
+
+    return () => scene.swipe.removeListener(handleSwipe);
+  }
+
+  onTransition(entity: Entity, scene: DungeonScene) {
+    console.log('on transition')
+
+    const coordinates = scene.hero.getComponent(GridPositionComponent);
+    const cursor = scene.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
+
+    const tile = cursor.getTile();
+
+    tile.runBehaviors(DungeonTileBehaviorType.INPUT, this.direction!, scene);
+  }
+}
 
 export const heroStates: State<Entity>[] = [
-  new State('idle', [], {
-    onEnter(hero) {
+  new State('idle', [new SwipeTransition('moving')], {
+    onEnter(hero, scene) {
       hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
     }
   }),
   new State('moving', [], {
-    onEnter(hero) {
+    onEnter(hero, scene) {
       hero.getComponent(SpriteComponent).sprite.anims.play('hero-run');
     }
   })
