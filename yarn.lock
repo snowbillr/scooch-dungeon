@@ -3908,9 +3908,9 @@ phecs@0.x.x:
   integrity sha512-kCl5n/RkvzTKtVc4iVN9tdiYiBf9YybHL+rSQDW+EXAjRg0up+IPYE6ls/uaBKrQMchFOBHN891hLsdBMvEcYQ==
 
 phinite-state-machine@0.x.x:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/phinite-state-machine/-/phinite-state-machine-0.6.0.tgz#51c648b484b60f66b497035eaeb46c9c8e5e99c0"
-  integrity sha512-KaBarkicAUXTHi3dVqEdNJPXsHPNLflbvGodikN6aRfQVpo52XvZy3irTxUmhCn7yez5r2CBZCpVk95zgL5D7g==
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/phinite-state-machine/-/phinite-state-machine-0.7.0.tgz#198ec3fe26657bb7b69ffb3e04fe30a2381c9c20"
+  integrity sha512-Jbd9dhhrtK5YPLY/+3bbPSRZCTtGM+iCs3N5RKBcrI7fHJdqxtaBx4KFdZoq6h6KBqE6n3NeipfpOvdSLSTjqg==
 
 pify@^2.0.0:
   version "2.3.0"

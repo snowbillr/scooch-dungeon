@@ -7,7 +7,6 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { DungeonScene } from "../scenes/dungeon-scene";
 import { DungeonTileBehaviorType } from "./dungeon-tile";
 import { CallbackQueue } from '../lib/callback-queue';
-import { Transition } from 'phinite-state-machine';
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, scene: DungeonScene) {

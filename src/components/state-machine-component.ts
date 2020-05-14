@@ -1,21 +1,22 @@
 import { PhiniteStateMachine } from 'phinite-state-machine';
 import { Entity } from 'phecs/dist/entity';
+import { DungeonScene } from '../scenes/dungeon-scene';
 
-export class StateMachineComponent<T extends Entity> {
-  private scene: Phaser.Scene;
+export class StateMachineComponent {
+  private scene: DungeonScene;
   private data: any;
-  private entity: T;
+  private entity: Entity;
 
-  public stateMachine!: PhiniteStateMachine<T>;
+  public stateMachine!: PhiniteStateMachine<Entity, DungeonScene>;
 
-  constructor(scene: Phaser.Scene, data: any, entity: T) {
-    this.scene = scene;
+  constructor(scene: Phaser.Scene, data: any, entity: Entity) {
+    this.scene = scene as DungeonScene;
     this.data = data;
     this.entity = entity;
   }
 
   onAdd() {
-    this.stateMachine = new PhiniteStateMachine<T>(this.scene, this.entity, this.data.states, this.data.initialState);
+    this.stateMachine = new PhiniteStateMachine<Entity, DungeonScene>(this.scene, this.entity, this.data.states, this.data.initialState);
     this.stateMachine.start();
 
     this.scene.events.on(Phaser.Scenes.Events.POST_UPDATE, () => this.updateStateMachine);
