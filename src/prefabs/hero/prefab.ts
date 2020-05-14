@@ -3,25 +3,20 @@ import { Depths } from "../../constants/depths";
 import { GridPositionComponent } from "../../components/grid-position-component";
 import { StateMachineComponent } from "../../components/state-machine-component";
 import { Prefab } from "phecs/dist/entity-manager";
-
-import { State } from 'phinite-state-machine/dist/types/state';
 import { Entity } from "phecs/dist/entity";
+import { State } from 'phinite-state-machine';
 
-const heroStates: State<Entity>[] = [
-  {
-    id: 'idle',
-    transitions: [],
+export const heroStates: State<Entity>[] = [
+  new State('idle', [], {
     onEnter(hero) {
       hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
     }
-  },
-  {
-    id: 'moving',
-    transitions: [],
+  }),
+  new State('moving', [], {
     onEnter(hero) {
       hero.getComponent(SpriteComponent).sprite.anims.play('hero-run');
     }
-  }
+  })
 ];
 
 export const HeroPrefab: Prefab = {

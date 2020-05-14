@@ -7,6 +7,7 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { DungeonScene } from "../scenes/dungeon-scene";
 import { DungeonTileBehaviorType } from "./dungeon-tile";
 import { CallbackQueue } from '../lib/callback-queue';
+import { Transition } from 'phinite-state-machine';
 
 export const MovementPlanner = {
   buildMovementTimeline(hero: Entity, direction: Direction, scene: DungeonScene) {
@@ -35,16 +36,13 @@ export const MovementPlanner = {
     });
 
     callbackQueue.addCallback(() => {
-      hero.getComponent(StateMachineComponent).stateMachine.doTransition({
-        to: 'moving',
-        onTransition(hero: Entity) {
-          const sprite = hero.getComponent(SpriteComponent).sprite;
+      hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', (hero: Entity) => {
+        const sprite = hero.getComponent(SpriteComponent).sprite;
 
-          if (direction === Direction.LEFT) {
-            sprite.flipX = true;
-          } else if (direction === Direction.RIGHT) {
-            sprite.flipX = false;
-          }
+        if (direction === Direction.LEFT) {
+          sprite.flipX = true;
+        } else if (direction === Direction.RIGHT) {
+          sprite.flipX = false;
         }
       });
     });
@@ -85,7 +83,7 @@ export const MovementPlanner = {
     }
 
     callbackQueue.addCallback(() => {
-      hero.getComponent(StateMachineComponent).stateMachine.doTransition({ to: 'idle' });
+      hero.getComponent(StateMachineComponent).stateMachine.transitionTo('idle');
     });
 
     return timeline;
