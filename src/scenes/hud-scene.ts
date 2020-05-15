@@ -14,6 +14,7 @@ export class HUDScene extends ScoochDungeonScene {
 
   create(data: any) {
     const dungeonScene = this.scene.get('dungeon') as DungeonScene;
+    const settings = this.persistence.getDocument<SettingsDocument>('settings');
 
     const volumeIndicator = this.add.sprite(VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-volume')
       .setInteractive()
@@ -26,9 +27,9 @@ export class HUDScene extends ScoochDungeonScene {
           volumeIndicator.setFrame(0);
         }
 
-        this.persistence.getDocument<SettingsDocument>('settings').setMuted(newMuteValue);
+        settings.setMuted(newMuteValue);
         this.persistence.store();
-      }).setFrame(this.persistence.getDocument<SettingsDocument>('settings').getMuted() ? 1 : 0)
+      }).setFrame(settings.getMuted() ? 1 : 0)
 
     this.add.image(this.scale.width - VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-restart')
       .setInteractive()
