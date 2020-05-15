@@ -35,15 +35,7 @@ export const MovementPlanner = {
     });
 
     callbackQueue.addCallback(() => {
-      hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', (hero: Entity) => {
-        const sprite = hero.getComponent(SpriteComponent).sprite;
-
-        if (direction === Direction.LEFT) {
-          sprite.flipX = true;
-        } else if (direction === Direction.RIGHT) {
-          sprite.flipX = false;
-        }
-      });
+      hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction });
     });
 
     while(canMove) {

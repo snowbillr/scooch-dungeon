@@ -66,10 +66,15 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.fadeOut(1000);
   }
 
-  private handleInput(direction: Direction) {
+  public handleInput(direction: Direction) {
     if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') {
-      this.queuedInput = direction;
-    };
+      const coordinates = this.hero.getComponent(GridPositionComponent);
+      const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
+
+      const tile = cursor.getTile();
+
+      tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, this);
+    }
   }
 
   private calculateCameraBounds() {

@@ -68,7 +68,11 @@ export class SwipePlugin extends Phaser.Plugins.ScenePlugin  {
 
     if (direction && !this.hasSwiped) {
       this.hasSwiped = true;
-      this.listeners.forEach(listener => listener(direction!));
+      // we .slice() here because the phsm transitions will remove themselves from this list as we are iterating through it
+      // and that screws up the iteration
+      this.listeners.slice().forEach(listener => {
+        listener(direction!)
+      });
     }
   }
 }

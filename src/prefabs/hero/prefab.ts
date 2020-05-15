@@ -4,52 +4,40 @@ import { GridPositionComponent } from "../../components/grid-position-component"
 import { StateMachineComponent } from "../../components/state-machine-component";
 import { Prefab } from "phecs/dist/entity-manager";
 import { Entity } from "phecs/dist/entity";
-import { State, Transition, PhiniteStateMachine } from 'phinite-state-machine';
-import { TransitionCallback, TriggerActivator } from 'phinite-state-machine/dist/transition';
+import { State, Transition } from 'phinite-state-machine';
+import { TriggerActivator } from 'phinite-state-machine/dist/transition';
 import { DungeonScene } from '../../scenes/dungeon-scene';
-import { DungeonTileBehaviorType } from '../../dungeon/dungeon-tile';
 import { Direction } from '../../constants/directions';
 
-function move(direction: Direction, scene: DungeonScene) {
-  const coordinates = scene.hero.getComponent(GridPositionComponent);
-  const cursor = scene.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
 
-  const tile = cursor.getTile();
-
-  tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, scene);
-}
-
+/*
 class SwipeMovementTransition extends Transition<Entity, DungeonScene> {
-  private direction?: Direction;
-
   constructor(to: string) {
     super(to);
   }
 
   registerTrigger(activateTrigger: TriggerActivator, scene: DungeonScene) {
     const handleSwipe = (direction: Direction) => {
-      this.direction = direction;
-      activateTrigger();
+      activateTrigger({ direction });
     }
 
     scene.swipe.addListener(handleSwipe);
 
     return () => scene.swipe.removeListener(handleSwipe);
   }
-
-  onTransition(entity: Entity, scene: DungeonScene) {
-    move(this.direction!, scene);
-  }
 }
+*/
 
 export const heroStates: State<Entity>[] = [
-  new State('idle', [new SwipeMovementTransition('moving')], {
-    onEnter(hero, scene) {
+  new State('idle', [], {
+    onEnter(hero, scene: DungeonScene) {
       const dungeonScene = scene as DungeonScene;
 
       if (dungeonScene.queuedInput) {
-        hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving');
-        move(dungeonScene.queuedInput, dungeonScene);
+
+        dungeonScene.handleInput(dungeonScene.queuedInput);
+        hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction: dungeonScene.queuedInput });
+
         dungeonScene.queuedInput = undefined;
       } else {
         hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
@@ -57,9 +45,15 @@ export const heroStates: State<Entity>[] = [
     }
   }),
   new State('moving', [], {
-    onEnter(hero, scene) {
-      // TODO - can i put the movement code in here, and pass it extra data from wherever the transition happens?
-      hero.getComponent(SpriteComponent).sprite.anims.play('hero-run');
+    onEnter(hero, scene, transitionData: any) {
+      const sprite = hero.getComponent(SpriteComponent).sprite;
+
+      if (transitionData.direction === Direction.LEFT) {
+        sprite.flipX = true;
+      } else if (transitionData.direction === Direction.RIGHT) {
+        sprite.flipX = false;
+      }
+      sprite.anims.play('hero-run');
     }
   })
 ];

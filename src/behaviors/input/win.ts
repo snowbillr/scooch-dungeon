@@ -3,6 +3,8 @@ import { Dungeon } from "../../dungeon/dungeon";
 import { Direction } from "../../constants/directions";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
+import { SpriteComponent } from '../../components/sprite-component';
+import { StateMachineComponent } from '../../components/state-machine-component';
 
 export const WinBehavior: DungeonTileBehavior = {
   priority: 100,
@@ -15,6 +17,8 @@ export const WinBehavior: DungeonTileBehavior = {
   },
 
   run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
+    scene.hero.getComponent(StateMachineComponent).stateMachine.stop();
+
     const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
     cursor.move(direction);
     if (!cursor.getTile().isObjective()) return false;
@@ -26,6 +30,7 @@ export const WinBehavior: DungeonTileBehavior = {
       objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
     });
 
+    scene.scene.stop('hud');
     scene.sfx.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
 
