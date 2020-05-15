@@ -1,4 +1,7 @@
-export class SfxScene extends Phaser.Scene {
+import { ScoochDungeonScene } from './scooch-dungeon-scene';
+import { SettingsDocument } from '../persistence/settings-document';
+
+export class SfxScene extends ScoochDungeonScene {
   private levelMusic!: Phaser.Sound.BaseSound;
 
   constructor() {
@@ -6,6 +9,8 @@ export class SfxScene extends Phaser.Scene {
   }
 
   init() {
+    this.sound.mute = this.persistence.getDocument<SettingsDocument>('settings').getMuted();
+
     this.events.on(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
   }
 

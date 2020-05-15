@@ -1,6 +1,7 @@
 import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { Viewport } from "../constants/viewport";
+import { SettingsDocument } from '../persistence/settings-document';
 
 export class PreloadScene extends ScoochDungeonScene {
   constructor() {
@@ -40,6 +41,7 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
 
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
+    this.load.spritesheet('hud-volume', 'assets/interface/volume-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');
 

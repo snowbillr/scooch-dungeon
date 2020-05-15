@@ -1,5 +1,6 @@
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { DungeonScene } from "./dungeon-scene";
+import { SettingsDocument } from '../persistence/settings-document';
 
 const VIEWPORT_PADDING = 60;
 
@@ -14,8 +15,22 @@ export class HUDScene extends ScoochDungeonScene {
   create(data: any) {
     const dungeonScene = this.scene.get('dungeon') as DungeonScene;
 
+    const volumeIndicator = this.add.sprite(VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-volume')
+      .setInteractive()
+      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        const newMuteValue = !this.sound.mute;
+        this.sound.mute = newMuteValue;
+        if (newMuteValue) {
+          volumeIndicator.setFrame(1);
+        } else {
+          volumeIndicator.setFrame(0);
+        }
+
+        this.persistence.getDocument<SettingsDocument>('settings').setMuted(newMuteValue);
+        this.persistence.store();
+      }).setFrame(this.persistence.getDocument<SettingsDocument>('settings').getMuted() ? 1 : 0)
+
     this.add.image(this.scale.width - VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-restart')
-      .setOrigin(0.5)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         dungeonScene.resetLevel();
@@ -29,7 +44,7 @@ export class HUDScene extends ScoochDungeonScene {
       this.add.bitmapText(VIEWPORT_PADDING + 40, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '/')
         .setOrigin(0, 0.5);
       this.totalCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 60, this.scale.height - VIEWPORT_PADDING, 'matchup-32', data.totalCoins)
-        .setOrigin(0, 0.5); 
+        .setOrigin(0, 0.5);
     }
   }
 

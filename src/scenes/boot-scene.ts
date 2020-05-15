@@ -1,5 +1,7 @@
-import { ProgressDocument } from "../persistence/progress-document";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
+
+import { ProgressDocument } from "../persistence/progress-document";
+import { SettingsDocument } from '../persistence/settings-document';
 
 export class BootScene extends ScoochDungeonScene {
   constructor() {
@@ -8,6 +10,7 @@ export class BootScene extends ScoochDungeonScene {
 
   create() {
     this.persistence.addDocument(new ProgressDocument());
+    this.persistence.addDocument(new SettingsDocument());
 
     this.scene.start('preload');
   }
