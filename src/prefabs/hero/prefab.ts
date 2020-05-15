@@ -19,7 +19,7 @@ function move(direction: Direction, scene: DungeonScene) {
   tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, scene);
 }
 
-class SwipeTransition extends Transition<Entity, DungeonScene> {
+class SwipeMovementTransition extends Transition<Entity, DungeonScene> {
   private direction?: Direction;
 
   constructor(to: string) {
@@ -43,13 +43,13 @@ class SwipeTransition extends Transition<Entity, DungeonScene> {
 }
 
 export const heroStates: State<Entity>[] = [
-  new State('idle', [new SwipeTransition('moving')], {
+  new State('idle', [new SwipeMovementTransition('moving')], {
     onEnter(hero, scene) {
       const dungeonScene = scene as DungeonScene;
 
       if (dungeonScene.queuedInput) {
-        move(dungeonScene.queuedInput, dungeonScene);
         hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving');
+        move(dungeonScene.queuedInput, dungeonScene);
       } else {
         hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
       }
@@ -57,6 +57,7 @@ export const heroStates: State<Entity>[] = [
   }),
   new State('moving', [], {
     onEnter(hero, scene) {
+      // TODO - can i put the movement code in here, and pass it extra data from wherever the transition happens?
       hero.getComponent(SpriteComponent).sprite.anims.play('hero-run');
     }
   })

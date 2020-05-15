@@ -10,6 +10,7 @@ import { BootScene } from './scenes/boot-scene';
 import { SwipePlugin } from './plugins/scene/swipe-plugin';
 import { SfxScene } from './scenes/sfx-scene';
 import { HUDScene } from './scenes/hud-scene';
+import { DebugScene } from './scenes/debug-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -40,6 +41,8 @@ class GameScene extends Phaser.Scene {
 }
 
 const scenes = [
+  DebugScene,
+
   BootScene,
   PreloadScene,
   TitleScene,
