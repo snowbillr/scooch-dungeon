@@ -20,12 +20,9 @@ export class HUDScene extends ScoochDungeonScene {
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         const newMuteValue = !this.sound.mute;
+
         this.sound.mute = newMuteValue;
-        if (newMuteValue) {
-          volumeIndicator.setFrame(1);
-        } else {
-          volumeIndicator.setFrame(0);
-        }
+        volumeIndicator.setFrame(newMuteValue ? 1 : 0)
 
         settings.setMuted(newMuteValue);
         this.persistence.store();
