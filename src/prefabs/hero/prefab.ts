@@ -50,6 +50,7 @@ export const heroStates: State<Entity>[] = [
       if (dungeonScene.queuedInput) {
         hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving');
         move(dungeonScene.queuedInput, dungeonScene);
+        dungeonScene.queuedInput = undefined;
       } else {
         hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
       }
