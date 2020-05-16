@@ -69,6 +69,8 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public handleInput(direction: Direction) {
     if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') {
+      this.queuedInput = direction;
+    } else {
       const coordinates = this.hero.getComponent(GridPositionComponent);
       const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
 
