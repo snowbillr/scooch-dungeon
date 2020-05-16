@@ -5,6 +5,7 @@ import { ProgressDocument } from "../../persistence/progress-document";
 import { DungeonScene } from "../../scenes/dungeon-scene";
 import { SpriteComponent } from '../../components/sprite-component';
 import { StateMachineComponent } from '../../components/state-machine-component';
+import { SCENE_KEYS } from '../../constants/scene-keys';
 
 export const WinBehavior: DungeonTileBehavior = {
   priority: 100,
@@ -30,7 +31,7 @@ export const WinBehavior: DungeonTileBehavior = {
       objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
     });
 
-    scene.scene.stop('hud');
+    scene.scene.stop(SCENE_KEYS.HUD);
     scene.sfx.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
 

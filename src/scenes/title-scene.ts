@@ -1,10 +1,11 @@
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { ProgressDocument } from "../persistence/progress-document";
+import { SCENE_KEYS } from '../constants/scene-keys';
 
 export class TitleScene extends ScoochDungeonScene {
   constructor() {
-    super({ key: 'title' });
+    super({ key: SCENE_KEYS.TITLE });
   }
 
   create() {
@@ -19,8 +20,8 @@ export class TitleScene extends ScoochDungeonScene {
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
       const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
       this.levelManager.setCurrentLevelNumber(progressDocument.getLastCompletedLevelNumber() + 1);
-      this.scene.launch('music');
-      this.scene.start('dungeon');
+      this.scene.launch(SCENE_KEYS.SFX);
+      this.scene.start(SCENE_KEYS.DUNGEON);
     });
 
     this.tweens.timeline({

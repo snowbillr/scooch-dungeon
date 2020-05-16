@@ -10,6 +10,7 @@ import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { HUDScene } from "./hud-scene";
 import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
+import { SCENE_KEYS } from '../constants/scene-keys';
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -20,7 +21,7 @@ export class DungeonScene extends ScoochDungeonScene {
   public queuedInput?: Direction;
 
   constructor() {
-    super({ key: 'dungeon' });
+    super({ key: SCENE_KEYS.DUNGEON });
   }
 
   init() {
@@ -50,8 +51,8 @@ export class DungeonScene extends ScoochDungeonScene {
 
     this.sfx.playLevelMusic();
 
-    this.scene.launch('hud', { totalCoins: this.dungeon.coinCount });
-    this.hud = this.scene.get('hud') as HUDScene;
+    this.scene.launch(SCENE_KEYS.HUD, { totalCoins: this.dungeon.coinCount });
+    this.hud = this.scene.get(SCENE_KEYS.HUD) as HUDScene;
   }
 
   public resetLevel() {

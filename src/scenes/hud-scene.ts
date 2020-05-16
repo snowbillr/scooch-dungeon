@@ -1,6 +1,7 @@
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { DungeonScene } from "./dungeon-scene";
 import { SettingsDocument } from '../persistence/settings-document';
+import { SCENE_KEYS } from '../constants/scene-keys';
 
 const VIEWPORT_PADDING = 60;
 
@@ -9,11 +10,11 @@ export class HUDScene extends ScoochDungeonScene {
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
 
   constructor() {
-    super({ key: 'hud' });
+    super({ key: SCENE_KEYS.HUD });
   }
 
   create(data: any) {
-    const dungeonScene = this.scene.get('dungeon') as DungeonScene;
+    const dungeonScene = this.scene.get(SCENE_KEYS.DUNGEON) as DungeonScene;
     const settings = this.persistence.getDocument<SettingsDocument>('settings');
 
     const volumeIndicator = this.add.sprite(VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-volume')

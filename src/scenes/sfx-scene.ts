@@ -1,11 +1,12 @@
 import { ScoochDungeonScene } from './scooch-dungeon-scene';
 import { SettingsDocument } from '../persistence/settings-document';
+import { SCENE_KEYS } from '../constants/scene-keys';
 
 export class SfxScene extends ScoochDungeonScene {
   private levelMusic!: Phaser.Sound.BaseSound;
 
   constructor() {
-    super({ key: 'music' });
+    super({ key: SCENE_KEYS.SFX });
   }
 
   init() {

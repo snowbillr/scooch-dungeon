@@ -2,10 +2,11 @@ import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { Viewport } from "../constants/viewport";
 import { SettingsDocument } from '../persistence/settings-document';
+import { SCENE_KEYS } from '../constants/scene-keys';
 
 export class PreloadScene extends ScoochDungeonScene {
   constructor() {
-    super({ key: 'preload' });
+    super({ key: SCENE_KEYS.PRELOAD });
   }
 
   preload() {
@@ -64,6 +65,6 @@ export class PreloadScene extends ScoochDungeonScene {
   create() {
     this.persistence.read();
 
-    this.scene.start('title');
+    this.scene.start(SCENE_KEYS.TITLE);
   }
 }

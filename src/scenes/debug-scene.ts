@@ -1,3 +1,5 @@
+import { SCENE_KEYS } from '../constants/scene-keys';
+
 const buttonStyle = {
   fontSize: '16px',
   color: '#fff',
@@ -18,7 +20,7 @@ export class DebugScene extends Phaser.Scene {
   private buttons: Phaser.GameObjects.GameObject[];
 
   constructor() {
-    super({ key: 'debug' });
+    super({ key: SCENE_KEYS.DEBUG });
 
     this.buttons = [];
   }
@@ -39,7 +41,7 @@ export class DebugScene extends Phaser.Scene {
     this.hideScene();
 
     this.scene.bringToTop();
-    this.scene.launch('boot');
+    this.scene.launch(SCENE_KEYS.BOOT);
   }
 
   private addButtons() {
