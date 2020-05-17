@@ -68,7 +68,7 @@ export class HUDScene extends ScoochDungeonScene {
 
               this.scene.resume(SCENE_KEYS.DUNGEON);
             }),
-          this.add.bitmapText(0, -50, 'matchup-24', 'Quit').setOrigin(0.5)
+          this.add.bitmapText(0, -50, 'matchup-24', 'Quit to title').setOrigin(0.5)
             .setInteractive()
             .on(Phaser.Input.Events.POINTER_DOWN, () => {
               this.sfx.pauseLevelMusic();
