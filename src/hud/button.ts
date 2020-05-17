@@ -1,16 +1,36 @@
+import { NinePatch } from '@koreez/phaser3-ninepatch';
+
 export enum ButtonStyle {
   NONE,
   BACKGROUND,
   BACKGROUND_INVERSE,
 };
 
-type ButtonContent = string | Phaser.GameObjects.GameObject;
+type ButtonContent = string | Phaser.GameObjects.Sprite | Phaser.GameObjects.Image | Phaser.GameObjects.BitmapText;
 
-export class Button extends Phaser.GameObjects.Container {
+export class Button {
+  private scene: Phaser.Scene;
+
+  public gameObject: NinePatch | Phaser.GameObjects.Container;
+
   constructor(scene: Phaser.Scene, x: number, y: number, style: ButtonStyle, content: ButtonContent, onPress: () => void) {
-    super(scene, x, y);
+    this.scene = scene;
 
-    let backgroundTexture = null;
+    let width;
+    let height;
+    const normalizedContent = this.normalizeContent(content);
+    if (normalizedContent instanceof Phaser.GameObjects.BitmapText) {
+      const bitmapTextSize = normalizedContent.getTextBounds();
+      width = bitmapTextSize.global.width;
+      height = bitmapTextSize.global.height;
+    } else {
+      const bounds = normalizedContent.getBounds();
+      width = bounds.width;
+      height = bounds.height;
+    }
+
+
+    let backgroundTexture = '';
     if (style === ButtonStyle.BACKGROUND) {
       backgroundTexture = 'hud-button';
     } else if (style === ButtonStyle.BACKGROUND_INVERSE) {
@@ -18,19 +38,23 @@ export class Button extends Phaser.GameObjects.Container {
     }
 
     if (backgroundTexture) {
-      this.add(scene.add.image(0, 0, backgroundTexture));
+      this.gameObject = new NinePatch(scene, x, y, 1, 1, backgroundTexture, undefined, {
+        top: 16,
+        bottom: 16,
+        left: 16,
+        right: 16
+      });
+      (this.gameObject as NinePatch).resize(width + 32, height + 32);
+    } else {
+      this.gameObject = new Phaser.GameObjects.Container(scene, x, y);
+      this.gameObject.setSize(width, height);
     }
 
-    this.add(this.normalizeContent(content));
+    this.gameObject.add(normalizedContent);
+    this.gameObject.setInteractive();
+    this.gameObject.on(Phaser.Input.Events.POINTER_DOWN, onPress);
 
-    const bounds = this.getBounds();
-    this.setSize(bounds.width, bounds.height);
-    this.setInteractive()
-    this.on(Phaser.Input.Events.POINTER_DOWN, () => {
-      onPress();
-    });
-
-    scene.add.existing(this);
+      scene.add.existing(this.gameObject);
   }
 
   normalizeContent(content: ButtonContent) {

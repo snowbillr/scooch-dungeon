@@ -1,6 +1,5 @@
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { DungeonScene } from "./dungeon-scene";
-import { SettingsDocument } from '../persistence/settings-document';
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { ToggleVolumeButton } from '../hud/toggle-volume-button';
@@ -68,18 +67,18 @@ export class HUDScene extends ScoochDungeonScene {
 
               this.scene.resume(SCENE_KEYS.DUNGEON);
             }),
-          this.add.bitmapText(0, -50, 'matchup-24', 'Quit to title').setOrigin(0.5)
-            .setInteractive()
-            .on(Phaser.Input.Events.POINTER_DOWN, () => {
-              this.sfx.pauseLevelMusic();
+          new Button(this, 0, -50, ButtonStyle.BACKGROUND,
+              this.add.bitmapText(0, 0, 'matchup-24', 'Quit to title').setOrigin(0.5),
+              () => {
+                this.sfx.pauseLevelMusic();
 
-              this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-                this.scene.stop();
-                this.scene.stop(SCENE_KEYS.DUNGEON);
-                this.scene.start(SCENE_KEYS.TITLE);
-              });
-              this.cameras.main.fadeOut(1000);
-            }),
+                this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+                  this.scene.stop();
+                  this.scene.stop(SCENE_KEYS.DUNGEON);
+                  this.scene.start(SCENE_KEYS.TITLE);
+                });
+                this.cameras.main.fadeOut(1000);
+              }).gameObject,
           new ToggleVolumeButton(this, 0, 100).gameObject
         ]);
       });

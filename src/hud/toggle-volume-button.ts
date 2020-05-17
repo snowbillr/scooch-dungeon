@@ -15,7 +15,7 @@ export class ToggleVolumeButton {
     this.volumeIcon = scene.add.image(0, 0, 'hud-volume')
     this.updateVolumeIcon();
 
-    this.gameObject = new Button(scene, x, y, ButtonStyle.BACKGROUND_INVERSE, this.volumeIcon, () => this.toggleVolume());
+    this.gameObject = new Button(scene, x, y, ButtonStyle.BACKGROUND_INVERSE, this.volumeIcon, () => this.toggleVolume()).gameObject;
   }
 
   private toggleVolume() {
