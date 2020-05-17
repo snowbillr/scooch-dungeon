@@ -45,6 +45,8 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.image('hud-close', 'assets/interface/hud-close.png');
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
     this.load.image('hud-pause', 'assets/interface/hud-pause.png');
+    this.load.image('hud-button', 'assets/interface/hud-button.png');
+    this.load.image('hud-button-inverse', 'assets/interface/hud-button-inverse.png');
     this.load.spritesheet('hud-volume', 'assets/interface/volume-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');

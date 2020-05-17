@@ -3,6 +3,7 @@ import { DungeonScene } from "./dungeon-scene";
 import { SettingsDocument } from '../persistence/settings-document';
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { NinePatch } from '@koreez/phaser3-ninepatch';
+import { ToggleVolumeButton } from '../hud/toggle-volume-button';
 
 const VIEWPORT_PADDING = 60;
 
@@ -17,10 +18,6 @@ export class HUDScene extends ScoochDungeonScene {
   }
 
   create(levelData: any) {
-    this.addVolumeIndicator();
-
-    // this.addPauseMenu();
-
     this.addPauseIcon();
 
     this.addRestartIcon();
@@ -38,22 +35,6 @@ export class HUDScene extends ScoochDungeonScene {
 
   setCollectedCoins(coins: number) {
     this.collectedCoinsText.setText(`${coins}`);
-  }
-
-  private addVolumeIndicator() {
-    const settings = this.persistence.getDocument<SettingsDocument>('settings');
-
-    const volumeIndicator = this.add.sprite(VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-volume')
-      .setInteractive()
-      .on(Phaser.Input.Events.POINTER_DOWN, () => {
-        const newMuteValue = !this.sound.mute;
-
-        this.sound.mute = newMuteValue;
-        volumeIndicator.setFrame(newMuteValue ? 1 : 0)
-
-        settings.setMuted(newMuteValue);
-        this.persistence.store();
-      }).setFrame(settings.getMuted() ? 1 : 0)
   }
 
   private addPauseIcon() {
@@ -97,7 +78,8 @@ export class HUDScene extends ScoochDungeonScene {
                 this.scene.start(SCENE_KEYS.TITLE);
               });
               this.cameras.main.fadeOut(1000);
-            })
+            }),
+          new ToggleVolumeButton(this, 0, 100).gameObject
         ]);
       });
   }
