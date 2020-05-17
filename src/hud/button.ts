@@ -4,8 +4,10 @@ export enum ButtonStyle {
   BACKGROUND_INVERSE,
 };
 
+type ButtonContent = string | Phaser.GameObjects.GameObject;
+
 export class Button extends Phaser.GameObjects.Container {
-  constructor(scene: Phaser.Scene, x: number, y: number, style: ButtonStyle, content: Phaser.GameObjects.GameObject, onPress: () => void) {
+  constructor(scene: Phaser.Scene, x: number, y: number, style: ButtonStyle, content: ButtonContent, onPress: () => void) {
     super(scene, x, y);
 
     let backgroundTexture = null;
@@ -19,7 +21,7 @@ export class Button extends Phaser.GameObjects.Container {
       this.add(scene.add.image(0, 0, backgroundTexture));
     }
 
-    this.add(content);
+    this.add(this.normalizeContent(content));
 
     const bounds = this.getBounds();
     this.setSize(bounds.width, bounds.height);
@@ -29,5 +31,13 @@ export class Button extends Phaser.GameObjects.Container {
     });
 
     scene.add.existing(this);
+  }
+
+  normalizeContent(content: ButtonContent) {
+    if (typeof content === 'string') {
+      return this.scene.add.image(0, 0, content);
+    } else {
+      return content;
+    }
   }
 }

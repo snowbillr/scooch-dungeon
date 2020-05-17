@@ -4,6 +4,7 @@ import { SettingsDocument } from '../persistence/settings-document';
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { ToggleVolumeButton } from '../hud/toggle-volume-button';
+import { Button, ButtonStyle } from '../hud/button';
 
 const VIEWPORT_PADDING = 60;
 
@@ -85,11 +86,9 @@ export class HUDScene extends ScoochDungeonScene {
   }
 
   private addRestartIcon() {
-    this.add.image(this.scale.width - VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-restart')
-      .setInteractive()
-      .on(Phaser.Input.Events.POINTER_DOWN, () => {
-        (this.scene.get(SCENE_KEYS.DUNGEON) as DungeonScene).resetLevel();
-      });
+    new Button(this, this.scale.width - VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, ButtonStyle.NONE, 'hud-restart', () => {
+      (this.scene.get(SCENE_KEYS.DUNGEON) as DungeonScene).resetLevel();
+    });
   }
 
   private addCoinsIndicator(levelData: any) {
