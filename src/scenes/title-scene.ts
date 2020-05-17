@@ -2,6 +2,7 @@ import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { ProgressDocument } from "../persistence/progress-document";
 import { SCENE_KEYS } from '../constants/scene-keys';
+import { DebugScene } from './debug-scene';
 
 export class TitleScene extends ScoochDungeonScene {
   constructor() {
@@ -11,8 +12,16 @@ export class TitleScene extends ScoochDungeonScene {
   create() {
     this.cameras.main.setBackgroundColor(0x3D253B);
 
+    let clickCount = 0;
     const logo = this.add.image(-300, 100, 'logo')
-      .setScale(0.6);
+      .setScale(0.6)
+      .setInteractive()
+      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        clickCount += 1;
+        if (clickCount >= 5) {
+          (this.scene.get(SCENE_KEYS.DEBUG) as DebugScene).showScene();
+        }
+      })
 
     const progress = this.persistence.getDocument<ProgressDocument>('progress');
     const isNewGame = progress.getLastCompletedLevelNumber() === 0;

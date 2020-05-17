@@ -60,7 +60,7 @@ export class DebugScene extends Phaser.Scene {
     );
   }
 
-  private showScene() {
+  public showScene() {
     this.scene.setVisible(true);
     this.buttons.forEach(button => button.input.enabled = true);
   }
