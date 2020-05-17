@@ -16,12 +16,16 @@ export class TitleScene extends ScoochDungeonScene {
 
     const progress = this.persistence.getDocument<ProgressDocument>('progress');
     const isNewGame = progress.getLastCompletedLevelNumber() === 0;
-    const playButtonText = isNewGame ? 'PLAY' : 'CONTINUE';
+    const playButtonText = isNewGame ? 'Play' : 'Continue';
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
       const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
       this.levelManager.setCurrentLevelNumber(progressDocument.getLastCompletedLevelNumber() + 1);
       this.scene.launch(SCENE_KEYS.SFX);
       this.scene.start(SCENE_KEYS.DUNGEON);
+    });
+    const resetButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 200, "Reset", () => {
+      localStorage.clear();
+      location.reload();
     });
 
     this.tweens.timeline({
@@ -38,6 +42,15 @@ export class TitleScene extends ScoochDungeonScene {
           targets: playButton,
           props: {
             y: 300
+          },
+          offset: 300,
+          ease: Phaser.Math.Easing.Quadratic.Out,
+          duration: 550
+        },
+        {
+          targets: resetButton,
+          props: {
+            y: 400
           },
           offset: 300,
           ease: Phaser.Math.Easing.Quadratic.Out,
