@@ -40,11 +40,17 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
     this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
     this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
+    this.load.bitmapFont('matchup-24', 'assets/fonts/matchup-24.png', 'assets/fonts/matchup-24.xml');
 
+    this.load.image('hud-close', 'assets/interface/hud-close.png');
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
+    this.load.image('hud-pause', 'assets/interface/hud-pause.png');
+    this.load.image('hud-button', 'assets/interface/hud-button.png');
+    this.load.image('hud-button-inverse', 'assets/interface/hud-button-inverse.png');
     this.load.spritesheet('hud-volume', 'assets/interface/volume-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');
+    this.load.image('menubox', 'assets/interface/menubox.png');
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
     this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });

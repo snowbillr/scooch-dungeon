@@ -11,16 +11,10 @@ export class SfxScene extends ScoochDungeonScene {
 
   init() {
     this.sound.mute = this.persistence.getDocument<SettingsDocument>('settings').getMuted();
-
-    this.events.on(Phaser.Scenes.Events.SHUTDOWN, this.destroy, this);
   }
 
   create() {
     this.levelMusic = this.sound.add('level-music', { loop: true });
-  }
-
-  destroy() {
-    this.levelMusic.destroy();
   }
 
   playLevelMusic() {
