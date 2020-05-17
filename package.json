@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@koreez/phaser3-ninepatch": "^2.0.2",
     "phaser": "^3.22.0",
     "phecs": "0.x.x",
     "phinite-state-machine": "0.x.x"

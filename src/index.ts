@@ -11,6 +11,7 @@ import { SwipePlugin } from './plugins/scene/swipe-plugin';
 import { SfxScene } from './scenes/sfx-scene';
 import { HUDScene } from './scenes/hud-scene';
 import { DebugScene } from './scenes/debug-scene';
+import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -79,6 +80,7 @@ const game = new Phaser.Game({
     global: [
       { key: 'LevelManagerPlugin', plugin: LevelManagerPlugin, mapping: 'levelManager', start: true },
       { key: 'PersistencePlugin', plugin: PersistencePlugin, mapping: 'persistence', start: true },
+      { key: 'NinePatchPlugin', plugin: NinePatchPlugin, start: true },
     ],
   }
 });
