@@ -23,10 +23,6 @@ export class TitleScene extends ScoochDungeonScene {
       this.scene.launch(SCENE_KEYS.SFX);
       this.scene.start(SCENE_KEYS.DUNGEON);
     });
-    const resetButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 200, "Reset", () => {
-      localStorage.clear();
-      location.reload();
-    });
 
     this.tweens.timeline({
       tweens: [
@@ -46,21 +42,12 @@ export class TitleScene extends ScoochDungeonScene {
           offset: 300,
           ease: Phaser.Math.Easing.Quadratic.Out,
           duration: 550
-        },
-        {
-          targets: resetButton,
-          props: {
-            y: 400
-          },
-          offset: 300,
-          ease: Phaser.Math.Easing.Quadratic.Out,
-          duration: 550
         }
       ]
     });
   }
 
-  private addButton(x: number, y: number, text: string, onPress: () => void) {
+  private addButton(x: number, y: number, text: string, onPress: () => void, font?: string) {
     const width = 240;
     const height = 80;
     const borderWidth = 10;
@@ -77,7 +64,7 @@ export class TitleScene extends ScoochDungeonScene {
     const buttonInner = this.add.rectangle(0, 0, width - borderWidth, height - borderHeight, 0xEE8D2E)
       .setOrigin(0.5)
 
-    const playText = this.add.bitmapText(0, -5, 'matchup-64', text)
+    const playText = this.add.bitmapText(0, -5, font ?? 'matchup-64', text)
       .setOrigin(0.5)
 
     container.add(buttonOuter);
