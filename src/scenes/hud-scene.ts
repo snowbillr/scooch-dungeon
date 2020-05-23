@@ -48,7 +48,6 @@ export class HUDScene extends ScoochDungeonScene {
           .setOrigin(0)
           .setAlpha(0);
 
-        // show pause menu
         const pauseMenu = (this.add as any).ninePatch(menuX, -300, 250, 300, 'menubox', null, {
           top: 16,
           bottom: 16,

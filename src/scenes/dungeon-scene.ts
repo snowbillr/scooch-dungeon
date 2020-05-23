@@ -1,3 +1,5 @@
+import bezier from 'bezier-easing';
+
 import { DungeonFactory } from "../dungeon/dungeon-factory";
 import { Dungeon } from "../dungeon/dungeon";
 import { Direction } from "../constants/directions";
@@ -11,6 +13,7 @@ import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { HUDScene } from "./hud-scene";
 import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 import { SCENE_KEYS } from '../constants/scene-keys';
+import { Depths } from '../constants/depths';
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -48,6 +51,22 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x25131A);
     this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
     this.cameras.main.fadeIn(500);
+
+    const message = this.add.bitmapText(this.scale.width / 2, this.scale.height / 2, 'matchup-64', this.dungeon.message)
+      .setOrigin(0.5)
+      .setScrollFactor(0)
+      .setDepth(Depths.message);
+    const messageWidth = message.getTextBounds().local.width;
+    message.setX(this.scale.width + messageWidth);
+    this.tweens.add({
+      targets: message,
+      props: {
+        x: -messageWidth
+      },
+      duration: 2500,
+      ease: bezier(.15, .85, .85, .15),
+      onComplete: () => message.destroy()
+    });
 
     this.sfx.playLevelMusic();
 

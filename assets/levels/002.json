@@ -1,13 +1,4 @@
-{ "compressionlevel":-1,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"json",
-         "target":"002.json"
-        }
-    },
- "height":7,
+{ "height":7,
  "infinite":false,
  "layers":[
         {
@@ -48,8 +39,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":47.3752122241087,
-                 "y":46.4697226938313
+                 "x":47.3752,
+                 "y":46.4697
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -60,8 +51,14 @@
  "nextlayerid":4,
  "nextobjectid":2,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"message",
+         "type":"string",
+         "value":"Right angle"
+        }],
  "renderorder":"right-down",
- "tiledversion":"1.3.1",
+ "tiledversion":"1.2.4",
  "tileheight":32,
  "tilesets":[
         {

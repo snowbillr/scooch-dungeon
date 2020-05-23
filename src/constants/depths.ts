@@ -9,4 +9,5 @@ export const Depths = {
 
   // interface
   "swipe-indicator": 60,
+  "message": 100
 };

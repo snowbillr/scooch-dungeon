@@ -4,6 +4,8 @@ import { DungeonMarker } from "./dungeon-marker";
 import { DungeonCursor } from "./dungeon-cursor";
 import { DungeonStats } from "./dungeon-stats";
 
+import { normalize } from '../lib/tiled-properties-normalizer';
+
 export class Dungeon {
   public readonly worldWidth: number;
   public readonly worldHeight: number;
@@ -13,6 +15,8 @@ export class Dungeon {
   public readonly stats: DungeonStats;
 
   public readonly coinCount: number;
+
+  public readonly message: string;
 
   constructor(
     private dungeonTiles: DungeonTile[],
@@ -24,6 +28,8 @@ export class Dungeon {
     this.worldHeight = tilemap.heightInPixels;
     this.gridWidth = tilemap.width;
     this.gridHeight = tilemap.height;
+
+    this.message = normalize(tilemap.properties).message;
 
     this.coinCount = dungeonTiles.reduce((count, dungeonTile) => {
       if (Boolean(dungeonTile.getObject('coin'))) {

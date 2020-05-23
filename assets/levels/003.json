@@ -51,6 +51,12 @@
  "nextlayerid":4,
  "nextobjectid":2,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"message",
+         "type":"string",
+         "value":"Restarting is okay"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
  "tileheight":32,

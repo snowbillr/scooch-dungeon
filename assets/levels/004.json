@@ -1,13 +1,4 @@
-{ "compressionlevel":-1,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"json",
-         "target":"004.json"
-        }
-    },
- "height":10,
+{ "height":10,
  "infinite":false,
  "layers":[
         {
@@ -48,8 +39,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":208.26259196378,
-                 "y":149.405772495755
+                 "x":208.263,
+                 "y":149.406
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -60,8 +51,14 @@
  "nextlayerid":4,
  "nextobjectid":3,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"message",
+         "type":"string",
+         "value":"Gotta get 'em all!"
+        }],
  "renderorder":"right-down",
- "tiledversion":"1.3.1",
+ "tiledversion":"1.2.4",
  "tileheight":32,
  "tilesets":[
         {
