@@ -53,6 +53,8 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.fadeIn(500);
 
     const message = this.add.bitmapText(this.scale.width / 2, this.scale.height / 2, 'matchup-64', this.dungeon.message)
+      .setMaxWidth(this.scale.width - 20)
+      .setCenterAlign()
       .setOrigin(0.5)
       .setScrollFactor(0)
       .setDepth(Depths.message);
