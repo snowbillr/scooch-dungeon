@@ -11,8 +11,6 @@ export class HUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
 
-  private pauseMenu!: NinePatch;
-
   constructor() {
     super({ key: SCENE_KEYS.HUD });
   }
@@ -47,23 +45,43 @@ export class HUDScene extends ScoochDungeonScene {
         const menuY = this.scale.height / 2;
 
         const backDrop = this.add.rectangle(0, 0, this.scale.width, this.scale.height, 0x000000, 0.5)
-          .setOrigin(0);
+          .setOrigin(0)
+          .setAlpha(0);
 
         // show pause menu
-        this.pauseMenu = (this.add as any).ninePatch(menuX, menuY, 250, 300, 'menubox', null, {
+        const pauseMenu = (this.add as any).ninePatch(menuX, -300, 250, 300, 'menubox', null, {
           top: 16,
           bottom: 16,
           left: 16,
           right: 16
         }) as NinePatch;
 
-        this.pauseMenu.add([
+        pauseMenu.add([
           this.add.bitmapText(0, -125, 'matchup-32', 'Paused').setOrigin(0.5),
-          this.add.image(125, -150, 'hud-close')
+          this.add.image(125 - 12, -150 + 12, 'hud-close')
             .setInteractive()
             .on(Phaser.Input.Events.POINTER_DOWN, () => {
-              this.pauseMenu.destroy();
-              backDrop.destroy();
+              this.tweens.add({
+                targets: pauseMenu,
+                props: {
+                  y: -300
+                },
+                duration: 400,
+                ease: Phaser.Math.Easing.Cubic.In,
+                onComplete: () => {
+                  pauseMenu.destroy();
+                }
+              });
+              this.tweens.add({
+                targets: backDrop,
+                props: {
+                  alpha: 0
+                },
+                duration: 400,
+                onComplete: () => {
+                  backDrop.destroy();
+                }
+              });
 
               this.scene.resume(SCENE_KEYS.DUNGEON);
             }),
@@ -81,6 +99,22 @@ export class HUDScene extends ScoochDungeonScene {
               }).gameObject,
           new ToggleVolumeButton(this, 0, 100).gameObject
         ]);
+
+        this.tweens.add({
+          targets: pauseMenu,
+          props: {
+            y: menuY
+          },
+          duration: 400,
+          ease: Phaser.Math.Easing.Cubic.Out
+        });
+        this.tweens.add({
+          targets: backDrop,
+          props: {
+            alpha: 1
+          },
+          duration: 400
+        })
       });
   }
 
