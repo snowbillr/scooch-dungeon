@@ -31,17 +31,7 @@ class SwipeMovementTransition extends Transition<Entity, DungeonScene> {
 export const heroStates: State<Entity>[] = [
   new State('idle', [], {
     onEnter(hero, scene: DungeonScene) {
-      const dungeonScene = scene as DungeonScene;
-
-      if (dungeonScene.queuedInput) {
-
-        dungeonScene.handleInput(dungeonScene.queuedInput);
-        hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction: dungeonScene.queuedInput });
-
-        dungeonScene.queuedInput = undefined;
-      } else {
-        hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
-      }
+      hero.getComponent(SpriteComponent).sprite.anims.play('hero-idle');
     }
   }),
   new State('moving', [], {

@@ -34,6 +34,7 @@ export const MovementPlanner = {
       }
     });
 
+    // timeline onStart
     callbackQueue.addCallback(() => {
       hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction });
     });
@@ -59,9 +60,13 @@ export const MovementPlanner = {
             callbackQueue.runNext();
           }
         });
+
+        // tween onStart
         callbackQueue.addCallback(() => {
           currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
         });
+
+        // tween onComplete
         callbackQueue.addCallback(() => {
           heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
           nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
@@ -73,8 +78,14 @@ export const MovementPlanner = {
       }
     }
 
+    // timeline onComplete
     callbackQueue.addCallback(() => {
-      hero.getComponent(StateMachineComponent).stateMachine.transitionTo('idle');
+      if (scene.queuedInput.length) {
+        scene.handleInput();
+        hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction: scene.queuedInput });
+      } else {
+        hero.getComponent(StateMachineComponent).stateMachine.transitionTo('idle');
+      }
     });
 
     return timeline;

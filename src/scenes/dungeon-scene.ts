@@ -21,10 +21,12 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public hud!: HUDScene;
 
-  public queuedInput?: Direction;
+  public queuedInput: Direction[];
 
   constructor() {
     super({ key: SCENE_KEYS.DUNGEON });
+
+    this.queuedInput = [];
   }
 
   init() {
@@ -43,7 +45,7 @@ export class DungeonScene extends ScoochDungeonScene {
     }, heroStartMarker.worldX, heroStartMarker.worldY);
 
     this.swipe.addListener(direction => {
-      this.handleInput(direction);
+      this.queueInput(direction);
     });
 
     var { x, y, width, height } = this.calculateCameraBounds();
@@ -88,17 +90,25 @@ export class DungeonScene extends ScoochDungeonScene {
     this.cameras.main.fadeOut(1000);
   }
 
-  public handleInput(direction: Direction) {
-    if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'moving') {
-      this.queuedInput = direction;
-    } else {
-      const coordinates = this.hero.getComponent(GridPositionComponent);
-      const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
+  public queueInput(direction: Direction) {
+    this.queuedInput.push(direction);
 
-      const tile = cursor.getTile();
-
-      tile.runBehaviors(DungeonTileBehaviorType.INPUT, direction, this);
+    if (this.hero.getComponent(StateMachineComponent).stateMachine.currentState.id === 'idle') {
+      this.handleInput();
     }
+  }
+
+  public handleInput() {
+    if (this.queuedInput.length === 0) return;
+
+    const nextDirection = this.queuedInput.splice(0, 1)[0];
+
+    const coordinates = this.hero.getComponent(GridPositionComponent);
+    const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
+
+    const tile = cursor.getTile();
+
+    tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection, this);
   }
 
   private calculateCameraBounds() {
