@@ -1,13 +1,4 @@
-{ "compressionlevel":-1,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"json",
-         "target":"001.json"
-        }
-    },
- "height":3,
+{ "height":3,
  "infinite":false,
  "layers":[
         {
@@ -60,8 +51,14 @@
  "nextlayerid":6,
  "nextobjectid":3,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"message",
+         "type":"string",
+         "value":"Learning to swipe"
+        }],
  "renderorder":"right-down",
- "tiledversion":"1.3.1",
+ "tiledversion":"1.2.4",
  "tileheight":32,
  "tilesets":[
         {
