@@ -10,7 +10,7 @@ export class Heart {
   public gameObject: Phaser.GameObjects.Sprite;
 
   constructor(scene: ScoochDungeonScene, x: number, y: number, value: HeartValue = HeartValue.FULL) {
-    this.gameObject = scene.add.sprite(x, y, 'hud-heart', 2);
+    this.gameObject = scene.add.sprite(x, y, 'hud-heart', 2).setOrigin(1, 0.5);
     this.setValue(value);
   }
 
