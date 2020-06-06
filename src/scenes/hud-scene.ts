@@ -4,12 +4,14 @@ import { SCENE_KEYS } from '../constants/scene-keys';
 import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { ToggleVolumeButton } from '../hud/toggle-volume-button';
 import { Button, ButtonStyle } from '../hud/button';
+import { Heart, HeartValue } from '../hud/heart';
 
 const VIEWPORT_PADDING = 60;
 
 export class HUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
+  private hearts!: Heart[];
 
   constructor() {
     super({ key: SCENE_KEYS.HUD });
@@ -17,10 +19,10 @@ export class HUDScene extends ScoochDungeonScene {
 
   create(levelData: any) {
     this.addPauseIcon();
-
     this.addRestartIcon();
-
-    this.addCoinsIndicator(levelData);
+    this.addCoinsIndicator(levelData.totalCoins);
+    this.addHearts(levelData.maxHealth)
+    // new Heart(this, VIEWPORT_PADDING, VIEWPORT_PADDING)
   }
 
   setTotalCoins(totalCoins: number) {
@@ -36,7 +38,7 @@ export class HUDScene extends ScoochDungeonScene {
   }
 
   private addPauseIcon() {
-    this.add.image(this.scale.width - VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-pause')
+    this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-pause')
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         this.scene.pause(SCENE_KEYS.DUNGEON);
@@ -123,16 +125,38 @@ export class HUDScene extends ScoochDungeonScene {
     });
   }
 
-  private addCoinsIndicator(levelData: any) {
-    if (levelData.totalCoins > 0) {
-      this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING + 3, 'coin')
+  private addCoinsIndicator(totalCoins: number) {
+    const x = this.scale.width - VIEWPORT_PADDING;
+    const y = VIEWPORT_PADDING;
+
+    if (totalCoins > 0) {
+      this.add.image(x - 40, y, 'coin')
         .setOrigin(0.5)
-      this.collectedCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 20, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '0')
+      this.collectedCoinsText = this.add.bitmapText(x - 20, y - 3, 'matchup-32', '0')
         .setOrigin(0, 0.5);
-      this.add.bitmapText(VIEWPORT_PADDING + 40, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '/')
+      this.add.bitmapText(x, y - 3, 'matchup-32', '/')
         .setOrigin(0, 0.5);
-      this.totalCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 60, this.scale.height - VIEWPORT_PADDING, 'matchup-32', levelData.totalCoins)
+      this.totalCoinsText = this.add.bitmapText(x + 20, y - 3, 'matchup-32', `${totalCoins}`)
         .setOrigin(0, 0.5);
+    }
+  }
+
+  private addHearts(maxHealth: number) {
+    const fullHearts = Math.floor(maxHealth);
+    const halfHearts = Math.ceil(maxHealth - fullHearts);
+
+    const startX = VIEWPORT_PADDING;
+    const stepX = 32 + 8;
+    const y = VIEWPORT_PADDING;
+
+    this.hearts = [];
+
+    for (let i = 0; i < fullHearts; i++) {
+      this.hearts.push(new Heart(this, startX + stepX * i, y, HeartValue.FULL))
+    }
+
+    for (let i = fullHearts; i < halfHearts + fullHearts; i++) {
+      this.hearts.push(new Heart(this, startX + stepX * i, y, HeartValue.HALF))
     }
   }
 }

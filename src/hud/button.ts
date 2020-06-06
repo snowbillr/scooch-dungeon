@@ -29,7 +29,6 @@ export class Button {
       height = bounds.height;
     }
 
-
     let backgroundTexture = '';
     if (style === ButtonStyle.BACKGROUND) {
       backgroundTexture = 'hud-button';

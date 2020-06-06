@@ -14,6 +14,7 @@ import { HUDScene } from "./hud-scene";
 import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
+import { HealthComponent } from '../components/health-component';
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -74,7 +75,10 @@ export class DungeonScene extends ScoochDungeonScene {
 
     this.sfx.playLevelMusic();
 
-    this.scene.launch(SCENE_KEYS.HUD, { totalCoins: this.dungeon.coinCount });
+    this.scene.launch(SCENE_KEYS.HUD, {
+      totalCoins: this.dungeon.coinCount,
+      maxHealth: this.hero.getComponent(HealthComponent).maxHealth
+    });
     this.hud = this.scene.get(SCENE_KEYS.HUD) as HUDScene;
   }
 
