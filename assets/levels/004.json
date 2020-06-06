@@ -65,12 +65,12 @@
          "columns":10,
          "firstgid":1,
          "image":"..\/maps\/dungeon-spritesheet.png",
-         "imageheight":320,
+         "imageheight":352,
          "imagewidth":320,
          "margin":0,
          "name":"dungeon-tileset",
          "spacing":0,
-         "tilecount":100,
+         "tilecount":110,
          "tileheight":32,
          "tiles":[
                 {
@@ -1461,6 +1461,146 @@
                 }, 
                 {
                  "id":99,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":100,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
+                {
+                 "id":101,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":102,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":103,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":104,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":105,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":106,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":107,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":108,
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
+                {
+                 "id":109,
                  "properties":[
                         {
                          "name":"objective",
