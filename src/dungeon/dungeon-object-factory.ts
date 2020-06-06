@@ -33,6 +33,13 @@ const objectPropertiesList = [
     depth: Depths.coin
   },
   {
+    name: 'spikes',
+    tileIndex: 101,
+    texture: 'spikes',
+    frame: 0,
+    depth: Depths.spikes
+  },
+  {
     name: 'swipe-indicator',
     texture: 'swipe-indicator',
     frame: 0,

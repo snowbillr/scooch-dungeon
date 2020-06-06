@@ -1,4 +1,4 @@
-export const LEVELS_COUNT = 4;
+export const LEVELS_COUNT = 5;
 
 const levels = Array.from({ length: LEVELS_COUNT }, (v, i) => i + 1).reduce((acc, i) => {
   const levelKey = String(i).padStart(3, '0');
