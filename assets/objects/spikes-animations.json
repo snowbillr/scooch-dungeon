@@ -19,7 +19,7 @@
         { "key": "spikes", "frame": 3 }
       ],
       "repeat": 0,
-      "frameRate": 8
+      "frameRate": 18
     },
     {
       "key": "spikes-hide",
