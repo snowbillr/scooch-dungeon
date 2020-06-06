@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="14" height="9" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="3">
  <properties>
-  <property name="message" value="template message"/>
+  <property name="message" value="Watch out, they're sharp!"/>
  </properties>
  <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
  <layer id="12" name="floor" width="14" height="9">

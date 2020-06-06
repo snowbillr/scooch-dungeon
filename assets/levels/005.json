@@ -55,7 +55,7 @@
         {
          "name":"message",
          "type":"string",
-         "value":"template message"
+         "value":"Watch out, they're sharp!"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
