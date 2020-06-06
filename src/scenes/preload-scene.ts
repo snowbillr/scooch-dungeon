@@ -60,6 +60,7 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.animation('coin-animations', 'assets/objects/coin-animations.json');
     this.load.image('rock', 'assets/objects/rock.png');
     this.load.spritesheet('spikes', 'assets/objects/spikes.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.animation('spikes-animations', 'assets/objects/spikes-animations.json');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
       const levelKey = String(i).padStart(3, '0');
