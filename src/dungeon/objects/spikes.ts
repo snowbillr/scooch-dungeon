@@ -1,6 +1,7 @@
 import { DungeonObject } from '../dungeon-object';
-import { DungeonTile } from '../dungeon-tile';
+import { DungeonTile, DungeonTileBehaviorType } from '../dungeon-tile';
 import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
+import { DamageActor } from '../../behaviors/enter/damage-actor';
 
 export class Spikes extends DungeonObject {
   constructor(
@@ -22,8 +23,13 @@ export class Spikes extends DungeonObject {
   private async startCycle() {
     await this.playAnimation('spikes-peek');
     await this.playAnimation('spikes-reveal');
+
+    this.dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, DamageActor);
+
     await this.wait(2000);
     await this.playAnimation('spikes-hide');
+
+    this.dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, DamageActor);
   }
 
   private async playAnimation(animationKey: string) {

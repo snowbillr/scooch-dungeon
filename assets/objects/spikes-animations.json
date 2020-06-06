@@ -4,8 +4,7 @@
       "key": "spikes-peek",
       "frames": [
         { "key": "spikes", "frame": 0 },
-        { "key": "spikes", "frame": 1 },
-        { "key": "spikes", "frame": 0 }
+        { "key": "spikes", "frame": 1 }
       ],
       "repeat": 0,
       "frameRate": 1
