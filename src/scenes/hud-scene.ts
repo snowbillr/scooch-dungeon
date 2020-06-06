@@ -22,7 +22,6 @@ export class HUDScene extends ScoochDungeonScene {
     this.addRestartIcon();
     this.addCoinsIndicator(levelData.totalCoins);
     this.addHearts(levelData.maxHealth)
-    // new Heart(this, VIEWPORT_PADDING, VIEWPORT_PADDING)
   }
 
   setTotalCoins(totalCoins: number) {
@@ -41,6 +40,8 @@ export class HUDScene extends ScoochDungeonScene {
     this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-pause')
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        if (this.scene.isPaused(SCENE_KEYS.DUNGEON)) return;
+
         this.scene.pause(SCENE_KEYS.DUNGEON);
 
         const menuX = this.scale.width / 2;
