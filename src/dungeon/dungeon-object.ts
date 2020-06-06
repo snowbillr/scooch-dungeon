@@ -1,8 +1,16 @@
 import { DungeonTile } from './dungeon-tile';
 
+export interface DungeonObjectConstructor {
+  new (
+    dungeonTile: DungeonTile,
+    name: string,
+    sprite: Phaser.GameObjects.Sprite,
+  ): DungeonObject;
+}
+
 export class DungeonObject {
   constructor(
-    private dungeonTile: DungeonTile,
+    protected dungeonTile: DungeonTile,
     public name: string,
     public sprite: Phaser.GameObjects.Sprite,
   ) {}

@@ -1,6 +1,7 @@
-import { DungeonObject } from "./dungeon-object";
+import { DungeonObject, DungeonObjectConstructor } from "./dungeon-object";
 import { Depths } from "../constants/depths";
 import { DungeonTile } from './dungeon-tile';
+import { Spikes } from './objects/spikes';
 
 type ObjectProperties = {
   name: string;
@@ -9,6 +10,7 @@ type ObjectProperties = {
   frame?: number | string;
   animation?: string;
   depth: number;
+  klass?: DungeonObjectConstructor;
 }
 
 const objectPropertiesList = [
@@ -38,7 +40,8 @@ const objectPropertiesList = [
     tileIndex: 101,
     texture: 'spikes',
     frame: 0,
-    depth: Depths.spikes
+    depth: Depths.spikes,
+    klass: Spikes
   },
   {
     name: 'swipe-indicator',
@@ -84,6 +87,8 @@ export class DungeonObjectFactory {
       sprite.anims.play(animationName);
     }
 
-    return new DungeonObject(dungeonTile, name, sprite);
+    const Klass = objectProperties.klass || DungeonObject;
+
+    return new Klass(dungeonTile, name, sprite);
   }
 }
