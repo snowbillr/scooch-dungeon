@@ -2,6 +2,7 @@ import { DungeonObject, DungeonObjectConstructor } from "./dungeon-object";
 import { Depths } from "../constants/depths";
 import { DungeonTile } from './dungeon-tile';
 import { Spikes } from './objects/spikes';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
 type ObjectProperties = {
   name: string;
@@ -54,7 +55,7 @@ const objectPropertiesList = [
 
 export class DungeonObjectFactory {
   constructor(
-    private readonly scene: Phaser.Scene
+    private readonly scene: ScoochDungeonScene
   ) {}
 
   createByIndex(dungeonTile: DungeonTile, tileIndex: number) {
@@ -89,6 +90,6 @@ export class DungeonObjectFactory {
 
     const Klass = objectProperties.klass || DungeonObject;
 
-    return new Klass(dungeonTile, name, sprite);
+    return new Klass(this.scene, dungeonTile, name, sprite);
   }
 }

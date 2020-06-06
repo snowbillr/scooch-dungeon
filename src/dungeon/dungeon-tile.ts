@@ -2,6 +2,7 @@ import { DungeonObject } from './dungeon-object';
 import { Direction } from '../constants/directions';
 import { Dungeon } from './dungeon';
 import { DungeonScene } from '../scenes/dungeon-scene';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
 export type DungeonTileProperties = {
   walkable: boolean;
@@ -26,6 +27,7 @@ export class DungeonTile {
   private objects: DungeonObject[];
 
   constructor(
+    public readonly scene: ScoochDungeonScene,
     public readonly gridX: number,
     public readonly gridY: number,
     public readonly worldX: number,

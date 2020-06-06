@@ -29,7 +29,7 @@ export class DungeonTileFactory {
       objective: properties.objective.reduce((acc, o) => acc || o, false)
     };
 
-    const dungeonTile = new DungeonTile(gridX, gridY, worldX, worldY, computedProperties);
+    const dungeonTile = new DungeonTile(this.scene, gridX, gridY, worldX, worldY, computedProperties);
     const objects = (properties[OBJECTS_KEY] || []).map(objectIndex => this.dungeonObjectFactory.createByIndex(dungeonTile, objectIndex));
     dungeonTile.setObjects(objects);
 
