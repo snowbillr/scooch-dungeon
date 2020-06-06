@@ -1,8 +1,6 @@
-import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
-
 export class HealthComponent {
-  public readonly maxHealth: number;
-  public readonly currentHealth: number;
+  public maxHealth: number;
+  public currentHealth: number;
 
   constructor(scene: Phaser.Scene, data: any) {
     this.maxHealth = data.maxHealth;
@@ -12,4 +10,8 @@ export class HealthComponent {
   onAdd() {}
 
   destroy() {}
+
+  subtract(value: number) {
+    this.currentHealth -= value;
+  }
 }

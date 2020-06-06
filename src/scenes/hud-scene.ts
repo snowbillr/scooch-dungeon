@@ -36,6 +36,20 @@ export class HUDScene extends ScoochDungeonScene {
     this.collectedCoinsText.setText(`${coins}`);
   }
 
+  updateHealth(currentHealth: number, maxHealth: number) {
+    const { fullHearts, halfHearts, emptyHearts } = this.calculateHearts(currentHealth, maxHealth);
+
+    for (let i = 0; i < fullHearts; i++) {
+      this.hearts[i].setValue(HeartValue.FULL);
+    }
+    for (let i = fullHearts; i < fullHearts + halfHearts; i++) {
+      this.hearts[i].setValue(HeartValue.HALF);
+    }
+    for (let i = fullHearts + halfHearts; i < fullHearts + halfHearts + emptyHearts; i++) {
+      this.hearts[i].setValue(HeartValue.EMPTY);
+    }
+  }
+
   private addPauseIcon() {
     this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-pause')
       .setInteractive()
@@ -143,21 +157,28 @@ export class HUDScene extends ScoochDungeonScene {
   }
 
   private addHearts(maxHealth: number) {
-    const fullHearts = Math.floor(maxHealth);
-    const halfHearts = Math.ceil(maxHealth - fullHearts);
+   const { fullHearts, halfHearts, emptyHearts } = this.calculateHearts(maxHealth, maxHealth);
 
     const startX = VIEWPORT_PADDING;
     const stepX = 32 + 8;
     const y = VIEWPORT_PADDING;
 
-    this.hearts = [];
+    this.hearts = Array.from({ length: fullHearts + halfHearts + emptyHearts }, (v, i) => {
+      return new Heart(this, startX + stepX * i, y);
+    });
 
-    for (let i = 0; i < fullHearts; i++) {
-      this.hearts.push(new Heart(this, startX + stepX * i, y, HeartValue.FULL))
-    }
+    this.updateHealth(maxHealth, maxHealth);
+  }
 
-    for (let i = fullHearts; i < halfHearts + fullHearts; i++) {
-      this.hearts.push(new Heart(this, startX + stepX * i, y, HeartValue.HALF))
-    }
+  private calculateHearts(health: number, maxHealth: number) {
+    const fullHearts = Math.floor(health);
+    const halfHearts = Math.ceil(health - fullHearts);
+    const emptyHearts = maxHealth - halfHearts - fullHearts;
+
+    return {
+      fullHearts,
+      halfHearts,
+      emptyHearts
+    };
   }
 }
