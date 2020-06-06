@@ -12,6 +12,7 @@ import { SfxScene } from './scenes/sfx-scene';
 import { HUDScene } from './scenes/hud-scene';
 import { DebugScene } from './scenes/debug-scene';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
+import { DeathScene } from './scenes/death-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -48,6 +49,7 @@ const scenes = [
   PreloadScene,
   TitleScene,
   DungeonScene,
+  DeathScene,
 
   HUDScene,
   SfxScene
