@@ -23,20 +23,26 @@ export type DungeonTileBehavior = {
 
 export class DungeonTile {
   public behaviors: Record<DungeonTileBehaviorType, DungeonTileBehavior[]>;
+  private objects: DungeonObject[];
 
   constructor(
     public readonly gridX: number,
     public readonly gridY: number,
     public readonly worldX: number,
     public readonly worldY: number,
-    private properties: DungeonTileProperties,
-    private objects: DungeonObject[]
+    private properties: DungeonTileProperties
   ) {
     this.behaviors = {
       [DungeonTileBehaviorType.INPUT]: [],
       [DungeonTileBehaviorType.ENTER]: [],
       [DungeonTileBehaviorType.EXIT]: [],
     };
+
+    this.objects = [];
+  }
+
+  setObjects(objects: DungeonObject[]) {
+    this.objects = objects;
   }
 
   destroy() {

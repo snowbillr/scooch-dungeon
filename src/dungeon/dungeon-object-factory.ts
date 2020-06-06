@@ -1,5 +1,6 @@
 import { DungeonObject } from "./dungeon-object";
 import { Depths } from "../constants/depths";
+import { DungeonTile } from './dungeon-tile';
 
 type ObjectProperties = {
   name: string;
@@ -53,28 +54,26 @@ export class DungeonObjectFactory {
     private readonly scene: Phaser.Scene
   ) {}
 
-  createByIndex(worldX: number, worldY: number, tileIndex: number) {
+  createByIndex(dungeonTile: DungeonTile, tileIndex: number) {
     const objectProperties = Object.values(objectPropertiesList).find(p => p.tileIndex === tileIndex);
-
     if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${tileIndex}`);
 
-    return this.create(worldX, worldY, objectProperties);
+    return this.create(dungeonTile, objectProperties);
   }
 
-  createByName(worldX: number, worldY: number, name: string) {
+  createByName(dungeonTile: DungeonTile, name: string) {
     const objectProperties = Object.values(objectPropertiesList).find(p => p.name === name);
-
     if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${name}`);
 
-    return this.create(worldX, worldY, objectProperties);
+    return this.create(dungeonTile, objectProperties);
   }
 
-  private create(x: number, y: number, objectProperties: ObjectProperties) {
+  private create(dungeonTile: DungeonTile, objectProperties: ObjectProperties) {
     const texture = objectProperties.texture;
     const frame = objectProperties.frame;
     const depth = objectProperties.depth;
 
-    const sprite = this.scene.add.sprite(x, y, texture, frame)
+    const sprite = this.scene.add.sprite(dungeonTile.worldX, dungeonTile.worldY, texture, frame)
       .setOrigin(0)
       .setDepth(depth);
 
@@ -85,6 +84,6 @@ export class DungeonObjectFactory {
       sprite.anims.play(animationName);
     }
 
-    return new DungeonObject(name, sprite);
+    return new DungeonObject(dungeonTile, name, sprite);
   }
 }

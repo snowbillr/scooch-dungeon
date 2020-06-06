@@ -1,11 +1,21 @@
-import { DungeonTileProperties, DungeonTile, DungeonTileBehavior, DungeonTileBehaviorType } from "./dungeon-tile";
+import { DungeonTileProperties, DungeonTile, DungeonTileBehaviorType } from "./dungeon-tile";
 import { Dungeon } from "./dungeon";
 import { InputBehaviors } from "../behaviors/input-behaviors";
 import { EnterBehaviors } from "../behaviors/enter-behaviors";
 import { ExitBehaviors } from "../behaviors/exit-behaviors";
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
+import { DungeonObjectFactory } from './dungeon-object-factory';
+
+export const OBJECTS_KEY = 'objects';
 
 export class DungeonTileFactory {
-  constructor() {}
+  private dungeonObjectFactory: DungeonObjectFactory;
+
+  constructor(
+    private scene: ScoochDungeonScene
+  ) {
+    this.dungeonObjectFactory = new DungeonObjectFactory(scene);
+  }
 
   create(
     gridX: number,
@@ -19,7 +29,11 @@ export class DungeonTileFactory {
       objective: properties.objective.reduce((acc, o) => acc || o, false)
     };
 
-    return new DungeonTile(gridX, gridY, worldX, worldY, computedProperties, properties.objects || []);
+    const dungeonTile = new DungeonTile(gridX, gridY, worldX, worldY, computedProperties);
+    const objects = (properties[OBJECTS_KEY] || []).map(objectIndex => this.dungeonObjectFactory.createByIndex(dungeonTile, objectIndex));
+    dungeonTile.setObjects(objects);
+
+    return dungeonTile;
   }
 
   addBehaviors(dungeonTile: DungeonTile, dungeon: Dungeon) {
