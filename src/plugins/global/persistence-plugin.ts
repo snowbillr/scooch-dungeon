@@ -38,12 +38,19 @@ export class PersistencePlugin extends Phaser.Plugins.BasePlugin {
   }
 
   read() {
-    const rawData = window.localStorage.getItem(STORAGE_KEY) || '{}';
-    const jsonData = JSON.parse(rawData) as Record<string, object>;
+    try {
+      const rawData = window.localStorage.getItem(STORAGE_KEY) || '{}';
+      const jsonData = JSON.parse(rawData) as Record<string, object>;
 
-    Object.entries(jsonData).forEach(([name, data]) => {
-      const document = this.documents.find(doc => doc.name === name);
-      document?.fromJson(data);
-    });
+      Object.entries(jsonData).forEach(([name, data]) => {
+        const document = this.documents.find(doc => doc.name === name);
+        document?.fromJson(data);
+      });
+    } catch {
+      if (confirm("Bad save data. Clear?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+      }
+    }
   }
 }
