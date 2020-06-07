@@ -6,6 +6,7 @@ import { ToggleVolumeButton } from '../hud/toggle-volume-button';
 import { Button, ButtonStyle } from '../hud/button';
 import { Heart, HeartValue } from '../hud/heart';
 import { Viewport } from '../constants/viewport';
+import { ComboMeter } from '../hud/combo-meter';
 
 const VIEWPORT_PADDING = 60;
 
@@ -13,8 +14,7 @@ export class HUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
   private hearts!: Heart[];
-  private comboText!: Phaser.GameObjects.BitmapText;
-  private comboValue!: Phaser.GameObjects.BitmapText;
+  private comboMeter!: ComboMeter;
 
   constructor() {
     super({ key: SCENE_KEYS.HUD });
@@ -25,7 +25,7 @@ export class HUDScene extends ScoochDungeonScene {
     this.addRestartIcon();
     this.addCoinsIndicator(levelData.totalCoins);
     this.addHearts(levelData.maxHealth)
-    this.addComboText();
+    this.addComboMeter();
   }
 
   setTotalCoins(totalCoins: number) {
@@ -54,74 +54,12 @@ export class HUDScene extends ScoochDungeonScene {
     }
   }
 
-  public updateComboAmount(amount: number) {
-    this.tweens.killTweensOf(this.comboValue);
-    this.comboValue.text = `x${amount}`;
-    this.comboValue.alpha = 1;
-
-    this.tweens.add({
-      targets: [this.comboValue, this.comboText],
-      props: {
-        alpha: 1
-      },
-      duration: 100,
-    });
-    this.tweens.timeline({
-      targets: [this.comboValue, this.comboText],
-      tweens: [
-        {
-          props: {
-            scale: 1.5
-          },
-          yoyo: true,
-          duration: 200,
-        },
-        {
-          props: {
-            alpha: 0
-          },
-          duration: 300,
-        }
-      ]
-    })
+  public stepCombo() {
+    this.comboMeter.step();
   }
 
   public clearComboAmount() {
-    this.tweens.killTweensOf(this.comboValue);
-    this.comboValue.text = 'x0';
-
-    this.tweens.add({
-      targets: [this.comboValue, this.comboText],
-      props: {
-        alpha: 1
-      },
-      duration: 100,
-    })
-    this.tweens.timeline({
-      targets: [this.comboValue, this.comboText],
-      tweens: [
-        {
-          props: {
-            x: '+=20'
-          },
-          yoyo: true,
-          duration: 40,
-        },
-        {
-          props: {
-            x: '-=20'
-          },
-          yoyo: true,
-          duration: 40,
-        },
-        {
-          props: {
-            alpha: 0
-          },
-          duration: 300,
-        }
-      ]
-    });
+    this.comboMeter.reset();
   }
 
   private addPauseIcon() {
@@ -261,6 +199,7 @@ export class HUDScene extends ScoochDungeonScene {
     };
   }
 
+  /*
   private addComboText() {
     this.comboText = this.add.bitmapText(Viewport.WIDTH / 2 - 30, VIEWPORT_PADDING + 50, 'matchup-64-white', 'COMBO')
       .setOrigin(0.25, 0.25)
@@ -269,5 +208,10 @@ export class HUDScene extends ScoochDungeonScene {
     this.comboValue = this.add.bitmapText(Viewport.WIDTH / 2 - 10, VIEWPORT_PADDING + 100, 'matchup-64-white', 'x0')
       .setOrigin(0.25, 0.25)
       .setAlpha(0)
+  }
+  */
+
+  private addComboMeter() {
+    this.comboMeter = new ComboMeter(this, Viewport.WIDTH / 2, VIEWPORT_PADDING);
   }
 }

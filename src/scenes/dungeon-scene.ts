@@ -118,19 +118,11 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public incrementCombo() {
     this.comboCounter += 1;
-    if (this.comboCounter === 3) {
-      this.hud.updateComboAmount(1);
-    } else if (this.comboCounter === 7) {
-      this.hud.updateComboAmount(2);
-    } else if (this.comboCounter === 12) {
-      this.hud.updateComboAmount(3);
-    }
+    this.hud.stepCombo();
   }
 
   public resetCombo() {
-    if (this.comboCounter >= 3) {
-      this.hud.clearComboAmount();
-    }
+    this.hud.clearComboAmount();
     this.comboCounter = 0;
   }
 
