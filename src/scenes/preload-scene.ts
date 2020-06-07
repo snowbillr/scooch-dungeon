@@ -53,6 +53,10 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');
     this.load.image('menubox', 'assets/interface/menubox.png');
+    this.load.spritesheet('combo-meter-0', 'assets/interface/combo-meter-0.png', { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet('combo-meter-1', 'assets/interface/combo-meter-1.png', { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet('combo-meter-2', 'assets/interface/combo-meter-2.png', { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet('combo-meter-max', 'assets/interface/combo-meter-max.png', { frameWidth: 64, frameHeight: 64 });
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
     this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });
