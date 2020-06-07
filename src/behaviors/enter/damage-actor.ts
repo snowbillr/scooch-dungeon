@@ -22,6 +22,7 @@ export class DamageActorBehavior extends DungeonBehavior {
 
     healthComponent.subtract(this.damage);
 
+    this.scene.resetCombo();
     this.scene.hud.updateHealth(healthComponent.currentHealth, healthComponent.maxHealth);
     this.scene.cameras.main.shake(200, 0.01);
 
