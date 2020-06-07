@@ -4,12 +4,14 @@ import { SCENE_KEYS } from '../constants/scene-keys';
 import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { ToggleVolumeButton } from '../hud/toggle-volume-button';
 import { Button, ButtonStyle } from '../hud/button';
+import { Heart, HeartValue } from '../hud/heart';
 
 const VIEWPORT_PADDING = 60;
 
 export class HUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
+  private hearts!: Heart[];
 
   constructor() {
     super({ key: SCENE_KEYS.HUD });
@@ -17,10 +19,9 @@ export class HUDScene extends ScoochDungeonScene {
 
   create(levelData: any) {
     this.addPauseIcon();
-
     this.addRestartIcon();
-
-    this.addCoinsIndicator(levelData);
+    this.addCoinsIndicator(levelData.totalCoins);
+    this.addHearts(levelData.maxHealth)
   }
 
   setTotalCoins(totalCoins: number) {
@@ -35,10 +36,30 @@ export class HUDScene extends ScoochDungeonScene {
     this.collectedCoinsText.setText(`${coins}`);
   }
 
+  updateHealth(currentHealth: number, maxHealth: number) {
+    const { fullHearts, halfHearts, emptyHearts } = this.calculateHearts(currentHealth, maxHealth);
+
+    for (let i = 0; i < fullHearts; i++) {
+      this.hearts[i].setValue(HeartValue.FULL);
+    }
+    for (let i = fullHearts; i < fullHearts + halfHearts; i++) {
+      this.hearts[i].setValue(HeartValue.HALF);
+    }
+    for (let i = fullHearts + halfHearts; i < fullHearts + halfHearts + emptyHearts; i++) {
+      this.hearts[i].setValue(HeartValue.EMPTY);
+    }
+  }
+
   private addPauseIcon() {
-    this.add.image(this.scale.width - VIEWPORT_PADDING, VIEWPORT_PADDING, 'hud-pause')
-      .setInteractive()
-      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+    new Button(
+      this,
+      VIEWPORT_PADDING,
+      this.scale.height - VIEWPORT_PADDING,
+      ButtonStyle.NONE,
+      'hud-pause',
+      () => {
+        if (this.scene.isPaused(SCENE_KEYS.DUNGEON)) return;
+
         this.scene.pause(SCENE_KEYS.DUNGEON);
 
         const menuX = this.scale.width / 2;
@@ -59,7 +80,7 @@ export class HUDScene extends ScoochDungeonScene {
           this.add.bitmapText(0, -125, 'matchup-32', 'Paused').setOrigin(0.5),
           this.add.image(125 - 12, -150 + 12, 'hud-close')
             .setInteractive()
-            .on(Phaser.Input.Events.POINTER_DOWN, () => {
+            .on(Phaser.Input.Events.POINTER_UP, () => {
               this.tweens.add({
                 targets: pauseMenu,
                 props: {
@@ -114,7 +135,8 @@ export class HUDScene extends ScoochDungeonScene {
           },
           duration: 400
         })
-      });
+      }
+    );
   }
 
   private addRestartIcon() {
@@ -123,16 +145,45 @@ export class HUDScene extends ScoochDungeonScene {
     });
   }
 
-  private addCoinsIndicator(levelData: any) {
-    if (levelData.totalCoins > 0) {
-      this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING + 3, 'coin')
+  private addCoinsIndicator(totalCoins: number) {
+    const x = this.scale.width - VIEWPORT_PADDING;
+    const y = VIEWPORT_PADDING;
+
+    if (totalCoins > 0) {
+      this.add.image(x - 40, y, 'coin')
         .setOrigin(0.5)
-      this.collectedCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 20, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '0')
+      this.collectedCoinsText = this.add.bitmapText(x - 20, y - 3, 'matchup-32', '0')
         .setOrigin(0, 0.5);
-      this.add.bitmapText(VIEWPORT_PADDING + 40, this.scale.height - VIEWPORT_PADDING, 'matchup-32', '/')
+      this.add.bitmapText(x, y - 3, 'matchup-32', '/')
         .setOrigin(0, 0.5);
-      this.totalCoinsText = this.add.bitmapText(VIEWPORT_PADDING + 60, this.scale.height - VIEWPORT_PADDING, 'matchup-32', levelData.totalCoins)
+      this.totalCoinsText = this.add.bitmapText(x + 20, y - 3, 'matchup-32', `${totalCoins}`)
         .setOrigin(0, 0.5);
     }
+  }
+
+  private addHearts(maxHealth: number) {
+   const { fullHearts, halfHearts, emptyHearts } = this.calculateHearts(maxHealth, maxHealth);
+
+    const startX = VIEWPORT_PADDING;
+    const stepX = 32 + 8;
+    const y = VIEWPORT_PADDING;
+
+    this.hearts = Array.from({ length: fullHearts + halfHearts + emptyHearts }, (v, i) => {
+      return new Heart(this, startX + stepX * i, y);
+    });
+
+    this.updateHealth(maxHealth, maxHealth);
+  }
+
+  private calculateHearts(health: number, maxHealth: number) {
+    const fullHearts = Math.floor(health);
+    const halfHearts = Math.ceil(health - fullHearts);
+    const emptyHearts = maxHealth - halfHearts - fullHearts;
+
+    return {
+      fullHearts,
+      halfHearts,
+      emptyHearts
+    };
   }
 }

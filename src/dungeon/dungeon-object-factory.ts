@@ -1,5 +1,8 @@
-import { DungeonObject } from "./dungeon-object";
+import { DungeonObject, DungeonObjectConstructor } from "./dungeon-object";
 import { Depths } from "../constants/depths";
+import { DungeonTile } from './dungeon-tile';
+import { Spikes } from './objects/spikes';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
 type ObjectProperties = {
   name: string;
@@ -8,6 +11,7 @@ type ObjectProperties = {
   frame?: number | string;
   animation?: string;
   depth: number;
+  klass?: DungeonObjectConstructor;
 }
 
 const objectPropertiesList = [
@@ -33,6 +37,14 @@ const objectPropertiesList = [
     depth: Depths.coin
   },
   {
+    name: 'spikes',
+    tileIndex: 101,
+    texture: 'spikes',
+    frame: 0,
+    depth: Depths.spikes,
+    klass: Spikes
+  },
+  {
     name: 'swipe-indicator',
     texture: 'swipe-indicator',
     frame: 0,
@@ -43,31 +55,29 @@ const objectPropertiesList = [
 
 export class DungeonObjectFactory {
   constructor(
-    private readonly scene: Phaser.Scene
+    private readonly scene: ScoochDungeonScene
   ) {}
 
-  createByIndex(worldX: number, worldY: number, tileIndex: number) {
+  createByIndex(dungeonTile: DungeonTile, tileIndex: number) {
     const objectProperties = Object.values(objectPropertiesList).find(p => p.tileIndex === tileIndex);
-
     if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${tileIndex}`);
 
-    return this.create(worldX, worldY, objectProperties);
+    return this.create(dungeonTile, objectProperties);
   }
 
-  createByName(worldX: number, worldY: number, name: string) {
+  createByName(dungeonTile: DungeonTile, name: string) {
     const objectProperties = Object.values(objectPropertiesList).find(p => p.name === name);
-
     if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${name}`);
 
-    return this.create(worldX, worldY, objectProperties);
+    return this.create(dungeonTile, objectProperties);
   }
 
-  private create(x: number, y: number, objectProperties: ObjectProperties) {
+  private create(dungeonTile: DungeonTile, objectProperties: ObjectProperties) {
     const texture = objectProperties.texture;
     const frame = objectProperties.frame;
     const depth = objectProperties.depth;
 
-    const sprite = this.scene.add.sprite(x, y, texture, frame)
+    const sprite = this.scene.add.sprite(dungeonTile.worldX, dungeonTile.worldY, texture, frame)
       .setOrigin(0)
       .setDepth(depth);
 
@@ -78,6 +88,8 @@ export class DungeonObjectFactory {
       sprite.anims.play(animationName);
     }
 
-    return new DungeonObject(name, sprite);
+    const Klass = objectProperties.klass || DungeonObject;
+
+    return new Klass(this.scene, dungeonTile, name, sprite);
   }
 }

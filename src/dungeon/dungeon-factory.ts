@@ -1,18 +1,16 @@
 import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
-import { DungeonTileFactory } from './dungeon-tile-factory';
-import { DungeonObjectFactory } from './dungeon-object-factory';
+import { DungeonTileFactory, OBJECTS_KEY } from './dungeon-tile-factory';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
 export class DungeonFactory {
   private dungeonTileFactory: DungeonTileFactory;
-  private dungeonObjectFactory: DungeonObjectFactory;
 
   constructor(
-    private scene: Phaser.Scene,
+    private scene: ScoochDungeonScene,
   ) {
-    this.dungeonTileFactory = new DungeonTileFactory();
-    this.dungeonObjectFactory = new DungeonObjectFactory(scene);
+    this.dungeonTileFactory = new DungeonTileFactory(scene);
   }
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {
@@ -39,6 +37,7 @@ export class DungeonFactory {
   private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): DungeonTile[] {
     const tileData = new TileData();
 
+    // gather floor tile data
     floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
       Object.entries(tile.properties).forEach(([key, value]) => {
         tileData.addKeyValue(tile.x, tile.y, key, value);
@@ -47,20 +46,19 @@ export class DungeonFactory {
       isNotEmpty: true
     });
 
+    // gather object tile data
     const objects = tilemap.getLayer('objects');
     objects.data.flat()
       .filter(tile => tile.index !== -1)
       .forEach(tile => {
-        const worldCoordinates = tilemap.tileToWorldXY(tile.x, tile.y);
-
-        const dungeonObject = this.dungeonObjectFactory.createByIndex(worldCoordinates.x, worldCoordinates.y, tile.index);
-        tileData.addKeyValue(tile.x, tile.y, 'objects', dungeonObject);
+        tileData.addKeyValue(tile.x, tile.y, OBJECTS_KEY, tile.index);
 
         Object.entries(tile.properties).forEach(([key, value]) => {
           tileData.addKeyValue(tile.x, tile.y, key, value);
         });
       });
 
+    // create tiles
     const dungeonTiles: DungeonTile[] = [];
     tileData.forEach((coordinates, properties) => {
       const worldCoordinates = tilemap.tileToWorldXY(coordinates.x, coordinates.y);

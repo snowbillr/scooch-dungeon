@@ -49,7 +49,7 @@ export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
     }[objectiveDirection];
 
     const objectFactory = new DungeonObjectFactory(scene);
-    const swipeIndicatorDungeonObject = objectFactory.createByName(dungeonTile.worldX, dungeonTile.worldY, 'swipe-indicator');
+    const swipeIndicatorDungeonObject = objectFactory.createByName(dungeonTile, 'swipe-indicator');
 
     // TODO get half the tile width/height in a better way
     swipeIndicatorDungeonObject.sprite

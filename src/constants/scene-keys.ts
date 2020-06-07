@@ -5,5 +5,6 @@ export const SCENE_KEYS = {
   DUNGEON: 'dungeon',
   TITLE: 'title',
   SFX: 'sfx',
-  DEBUG: 'debug'
+  DEBUG: 'debug',
+  DEATH: 'death'
 }

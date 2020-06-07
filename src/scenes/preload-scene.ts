@@ -42,6 +42,7 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
     this.load.bitmapFont('matchup-24', 'assets/fonts/matchup-24.png', 'assets/fonts/matchup-24.xml');
 
+    this.load.spritesheet('hud-heart', 'assets/interface/hud-heart.png', { frameWidth: 32, frameHeight: 28 });
     this.load.image('hud-close', 'assets/interface/hud-close.png');
     this.load.image('hud-restart', 'assets/images/hud-restart.png');
     this.load.image('hud-pause', 'assets/interface/hud-pause.png');
@@ -58,6 +59,10 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.spritesheet('coin', 'assets/objects/coin.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('coin-animations', 'assets/objects/coin-animations.json');
     this.load.image('rock', 'assets/objects/rock.png');
+    this.load.spritesheet('spikes', 'assets/objects/spikes.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.animation('spikes-animations', 'assets/objects/spikes-animations.json');
+
+    this.load.image('skull', 'assets/images/skull.png');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
       const levelKey = String(i).padStart(3, '0');

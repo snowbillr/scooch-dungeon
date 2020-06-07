@@ -6,6 +6,7 @@ export const Depths = {
   coin: 60,
   rock: 40,
   objective: 40,
+  spikes: 40,
 
   // interface
   "swipe-indicator": 60,
