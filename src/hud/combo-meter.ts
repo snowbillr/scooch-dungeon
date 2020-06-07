@@ -56,6 +56,15 @@ export class ComboMeter {
   private updateDisplay() {
     if (LEVELS[this.currentLevel].max) {
       this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
+
+      this.scene.tweens.add({
+        targets: this.gameObject,
+        props: {
+          scale: 1.4
+        },
+        yoyo: true,
+        duration: 100
+      });
     } else if (this.currentLevel === 0 && this.currentStep === 0) {
       this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
       this.gameObject.setFrame(this.currentStep);
