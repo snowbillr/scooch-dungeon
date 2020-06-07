@@ -56,6 +56,36 @@ export class ComboMeter {
   private updateDisplay() {
     if (LEVELS[this.currentLevel].max) {
       this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
+    } else if (this.currentLevel === 0 && this.currentStep === 0) {
+      this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
+      this.gameObject.setFrame(this.currentStep);
+
+      this.scene.tweens.timeline({
+        targets: this.gameObject,
+        tweens: [
+          {
+            props: {
+              x: '+=5'
+            },
+            yoyo: true,
+            duration: 50
+          },
+          {
+            props: {
+              x: '-=5'
+            },
+            yoyo: true,
+            duration: 50
+          },
+          {
+            props: {
+              x: '+=5'
+            },
+            yoyo: true,
+            duration: 50
+          }
+        ]
+      });
     } else {
       this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
       this.gameObject.setFrame(this.currentStep);

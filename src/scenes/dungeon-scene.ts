@@ -122,7 +122,9 @@ export class DungeonScene extends ScoochDungeonScene {
   }
 
   public resetCombo() {
-    this.hud.clearComboAmount();
+    if (this.comboCounter > 0) {
+      this.hud.clearComboAmount();
+    }
     this.comboCounter = 0;
   }
 
