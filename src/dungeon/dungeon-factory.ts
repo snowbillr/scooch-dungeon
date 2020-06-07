@@ -2,13 +2,13 @@ import { Dungeon } from './dungeon';
 import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 import { DungeonTileFactory, OBJECTS_KEY } from './dungeon-tile-factory';
-import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
+import { DungeonScene } from '../scenes/dungeon-scene';
 
 export class DungeonFactory {
   private dungeonTileFactory: DungeonTileFactory;
 
   constructor(
-    private scene: ScoochDungeonScene,
+    private scene: DungeonScene,
   ) {
     this.dungeonTileFactory = new DungeonTileFactory(scene);
   }

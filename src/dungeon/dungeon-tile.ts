@@ -1,8 +1,7 @@
 import { DungeonObject } from './dungeon-object';
 import { Direction } from '../constants/directions';
-import { Dungeon } from './dungeon';
-import { DungeonScene } from '../scenes/dungeon-scene';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
+import { DungeonBehavior } from '../behaviors/dungeon-behavior';
 
 export type DungeonTileProperties = {
   walkable: boolean;
@@ -15,15 +14,8 @@ export enum DungeonTileBehaviorType {
   EXIT = 'EXIT'
 };
 
-export type DungeonTileBehavior = {
-  priority: number;
-
-  isApplicable: (dungeonTile: DungeonTile, dungeon: Dungeon) => boolean;
-  run: (direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) => boolean | void;
-};
-
 export class DungeonTile {
-  public behaviors: Record<DungeonTileBehaviorType, DungeonTileBehavior[]>;
+  public behaviors: Record<DungeonTileBehaviorType, DungeonBehavior[]>;
   private objects: DungeonObject[];
 
   constructor(
@@ -73,6 +65,10 @@ export class DungeonTile {
     return this.objects.find(object => object.name === name);
   }
 
+  hasObject(name: string) {
+    return this.objects.some(object => object.name === name);
+  }
+
   addObject(dungeonObject: DungeonObject) {
     this.objects.push(dungeonObject);
   }
@@ -83,23 +79,23 @@ export class DungeonTile {
     dungeonObject.destroy();
   }
 
-  addBehavior(type: DungeonTileBehaviorType, behavior: DungeonTileBehavior) {
+  addBehavior(type: DungeonTileBehaviorType, behavior: DungeonBehavior) {
     this.behaviors[type].push(behavior);
   }
 
-  removeBehavior(type: DungeonTileBehaviorType, targetBehavior: DungeonTileBehavior) {
+  removeBehavior(type: DungeonTileBehaviorType, targetBehavior: DungeonBehavior) {
     const behaviors = this.behaviors[type];
 
-    const behaviorIndex = behaviors.findIndex(behavior => behavior == targetBehavior);
+    const behaviorIndex = behaviors.findIndex(behavior => behavior.id == targetBehavior.id);
     behaviors.splice(behaviorIndex, 1);
   }
 
-  runBehaviors(type: DungeonTileBehaviorType, direction: Direction, scene: DungeonScene) {
+  runBehaviors(type: DungeonTileBehaviorType, direction: Direction) {
     const behaviors = this.behaviors[type];
     const sortedBehaviors = behaviors.slice().sort((a, b) => b.priority - a.priority);
 
     for (let behavior of sortedBehaviors) {
-      const stopPropagation = behavior.run(direction, this, scene)
+      const stopPropagation = behavior.run(direction)
 
       if (stopPropagation) break;
     };

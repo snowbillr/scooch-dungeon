@@ -1,24 +1,23 @@
-import { DungeonTileBehavior, DungeonTile, DungeonTileBehaviorType } from "../../dungeon/dungeon-tile";
+import { DungeonTileBehaviorType } from "../../dungeon/dungeon-tile";
 import { Direction } from "../../constants/directions";
-import { Dungeon } from "../../dungeon/dungeon";
-import { DungeonScene } from "../../scenes/dungeon-scene";
+import { DungeonBehavior } from '../dungeon-behavior';
 
-export const CollectCoinBehavior: DungeonTileBehavior = {
-  priority: 100,
+export class CollectCoinBehavior extends DungeonBehavior {
+  public priority: number = 100;
 
-  isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    return Boolean(dungeonTile.getObject('coin'));
-  },
+  public isApplicable(): boolean {
+    return this.tile.hasObject('coin');
+  }
 
-  run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    const coinSprite = dungeonTile.getObject('coin')?.sprite;
+  public run(direction: Direction): boolean {
+    const coinSprite = this.tile.getObject('coin')?.sprite;
 
-    scene.sfx.playCoinSfx();
+    this.scene.sfx.playCoinSfx();
 
-    scene.dungeon.stats.incrementCoins();
-    scene.hud.setCollectedCoins(scene.dungeon.stats.getCoins());
+    this.scene.dungeon.stats.incrementCoins();
+    this.scene.hud.setCollectedCoins(this.scene.dungeon.stats.getCoins());
 
-    scene.tweens.add({
+    this.scene.tweens.add({
       targets: coinSprite,
       props: {
         y: '-=50',
@@ -27,6 +26,8 @@ export const CollectCoinBehavior: DungeonTileBehavior = {
       duration: 200
     });
 
-    dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, this);
+    this.tile.removeBehavior(DungeonTileBehaviorType.ENTER, this);
+
+    return false;
   }
 }

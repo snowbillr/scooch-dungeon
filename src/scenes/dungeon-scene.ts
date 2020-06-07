@@ -112,7 +112,7 @@ export class DungeonScene extends ScoochDungeonScene {
 
     const tile = cursor.getTile();
 
-    tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection, this);
+    tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection);
   }
 
   private calculateCameraBounds() {

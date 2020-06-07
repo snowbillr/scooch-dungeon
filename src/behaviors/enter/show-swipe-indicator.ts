@@ -1,21 +1,18 @@
-import { DungeonTileBehavior, DungeonTile } from "../../dungeon/dungeon-tile";
-import { Dungeon } from "../../dungeon/dungeon";
 import { Direction } from "../../constants/directions";
-import { DungeonScene } from "../../scenes/dungeon-scene";
 import { DungeonObjectFactory } from "../../dungeon/dungeon-object-factory";
+import { DungeonBehavior } from '../dungeon-behavior';
 
-export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
-  priority: 100,
+export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
+  public priority: number = 100;
 
-  isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
+  public isApplicable(): boolean {
+    const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
                  .some(({ dungeonTile }) => dungeonTile.isObjective());
-  },
-
-  run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    const cursor = scene.dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
+  }
+  public run(direction: Direction): boolean {
+    const cursor = this.scene.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     let objectiveDirection: Direction | undefined;
     cursor.getCardinalNeighbors().forEach(({ dungeonTile, direction }) => {
@@ -48,15 +45,17 @@ export const ShowSwipeIndicatorBehavior: DungeonTileBehavior = {
       [Direction.RIGHT]: tileWidth / 2,
     }[objectiveDirection];
 
-    const objectFactory = new DungeonObjectFactory(scene);
-    const swipeIndicatorDungeonObject = objectFactory.createByName(dungeonTile, 'swipe-indicator');
+    const objectFactory = new DungeonObjectFactory(this.scene);
+    const swipeIndicatorDungeonObject = objectFactory.createByName(this.tile, 'swipe-indicator');
 
     // TODO get half the tile width/height in a better way
     swipeIndicatorDungeonObject.sprite
-      .setPosition(dungeonTile.worldX + xOffset, dungeonTile.worldY + yOffset)
+      .setPosition(this.tile.worldX + xOffset, this.tile.worldY + yOffset)
       .setOrigin(0.5)
       .setRotation(rotation);
 
-    dungeonTile.addObject(swipeIndicatorDungeonObject);
+    this.tile.addObject(swipeIndicatorDungeonObject);
+
+    return false;
   }
 }

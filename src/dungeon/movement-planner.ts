@@ -63,13 +63,13 @@ export const MovementPlanner = {
 
         // tween onStart
         callbackQueue.addCallback(() => {
-          currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction, scene);
+          currentTile.runBehaviors(DungeonTileBehaviorType.EXIT, direction);
         });
 
         // tween onComplete
         callbackQueue.addCallback(() => {
           heroGridPosition.setGridPosition(nextTile.gridX, nextTile.gridY);
-          nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction, scene);
+          nextTile.runBehaviors(DungeonTileBehaviorType.ENTER, direction);
         });
 
         plannerPosition.set(nextTile.gridX, nextTile.gridY);

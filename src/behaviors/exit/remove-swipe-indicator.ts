@@ -1,19 +1,20 @@
-import { DungeonTile, DungeonTileBehavior } from "../../dungeon/dungeon-tile";
-import { Dungeon } from "../../dungeon/dungeon";
 import { Direction } from "../../constants/directions";
-import { DungeonScene } from "../../scenes/dungeon-scene";
+import { DungeonBehavior } from '../dungeon-behavior';
 
-export const RemoveSwipeIndicatorBehavior: DungeonTileBehavior = {
-  priority: 100,
+export class RemoveSwipeIndicatorBehavior extends DungeonBehavior {
+  public priority: number = 100;
 
-  isApplicable(dungeonTile: DungeonTile, dungeon: Dungeon) {
-    const cursor = dungeon.getCursor(dungeonTile.gridX, dungeonTile.gridY);
+  public isApplicable(): boolean {
+    const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
       .some(({ dungeonTile }) => dungeonTile.isObjective());
-  },
-
-  run(direction: Direction, dungeonTile: DungeonTile, scene: DungeonScene) {
-    dungeonTile.removeObject('swipe-indicator');
   }
-};
+
+  public run(direction: Direction): boolean {
+    this.tile.removeObject('swipe-indicator');
+
+    return false;
+  }
+
+}

@@ -1,16 +1,20 @@
 import { DungeonObject } from '../dungeon-object';
 import { DungeonTile, DungeonTileBehaviorType } from '../dungeon-tile';
-import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
-import { DamageActor } from '../../behaviors/enter/damage-actor';
+import { DamageActorBehavior } from '../../behaviors/enter/damage-actor';
+import { DungeonScene } from '../../scenes/dungeon-scene';
 
 export class Spikes extends DungeonObject {
+  private damageActorBehavior: DamageActorBehavior;
+
   constructor(
-    scene: ScoochDungeonScene,
+    scene: DungeonScene,
     dungeonTile: DungeonTile,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
   ) {
     super(scene, dungeonTile, name, sprite);
+
+    this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon, 0.5);
 
     scene.time.addEvent({
       loop: true,
@@ -24,12 +28,12 @@ export class Spikes extends DungeonObject {
     await this.playAnimation('spikes-peek');
     await this.playAnimation('spikes-reveal');
 
-    this.dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, DamageActor);
+    this.dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
 
     await this.wait(2000);
     await this.playAnimation('spikes-hide');
 
-    this.dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, DamageActor);
+    this.dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
   }
 
   private async playAnimation(animationKey: string) {
