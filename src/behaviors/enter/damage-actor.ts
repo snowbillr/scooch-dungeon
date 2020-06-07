@@ -3,24 +3,14 @@ import { HealthComponent } from '../../components/health-component';
 import { SCENE_KEYS } from '../../constants/scene-keys';
 import { SpriteComponent } from '../../components/sprite-component';
 import { DungeonBehavior } from '../dungeon-behavior';
-import { DungeonScene } from '../../scenes/dungeon-scene';
-import { DungeonTile } from '../../dungeon/dungeon-tile';
-import { Dungeon } from '../../dungeon/dungeon';
 
 export class DamageActorBehavior extends DungeonBehavior {
-  private damage: number;
+  private damage: number = 0.5;
 
   public priority: number = 100;
 
-  constructor(
-    scene: DungeonScene,
-    tile: DungeonTile,
-    dungeon: Dungeon,
-    damage: number
-  ) {
-    super(scene, tile, dungeon);
-
-    this.damage = damage;
+  public setDamage(value: number) {
+    this.damage = value;
   }
 
   public isApplicable(): boolean {

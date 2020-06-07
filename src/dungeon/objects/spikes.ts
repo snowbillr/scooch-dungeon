@@ -14,7 +14,8 @@ export class Spikes extends DungeonObject {
   ) {
     super(scene, dungeonTile, name, sprite);
 
-    this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon, 0.5);
+    this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon);
+    this.damageActorBehavior.setDamage(0.5);
 
     scene.time.addEvent({
       loop: true,
