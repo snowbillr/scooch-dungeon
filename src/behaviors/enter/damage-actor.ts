@@ -22,7 +22,6 @@ export const DamageActor: DungeonTileBehavior = {
     scene.cameras.main.shake(200, 0.01);
 
     if (healthComponent.currentHealth <= 0) {
-      console.log('dead')
       const heroSprite = scene.hero.getComponent(SpriteComponent);
       scene.tweens.killTweensOf(heroSprite.sprite)
       heroSprite.sprite.on(`${Phaser.Animations.Events.SPRITE_ANIMATION_KEY_COMPLETE}hero-die`, () => {
