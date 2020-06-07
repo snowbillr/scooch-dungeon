@@ -51,9 +51,13 @@ export class HUDScene extends ScoochDungeonScene {
   }
 
   private addPauseIcon() {
-    this.add.image(VIEWPORT_PADDING, this.scale.height - VIEWPORT_PADDING, 'hud-pause')
-      .setInteractive()
-      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+    new Button(
+      this,
+      VIEWPORT_PADDING,
+      this.scale.height - VIEWPORT_PADDING,
+      ButtonStyle.NONE,
+      'hud-pause',
+      () => {
         if (this.scene.isPaused(SCENE_KEYS.DUNGEON)) return;
 
         this.scene.pause(SCENE_KEYS.DUNGEON);
@@ -76,7 +80,7 @@ export class HUDScene extends ScoochDungeonScene {
           this.add.bitmapText(0, -125, 'matchup-32', 'Paused').setOrigin(0.5),
           this.add.image(125 - 12, -150 + 12, 'hud-close')
             .setInteractive()
-            .on(Phaser.Input.Events.POINTER_DOWN, () => {
+            .on(Phaser.Input.Events.POINTER_UP, () => {
               this.tweens.add({
                 targets: pauseMenu,
                 props: {
@@ -131,7 +135,8 @@ export class HUDScene extends ScoochDungeonScene {
           },
           duration: 400
         })
-      });
+      }
+    );
   }
 
   private addRestartIcon() {

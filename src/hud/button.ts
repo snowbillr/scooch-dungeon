@@ -51,7 +51,7 @@ export class Button {
 
     this.gameObject.add(normalizedContent);
     this.gameObject.setInteractive();
-    this.gameObject.on(Phaser.Input.Events.POINTER_DOWN, onPress);
+    this.gameObject.on(Phaser.Input.Events.POINTER_UP, onPress);
 
       scene.add.existing(this.gameObject);
   }
