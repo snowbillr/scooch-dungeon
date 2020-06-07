@@ -1,0 +1,35 @@
+{
+  "anims": [
+    {
+      "key": "spikes-peek",
+      "frames": [
+        { "key": "spikes", "frame": 0 },
+        { "key": "spikes", "frame": 1 }
+      ],
+      "repeat": 0,
+      "frameRate": 1
+    },
+    {
+      "key": "spikes-reveal",
+      "frames": [
+        { "key": "spikes", "frame": 0 },
+        { "key": "spikes", "frame": 1 },
+        { "key": "spikes", "frame": 2 },
+        { "key": "spikes", "frame": 3 }
+      ],
+      "repeat": 0,
+      "frameRate": 18
+    },
+    {
+      "key": "spikes-hide",
+      "frames": [
+        { "key": "spikes", "frame": 3 },
+        { "key": "spikes", "frame": 2 },
+        { "key": "spikes", "frame": 1 },
+        { "key": "spikes", "frame": 0 }
+      ],
+      "repeat": 0,
+      "frameRate": 8
+    }
+  ]
+}

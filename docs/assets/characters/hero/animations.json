@@ -3,10 +3,10 @@
     {
       "key": "hero-idle",
       "frames": [
-        { "key": "hero", "frame": 4 },
-        { "key": "hero", "frame": 5 },
-        { "key": "hero", "frame": 6 },
-        { "key": "hero", "frame": 7 }
+        { "key": "hero", "frame": 10 },
+        { "key": "hero", "frame": 11 },
+        { "key": "hero", "frame": 12 },
+        { "key": "hero", "frame": 13 }
       ],
       "repeat": -1,
       "frameRate": 6
@@ -14,12 +14,29 @@
     {
       "key": "hero-run",
       "frames": [
-        { "key": "hero", "frame": 8 },
-        { "key": "hero", "frame": 9 },
-        { "key": "hero", "frame": 10 },
-        { "key": "hero", "frame": 11 }
+        { "key": "hero", "frame": 20 },
+        { "key": "hero", "frame": 21 },
+        { "key": "hero", "frame": 22 },
+        { "key": "hero", "frame": 23 }
       ],
       "repeat": -1,
+      "frameRate": 10
+    },
+    {
+      "key": "hero-die",
+      "frames": [
+        { "key": "hero", "frame": 30 },
+        { "key": "hero", "frame": 31 },
+        { "key": "hero", "frame": 32 },
+        { "key": "hero", "frame": 33 },
+        { "key": "hero", "frame": 34 },
+        { "key": "hero", "frame": 35 },
+        { "key": "hero", "frame": 36 },
+        { "key": "hero", "frame": 37 },
+        { "key": "hero", "frame": 38 },
+        { "key": "hero", "frame": 39 }
+      ],
+      "repeat": 0,
       "frameRate": 10
     }
   ]
