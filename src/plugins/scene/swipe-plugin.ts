@@ -1,6 +1,6 @@
 import { Direction } from "../../constants/directions";
 
-const DISTANCE_THRESHOLD = 100;
+const DISTANCE_THRESHOLD = 75;
 
 export type SwipeListener = (direction: Direction) => void;
 
