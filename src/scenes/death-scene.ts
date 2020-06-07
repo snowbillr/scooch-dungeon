@@ -11,6 +11,17 @@ export class DeathScene extends ScoochDungeonScene {
   create() {
     this.cameras.main.setBackgroundColor('#3d253b');
 
+    const skull = this.add.image(Viewport.WIDTH / 2, 125, 'skull');
+    this.tweens.add({
+      targets: skull,
+      props: {
+        y: 150
+      },
+      yoyo: true,
+      loop: -1,
+      ease: Phaser.Math.Easing.Quadratic.InOut
+    });
+
     new Button(
       this,
       Viewport.WIDTH / 2,
@@ -23,7 +34,7 @@ export class DeathScene extends ScoochDungeonScene {
     new Button(
       this,
       Viewport.WIDTH / 2,
-      Viewport.HEIGHT / 2 + 50,
+      Viewport.HEIGHT / 2 + 25,
       ButtonStyle.BACKGROUND,
       this.add.bitmapText(0, 0, 'matchup-24', 'Quit to Title').setOrigin(0.5),
       () => this.fadeToScene(SCENE_KEYS.TITLE)

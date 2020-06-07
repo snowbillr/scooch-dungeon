@@ -62,6 +62,8 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.spritesheet('spikes', 'assets/objects/spikes.png', { frameWidth: 32, frameHeight: 32 });
     this.load.animation('spikes-animations', 'assets/objects/spikes-animations.json');
 
+    this.load.image('skull', 'assets/images/skull.png');
+
     for (let i = 1; i <= LEVELS_COUNT; i++) {
       const levelKey = String(i).padStart(3, '0');
       this.load.tilemapTiledJSON(`level-${levelKey}`, `assets/levels/${levelKey}.json`);
