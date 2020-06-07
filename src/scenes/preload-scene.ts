@@ -38,6 +38,7 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.audio('level-complete-music', ['assets/music/level-complete-music.mp3', 'assets/music/level-complete-music.ogg'])
 
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
+    this.load.bitmapFont('matchup-64-white', 'assets/fonts/matchup-64-white.png', 'assets/fonts/matchup-64-white.xml');
     this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
     this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
     this.load.bitmapFont('matchup-24', 'assets/fonts/matchup-24.png', 'assets/fonts/matchup-24.xml');

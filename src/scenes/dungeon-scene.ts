@@ -22,6 +22,7 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public hud!: HUDScene;
 
+  private comboCounter: number = 0;
   public queuedInput: Direction[];
 
   constructor() {
@@ -113,6 +114,24 @@ export class DungeonScene extends ScoochDungeonScene {
     const tile = cursor.getTile();
 
     tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection);
+  }
+
+  public incrementCombo() {
+    this.comboCounter += 1;
+    if (this.comboCounter === 3) {
+      this.hud.updateComboAmount(1);
+    } else if (this.comboCounter === 7) {
+      this.hud.updateComboAmount(2);
+    } else if (this.comboCounter === 12) {
+      this.hud.updateComboAmount(3);
+    }
+  }
+
+  public resetCombo() {
+    if (this.comboCounter >= 3) {
+      this.hud.clearComboAmount();
+    }
+    this.comboCounter = 0;
   }
 
   private calculateCameraBounds() {

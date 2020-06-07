@@ -81,9 +81,11 @@ export const MovementPlanner = {
     // timeline onComplete
     callbackQueue.addCallback(() => {
       if (scene.queuedInput.length) {
+        scene.incrementCombo();
         scene.handleInput();
         hero.getComponent(StateMachineComponent).stateMachine.transitionTo('moving', undefined, { direction: scene.queuedInput });
       } else {
+        scene.resetCombo();
         hero.getComponent(StateMachineComponent).stateMachine.transitionTo('idle');
       }
     });
