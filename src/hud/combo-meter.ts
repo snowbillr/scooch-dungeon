@@ -2,17 +2,17 @@ const LEVELS = [
   {
     max: false,
     steps: 4,
-    texture: 'combo-meter-0'
-  },
-  {
-    max: false,
-    steps: 5,
     texture: 'combo-meter-1'
   },
   {
     max: false,
-    steps: 6,
+    steps: 5,
     texture: 'combo-meter-2'
+  },
+  {
+    max: false,
+    steps: 6,
+    texture: 'combo-meter-3'
   },
   {
     max: true,
@@ -28,7 +28,7 @@ export class ComboMeter {
   private currentStep: number;
 
   constructor(private scene: Phaser.Scene, x: number, y: number) {
-    this.gameObject = scene.add.sprite(x, y, 'combo-meter-0');
+    this.gameObject = scene.add.sprite(x, y, 'combo-meter-1');
 
     this.currentLevel = 0;
     this.currentStep = 0;
