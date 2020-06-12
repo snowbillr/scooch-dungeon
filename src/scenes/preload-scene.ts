@@ -33,6 +33,7 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.pack('objects-pack', 'assets/objects/pack.json');
     this.load.pack('font-pack', 'assets/fonts/pack.json');
     this.load.pack('interface-pack', 'assets/interface/pack.json');
+    this.load.pack('character-pack', 'assets/characters/pack.json');
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
 
@@ -40,9 +41,6 @@ export class PreloadScene extends ScoochDungeonScene {
       const levelKey = String(i).padStart(3, '0');
       this.load.tilemapTiledJSON(`level-${levelKey}`, `assets/levels/${levelKey}.json`);
     }
-
-    this.load.spritesheet('hero', 'assets/characters/hero/spritesheet.png', { frameWidth: 32, frameHeight: 56 });
-    this.load.animation('hero-animations', 'assets/characters/hero/animations.json');
   }
 
   create() {
