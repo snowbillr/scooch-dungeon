@@ -51,4 +51,8 @@ export class SfxScene extends ScoochDungeonScene {
   playCoinSfx() {
     this.sound.play('coin');
   }
+
+  playDieSfx() {
+    this.sound.play('die');
+  }
 }

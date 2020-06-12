@@ -28,6 +28,7 @@ export class DamageActorBehavior extends DungeonBehavior {
 
     if (healthComponent.currentHealth <= 0) {
       this.scene.sfx.pauseLevelMusic();
+      this.scene.sfx.playDieSfx();
 
       const heroSprite = this.scene.hero.getComponent(SpriteComponent);
       this.scene.tweens.killTweensOf(heroSprite.sprite)

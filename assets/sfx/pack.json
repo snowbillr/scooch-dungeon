@@ -1,0 +1,36 @@
+{
+  "all": {
+    "files": [
+      {
+        "key": "coin",
+        "type": "audio",
+        "url": ["assets/sfx/coin.mp3", "assets/sfx/coin.ogg"]
+      },
+      {
+        "key": "die",
+        "type": "audio",
+        "url": ["assets/sfx/die.mp3", "assets/sfx/die.ogg"]
+      },
+      {
+        "key": "level-complete",
+        "type": "audio",
+        "url": ["assets/sfx/level-complete.mp3", "assets/sfx/level-complete.ogg"]
+      },
+      {
+        "key": "level-reset",
+        "type": "audio",
+        "url": ["assets/sfx/level-reset.mp3", "assets/sfx/level-reset.ogg"]
+      },
+      {
+        "key": "level-music",
+        "type": "audio",
+        "url": ["assets/music/level-music.mp3", "assets/music/level-music.ogg"]
+      },
+      {
+        "key": "level-complete-music",
+        "type": "audio",
+        "url": ["assets/music/level-complete-music.mp3", "assets/music/level-complete-music.ogg"]
+      }
+    ]
+  }
+}
