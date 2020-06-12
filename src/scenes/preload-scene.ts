@@ -29,6 +29,7 @@ export class PreloadScene extends ScoochDungeonScene {
     });
 
     this.load.pack('sfx-pack', 'assets/sfx/pack.json');
+    this.load.pack('music-pack', 'assets/music/pack.json');
     this.load.pack('objects-pack', 'assets/objects/pack.json');
     this.load.pack('font-pack', 'assets/fonts/pack.json');
     this.load.pack('interface-pack', 'assets/interface/pack.json');

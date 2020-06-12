@@ -20,16 +20,6 @@
         "key": "level-reset",
         "type": "audio",
         "url": ["assets/sfx/level-reset.mp3", "assets/sfx/level-reset.ogg"]
-      },
-      {
-        "key": "level-music",
-        "type": "audio",
-        "url": ["assets/music/level-music.mp3", "assets/music/level-music.ogg"]
-      },
-      {
-        "key": "level-complete-music",
-        "type": "audio",
-        "url": ["assets/music/level-complete-music.mp3", "assets/music/level-complete-music.ogg"]
       }
     ]
   }
