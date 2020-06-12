@@ -1,0 +1,47 @@
+{
+  "all": {
+    "files": [
+      {
+        "key": "objective",
+        "type": "spritesheet",
+        "url": "assets/objects/objective.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "objective-animations",
+        "type": "animation",
+        "url": "assets/objects/objective-animations.json"
+      },
+
+      {
+        "key": "coin",
+        "type": "spritesheet",
+        "url": "assets/objects/coin.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "coin-animations",
+        "type": "animation",
+        "url": "assets/objects/coin-animations.json"
+      },
+
+      {
+        "key": "rock",
+        "type": "image",
+        "url": "assets/objects/rock.png"
+      },
+
+      {
+        "key": "spikes",
+        "type": "spritesheet",
+        "url": "assets/objects/spikes.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "spikes-animations",
+        "type": "animation",
+        "url": "assets/objects/spikes-animations.json"
+      }
+    ]
+  }
+}

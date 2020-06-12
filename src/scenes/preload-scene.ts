@@ -1,7 +1,6 @@
 import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { Viewport } from "../constants/viewport";
-import { SettingsDocument } from '../persistence/settings-document';
 import { SCENE_KEYS } from '../constants/scene-keys';
 
 export class PreloadScene extends ScoochDungeonScene {
@@ -53,13 +52,8 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.spritesheet('combo-meter-max', 'assets/interface/combo-meter-max.png', { frameWidth: 64, frameHeight: 64 });
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-    this.load.spritesheet('objective', 'assets/objects/objective.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.animation('objective-animations', 'assets/objects/objective-animations.json');
-    this.load.spritesheet('coin', 'assets/objects/coin.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.animation('coin-animations', 'assets/objects/coin-animations.json');
-    this.load.image('rock', 'assets/objects/rock.png');
-    this.load.spritesheet('spikes', 'assets/objects/spikes.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.animation('spikes-animations', 'assets/objects/spikes-animations.json');
+
+    this.load.pack('objects-pack', 'assets/objects/pack.json');
 
     this.load.image('skull', 'assets/images/skull.png');
 
