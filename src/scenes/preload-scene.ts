@@ -31,27 +31,9 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.pack('sfx-pack', 'assets/sfx/pack.json');
     this.load.pack('objects-pack', 'assets/objects/pack.json');
     this.load.pack('font-pack', 'assets/fonts/pack.json');
-
-    this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
-
-    this.load.spritesheet('hud-heart', 'assets/interface/hud-heart.png', { frameWidth: 32, frameHeight: 28 });
-    this.load.image('hud-close', 'assets/interface/hud-close.png');
-    this.load.image('hud-restart', 'assets/images/hud-restart.png');
-    this.load.image('hud-pause', 'assets/interface/hud-pause.png');
-    this.load.image('hud-button', 'assets/interface/hud-button.png');
-    this.load.image('hud-button-inverse', 'assets/interface/hud-button-inverse.png');
-    this.load.spritesheet('hud-volume', 'assets/interface/volume-indicator.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.spritesheet('swipe-indicator', 'assets/interface/swipe-indicator.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.animation('swipe-indicator-animations', 'assets/interface/swipe-indicator-animations.json');
-    this.load.image('menubox', 'assets/interface/menubox.png');
-    this.load.spritesheet('combo-meter-1', 'assets/interface/combo-meter-1.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('combo-meter-2', 'assets/interface/combo-meter-2.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('combo-meter-3', 'assets/interface/combo-meter-3.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet('combo-meter-max', 'assets/interface/combo-meter-max.png', { frameWidth: 64, frameHeight: 64 });
+    this.load.pack('interface-pack', 'assets/interface/pack.json');
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-
-    this.load.image('skull', 'assets/images/skull.png');
 
     for (let i = 1; i <= LEVELS_COUNT; i++) {
       const levelKey = String(i).padStart(3, '0');
