@@ -29,12 +29,10 @@ export class PreloadScene extends ScoochDungeonScene {
     });
 
     this.load.pack('sfx-pack', 'assets/sfx/pack.json');
+    this.load.pack('objects-pack', 'assets/objects/pack.json');
+    this.load.pack('font-pack', 'assets/fonts/pack.json');
 
     this.load.image('logo', 'assets/logo/scooch-dungeon-logo.png');
-    this.load.bitmapFont('matchup-64-white', 'assets/fonts/matchup-64-white.png', 'assets/fonts/matchup-64-white.xml');
-    this.load.bitmapFont('matchup-64', 'assets/fonts/matchup-64.png', 'assets/fonts/matchup-64.xml');
-    this.load.bitmapFont('matchup-32', 'assets/fonts/matchup-32.png', 'assets/fonts/matchup-32.xml');
-    this.load.bitmapFont('matchup-24', 'assets/fonts/matchup-24.png', 'assets/fonts/matchup-24.xml');
 
     this.load.spritesheet('hud-heart', 'assets/interface/hud-heart.png', { frameWidth: 32, frameHeight: 28 });
     this.load.image('hud-close', 'assets/interface/hud-close.png');
@@ -52,8 +50,6 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.spritesheet('combo-meter-max', 'assets/interface/combo-meter-max.png', { frameWidth: 64, frameHeight: 64 });
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
-
-    this.load.pack('objects-pack', 'assets/objects/pack.json');
 
     this.load.image('skull', 'assets/images/skull.png');
 
