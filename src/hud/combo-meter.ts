@@ -1,112 +1,62 @@
-const LEVELS = [
-  {
-    max: false,
-    steps: 4,
-    texture: 'combo-meter-1'
-  },
-  {
-    max: false,
-    steps: 5,
-    texture: 'combo-meter-2'
-  },
-  {
-    max: false,
-    steps: 6,
-    texture: 'combo-meter-3'
-  },
-  {
-    max: true,
-    steps: 0,
-    texture: 'combo-meter-max'
-  }
-];
-
 export class ComboMeter {
   public gameObject: Phaser.GameObjects.Sprite;
 
-  private currentLevel: number;
-  private currentStep: number;
-
   constructor(private scene: Phaser.Scene, x: number, y: number) {
     this.gameObject = scene.add.sprite(x, y, 'combo-meter-1');
-
-    this.currentLevel = 0;
-    this.currentStep = 0;
   }
 
-  step() {
-    if (LEVELS[this.currentLevel].max) return;
+  increaseTo(multiplier: number, step: number) {
+    this.gameObject.setTexture(this.getTexture(multiplier), step)
 
-    this.currentStep += 1;
-    if (this.currentStep + 1 > LEVELS[this.currentLevel].steps) {
-      this.currentLevel += 1;
-      this.currentStep = 0;
-    }
-
-    this.updateDisplay();
+    this.scene.tweens.add({
+      targets: this.gameObject,
+      props: {
+        scale: step === 0 ? 1.4 : 1.1
+      },
+      yoyo: true,
+      duration: 100
+    });
   }
 
   reset() {
-    this.currentLevel = 0;
-    this.currentStep = 0;
+    this.gameObject.setTexture(this.getTexture(1), 0);
 
-    this.updateDisplay();
+    this.scene.tweens.timeline({
+      targets: this.gameObject,
+      tweens: [
+        {
+          props: {
+            x: '+=5'
+          },
+          yoyo: true,
+          duration: 50
+        },
+        {
+          props: {
+            x: '-=5'
+          },
+          yoyo: true,
+          duration: 50
+        },
+        {
+          props: {
+            x: '+=5'
+          },
+          yoyo: true,
+          duration: 50
+        }
+      ]
+    });
   }
 
-  private updateDisplay() {
-    if (LEVELS[this.currentLevel].max) {
-      this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
-
-      this.scene.tweens.add({
-        targets: this.gameObject,
-        props: {
-          scale: 1.4
-        },
-        yoyo: true,
-        duration: 100
-      });
-    } else if (this.currentLevel === 0 && this.currentStep === 0) {
-      this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
-      this.gameObject.setFrame(this.currentStep);
-
-      this.scene.tweens.timeline({
-        targets: this.gameObject,
-        tweens: [
-          {
-            props: {
-              x: '+=5'
-            },
-            yoyo: true,
-            duration: 50
-          },
-          {
-            props: {
-              x: '-=5'
-            },
-            yoyo: true,
-            duration: 50
-          },
-          {
-            props: {
-              x: '+=5'
-            },
-            yoyo: true,
-            duration: 50
-          }
-        ]
-      });
-    } else {
-      this.gameObject.setTexture(LEVELS[this.currentLevel].texture);
-      this.gameObject.setFrame(this.currentStep);
-
-      this.scene.tweens.add({
-        targets: this.gameObject,
-        props: {
-          scale: this.currentStep === 0 ? 1.4 : 1.1
-        },
-        yoyo: true,
-        duration: 100
-      });
+  private getTexture(multiplier: number) {
+    switch (multiplier) {
+      case 1: return 'combo-meter-1';
+      case 2: return 'combo-meter-2';
+      case 3: return 'combo-meter-3';
+      case 4: return 'combo-meter-max';
     }
+
+    throw new Error("ComboMeter - missing texture for multiplier");
   }
 }

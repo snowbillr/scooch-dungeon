@@ -15,6 +15,7 @@ import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
 import { HealthComponent } from '../components/health-component';
+import { ComboTracker } from '../lib/combo-tracker';
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -22,12 +23,14 @@ export class DungeonScene extends ScoochDungeonScene {
 
   public hud!: HUDScene;
 
-  private comboCounter: number = 0;
+  private comboTracker: ComboTracker;
+
   public queuedInput: Direction[];
 
   constructor() {
     super({ key: SCENE_KEYS.DUNGEON });
 
+    this.comboTracker = new ComboTracker();
     this.queuedInput = [];
   }
 
@@ -117,15 +120,17 @@ export class DungeonScene extends ScoochDungeonScene {
   }
 
   public incrementCombo() {
-    this.comboCounter += 1;
-    this.hud.stepCombo();
+    this.comboTracker.increment();
+    this.hud.comboMeter.increaseTo(this.comboTracker.getMultiplier(), this.comboTracker.getStep())
   }
 
   public resetCombo() {
-    if (this.comboCounter > 0) {
-      this.hud.clearComboAmount();
+    if (this.comboTracker.getMultiplier() === 1 && this.comboTracker.getStep() === 0) {
+      return;
     }
-    this.comboCounter = 0;
+
+    this.comboTracker.reset();
+    this.hud.comboMeter.reset();
   }
 
   private calculateCameraBounds() {

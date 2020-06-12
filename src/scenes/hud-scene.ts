@@ -14,7 +14,7 @@ export class HUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
   private hearts!: Heart[];
-  private comboMeter!: ComboMeter;
+  public comboMeter!: ComboMeter;
 
   constructor() {
     super({ key: SCENE_KEYS.HUD });
@@ -52,14 +52,6 @@ export class HUDScene extends ScoochDungeonScene {
     for (let i = fullHearts + halfHearts; i < fullHearts + halfHearts + emptyHearts; i++) {
       this.hearts[i].setValue(HeartValue.EMPTY);
     }
-  }
-
-  public stepCombo() {
-    this.comboMeter.step();
-  }
-
-  public clearComboAmount() {
-    this.comboMeter.reset();
   }
 
   private addPauseIcon() {
@@ -198,18 +190,6 @@ export class HUDScene extends ScoochDungeonScene {
       emptyHearts
     };
   }
-
-  /*
-  private addComboText() {
-    this.comboText = this.add.bitmapText(Viewport.WIDTH / 2 - 30, VIEWPORT_PADDING + 50, 'matchup-64-white', 'COMBO')
-      .setOrigin(0.25, 0.25)
-      .setAlpha(0)
-
-    this.comboValue = this.add.bitmapText(Viewport.WIDTH / 2 - 10, VIEWPORT_PADDING + 100, 'matchup-64-white', 'x0')
-      .setOrigin(0.25, 0.25)
-      .setAlpha(0)
-  }
-  */
 
   private addComboMeter() {
     this.comboMeter = new ComboMeter(this, Viewport.WIDTH / 2, VIEWPORT_PADDING);
