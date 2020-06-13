@@ -12,6 +12,11 @@
         "url": ["assets/sfx/die.mp3", "assets/sfx/die.ogg"]
       },
       {
+        "key": "hurt",
+        "type": "audio",
+        "url": ["assets/sfx/hurt.mp3", "assets/sfx/hurt.ogg"]
+      },
+      {
         "key": "level-complete",
         "type": "audio",
         "url": ["assets/sfx/level-complete.mp3", "assets/sfx/level-complete.ogg"]

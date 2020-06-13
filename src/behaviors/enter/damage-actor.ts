@@ -42,6 +42,8 @@ export class DamageActorBehavior extends DungeonBehavior {
         })
       })
       heroSprite.sprite.anims.play('hero-die')
+    } else {
+      this.scene.sfx.playHurtSfx();
     }
 
     return false;
