@@ -112,9 +112,7 @@ export class DungeonScene extends ScoochDungeonScene {
     const nextDirection = this.queuedInput.splice(0, 1)[0];
 
     const coordinates = this.hero.getComponent(GridPositionComponent);
-    const cursor = this.dungeon.getCursor(coordinates.gridX, coordinates.gridY);
-
-    const tile = cursor.getTile();
+    const tile = this.dungeon.getTile(coordinates.gridX, coordinates.gridY);
 
     tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection);
   }
