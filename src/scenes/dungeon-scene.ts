@@ -118,7 +118,10 @@ export class DungeonScene extends ScoochDungeonScene {
   }
 
   public incrementCombo() {
+    if (this.comboTracker.isMax()) return;
+
     this.comboTracker.increment();
+    this.sfx.playComboSfx(this.comboTracker.getMultiplier(), this.comboTracker.getStep());
     this.hud.comboMeter.increaseTo(this.comboTracker.getMultiplier(), this.comboTracker.getStep())
   }
 

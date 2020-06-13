@@ -45,6 +45,10 @@ export class ComboTracker {
     this.currentStep = 0;
   }
 
+  isMax() {
+    return this.currentLevel === LEVELS.length - 1;
+  }
+
   getMultiplier() {
     return LEVELS[this.currentLevel].multiplier;
   }

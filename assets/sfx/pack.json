@@ -25,6 +25,12 @@
         "key": "level-reset",
         "type": "audio",
         "url": ["assets/sfx/level-reset.mp3", "assets/sfx/level-reset.ogg"]
+      },
+      {
+        "key": "combo",
+        "type": "audioSprite",
+        "audioURL": ["assets/sfx/combo.audiosprite.mp3", "assets/sfx/combo.audiosprite.ogg"],
+        "jsonURL": "assets/sfx/combo.audiosprite.json"
       }
     ]
   }

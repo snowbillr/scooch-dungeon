@@ -59,4 +59,8 @@ export class SfxScene extends ScoochDungeonScene {
   playDieSfx() {
     this.sound.play('die');
   }
+
+  playComboSfx(multiplier: number, step: number) {
+    this.sound.playAudioSprite('combo', `${multiplier}-${step}`, { volume: 0.3 });
+  }
 }
