@@ -38,6 +38,10 @@ export class ProgressDocument implements PersistenceDocument {
 
   public getLastCompletedLevelNumber() {
     const sortedLevelNumbers = Object.keys(this.levelRecords).map(Number).sort();
-    return sortedLevelNumbers[sortedLevelNumbers.length - 1] || 0;
+    return sortedLevelNumbers[sortedLevelNumbers.length - 1] ?? -1;
+  }
+
+  public getLevelProgress(levelNumber: number) {
+    return this.levelRecords[levelNumber];
   }
 }

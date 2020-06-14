@@ -37,9 +37,10 @@ export class PreloadScene extends ScoochDungeonScene {
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
 
-    for (let i = 1; i <= LEVELS_COUNT; i++) {
-      const levelKey = String(i).padStart(3, '0');
-      this.load.tilemapTiledJSON(`level-${levelKey}`, `assets/levels/${levelKey}.json`);
+    for (let i = 0; i <LEVELS_COUNT; i++) {
+      const levelKey = this.levelManager.keyForLevelNumber(i);
+      const levelFile = this.levelManager.fileForLevelNumber(i);
+      this.load.tilemapTiledJSON(levelKey, `assets/levels/${levelFile}.json`);
     }
   }
 

@@ -12,6 +12,8 @@ export class TitleScene extends ScoochDungeonScene {
   create() {
     this.cameras.main.setBackgroundColor(0x3D253B);
 
+    this.scene.launch(SCENE_KEYS.SFX);
+
     let clickCount = 0;
     const logo = this.add.image(-300, 100, 'logo')
       .setScale(0.6)
@@ -27,10 +29,12 @@ export class TitleScene extends ScoochDungeonScene {
     const isNewGame = progress.getLastCompletedLevelNumber() === 0;
     const playButtonText = isNewGame ? 'Play' : 'Continue';
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
+      /*
       const progressDocument = this.persistence.getDocument<ProgressDocument>('progress');
       this.levelManager.setCurrentLevelNumber(progressDocument.getLastCompletedLevelNumber() + 1);
-      this.scene.launch(SCENE_KEYS.SFX);
       this.scene.start(SCENE_KEYS.DUNGEON);
+      */
+     this.scene.start(SCENE_KEYS.LEVEL_SELECT);
     });
 
     this.tweens.timeline({

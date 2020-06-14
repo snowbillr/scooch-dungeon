@@ -13,6 +13,7 @@ import { HUDScene } from './scenes/hud-scene';
 import { DebugScene } from './scenes/debug-scene';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 import { DeathScene } from './scenes/death-scene';
+import { LevelSelectScene } from './scenes/level-select-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -50,6 +51,7 @@ const scenes = [
   TitleScene,
   DungeonScene,
   DeathScene,
+  LevelSelectScene,
 
   HUDScene,
   SfxScene
@@ -61,7 +63,7 @@ const game = new Phaser.Game({
   scene: scenes,
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
+    autoCenter: Phaser.Scale.CENTER_BOTH
   },
   render: {
     pixelArt: true

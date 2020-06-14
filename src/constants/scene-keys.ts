@@ -6,5 +6,6 @@ export const SCENE_KEYS = {
   TITLE: 'title',
   SFX: 'sfx',
   DEBUG: 'debug',
-  DEATH: 'death'
+  DEATH: 'death',
+  LEVEL_SELECT: 'level-select'
 }
