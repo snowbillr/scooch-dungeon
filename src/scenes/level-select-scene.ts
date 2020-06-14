@@ -1,7 +1,6 @@
 import { ScoochDungeonScene } from './scooch-dungeon-scene';
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { LEVELS_COUNT } from '../plugins/global/level-manager-plugin';
-import { Viewport } from '../constants/viewport';
 import { ProgressDocument } from '../persistence/progress-document';
 
 export class LevelSelectScene extends ScoochDungeonScene {
@@ -18,6 +17,12 @@ export class LevelSelectScene extends ScoochDungeonScene {
     for (let i = 0; i < LEVELS_COUNT; i++) {
       new LevelButton(this, i, x, startingY + (yStep * i));
     }
+  }
+}
+
+class LevelGroup {
+  constructor() {
+
   }
 }
 
