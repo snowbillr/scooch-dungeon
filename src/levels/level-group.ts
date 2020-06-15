@@ -17,4 +17,12 @@ export class LevelGroup {
   getLevels() {
     return this.levelIndices.map(li => new Level(li));
   }
+
+  getRelativeLevel(relativeIndex: number) {
+    return new Level(this.levelIndices[relativeIndex]);
+  }
+
+  getLevelCount() {
+    return this.levelIndices.length;
+  }
 }

@@ -96,6 +96,12 @@
         "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
       },
       {
+        "key": "level-go",
+        "type": "spritesheet",
+        "url": "assets/interface/level-go.png",
+        "frameConfig": { "frameWidth": 48, "frameHeight": 32 }
+      },
+      {
         "key": "star",
         "type": "image",
         "url": "assets/interface/star.png"

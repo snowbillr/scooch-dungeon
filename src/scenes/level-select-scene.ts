@@ -30,25 +30,42 @@ class LevelGroupDisplay {
     const levelGroup = new LevelGroup(levelGroupName);
     const levels = levelGroup.getLevels();
 
-    const groupNameText = scene.add.bitmapText(0, 0, 'matchup-32', levelGroup.name)
+    const goButton = scene.add.sprite(0, 0, 'level-go')
+      .setInteractive()
+      .on(Phaser.Input.Events.POINTER_DOWN, () => {
+        goButton.setFrame(1);
+      })
+      .on(Phaser.Input.Events.POINTER_OUT, () => {
+        goButton.setFrame(0);
+      })
+      .on(Phaser.Input.Events.POINTER_UP, () => {
+        goButton.setFrame(0);
+        scene.scene.start(SCENE_KEYS.DUNGEON, { levelGroup, currentLevelIndex: 0 })
+      });
+    const goButtonSpace = goButton.height + 16;
+
+    const groupNameText = scene.add.bitmapText(0, -goButtonSpace, 'matchup-32', levelGroup.name)
                             .setOrigin(0.5)
     const groupNameHeight = groupNameText.getTextBounds().local.height;
     const groupNamePadding = 24;
+    const groupNameSpace = groupNameHeight + groupNamePadding;
 
     const yStep = -40;
     const levelButtons = levels.map((level, i) => {
-      return new LevelButton(scene, level.getIndex(), 0, yStep * i - groupNameHeight - groupNamePadding);
+      return new LevelButton(scene, level.getIndex(), 0, yStep * i - goButtonSpace - groupNameSpace);
     });
 
     //                          level buttons
-    //                                                 level buttons padding
+    //                               |                 level buttons padding
     const levelButtonsHeight = (levels.length * 32) + ((levels.length + 1) * 8);
 
     this.gameObject = scene.add.container(x, y, [
-      scene.add.rectangle(0, -groupNameHeight - groupNamePadding - levelButtonsHeight / 2 + 24, 64, levelButtonsHeight, 0xb39e89, 0.5)
+      scene.add.rectangle(0, -24 - goButtonSpace, 64, levelButtonsHeight, 0xb39e89, 0.5)
+        .setOrigin(0.5, 1)
         .setStrokeStyle(4, 0xD9A066),
       groupNameText,
       ...levelButtons.map(lb => lb.gameObject),
+      goButton
     ]);
   }
 }
@@ -65,32 +82,21 @@ class LevelButton {
     const progress = scene.persistence.getDocument<ProgressDocument>('progress');
     const levelProgress = progress.getLevelProgress(levelNumber);
 
-    this.enabled = levelProgress?.attempts?.length > 0 || progress.getLastCompletedLevelNumber() === levelNumber - 1;
+    this.enabled = levelProgress?.attempts?.length > 0;
     this.completed = levelProgress?.attempts?.length > 0;
 
     this.gameObject = scene.add.container(x, y);
     this.gameObject.add([
       this.button = scene.add.sprite(0, 0, 'level-button'),
-      this.star = scene.add.sprite(0, -1, 'star'),
-      scene.add.bitmapText(-1, -2, 'matchup-24', String(levelNumber)).setOrigin(0.5)
+      this.star = scene.add.sprite(0, -1, 'star')
     ]);
 
     this.gameObject.setSize(32, 32);
 
     if (this.enabled) {
-      this.gameObject.setInteractive()
-        .on(Phaser.Input.Events.POINTER_DOWN, () => {
-          this.button.setFrame(1);
-        })
-        .on(Phaser.Input.Events.POINTER_OUT, () => {
-          this.button.setFrame(0);
-        })
-        .on(Phaser.Input.Events.POINTER_UP, () => {
-          this.button.setFrame(0);
-          this.onPress();
-        });
+      this.button.setFrame(0);
     } else {
-      this.button.setFrame(2);
+      this.button.setFrame(1);
     }
 
     this.star.setVisible(this.completed);
