@@ -16,6 +16,12 @@ import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
 import { HealthComponent } from '../components/health-component';
 import { ComboTracker } from '../lib/combo-tracker';
+import { LevelGroup } from '../levels/level-group';
+
+type LevelData = {
+  levelGroup: LevelGroup;
+  currentLevelIndex: number;
+};
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -26,6 +32,8 @@ export class DungeonScene extends ScoochDungeonScene {
   private comboTracker: ComboTracker;
 
   public queuedInput: Direction[];
+
+  public levelData!: LevelData;
 
   constructor() {
     super({ key: SCENE_KEYS.DUNGEON });
@@ -38,9 +46,13 @@ export class DungeonScene extends ScoochDungeonScene {
     this.phecs.register.prefab('hero', HeroPrefab);
   }
 
-  create() {
+  create(levelData: LevelData) {
+    this.levelData = levelData;
+    const { levelGroup, currentLevelIndex } = levelData;
+    const level = levelGroup.getRelativeLevel(currentLevelIndex);
+
     const dungeonFactory = new DungeonFactory(this);
-    this.dungeon = dungeonFactory.createDungeon(this.levelManager.getCurrentLevelKey(), 0, 0);
+    this.dungeon = dungeonFactory.createDungeon(level.getKey(), 0, 0);
 
     const heroStartMarker = this.dungeon.getMarker('hero-start');
 
@@ -84,6 +96,10 @@ export class DungeonScene extends ScoochDungeonScene {
       maxHealth: this.hero.getComponent(HealthComponent).maxHealth
     });
     this.hud = this.scene.get(SCENE_KEYS.HUD) as HUDScene;
+  }
+
+  public goToNextLevel() {
+
   }
 
   public resetLevel() {

@@ -15,6 +15,7 @@ export class DungeonFactory {
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {
     const tilemap = this.scene.add.tilemap(levelKey);
+    console.log(levelKey, tilemap)
     tilemap.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
 
     const dungeonFloor = this.createFloor(tilemap, x, y);

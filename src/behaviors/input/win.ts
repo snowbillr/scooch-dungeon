@@ -32,21 +32,27 @@ export class WinBehavior extends DungeonBehavior {
     this.scene.sfx.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
 
+
     Promise.all([animPromise, this.scene.sfx.playWinSfx()]).then(() => {
-      if (this.scene.levelManager.hasNextLevel()) {
-        this.scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
-          const progressDocument = this.scene.persistence.getDocument<ProgressDocument>('progress');
-          progressDocument.completeLevel(this.scene.levelManager.getCurrentLevelNumber(), this.scene.dungeon.stats);
-          this.scene.persistence.store();
+      this.scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+        const progressDocument = this.scene.persistence.getDocument<ProgressDocument>('progress');
+        progressDocument.completeLevel(
+          this.scene.levelData.levelGroup.getRelativeLevel(this.scene.levelData.currentLevelIndex).getIndex(),
+          this.scene.dungeon.stats
+        );
+        this.scene.persistence.store();
 
-          this.scene.levelManager.setCurrentLevelNumber(this.scene.levelManager.getCurrentLevelNumber() + 1);
+        const nextLevelData = { ...this.scene.levelData };
+        nextLevelData.currentLevelIndex = nextLevelData.currentLevelIndex + 1;
 
-          this.scene.scene.restart();
-        });
-        this.scene.cameras.main.fadeOut(700);
-      } else {
-        console.log('beat all the levels')
-      }
+        if (nextLevelData.currentLevelIndex + 1 > nextLevelData.levelGroup.getLevelCount()) {
+          this.scene.scene.start(SCENE_KEYS.LEVEL_SELECT);
+        } else {
+          this.scene.scene.restart(nextLevelData);
+        }
+      });
+
+      this.scene.cameras.main.fadeOut(700);
     });
 
     return true;

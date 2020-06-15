@@ -1,7 +1,7 @@
-import { LEVELS_COUNT } from "../plugins/global/level-manager-plugin";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { Viewport } from "../constants/viewport";
 import { SCENE_KEYS } from '../constants/scene-keys';
+import { LevelLoader } from '../levels/level-loader';
 
 export class PreloadScene extends ScoochDungeonScene {
   constructor() {
@@ -37,10 +37,8 @@ export class PreloadScene extends ScoochDungeonScene {
 
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
 
-    for (let i = 1; i <= LEVELS_COUNT; i++) {
-      const levelKey = String(i).padStart(3, '0');
-      this.load.tilemapTiledJSON(`level-${levelKey}`, `assets/levels/${levelKey}.json`);
-    }
+    const levelLoader = new LevelLoader(this.load);
+    levelLoader.load();
   }
 
   create() {

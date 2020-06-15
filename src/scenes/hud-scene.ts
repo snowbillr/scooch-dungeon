@@ -121,6 +121,18 @@ export class HUDScene extends ScoochDungeonScene {
                 });
                 this.cameras.main.fadeOut(1000);
               }).gameObject,
+          new Button(this, 0, 10, ButtonStyle.BACKGROUND,
+              this.add.bitmapText(0, 0, 'matchup-24', 'Back to level select').setOrigin(0.5),
+              () => {
+                this.sfx.pauseLevelMusic();
+
+                this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+                  this.scene.stop();
+                  this.scene.stop(SCENE_KEYS.DUNGEON);
+                  this.scene.start(SCENE_KEYS.LEVEL_SELECT);
+                });
+                this.cameras.main.fadeOut(1000);
+              }).gameObject,
           new ToggleVolumeButton(this, 0, 100).gameObject
         ]);
 

@@ -1,5 +1,6 @@
 import { PersistenceDocument } from "../plugins/global/persistence-plugin";
 import { DungeonStats } from "../dungeon/dungeon-stats";
+import { LevelGroup } from '../levels/level-group';
 
 type LevelAttempt = {
   coins: number;
@@ -38,6 +39,20 @@ export class ProgressDocument implements PersistenceDocument {
 
   public getLastCompletedLevelNumber() {
     const sortedLevelNumbers = Object.keys(this.levelRecords).map(Number).sort();
-    return sortedLevelNumbers[sortedLevelNumbers.length - 1] || 0;
+    return sortedLevelNumbers[sortedLevelNumbers.length - 1] ?? -1;
+  }
+
+  public isLevelCompleted(levelNumber: number) {
+    return this.levelRecords[levelNumber];
+  }
+
+  public getLevelGroupUnlocked(levelGroupName: string) {
+    const levelGroup = new LevelGroup(levelGroupName);
+    const prerequisiteLevelGroups = levelGroup.getPrerequisiteLevelGroups();
+
+    return prerequisiteLevelGroups.every(lg => {
+      const levels = lg.getLevels();
+      return levels.every(l => this.isLevelCompleted(l.getIndex()));
+    });
   }
 }

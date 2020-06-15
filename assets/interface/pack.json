@@ -88,6 +88,23 @@
         "type": "spritesheet",
         "url": "assets/interface/combo-meter-max.png",
         "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
+      },
+      {
+        "key": "level-button",
+        "type": "spritesheet",
+        "url": "assets/interface/level-button.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "level-go",
+        "type": "spritesheet",
+        "url": "assets/interface/level-go.png",
+        "frameConfig": { "frameWidth": 48, "frameHeight": 32 }
+      },
+      {
+        "key": "star",
+        "type": "image",
+        "url": "assets/interface/star.png"
       }
     ]
   }
