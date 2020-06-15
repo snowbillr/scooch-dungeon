@@ -3,6 +3,7 @@ import { DungeonTile } from './dungeon-tile';
 import { DungeonMarker } from './dungeon-marker';
 import { DungeonTileFactory, OBJECTS_KEY } from './dungeon-tile-factory';
 import { DungeonScene } from '../scenes/dungeon-scene';
+import { normalize } from '../lib/tiled-properties-normalizer';
 
 export class DungeonFactory {
   private dungeonTileFactory: DungeonTileFactory;
@@ -47,23 +48,28 @@ export class DungeonFactory {
     });
 
     // gather object tile data
-    const objects = tilemap.getLayer('objects');
-    objects.data.flat()
-      .filter(tile => tile.index !== -1)
-      .forEach(tile => {
-        tileData.addKeyValue(tile.x, tile.y, OBJECTS_KEY, tile.index);
+    const objects = tilemap.getObjectLayer('objects').objects.map(o => {
+      return {
+        gridX: Math.round(o.x! / 32),
+        gridY: Math.round((o.y! - 32) / 32),
+        index: o.gid!,
+        properties: normalize(o.properties!)
+      }
+    });
+    objects.forEach(object => {
+      tileData.addObject(object.gridX, object.gridY, object.index, object.properties);
 
-        Object.entries(tile.properties).forEach(([key, value]) => {
-          tileData.addKeyValue(tile.x, tile.y, key, value);
-        });
+      Object.entries(object.properties).forEach(([key, value]) => {
+        tileData.addKeyValue(object.gridX, object.gridY, key, value);
       });
+    });
 
     // create tiles
     const dungeonTiles: DungeonTile[] = [];
-    tileData.forEach((coordinates, properties) => {
+    tileData.forEach((coordinates, properties, objects) => {
       const worldCoordinates = tilemap.tileToWorldXY(coordinates.x, coordinates.y);
 
-      const dungeonTile = this.dungeonTileFactory.create(coordinates.x, coordinates.y, worldCoordinates.x, worldCoordinates.y, properties)
+      const dungeonTile = this.dungeonTileFactory.create(coordinates.x, coordinates.y, worldCoordinates.x, worldCoordinates.y, properties, objects)
       dungeonTiles.push(dungeonTile);
     });
 
@@ -85,12 +91,14 @@ export class DungeonFactory {
   }
 }
 
-type TileDataForEachCallback = (coordinates: { x: number; y: number }, data: Record<string, any>) => void;
+type TileDataForEachCallback = (coordinates: { x: number; y: number }, data: Record<string, any>, objects: Record<string, any>[]) => void;
 class TileData {
   private tileData: Record<string, Record<string, any[]>>;
+  private tileObjects: Record<string, Record<string, any>[]>;
 
   constructor() {
     this.tileData = {};
+    this.tileObjects = {};
   }
 
   addKeyValue(x: number, y: number, key: string, value: any) {
@@ -101,11 +109,21 @@ class TileData {
     this.tileData[tileKey][key].push(value);
   }
 
+  addObject(x: number, y: number, index: number, properties: Record<string, any>) {
+    const tileKey = this.coordinatesToTileKey(x, y);
+
+    this.tileObjects[tileKey] = this.tileObjects[tileKey] ?? [];
+    this.tileObjects[tileKey].push({
+      index,
+      properties
+    });
+  }
+
   forEach(fn: TileDataForEachCallback) {
     Object.entries(this.tileData).forEach(([tileKey, data]) => {
       const coordinates = this.tileKeyToCoordinates(tileKey);
 
-      fn(coordinates, data);
+      fn(coordinates, data, this.tileObjects[tileKey]);
     });
   }
 

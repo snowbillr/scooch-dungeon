@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="2">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="5">
  <properties>
   <property name="message" value="Restarting is okay"/>
  </properties>
@@ -18,20 +18,11 @@
 41,42,43,44,45,42,42,46
 </data>
  </layer>
- <layer id="2" name="objects" width="8" height="10">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,50,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,85,0,0,0,
-0,0,50,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0
-</data>
- </layer>
+ <objectgroup id="4" name="objects">
+  <object id="2" gid="50" x="192" y="96" width="32" height="32"/>
+  <object id="3" gid="50" x="64" y="256" width="32" height="32"/>
+  <object id="4" gid="85" x="128" y="224" width="32" height="32"/>
+ </objectgroup>
  <objectgroup id="3" name="markers">
   <object id="1" name="hero-start" x="79.9728" y="87.2168">
    <point/>

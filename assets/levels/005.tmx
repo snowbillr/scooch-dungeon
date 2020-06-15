@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="15" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="3">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="15" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="29">
  <properties>
   <property name="message" value="template message"/>
  </properties>
@@ -20,22 +20,31 @@
 41,42,43,46,79,79,79,79,79,79,79,79,79,79,79
 </data>
  </layer>
- <layer id="11" name="objects" width="15" height="12">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,87,87,0,0,0,0,0,0,0,0,0,0,0,0,
-0,87,87,0,0,0,0,0,0,60,0,0,0,0,0,
-0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,
-0,101,101,0,0,0,0,0,0,0,0,0,0,0,0,
-0,101,101,0,0,0,0,0,101,101,0,0,0,0,0,
-0,101,101,0,0,0,0,0,101,101,0,0,0,85,0,
-0,101,101,0,0,0,0,50,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,
-0,60,50,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
+ <objectgroup id="12" name="objects">
+  <object id="3" gid="60" x="32" y="352" width="32" height="32"/>
+  <object id="4" gid="50" x="64" y="352" width="32" height="32"/>
+  <object id="5" gid="50" x="320" y="320" width="32" height="32"/>
+  <object id="6" gid="50" x="224" y="256" width="32" height="32"/>
+  <object id="7" gid="50" x="192" y="128" width="32" height="32"/>
+  <object id="9" gid="85" x="416" y="224" width="32" height="32"/>
+  <object id="10" gid="87" x="32" y="64" width="32" height="32"/>
+  <object id="11" gid="87" x="64" y="64" width="32" height="32"/>
+  <object id="12" gid="87" x="64" y="96" width="32" height="32"/>
+  <object id="13" gid="87" x="32" y="96" width="32" height="32"/>
+  <object id="14" gid="101" x="256" y="224" width="32" height="32"/>
+  <object id="15" gid="101" x="288" y="224" width="32" height="32"/>
+  <object id="16" gid="101" x="288" y="192" width="32" height="32"/>
+  <object id="17" gid="101" x="256" y="192" width="32" height="32"/>
+  <object id="18" gid="101" x="32" y="160" width="32" height="32"/>
+  <object id="19" gid="101" x="64" y="160" width="32" height="32"/>
+  <object id="20" gid="101" x="64" y="192" width="32" height="32"/>
+  <object id="21" gid="101" x="32" y="192" width="32" height="32"/>
+  <object id="22" gid="101" x="32" y="224" width="32" height="32"/>
+  <object id="23" gid="101" x="64" y="224" width="32" height="32"/>
+  <object id="24" gid="101" x="64" y="256" width="32" height="32"/>
+  <object id="25" gid="101" x="32" y="256" width="32" height="32"/>
+  <object id="28" gid="60" x="288" y="96" width="32" height="32"/>
+ </objectgroup>
  <objectgroup id="2" name="markers">
   <object id="1" name="hero-start" x="82.877" y="313.967">
    <point/>

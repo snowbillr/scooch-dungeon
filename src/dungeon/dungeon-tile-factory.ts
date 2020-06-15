@@ -23,6 +23,7 @@ export class DungeonTileFactory {
     worldX: number,
     worldY: number,
     properties: Record<string, any[]>,
+    objects: Record<string, any>[]
   ): DungeonTile {
     const computedProperties: DungeonTileProperties = {
       walkable: properties.walkable.reduce((acc, w) => acc && w, true),
@@ -30,8 +31,10 @@ export class DungeonTileFactory {
     };
 
     const dungeonTile = new DungeonTile(this.scene, gridX, gridY, worldX, worldY, computedProperties);
-    const objects = (properties[OBJECTS_KEY] || []).map(objectIndex => this.dungeonObjectFactory.createByIndex(dungeonTile, objectIndex));
-    dungeonTile.setObjects(objects);
+    const createdObjects = (objects || []).map(({ index, properties }) => {
+      return this.dungeonObjectFactory.createByIndex(dungeonTile, index, properties)
+    });
+    dungeonTile.setObjects(createdObjects);
 
     return dungeonTile;
   }

@@ -14,18 +14,6 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":7,
-         "id":3,
-         "name":"objects",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":8,
-         "x":0,
-         "y":0
-        }, 
-        {
          "draworder":"topdown",
          "id":2,
          "name":"markers",
@@ -47,9 +35,66 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":4,
+         "name":"objects",
+         "objects":[
+                {
+                 "gid":87,
+                 "height":32,
+                 "id":2,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":64
+                }, 
+                {
+                 "gid":85,
+                 "height":32,
+                 "id":3,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":192
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":2,
+ "nextlayerid":5,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -168,7 +213,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -182,7 +227,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -196,7 +241,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -210,7 +255,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -308,7 +353,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -322,7 +367,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -336,7 +381,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -350,7 +395,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -448,7 +493,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -462,7 +507,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -476,7 +521,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -490,7 +535,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -924,7 +969,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -938,7 +983,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -952,7 +997,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -966,7 +1011,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1064,7 +1109,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1078,7 +1123,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1092,7 +1137,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1106,7 +1151,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {

@@ -64,11 +64,11 @@ export class DungeonObjectFactory {
     private readonly scene: DungeonScene
   ) {}
 
-  createByIndex(dungeonTile: DungeonTile, tileIndex: number) {
+  createByIndex(dungeonTile: DungeonTile, tileIndex: number, extraProperties: Record<string, any>) {
     const objectProperties = Object.values(objectPropertiesList).find(p => p.tileIndex === tileIndex);
     if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${tileIndex}`);
 
-    return this.create(dungeonTile, objectProperties);
+    return this.create(dungeonTile, objectProperties, extraProperties);
   }
 
   createByName(dungeonTile: DungeonTile, name: string) {
@@ -78,7 +78,7 @@ export class DungeonObjectFactory {
     return this.create(dungeonTile, objectProperties);
   }
 
-  private create(dungeonTile: DungeonTile, objectProperties: ObjectProperties) {
+  private create(dungeonTile: DungeonTile, objectProperties: ObjectProperties, extraProperties: Record<string, any> = {}) {
     const texture = objectProperties.texture;
     const frame = objectProperties.frame;
     const depth = objectProperties.depth;
@@ -96,6 +96,6 @@ export class DungeonObjectFactory {
 
     const Klass = objectProperties.klass || DungeonObject;
 
-    return new Klass(this.scene, dungeonTile, name, sprite);
+    return new Klass(this.scene, dungeonTile, name, sprite, extraProperties);
   }
 }

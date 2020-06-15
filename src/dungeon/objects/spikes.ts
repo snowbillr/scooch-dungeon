@@ -15,8 +15,9 @@ export class Spikes extends DungeonObject {
     dungeonTile: DungeonTile,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
+    extraProperties: Record<string, any>
   ) {
-    super(scene, dungeonTile, name, sprite);
+    super(scene, dungeonTile, name, sprite, extraProperties);
 
     this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon);
     this.damageActorBehavior.setDamage(0.5);

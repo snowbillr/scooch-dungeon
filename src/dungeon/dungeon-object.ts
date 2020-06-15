@@ -7,6 +7,7 @@ export interface DungeonObjectConstructor {
     dungeonTile: DungeonTile,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
+    extraProperties: Record<string, any>
   ): DungeonObject;
 }
 
@@ -16,6 +17,7 @@ export class DungeonObject {
     protected dungeonTile: DungeonTile,
     public name: string,
     public sprite: Phaser.GameObjects.Sprite,
+    extraProperties: Record<string, any>
   ) {}
 
   destroy() {
