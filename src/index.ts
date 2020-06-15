@@ -4,7 +4,6 @@ import { DungeonScene } from './scenes/dungeon-scene';
 import { PreloadScene } from './scenes/preload-scene';
 import { TitleScene } from './scenes/title-scene';
 import { Viewport } from './constants/viewport';
-import { LevelManagerPlugin } from './plugins/global/level-manager-plugin';
 import { PersistencePlugin } from './plugins/global/persistence-plugin';
 import { BootScene } from './scenes/boot-scene';
 import { SwipePlugin } from './plugins/scene/swipe-plugin';
@@ -82,7 +81,6 @@ const game = new Phaser.Game({
       }
     ],
     global: [
-      { key: 'LevelManagerPlugin', plugin: LevelManagerPlugin, mapping: 'levelManager', start: true },
       { key: 'PersistencePlugin', plugin: PersistencePlugin, mapping: 'persistence', start: true },
       { key: 'NinePatchPlugin', plugin: NinePatchPlugin, start: true },
     ],

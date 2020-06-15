@@ -2,8 +2,14 @@ import levels from '../../data/levels.json';
 
 import { Level } from './level';
 
+type Prerequisite = {
+  type: string,
+  name: string
+}
+
 export class LevelGroup {
   private levelIndices: number[];
+  private prerequisites: Prerequisite[];
 
   constructor(
     public name: string,
@@ -12,6 +18,7 @@ export class LevelGroup {
     if (!rawLevelGroup) throw new Error(`Missing level group: ${name}`);
 
     this.levelIndices = rawLevelGroup.levels;
+    this.prerequisites = rawLevelGroup.prerequisites;
   }
 
   getLevels() {
@@ -24,5 +31,9 @@ export class LevelGroup {
 
   getLevelCount() {
     return this.levelIndices.length;
+  }
+
+  getPrerequisiteLevelGroups() {
+    return this.prerequisites.map(p => new LevelGroup(p.name));
   }
 }

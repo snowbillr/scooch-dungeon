@@ -27,21 +27,31 @@ class LevelGroupDisplay {
   public gameObject: Phaser.GameObjects.Container;
 
   constructor(private scene: ScoochDungeonScene, private levelGroupName: string, x: number, y: number) {
+    const progress = scene.persistence.getDocument<ProgressDocument>('progress');
+
     const levelGroup = new LevelGroup(levelGroupName);
     const levels = levelGroup.getLevels();
 
     const goButton = scene.add.sprite(0, 0, 'level-go')
-      .setInteractive()
-      .on(Phaser.Input.Events.POINTER_DOWN, () => {
-        goButton.setFrame(1);
-      })
-      .on(Phaser.Input.Events.POINTER_OUT, () => {
-        goButton.setFrame(0);
-      })
-      .on(Phaser.Input.Events.POINTER_UP, () => {
-        goButton.setFrame(0);
-        scene.scene.start(SCENE_KEYS.DUNGEON, { levelGroup, currentLevelIndex: 0 })
-      });
+
+    if (progress.getLevelGroupUnlocked(levelGroupName)) {
+      goButton
+        .setFrame(0)
+        .setInteractive()
+        .on(Phaser.Input.Events.POINTER_DOWN, () => {
+          goButton.setFrame(1);
+        })
+        .on(Phaser.Input.Events.POINTER_OUT, () => {
+          goButton.setFrame(0);
+        })
+        .on(Phaser.Input.Events.POINTER_UP, () => {
+          goButton.setFrame(0);
+          scene.scene.start(SCENE_KEYS.DUNGEON, { levelGroup, currentLevelIndex: 0 })
+        });
+    } else {
+      goButton.setFrame(2);
+    }
+
     const goButtonSpace = goButton.height + 16;
 
     const groupNameText = scene.add.bitmapText(0, -goButtonSpace, 'matchup-32', levelGroup.name)
@@ -80,7 +90,7 @@ class LevelButton {
 
   constructor(private scene: ScoochDungeonScene, private levelNumber: number, x: number, y: number) {
     const progress = scene.persistence.getDocument<ProgressDocument>('progress');
-    const levelProgress = progress.getLevelProgress(levelNumber);
+    const levelProgress = progress.isLevelCompleted(levelNumber);
 
     this.enabled = levelProgress?.attempts?.length > 0;
     this.completed = levelProgress?.attempts?.length > 0;
@@ -100,10 +110,5 @@ class LevelButton {
     }
 
     this.star.setVisible(this.completed);
-  }
-
-  onPress() {
-    this.scene.levelManager.setCurrentLevelNumber(this.levelNumber);
-    this.scene.scene.start(SCENE_KEYS.DUNGEON);
   }
 }
