@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="42">
+ <properties>
+  <property name="message" value="Go go go go"/>
+ </properties>
+ <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
+ <layer id="5" name="floor" width="12" height="12">
+  <data encoding="csv">
+1,2,2,3,4,2,3,4,2,3,5,6,
+31,12,13,14,13,14,13,14,13,14,15,16,
+41,42,43,44,45,42,43,44,45,54,25,26,
+79,79,79,79,79,79,79,79,79,11,25,16,
+1,2,3,4,2,3,4,5,6,21,25,26,
+11,12,13,13,14,13,14,15,16,31,25,36,
+21,22,51,42,43,44,54,25,16,11,25,16,
+31,22,26,79,79,79,21,25,26,21,25,26,
+11,22,36,79,79,79,41,43,46,31,25,16,
+21,22,42,43,44,45,43,44,45,45,25,26,
+31,32,33,34,33,34,33,34,33,34,35,36,
+41,42,43,44,45,44,45,42,43,44,45,46
+</data>
+ </layer>
+ <objectgroup id="4" name="objects">
+  <object id="3" gid="85" x="224" y="256" width="32" height="32"/>
+  <object id="4" gid="101" x="64" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="5" gid="101" x="96" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="200"/>
+   </properties>
+  </object>
+  <object id="6" gid="101" x="128" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="400"/>
+   </properties>
+  </object>
+  <object id="7" gid="101" x="160" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="600"/>
+   </properties>
+  </object>
+  <object id="8" gid="101" x="192" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="800"/>
+   </properties>
+  </object>
+  <object id="9" gid="101" x="224" y="64" width="32" height="32"/>
+  <object id="10" gid="101" x="256" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="1200"/>
+   </properties>
+  </object>
+  <object id="11" gid="101" x="288" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="1400"/>
+   </properties>
+  </object>
+  <object id="12" gid="101" x="320" y="96" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="1800"/>
+   </properties>
+  </object>
+  <object id="13" gid="101" x="320" y="128" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="2000"/>
+   </properties>
+  </object>
+  <object id="14" gid="101" x="320" y="160" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="2200"/>
+   </properties>
+  </object>
+  <object id="15" gid="101" x="320" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="2400"/>
+   </properties>
+  </object>
+  <object id="16" gid="101" x="320" y="224" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="2600"/>
+   </properties>
+  </object>
+  <object id="17" gid="101" x="320" y="256" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="2800"/>
+   </properties>
+  </object>
+  <object id="18" gid="101" x="320" y="288" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="3000"/>
+   </properties>
+  </object>
+  <object id="19" gid="101" x="320" y="320" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="3200"/>
+   </properties>
+  </object>
+  <object id="20" gid="101" x="288" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="3600"/>
+   </properties>
+  </object>
+  <object id="21" gid="101" x="256" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="3800"/>
+   </properties>
+  </object>
+  <object id="22" gid="101" x="192" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="4200"/>
+   </properties>
+  </object>
+  <object id="23" gid="101" x="224" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="4000"/>
+   </properties>
+  </object>
+  <object id="24" gid="101" x="160" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="4400"/>
+   </properties>
+  </object>
+  <object id="25" gid="101" x="128" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="4600"/>
+   </properties>
+  </object>
+  <object id="26" gid="101" x="96" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="4800"/>
+   </properties>
+  </object>
+  <object id="27" gid="101" x="64" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="5000"/>
+   </properties>
+  </object>
+  <object id="28" gid="101" x="32" y="320" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="5400"/>
+   </properties>
+  </object>
+  <object id="29" gid="101" x="32" y="288" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="5600"/>
+   </properties>
+  </object>
+  <object id="30" gid="101" x="32" y="256" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="5800"/>
+   </properties>
+  </object>
+  <object id="31" gid="101" x="32" y="224" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="6000"/>
+   </properties>
+  </object>
+  <object id="32" gid="101" x="64" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="6400"/>
+   </properties>
+  </object>
+  <object id="33" gid="101" x="96" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="6600"/>
+   </properties>
+  </object>
+  <object id="34" gid="101" x="128" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="6800"/>
+   </properties>
+  </object>
+  <object id="35" gid="101" x="160" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="7000"/>
+   </properties>
+  </object>
+  <object id="36" gid="101" x="192" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="7200"/>
+   </properties>
+  </object>
+  <object id="37" gid="101" x="320" y="64" width="32" height="32"/>
+  <object id="38" gid="101" x="320" y="64" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="1600"/>
+   </properties>
+  </object>
+  <object id="39" gid="101" x="320" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="3400"/>
+   </properties>
+  </object>
+  <object id="40" gid="101" x="32" y="352" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="5200"/>
+   </properties>
+  </object>
+  <object id="41" gid="101" x="32" y="192" width="32" height="32">
+   <properties>
+    <property name="offset" type="int" value="6200"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="2" name="markers">
+  <object id="1" name="hero-start" x="49.877" y="51.967">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
