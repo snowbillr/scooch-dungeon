@@ -3,6 +3,10 @@ import { DungeonTile, DungeonTileBehaviorType } from '../dungeon-tile';
 import { DamageActorBehavior } from '../../behaviors/enter/damage-actor';
 import { DungeonScene } from '../../scenes/dungeon-scene';
 
+const REVEALED_DURATION = 2000;
+const HIDDEN_DURATION = 5000;
+const INITIAL_OFFSET = 2000;
+
 export class Spikes extends DungeonObject {
   private damageActorBehavior: DamageActorBehavior;
 
@@ -17,12 +21,7 @@ export class Spikes extends DungeonObject {
     this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon);
     this.damageActorBehavior.setDamage(0.5);
 
-    scene.time.addEvent({
-      loop: true,
-      delay: 7000,
-      startAt: 6000,
-      callback: () => this.startCycle()
-    });
+    scene.time.delayedCall(INITIAL_OFFSET, () => this.startCycle());
   }
 
   private async startCycle() {
@@ -31,10 +30,12 @@ export class Spikes extends DungeonObject {
 
     this.dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
 
-    await this.wait(2000);
+    await this.wait(REVEALED_DURATION);
     await this.playAnimation('spikes-hide');
 
     this.dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
+
+    this.scene.time.delayedCall(HIDDEN_DURATION, () => this.startCycle());
   }
 
   private async playAnimation(animationKey: string) {
