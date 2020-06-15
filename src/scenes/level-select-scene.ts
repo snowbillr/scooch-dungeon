@@ -1,7 +1,8 @@
+import levels from '../../data/levels.json';
 import { ScoochDungeonScene } from './scooch-dungeon-scene';
 import { SCENE_KEYS } from '../constants/scene-keys';
-import { LEVELS_COUNT } from '../plugins/global/level-manager-plugin';
 import { ProgressDocument } from '../persistence/progress-document';
+import { LevelGroup } from '../levels/level-group';
 
 export class LevelSelectScene extends ScoochDungeonScene {
   constructor() {
@@ -12,22 +13,42 @@ export class LevelSelectScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x3D253B);
 
     const x = this.scale.width / 2;
-    const yStep = -40;
-    const startingY = this.scale.height - 64;
-    for (let i = 0; i < LEVELS_COUNT; i++) {
-      new LevelButton(this, i, x, startingY + (yStep * i));
-    }
+    const yStep = -32;
+    let y = this.scale.height - 64;
+
+    levels.levelGroups.forEach(levelGroup => {
+      const levelGroupDisplay = new LevelGroupDisplay(this, levelGroup.name, x, y);
+      y -= levelGroupDisplay.gameObject.getBounds().height - yStep;
+    })
   }
 }
 
-class LevelGroup {
-  constructor() {
+class LevelGroupDisplay {
+  public gameObject: Phaser.GameObjects.Container;
 
+  constructor(private scene: ScoochDungeonScene, private levelGroupName: string, x: number, y: number) {
+    const levelGroup = new LevelGroup(levelGroupName);
+    const levels = levelGroup.getLevels();
+
+    const yStep = -40;
+    const levelButtons = levels.map((level, i) => {
+      return new LevelButton(scene, level.getIndex(), 0, yStep * i)
+    });
+
+    //                          level buttons
+    //                                                 level buttons padding
+    const levelButtonHeight = (levels.length * 32) + ((levels.length + 1) * 8);
+
+    this.gameObject = scene.add.container(x, y, [
+      scene.add.rectangle(0, -levelButtonHeight / 2 + 24, 64, levelButtonHeight)
+        .setStrokeStyle(6, 0xD9A066),
+      ...levelButtons.map(lb => lb.gameObject)
+    ]);
   }
 }
 
 class LevelButton {
-  private gameObject: Phaser.GameObjects.Container;
+  public gameObject: Phaser.GameObjects.Container;
   private button: Phaser.GameObjects.Sprite;
   private star: Phaser.GameObjects.Sprite;
 

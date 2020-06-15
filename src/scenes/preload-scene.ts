@@ -1,7 +1,7 @@
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { Viewport } from "../constants/viewport";
 import { SCENE_KEYS } from '../constants/scene-keys';
-import { LevelLoader } from '../lib/level-loader';
+import { LevelLoader } from '../levels/level-loader';
 
 export class PreloadScene extends ScoochDungeonScene {
   constructor() {
