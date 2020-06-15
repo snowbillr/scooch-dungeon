@@ -8,7 +8,7 @@ export class DeathScene extends ScoochDungeonScene {
     super({ key: SCENE_KEYS.DEATH });
   }
 
-  create() {
+  create(data: any) {
     this.cameras.main.setBackgroundColor('#3d253b');
 
     const skull = this.add.image(Viewport.WIDTH / 2, 125, 'skull');
@@ -27,8 +27,11 @@ export class DeathScene extends ScoochDungeonScene {
       Viewport.WIDTH / 2,
       Viewport.HEIGHT / 2 - 50,
       ButtonStyle.BACKGROUND,
-      this.add.bitmapText(0, 0, 'matchup-24', 'Restart Level').setOrigin(0.5),
-      () => this.fadeToScene(SCENE_KEYS.DUNGEON)
+      this.add.bitmapText(0, 0, 'matchup-24', 'Restart Level Set').setOrigin(0.5),
+      () => this.fadeToScene(SCENE_KEYS.DUNGEON, {
+        levelGroup: data.levelGroup,
+        currentLevelIndex: 0
+      })
     );
 
     new Button(
@@ -41,10 +44,10 @@ export class DeathScene extends ScoochDungeonScene {
     );
   }
 
-  fadeToScene(sceneKey: string) {
+  fadeToScene(sceneKey: string, data?: any) {
     this.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
       if (progress > 0.99) {
-        this.scene.start(sceneKey);
+        this.scene.start(sceneKey, data);
       }
     });
   }
