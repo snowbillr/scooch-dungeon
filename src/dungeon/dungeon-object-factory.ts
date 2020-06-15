@@ -22,6 +22,12 @@ const objectPropertiesList = [
     depth: Depths.rock
   },
   {
+    name: 'rock2',
+    tileIndex: 60,
+    texture: 'rock2',
+    depth: Depths.rock
+  },
+  {
     name: 'objective',
     tileIndex: 85,
     texture: 'objective',

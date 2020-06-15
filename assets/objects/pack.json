@@ -30,6 +30,11 @@
         "type": "image",
         "url": "assets/objects/rock.png"
       },
+      {
+        "key": "rock2",
+        "type": "image",
+        "url": "assets/objects/rock2.png"
+      },
 
       {
         "key": "spikes",
