@@ -13,7 +13,7 @@ export class LevelSelectScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x3D253B);
 
     const x = this.scale.width / 2;
-    const yStep = -32;
+    const yStep = -96;
     let y = this.scale.height - 64;
 
     levels.levelGroups.forEach(levelGroup => {
@@ -30,19 +30,25 @@ class LevelGroupDisplay {
     const levelGroup = new LevelGroup(levelGroupName);
     const levels = levelGroup.getLevels();
 
+    const groupNameText = scene.add.bitmapText(0, 0, 'matchup-32', levelGroup.name)
+                            .setOrigin(0.5)
+    const groupNameHeight = groupNameText.getTextBounds().local.height;
+    const groupNamePadding = 24;
+
     const yStep = -40;
     const levelButtons = levels.map((level, i) => {
-      return new LevelButton(scene, level.getIndex(), 0, yStep * i)
+      return new LevelButton(scene, level.getIndex(), 0, yStep * i - groupNameHeight - groupNamePadding);
     });
 
     //                          level buttons
     //                                                 level buttons padding
-    const levelButtonHeight = (levels.length * 32) + ((levels.length + 1) * 8);
+    const levelButtonsHeight = (levels.length * 32) + ((levels.length + 1) * 8);
 
     this.gameObject = scene.add.container(x, y, [
-      scene.add.rectangle(0, -levelButtonHeight / 2 + 24, 64, levelButtonHeight)
-        .setStrokeStyle(6, 0xD9A066),
-      ...levelButtons.map(lb => lb.gameObject)
+      scene.add.rectangle(0, -groupNameHeight - groupNamePadding - levelButtonsHeight / 2 + 24, 64, levelButtonsHeight, 0xb39e89, 0.5)
+        .setStrokeStyle(4, 0xD9A066),
+      groupNameText,
+      ...levelButtons.map(lb => lb.gameObject),
     ]);
   }
 }

@@ -1,17 +1,17 @@
 {
   "levelGroups": [
     {
-      "name": "beginner's alley",
+      "name": "Beginner's Alley",
       "levels": [0, 1, 2, 3],
       "prerequisites": []
     },
     {
-      "name": "spike lane",
+      "name": "Spike Lane",
       "levels": [4],
       "prerequisites": [
         {
           "type": "levelGroup",
-          "name": "beginner's alley"
+          "name": "Beginner's Alley"
         }
       ]
     }
