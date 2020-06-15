@@ -255,9 +255,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":3000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -278,9 +288,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":3000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -301,9 +321,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":3000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -324,9 +354,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":3000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -347,9 +387,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1600
                         }, 
                         {
                          "name":"walkable",
@@ -370,9 +420,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1600
                         }, 
                         {
                          "name":"walkable",
@@ -393,9 +453,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1400
                         }, 
                         {
                          "name":"walkable",
@@ -416,9 +486,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1400
                         }, 
                         {
                          "name":"walkable",
@@ -439,9 +519,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1200
                         }, 
                         {
                          "name":"walkable",
@@ -462,9 +552,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1200
                         }, 
                         {
                          "name":"walkable",
@@ -485,9 +585,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -508,9 +618,19 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -2005,9 +2125,19 @@
                  "id":100,
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":3000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",

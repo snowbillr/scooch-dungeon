@@ -603,7 +603,9 @@
  </tile>
  <tile id="100">
   <properties>
+   <property name="hiddenDuration" type="int" value="2000"/>
    <property name="objective" type="bool" value="false"/>
+   <property name="offset" type="int" value="1000"/>
    <property name="walkable" type="bool" value="true"/>
   </properties>
  </tile>
