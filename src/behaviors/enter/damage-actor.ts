@@ -37,7 +37,7 @@ export class DamageActorBehavior extends DungeonBehavior {
           if (progress >= 0.99) {
             this.scene.scene.stop();
             this.scene.scene.stop(SCENE_KEYS.HUD);
-            this.scene.scene.start(SCENE_KEYS.DEATH, { levelGroup: this.scene.levelData.levelGroup });
+            this.scene.scene.start(SCENE_KEYS.DEATH);
           }
         })
       })

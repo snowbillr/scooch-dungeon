@@ -36,19 +36,18 @@ export class WinBehavior extends DungeonBehavior {
     Promise.all([animPromise, this.scene.sfx.playWinSfx()]).then(() => {
       this.scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
         const progressDocument = this.scene.persistence.getDocument<ProgressDocument>('progress');
+
         progressDocument.completeLevel(
-          this.scene.levelData.levelGroup.getRelativeLevel(this.scene.levelData.currentLevelIndex).getIndex(),
+          this.scene.levelSession.getCurrentLevel().getIndex(),
           this.scene.dungeon.stats
         );
         this.scene.persistence.store();
 
-        const nextLevelData = { ...this.scene.levelData };
-        nextLevelData.currentLevelIndex = nextLevelData.currentLevelIndex + 1;
-
-        if (nextLevelData.currentLevelIndex + 1 > nextLevelData.levelGroup.getLevelCount()) {
+        if (this.scene.levelSession.didCompleteLevelGroup()) {
           this.scene.scene.start(SCENE_KEYS.LEVEL_SELECT);
         } else {
-          this.scene.scene.restart(nextLevelData);
+          this.scene.levelSession.incrementCurrentLevelRelativeIndex();
+          this.scene.scene.restart();
         }
       });
 

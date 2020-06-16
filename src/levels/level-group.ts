@@ -26,6 +26,8 @@ export class LevelGroup {
   }
 
   getRelativeLevel(relativeIndex: number) {
+    if (relativeIndex >= this.levelIndices.length) throw new Error('relative level index > group level count')
+
     return new Level(this.levelIndices[relativeIndex]);
   }
 

@@ -18,11 +18,6 @@ import { ComboTracker } from '../lib/combo-tracker';
 import { LevelGroup } from '../levels/level-group';
 import { PlayerStatsDocument } from '../persistence/player-stats-documents';
 
-type LevelData = {
-  levelGroup: LevelGroup;
-  currentLevelIndex: number;
-};
-
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
   public hero!: Entity;
@@ -32,8 +27,6 @@ export class DungeonScene extends ScoochDungeonScene {
   private comboTracker: ComboTracker;
 
   public queuedInput: Direction[];
-
-  public levelData!: LevelData;
 
   constructor() {
     super({ key: SCENE_KEYS.DUNGEON });
@@ -46,10 +39,9 @@ export class DungeonScene extends ScoochDungeonScene {
     this.phecs.register.prefab('hero', HeroPrefab);
   }
 
-  create(levelData: LevelData) {
-    this.levelData = levelData;
-    const { levelGroup, currentLevelIndex } = levelData;
-    const level = levelGroup.getRelativeLevel(currentLevelIndex);
+  create() {
+    const level = this.levelSession.getCurrentLevel();
+    console.log('dungeon starting level', level.getIndex(), level.getKey())
 
     const dungeonFactory = new DungeonFactory(this);
     this.dungeon = dungeonFactory.createDungeon(level.getKey(), 0, 0);

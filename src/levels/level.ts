@@ -1,6 +1,5 @@
 export class Level {
   constructor(private index: number) {
-
   }
 
   getKey() {

@@ -20,12 +20,12 @@ export class HUDScene extends ScoochDungeonScene {
     super({ key: SCENE_KEYS.HUD });
   }
 
-  create(levelData: any) {
+  create(hudData: any) {
     this.addPauseIcon();
     this.addRestartIcon();
-    this.addCoinsIndicator(levelData.totalCoins);
-    this.addHearts(levelData.maxHealth)
-    this.updateHealth(levelData.currentHealth, levelData.maxHealth);
+    this.addCoinsIndicator(hudData.totalCoins);
+    this.addHearts(hudData.maxHealth)
+    this.updateHealth(hudData.currentHealth, hudData.maxHealth);
     this.addComboMeter();
   }
 

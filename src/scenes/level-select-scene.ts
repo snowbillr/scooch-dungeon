@@ -58,20 +58,18 @@ class LevelGroupDisplay {
       goButton
         .setFrame(0)
         .setInteractive()
-        .on(Phaser.Input.Events.POINTER_DOWN, () => {
-          goButton.setFrame(1);
-        })
-        .on(Phaser.Input.Events.POINTER_OUT, () => {
-          goButton.setFrame(0);
-        })
+        .on(Phaser.Input.Events.POINTER_DOWN, () => goButton.setFrame(1))
+        .on(Phaser.Input.Events.POINTER_OUT, () => goButton.setFrame(0))
         .on(Phaser.Input.Events.POINTER_UP, () => {
           goButton.setFrame(0);
 
           scene.levelSession.begin({
+            levelGroup,
+            currentLevelRelativeIndex: 0,
             maxHealth: playerStats.getMaxHealth()
           });
 
-          scene.scene.start(SCENE_KEYS.DUNGEON, { levelGroup, currentLevelIndex: 0 })
+          scene.scene.start(SCENE_KEYS.DUNGEON)
         });
     } else {
       goButton.setFrame(2);
