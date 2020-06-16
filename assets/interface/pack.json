@@ -89,6 +89,12 @@
         "url": "assets/interface/combo-meter-max.png",
         "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
       },
+
+      {
+        "key": "level-select-background",
+        "type": "image",
+        "url": "assets/interface/level-select-background.png"
+      },
       {
         "key": "level-button",
         "type": "spritesheet",
