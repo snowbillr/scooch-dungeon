@@ -4,17 +4,34 @@ import { SCENE_KEYS } from '../constants/scene-keys';
 import { ProgressDocument } from '../persistence/progress-document';
 import { LevelGroup } from '../levels/level-group';
 
+const cameraScrollLimits = {
+  min: -600,
+  max: -525
+};
+
 export class LevelSelectScene extends ScoochDungeonScene {
+  private isDragging!: boolean;
+
   constructor() {
     super({ key: SCENE_KEYS.LEVEL_SELECT });
   }
 
   create() {
     this.cameras.main.setBackgroundColor(0x3D253B);
+    this.cameras.main.scrollY = cameraScrollLimits.max;
+
+    this.input.on(Phaser.Input.Events.POINTER_MOVE, () => {
+      if (this.input.activePointer.isDown) {
+        const deltaY = this.input.activePointer.prevPosition.y - this.input.activePointer.position.y;
+        const newCameraScrollY = this.cameras.main.scrollY + deltaY
+
+        this.cameras.main.scrollY = Phaser.Math.Clamp(newCameraScrollY, cameraScrollLimits.min, cameraScrollLimits.max);
+      }
+    });
 
     const x = this.scale.width / 2;
     const yStep = -96;
-    let y = this.scale.height - 64;
+    let y = 0;
 
     levels.levelGroups.forEach(levelGroup => {
       const levelGroupDisplay = new LevelGroupDisplay(this, levelGroup.name, x, y);
