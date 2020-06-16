@@ -18,6 +18,7 @@ export class LevelSelectScene extends ScoochDungeonScene {
     this.cameras.main.setBackgroundColor(0x3D253B);
     this.add.image(0, 96, 'level-select-background')
       .setOrigin(0, 1)
+      .setAlpha(0.5);
     this.cameras.main.scrollY = cameraScrollLimits.max;
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, () => {
