@@ -10,8 +10,6 @@ const cameraScrollLimits = {
 };
 
 export class LevelSelectScene extends ScoochDungeonScene {
-  private isDragging!: boolean;
-
   constructor() {
     super({ key: SCENE_KEYS.LEVEL_SELECT });
   }
