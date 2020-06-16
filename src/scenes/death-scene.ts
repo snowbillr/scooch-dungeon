@@ -28,10 +28,13 @@ export class DeathScene extends ScoochDungeonScene {
       Viewport.HEIGHT / 2 - 50,
       ButtonStyle.BACKGROUND,
       this.add.bitmapText(0, 0, 'matchup-24', 'Restart Level Set').setOrigin(0.5),
-      () => this.fadeToScene(SCENE_KEYS.DUNGEON, {
-        levelGroup: data.levelGroup,
-        currentLevelIndex: 0
-      })
+      () => {
+        this.levelSession.restart();
+        this.fadeToScene(SCENE_KEYS.DUNGEON, {
+          levelGroup: data.levelGroup,
+          currentLevelIndex: 0
+        });
+      }
     );
 
     new Button(

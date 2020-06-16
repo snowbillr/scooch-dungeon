@@ -3,6 +3,7 @@ import { ScoochDungeonScene } from './scooch-dungeon-scene';
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { ProgressDocument } from '../persistence/progress-document';
 import { LevelGroup } from '../levels/level-group';
+import { PlayerStatsDocument } from '../persistence/player-stats-documents';
 
 const cameraScrollLimits = {
   min: -600,
@@ -46,6 +47,7 @@ class LevelGroupDisplay {
 
   constructor(private scene: ScoochDungeonScene, private levelGroupName: string, x: number, y: number) {
     const progress = scene.persistence.getDocument<ProgressDocument>('progress');
+    const playerStats = scene.persistence.getDocument<PlayerStatsDocument>('player-stats');
 
     const levelGroup = new LevelGroup(levelGroupName);
     const levels = levelGroup.getLevels();
@@ -64,6 +66,11 @@ class LevelGroupDisplay {
         })
         .on(Phaser.Input.Events.POINTER_UP, () => {
           goButton.setFrame(0);
+
+          scene.levelSession.begin({
+            maxHealth: playerStats.getMaxHealth()
+          });
+
           scene.scene.start(SCENE_KEYS.DUNGEON, { levelGroup, currentLevelIndex: 0 })
         });
     } else {

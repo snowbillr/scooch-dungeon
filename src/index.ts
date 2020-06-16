@@ -13,6 +13,7 @@ import { DebugScene } from './scenes/debug-scene';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 import { DeathScene } from './scenes/death-scene';
 import { LevelSelectScene } from './scenes/level-select-scene';
+import { LevelSessionPluginConfig } from './plugins/global/level-session-plugin';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -83,6 +84,7 @@ const game = new Phaser.Game({
     global: [
       { key: 'PersistencePlugin', plugin: PersistencePlugin, mapping: 'persistence', start: true },
       { key: 'NinePatchPlugin', plugin: NinePatchPlugin, start: true },
+      LevelSessionPluginConfig
     ],
   }
 });

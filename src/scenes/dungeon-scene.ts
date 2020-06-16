@@ -14,9 +14,9 @@ import { HUDScene } from "./hud-scene";
 import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
-import { HealthComponent } from '../components/health-component';
 import { ComboTracker } from '../lib/combo-tracker';
 import { LevelGroup } from '../levels/level-group';
+import { PlayerStatsDocument } from '../persistence/player-stats-documents';
 
 type LevelData = {
   levelGroup: LevelGroup;
@@ -93,13 +93,10 @@ export class DungeonScene extends ScoochDungeonScene {
 
     this.scene.launch(SCENE_KEYS.HUD, {
       totalCoins: this.dungeon.coinCount,
-      maxHealth: this.hero.getComponent(HealthComponent).maxHealth
+      maxHealth: this.persistence.getDocument<PlayerStatsDocument>('player-stats').getMaxHealth(),
+      currentHealth: this.levelSession.getHealth(),
     });
     this.hud = this.scene.get(SCENE_KEYS.HUD) as HUDScene;
-  }
-
-  public goToNextLevel() {
-
   }
 
   public resetLevel() {

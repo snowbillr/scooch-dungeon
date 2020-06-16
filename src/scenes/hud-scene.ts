@@ -25,6 +25,7 @@ export class HUDScene extends ScoochDungeonScene {
     this.addRestartIcon();
     this.addCoinsIndicator(levelData.totalCoins);
     this.addHearts(levelData.maxHealth)
+    this.updateHealth(levelData.currentHealth, levelData.maxHealth);
     this.addComboMeter();
   }
 

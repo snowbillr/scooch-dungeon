@@ -1,5 +1,4 @@
 import { Direction } from "../../constants/directions";
-import { HealthComponent } from '../../components/health-component';
 import { SCENE_KEYS } from '../../constants/scene-keys';
 import { SpriteComponent } from '../../components/sprite-component';
 import { DungeonBehavior } from '../dungeon-behavior';
@@ -18,15 +17,16 @@ export class DamageActorBehavior extends DungeonBehavior {
   }
 
   public run(direction: Direction): boolean {
-    const healthComponent = this.scene.hero.getComponent(HealthComponent);
-
-    healthComponent.subtract(this.damage);
+    const levelSession = this.scene.levelSession;
 
     this.scene.resetCombo();
-    this.scene.hud.updateHealth(healthComponent.currentHealth, healthComponent.maxHealth);
+
+    levelSession.subtractHealth(this.damage);
+    this.scene.hud.updateHealth(levelSession.getHealth(), levelSession.getMaxHealth());
+
     this.scene.cameras.main.shake(200, 0.01);
 
-    if (healthComponent.currentHealth <= 0) {
+    if (levelSession.getHealth() <= 0) {
       this.scene.sfx.pauseLevelMusic();
       this.scene.sfx.playDieSfx();
 

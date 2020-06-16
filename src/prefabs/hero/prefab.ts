@@ -4,11 +4,9 @@ import { GridPositionComponent } from "../../components/grid-position-component"
 import { StateMachineComponent } from "../../components/state-machine-component";
 import { Prefab } from "phecs/dist/entity-manager";
 import { Entity } from "phecs/dist/entity";
-import { State, Transition } from 'phinite-state-machine';
-import { TriggerActivator } from 'phinite-state-machine/dist/transition';
+import { State } from 'phinite-state-machine';
 import { DungeonScene } from '../../scenes/dungeon-scene';
 import { Direction } from '../../constants/directions';
-import { HealthComponent } from '../../components/health-component';
 
 
 /*
@@ -66,12 +64,6 @@ export const HeroPrefab: Prefab = {
       data: {
         states: heroStates,
         initialState: heroStates[0]
-      }
-    },
-    {
-      component: HealthComponent,
-      data: {
-        maxHealth: 2
       }
     }
   ]
