@@ -16,7 +16,6 @@ export class TitleScene extends ScoochDungeonScene {
 
     let clickCount = 0;
     const logo = this.add.image(-300, 100, 'logo')
-      .setScale(0.6)
       .setInteractive()
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         clickCount += 1;
