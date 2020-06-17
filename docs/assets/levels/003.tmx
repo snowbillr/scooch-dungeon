@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="2">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="9" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="8">
  <properties>
-  <property name="message" value="Restarting is okay"/>
+  <property name="message" value="Gotta get 'em all!"/>
  </properties>
  <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
- <layer id="1" name="floor" width="8" height="10">
+ <layer id="1" name="floor" width="9" height="10">
   <data encoding="csv">
-1,2,3,4,3,3,4,6,
-11,12,13,14,13,13,14,16,
-11,80,80,80,80,80,80,26,
-21,80,80,80,80,80,80,16,
-31,80,80,80,80,80,80,26,
-11,80,80,80,80,80,80,36,
-21,80,80,80,80,80,80,16,
-31,80,80,80,80,80,80,26,
-31,80,80,80,80,80,80,36,
-41,42,43,44,45,42,42,46
+0,0,0,0,1,2,3,4,6,
+0,0,0,0,11,80,80,80,16,
+0,0,0,0,21,80,80,80,26,
+1,2,2,3,2,80,80,80,36,
+11,80,80,80,80,80,80,80,16,
+21,80,80,80,80,80,80,80,26,
+41,42,43,44,54,80,80,80,16,
+0,0,0,0,21,80,80,80,26,
+0,0,0,0,31,80,80,80,36,
+0,0,0,0,41,42,43,44,46
 </data>
  </layer>
- <layer id="2" name="objects" width="8" height="10">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,50,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,85,0,0,0,
-0,0,50,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0
-</data>
- </layer>
- <objectgroup id="3" name="markers">
-  <object id="1" name="hero-start" x="79.9728" y="87.2168">
+ <objectgroup id="5" name="objects">
+  <object id="3" gid="85" x="224" y="64" width="32" height="32"/>
+  <object id="4" gid="50" x="224" y="224" width="32" height="32"/>
+  <object id="5" gid="87" x="224" y="256" width="32" height="32"/>
+  <object id="6" gid="87" x="96" y="192" width="32" height="32"/>
+  <object id="7" gid="87" x="32" y="192" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="2" name="markers">
+  <object id="1" name="hero-start" x="208.263" y="149.406">
    <point/>
   </object>
  </objectgroup>

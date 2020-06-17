@@ -1,0 +1,31 @@
+
+{
+  "all": {
+    "files": [
+      {
+        "key": "matchup-64-white",
+        "type": "bitmapFont",
+        "textureURL": "assets/fonts/matchup-64-white.png",
+        "fontDataURL": "assets/fonts/matchup-64-white.xml"
+      },
+      {
+        "key": "matchup-64",
+        "type": "bitmapFont",
+        "textureURL": "assets/fonts/matchup-64.png",
+        "fontDataURL": "assets/fonts/matchup-64.xml"
+      },
+      {
+        "key": "matchup-32",
+        "type": "bitmapFont",
+        "textureURL": "assets/fonts/matchup-32.png",
+        "fontDataURL": "assets/fonts/matchup-32.xml"
+      },
+      {
+        "key": "matchup-24",
+        "type": "bitmapFont",
+        "textureURL": "assets/fonts/matchup-24.png",
+        "fontDataURL": "assets/fonts/matchup-24.xml"
+      }
+    ]
+  }
+}

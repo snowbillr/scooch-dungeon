@@ -1,9 +1,9 @@
-{ "height":7,
+{ "height":3,
  "infinite":false,
  "layers":[
         {
-         "data":[1, 2, 3, 4, 5, 4, 5, 6, 21, 12, 80, 13, 80, 14, 15, 16, 41, 52, 53, 52, 53, 56, 80, 26, 0, 0, 0, 0, 0, 11, 25, 16, 0, 0, 0, 0, 0, 21, 80, 26, 0, 0, 0, 0, 0, 31, 35, 36, 0, 0, 0, 0, 0, 41, 45, 46],
-         "height":7,
+         "data":[1, 2, 4, 2, 2, 4, 4, 6, 11, 23, 23, 23, 23, 23, 23, 36, 41, 42, 43, 44, 45, 42, 43, 46],
+         "height":3,
          "id":1,
          "name":"floor",
          "opacity":1,
@@ -15,55 +15,9 @@
         }, 
         {
          "draworder":"topdown",
-         "id":2,
-         "name":"markers",
-         "objects":[
-                {
-                 "height":0,
-                 "id":1,
-                 "name":"hero-start",
-                 "point":true,
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":47.3752,
-                 "y":46.4697
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":4,
+         "id":7,
          "name":"objects",
          "objects":[
-                {
-                 "gid":87,
-                 "height":32,
-                 "id":2,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"walkable",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":192,
-                 "y":64
-                }, 
                 {
                  "gid":85,
                  "height":32,
@@ -85,7 +39,30 @@
                  "visible":true,
                  "width":32,
                  "x":192,
-                 "y":192
+                 "y":64
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":2,
+         "name":"markers",
+         "objects":[
+                {
+                 "height":0,
+                 "id":1,
+                 "name":"hero-start",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":48.8783,
+                 "y":48.263
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -93,14 +70,14 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":4,
+ "nextlayerid":8,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"message",
          "type":"string",
-         "value":"Right angle"
+         "value":"Learning to swipe"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

@@ -1,9 +1,9 @@
-{ "height":7,
+{ "height":10,
  "infinite":false,
  "layers":[
         {
-         "data":[1, 2, 3, 4, 5, 4, 5, 6, 21, 12, 80, 13, 80, 14, 15, 16, 41, 52, 53, 52, 53, 56, 80, 26, 0, 0, 0, 0, 0, 11, 25, 16, 0, 0, 0, 0, 0, 21, 80, 26, 0, 0, 0, 0, 0, 31, 35, 36, 0, 0, 0, 0, 0, 41, 45, 46],
-         "height":7,
+         "data":[1, 2, 3, 4, 3, 3, 4, 6, 11, 12, 13, 14, 13, 13, 14, 16, 11, 80, 80, 80, 80, 80, 80, 26, 21, 80, 80, 80, 80, 80, 80, 16, 31, 80, 80, 80, 80, 80, 80, 26, 11, 80, 80, 80, 80, 80, 80, 36, 21, 80, 80, 80, 80, 80, 80, 16, 31, 80, 80, 80, 80, 80, 80, 26, 31, 80, 80, 80, 80, 80, 80, 36, 41, 42, 43, 44, 45, 42, 42, 46],
+         "height":10,
          "id":1,
          "name":"floor",
          "opacity":1,
@@ -14,20 +14,88 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":7,
-         "id":3,
+         "draworder":"topdown",
+         "id":4,
          "name":"objects",
+         "objects":[
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":2,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":96
+                }, 
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":3,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":256
+                }, 
+                {
+                 "gid":85,
+                 "height":32,
+                 "id":4,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":128,
+                 "y":224
+                }],
          "opacity":1,
-         "type":"tilelayer",
+         "type":"objectgroup",
          "visible":true,
-         "width":8,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "id":2,
+         "id":3,
          "name":"markers",
          "objects":[
                 {
@@ -39,8 +107,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":47.3752,
-                 "y":46.4697
+                 "x":79.9728,
+                 "y":87.2168
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -48,14 +116,14 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":2,
+ "nextlayerid":5,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"message",
          "type":"string",
-         "value":"Right angle"
+         "value":"Restarting is okay"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -168,7 +236,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -182,7 +250,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -196,7 +264,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -210,7 +278,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -308,7 +376,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -322,7 +390,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -336,7 +404,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -350,7 +418,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -448,7 +516,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -462,7 +530,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -476,7 +544,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -490,7 +558,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -924,7 +992,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -938,7 +1006,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -952,7 +1020,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -966,7 +1034,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1064,7 +1132,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1078,7 +1146,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1092,7 +1160,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1106,7 +1174,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {

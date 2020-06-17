@@ -1,0 +1,17 @@
+{
+  "all": {
+    "files": [
+      {
+        "key": "hero",
+        "type": "spritesheet",
+        "url": "assets/characters/hero/spritesheet.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 56 }
+      },
+      {
+        "key": "hero-animations",
+        "type": "animation",
+        "url": "assets/characters/hero/animations.json"
+      }
+    ]
+  }
+}

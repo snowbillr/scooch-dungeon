@@ -1,27 +1,675 @@
-{ "height":9,
+{ "height":12,
  "infinite":false,
  "layers":[
         {
-         "data":[1, 2, 3, 4, 5, 2, 3, 4, 5, 2, 3, 4, 5, 6, 11, 12, 13, 14, 13, 13, 13, 14, 13, 13, 13, 14, 15, 26, 11, 22, 23, 24, 24, 33, 33, 34, 33, 33, 33, 34, 35, 36, 21, 22, 23, 24, 25, 51, 43, 44, 45, 42, 43, 44, 45, 46, 21, 22, 23, 24, 25, 26, 0, 0, 0, 0, 0, 0, 0, 0, 11, 22, 23, 24, 25, 16, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 25, 26, 0, 0, 0, 0, 0, 0, 0, 0, 31, 32, 33, 34, 35, 36, 0, 0, 0, 0, 0, 0, 0, 0, 41, 42, 43, 44, 45, 46, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":9,
-         "id":12,
+         "data":[1, 2, 3, 6, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 11, 12, 15, 16, 1, 44, 45, 42, 43, 44, 45, 44, 6, 79, 79, 11, 22, 24, 16, 11, 12, 14, 13, 14, 13, 13, 15, 16, 79, 79, 11, 22, 18, 16, 21, 22, 24, 28, 24, 24, 10, 25, 26, 79, 79, 11, 22, 24, 26, 31, 22, 24, 29, 18, 28, 24, 25, 16, 79, 79, 11, 22, 24, 16, 11, 22, 18, 24, 24, 24, 18, 25, 3, 4, 6, 11, 22, 24, 26, 21, 22, 27, 24, 24, 24, 24, 24, 10, 24, 16, 11, 22, 24, 42, 43, 22, 8, 28, 28, 24, 18, 25, 51, 44, 46, 11, 22, 24, 13, 14, 10, 24, 24, 10, 8, 24, 25, 26, 79, 79, 11, 22, 24, 34, 33, 34, 34, 33, 34, 33, 34, 35, 36, 79, 79, 11, 32, 35, 51, 42, 43, 44, 45, 42, 43, 44, 45, 46, 79, 79, 41, 42, 43, 46, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79],
+         "height":12,
+         "id":10,
          "name":"floor",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":14,
+         "width":15,
          "x":0,
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 101, 0, 0, 0, 0, 87, 87, 0, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 87, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 101, 101, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":9,
-         "id":13,
+         "draworder":"topdown",
+         "id":12,
          "name":"objects",
+         "objects":[
+                {
+                 "gid":60,
+                 "height":32,
+                 "id":3,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":352
+                }, 
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":4,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":352
+                }, 
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":5,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":320,
+                 "y":320
+                }, 
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":6,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":224,
+                 "y":256
+                }, 
+                {
+                 "gid":50,
+                 "height":32,
+                 "id":7,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":128
+                }, 
+                {
+                 "gid":85,
+                 "height":32,
+                 "id":9,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":416,
+                 "y":224
+                }, 
+                {
+                 "gid":87,
+                 "height":32,
+                 "id":10,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":64
+                }, 
+                {
+                 "gid":87,
+                 "height":32,
+                 "id":11,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":64
+                }, 
+                {
+                 "gid":87,
+                 "height":32,
+                 "id":12,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":96
+                }, 
+                {
+                 "gid":87,
+                 "height":32,
+                 "id":13,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":96
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":14,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":2000
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":224
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":15,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":2000
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":288,
+                 "y":224
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":16,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":2000
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":288,
+                 "y":192
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":17,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":2000
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":192
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":18,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1600
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":160
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":19,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1600
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":160
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":20,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1400
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":192
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":21,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1400
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":192
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":22,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1200
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":224
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":23,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1200
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":224
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":24,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":64,
+                 "y":256
+                }, 
+                {
+                 "gid":101,
+                 "height":32,
+                 "id":25,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":500
+                        }, 
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":256
+                }, 
+                {
+                 "gid":60,
+                 "height":32,
+                 "id":28,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"objective",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":288,
+                 "y":96
+                }],
          "opacity":1,
-         "type":"tilelayer",
+         "type":"objectgroup",
          "visible":true,
-         "width":14,
          "x":0,
          "y":0
         }, 
@@ -39,8 +687,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":109.8766,
-                 "y":250.9666
+                 "x":177,
+                 "y":311
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -48,14 +696,14 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":15,
- "nextobjectid":3,
+ "nextlayerid":13,
+ "nextobjectid":29,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"message",
          "type":"string",
-         "value":"Watch out, they're sharp!"
+         "value":"Are they worth it?"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -168,7 +816,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -182,7 +830,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -196,7 +844,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -210,7 +858,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -308,7 +956,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -322,7 +970,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -336,7 +984,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -350,7 +998,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -448,7 +1096,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -462,7 +1110,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -476,7 +1124,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -490,7 +1138,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -924,7 +1572,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -938,7 +1586,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -952,7 +1600,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -966,7 +1614,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1064,7 +1712,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1078,7 +1726,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1092,7 +1740,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1106,7 +1754,7 @@
                         {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
@@ -1477,9 +2125,19 @@
                  "id":100,
                  "properties":[
                         {
+                         "name":"hiddenDuration",
+                         "type":"int",
+                         "value":2000
+                        }, 
+                        {
                          "name":"objective",
                          "type":"bool",
                          "value":false
+                        }, 
+                        {
+                         "name":"offset",
+                         "type":"int",
+                         "value":1000
                         }, 
                         {
                          "name":"walkable",
@@ -1618,5 +2276,5 @@
  "tilewidth":32,
  "type":"map",
  "version":1.2,
- "width":14
+ "width":15
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="8" height="3" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="6">
+ <properties>
+  <property name="message" value="Learning to swipe"/>
+ </properties>
+ <tileset firstgid="1" source="../maps/dungeon-tileset.tsx"/>
+ <layer id="1" name="floor" width="8" height="3">
+  <data encoding="csv">
+1,2,4,2,2,4,4,6,
+11,23,23,23,23,23,23,36,
+41,42,43,44,45,42,43,46
+</data>
+ </layer>
+ <objectgroup id="7" name="objects">
+  <object id="3" gid="85" x="192" y="64" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="2" name="markers">
+  <object id="1" name="hero-start" x="48.8783" y="48.263">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

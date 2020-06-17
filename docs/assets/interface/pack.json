@@ -1,0 +1,117 @@
+
+{
+  "all": {
+    "files": [
+      {
+        "key": "logo",
+        "type": "image",
+        "url": "assets/interface/scooch-dungeon-logo.png"
+      },
+      {
+        "key": "skull",
+        "type": "image",
+        "url": "assets/interface/skull.png"
+      },
+      {
+        "key": "hud-heart",
+        "type": "spritesheet",
+        "url": "assets/interface/hud-heart.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 28 }
+      },
+      {
+        "key": "hud-close",
+        "type": "image",
+        "url": "assets/interface/hud-close.png"
+      },
+      {
+        "key": "hud-restart",
+        "type": "image",
+        "url": "assets/interface/hud-restart.png"
+      },
+      {
+        "key": "hud-pause",
+        "type": "image",
+        "url": "assets/interface/hud-pause.png"
+      },
+      {
+        "key": "hud-button",
+        "type": "image",
+        "url": "assets/interface/hud-button.png"
+      },
+      {
+        "key": "hud-button-inverse",
+        "type": "image",
+        "url": "assets/interface/hud-button-inverse.png"
+      },
+      {
+        "key": "hud-volume",
+        "type": "spritesheet",
+        "url": "assets/interface/volume-indicator.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "swipe-indicator",
+        "type": "spritesheet",
+        "url": "assets/interface/swipe-indicator.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "swipe-indicator-animations",
+        "type": "animation",
+        "url": "assets/interface/swipe-indicator-animations.json"
+      },
+      {
+        "key": "menubox",
+        "type": "image",
+        "url": "assets/interface/menubox.png"
+      },
+      {
+        "key": "combo-meter-1",
+        "type": "spritesheet",
+        "url": "assets/interface/combo-meter-1.png",
+        "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
+      },
+      {
+        "key": "combo-meter-2",
+        "type": "spritesheet",
+        "url": "assets/interface/combo-meter-2.png",
+        "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
+      },
+      {
+        "key": "combo-meter-3",
+        "type": "spritesheet",
+        "url": "assets/interface/combo-meter-3.png",
+        "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
+      },
+      {
+        "key": "combo-meter-max",
+        "type": "spritesheet",
+        "url": "assets/interface/combo-meter-max.png",
+        "frameConfig": { "frameWidth": 64, "frameHeight": 64 }
+      },
+
+      {
+        "key": "level-select-background",
+        "type": "image",
+        "url": "assets/interface/level-select-background.png"
+      },
+      {
+        "key": "level-button",
+        "type": "spritesheet",
+        "url": "assets/interface/level-button.png",
+        "frameConfig": { "frameWidth": 32, "frameHeight": 32 }
+      },
+      {
+        "key": "level-go",
+        "type": "spritesheet",
+        "url": "assets/interface/level-go.png",
+        "frameConfig": { "frameWidth": 48, "frameHeight": 32 }
+      },
+      {
+        "key": "star",
+        "type": "image",
+        "url": "assets/interface/star.png"
+      }
+    ]
+  }
+}
