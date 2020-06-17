@@ -41,7 +41,6 @@ export class DungeonScene extends ScoochDungeonScene {
 
   create() {
     const level = this.levelSession.getCurrentLevel();
-    console.log('dungeon starting level', level.getIndex(), level.getKey())
 
     const dungeonFactory = new DungeonFactory(this);
     this.dungeon = dungeonFactory.createDungeon(level.getKey(), 0, 0);
