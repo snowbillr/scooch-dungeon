@@ -6,7 +6,7 @@ import { LevelGroup } from '../levels/level-group';
 import { PlayerStatsDocument } from '../persistence/player-stats-documents';
 
 const cameraScrollLimits = {
-  min: -600,
+  min: -650,
   max: -525
 };
 
@@ -20,7 +20,6 @@ export class LevelSelectScene extends ScoochDungeonScene {
     this.add.image(0, 96, 'level-select-background')
       .setOrigin(0, 1)
       .setAlpha(0.5);
-    this.cameras.main.scrollY = cameraScrollLimits.max;
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, () => {
       if (this.input.activePointer.isDown) {
@@ -38,7 +37,13 @@ export class LevelSelectScene extends ScoochDungeonScene {
     levels.levelGroups.forEach(levelGroup => {
       const levelGroupDisplay = new LevelGroupDisplay(this, levelGroup.name, x, y);
       y -= levelGroupDisplay.gameObject.getBounds().height - yStep;
-    })
+    });
+
+    this.add.bitmapText(this.scale.width / 2, 50, 'matchup-64', 'Level Select')
+      .setOrigin(0.5)
+      .setScrollFactor(0);
+
+    this.cameras.main.scrollY = cameraScrollLimits.max;
   }
 }
 
