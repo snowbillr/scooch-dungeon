@@ -1,15 +1,17 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
-import { GridTile, GridTileProperties } from './grid-tile';
+import { GridTile, GridTileProperties, GridTileBehaviorType } from './grid-tile';
+import { GridMap } from './grid-map';
+import { GridObjectFactory } from './grid-object-factory';
 
 export const OBJECTS_KEY = 'objects';
 
 export class GridTileFactory {
-  // private dungeonObjectFactory: DungeonObjectFactory;
+  private dungeonObjectFactory: GridObjectFactory;
 
   constructor(
     private scene: ScoochDungeonScene
   ) {
-    // this.dungeonObjectFactory = new DungeonObjectFactory(scene);
+    this.dungeonObjectFactory = new GridObjectFactory(scene, []);
   }
 
   create(
@@ -33,25 +35,25 @@ export class GridTileFactory {
       computedProperties
     );
 
-    /*
     const createdObjects = (objects || []).map(({ index, properties }) => {
-      return this.dungeonObjectFactory.createByIndex(dungeonTile, index, properties)
+      return this.dungeonObjectFactory.createByIndex(gridTile, index, properties)
     });
-    dungeonTile.setObjects(createdObjects);
-    */
+    gridTile.setObjects(createdObjects);
 
     return gridTile;
   }
 
-  /*
-  addBehaviors(dungeonTile: DungeonTile, dungeon: Dungeon) {
+  addBehaviors(gridTile: GridTile, gridMap: GridMap) {
+    /*
     InputBehaviors.forEach(Behavior => {
-      const inputBehavior = new Behavior(this.scene, dungeonTile, dungeon);
+      const inputBehavior = new Behavior(this.scene, gridTile, gridMap);
       if (inputBehavior.isApplicable()) {
-        dungeonTile.addBehavior(DungeonTileBehaviorType.INPUT, inputBehavior);
+        gridTile.addBehavior(GridTileBehaviorType.INPUT, inputBehavior);
       }
     });
+    */
 
+    /*
     EnterBehaviors.forEach(Behavior => {
       const enterBehavior = new Behavior(this.scene, dungeonTile, dungeon);
       if (enterBehavior.isApplicable()) {
@@ -65,6 +67,6 @@ export class GridTileFactory {
         dungeonTile.addBehavior(DungeonTileBehaviorType.EXIT, exitBehavior);
       }
     });
+    */
   }
-  */
 }

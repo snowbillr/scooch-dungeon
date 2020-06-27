@@ -27,7 +27,7 @@ export class GridMap {
     this.gridTiles.forEach(dt => dt.destroy());
     delete this.gridTiles;
 
-    // delete this.markers;
+    delete this.markers;
 
     this.floor.destroy();
 

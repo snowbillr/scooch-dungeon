@@ -26,7 +26,7 @@ export class GridMapFactory {
 
     const gridMap = new GridMap(gridTiles, gridMarkers, floor, tilemap);
 
-    // gridTiles.forEach(gridTile => this.gridTileFactory.addBehaviors(gridTile, dungeon));
+    gridTiles.forEach(gridTile => this.gridTileFactory.addBehaviors(gridTile, gridMap));
 
     return gridMap;
   }
@@ -48,8 +48,8 @@ export class GridMapFactory {
     });
 
     // gather object tile data
-    /*
-    const objects = tilemap.getObjectLayer('objects').objects.map(o => {
+    const objectLayer = tilemap.getObjectLayer('objects') ?? { objects: [] };
+    const objects = objectLayer.objects.map(o => {
       return {
         gridX: Math.round(o.x! / 32),
         gridY: Math.round((o.y! - 32) / 32),
@@ -64,7 +64,6 @@ export class GridMapFactory {
         tileData.addKeyValue(object.gridX, object.gridY, key, value);
       });
     });
-    */
 
     // create tiles
     const gridTiles: GridTile[] = [];
@@ -77,7 +76,7 @@ export class GridMapFactory {
         worldCoordinates.x,
         worldCoordinates.y,
         properties,
-        [] //objects
+        objects
       );
       gridTiles.push(dungeonTile);
     });

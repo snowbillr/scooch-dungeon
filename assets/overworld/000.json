@@ -2,7 +2,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 39, 40, 40, 40, 40, 40, 40, 40, 40, 40, 62, 62, 63, 0, 0, 0, 0, 0, 0, 0, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 63, 0, 0, 0, 0, 0, 0, 0, 61, 62, 62, 84, 84, 84, 84, 84, 84, 84, 84, 84, 85, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 62, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "data":[24, 30, 28, 26, 27, 24, 26, 31, 30, 27, 28, 26, 25, 61, 62, 63, 28, 29, 31, 24, 24, 31, 26, 29, 30, 28, 30, 27, 24, 24, 26, 28, 24, 61, 62, 63, 26, 31, 25, 28, 24, 31, 25, 28, 24, 25, 30, 28, 25, 27, 27, 27, 25, 61, 62, 63, 24, 28, 31, 24, 28, 27, 29, 26, 31, 29, 31, 31, 26, 25, 24, 27, 31, 61, 62, 63, 26, 24, 29, 29, 25, 30, 29, 25, 31, 31, 26, 27, 27, 25, 24, 30, 24, 61, 62, 63, 27, 26, 24, 29, 26, 25, 26, 27, 24, 24, 29, 26, 26, 27, 30, 29, 24, 61, 62, 63, 24, 26, 30, 31, 31, 24, 29, 28, 25, 30, 25, 26, 29, 30, 24, 24, 26, 61, 62, 63, 31, 24, 31, 29, 29, 30, 25, 39, 40, 40, 40, 40, 40, 40, 40, 40, 40, 62, 62, 63, 26, 30, 26, 31, 24, 24, 29, 61, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 62, 63, 24, 25, 31, 27, 24, 25, 27, 61, 62, 62, 84, 84, 84, 84, 84, 84, 84, 84, 84, 85, 31, 29, 24, 30, 27, 27, 31, 61, 62, 63, 27, 26, 28, 31, 31, 27, 26, 30, 26, 31, 24, 27, 26, 29, 28, 30, 29, 61, 62, 63, 30, 30, 26, 31, 28, 29, 30, 25, 24, 31, 29, 24, 28, 24, 30, 28, 27, 61, 62, 63, 26, 27, 24, 25, 26, 24, 31, 29, 25, 25, 25, 28, 29, 26, 28, 28, 31, 61, 62, 63, 31, 26, 24, 31, 29, 26, 30, 26, 28, 30, 27, 24, 25, 26, 28, 30, 28, 61, 62, 63, 29, 27, 24, 31, 27, 27, 30, 25, 27, 24, 25, 27, 27, 24, 26, 26, 27, 61, 62, 63, 26, 24, 26, 31, 24, 25, 31, 25, 30, 26, 25, 26, 27, 30, 25, 30, 24, 61, 62, 63, 30, 26, 30, 24, 30, 24, 26, 24, 26, 28, 30, 27, 31, 27, 26, 31, 25, 61, 62, 63, 29, 24, 27, 30, 25, 27, 28, 26, 27, 29, 25, 29, 27, 25, 31, 24, 31, 61, 62, 63, 30, 31, 29, 26, 27, 25, 24, 25, 28, 25, 30, 28, 29, 29, 29, 25, 31, 61, 62, 63, 28, 28, 27, 24, 26, 24, 30, 25, 25, 29, 26, 24, 24, 31],
          "height":20,
          "id":1,
          "name":"floor",
@@ -59,11 +59,6 @@
                  "id":0,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -72,11 +67,6 @@
                 {
                  "id":1,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -87,11 +77,6 @@
                  "id":2,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -100,11 +85,6 @@
                 {
                  "id":3,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -115,11 +95,6 @@
                  "id":4,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -128,11 +103,6 @@
                 {
                  "id":5,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -143,11 +113,6 @@
                  "id":6,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -156,11 +121,6 @@
                 {
                  "id":7,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -171,11 +131,6 @@
                  "id":8,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -184,11 +139,6 @@
                 {
                  "id":9,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -199,11 +149,6 @@
                  "id":10,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -212,11 +157,6 @@
                 {
                  "id":11,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -227,11 +167,6 @@
                  "id":12,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -240,11 +175,6 @@
                 {
                  "id":13,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -255,11 +185,6 @@
                  "id":14,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -268,11 +193,6 @@
                 {
                  "id":15,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -283,11 +203,6 @@
                  "id":16,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -296,11 +211,6 @@
                 {
                  "id":17,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -311,11 +221,6 @@
                  "id":18,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -324,11 +229,6 @@
                 {
                  "id":19,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -339,11 +239,6 @@
                  "id":20,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -352,11 +247,6 @@
                 {
                  "id":21,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -367,11 +257,6 @@
                  "id":22,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -380,11 +265,6 @@
                 {
                  "id":23,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -395,11 +275,6 @@
                  "id":24,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -408,11 +283,6 @@
                 {
                  "id":25,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -423,11 +293,6 @@
                  "id":26,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -436,11 +301,6 @@
                 {
                  "id":27,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -451,11 +311,6 @@
                  "id":28,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -464,11 +319,6 @@
                 {
                  "id":29,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -479,11 +329,6 @@
                  "id":30,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -492,11 +337,6 @@
                 {
                  "id":31,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -507,11 +347,6 @@
                  "id":32,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -520,11 +355,6 @@
                 {
                  "id":33,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -535,11 +365,6 @@
                  "id":34,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -548,11 +373,6 @@
                 {
                  "id":35,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -563,11 +383,6 @@
                  "id":36,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -576,11 +391,6 @@
                 {
                  "id":37,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -591,11 +401,6 @@
                  "id":38,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -604,11 +409,6 @@
                 {
                  "id":39,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -619,11 +419,6 @@
                  "id":40,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -632,11 +427,6 @@
                 {
                  "id":41,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -647,11 +437,6 @@
                  "id":42,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -660,11 +445,6 @@
                 {
                  "id":43,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -675,11 +455,6 @@
                  "id":44,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -688,11 +463,6 @@
                 {
                  "id":45,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -703,11 +473,6 @@
                  "id":46,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -716,11 +481,6 @@
                 {
                  "id":47,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -731,11 +491,6 @@
                  "id":48,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -744,11 +499,6 @@
                 {
                  "id":49,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -759,11 +509,6 @@
                  "id":50,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -772,11 +517,6 @@
                 {
                  "id":51,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -787,11 +527,6 @@
                  "id":52,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -800,11 +535,6 @@
                 {
                  "id":53,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -815,11 +545,6 @@
                  "id":54,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -828,11 +553,6 @@
                 {
                  "id":55,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -843,11 +563,6 @@
                  "id":56,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -856,11 +571,6 @@
                 {
                  "id":57,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -871,11 +581,6 @@
                  "id":58,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -884,11 +589,6 @@
                 {
                  "id":59,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -899,11 +599,6 @@
                  "id":60,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -912,11 +607,6 @@
                 {
                  "id":61,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -927,11 +617,6 @@
                  "id":62,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -940,11 +625,6 @@
                 {
                  "id":63,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -955,11 +635,6 @@
                  "id":64,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -968,11 +643,6 @@
                 {
                  "id":65,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -983,11 +653,6 @@
                  "id":66,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -996,11 +661,6 @@
                 {
                  "id":67,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1011,11 +671,6 @@
                  "id":68,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1024,11 +679,6 @@
                 {
                  "id":69,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1039,11 +689,6 @@
                  "id":70,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1052,11 +697,6 @@
                 {
                  "id":71,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1067,11 +707,6 @@
                  "id":72,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1080,11 +715,6 @@
                 {
                  "id":73,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1095,11 +725,6 @@
                  "id":74,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1108,11 +733,6 @@
                 {
                  "id":75,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1123,11 +743,6 @@
                  "id":76,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1136,11 +751,6 @@
                 {
                  "id":77,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1151,11 +761,6 @@
                  "id":78,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1164,11 +769,6 @@
                 {
                  "id":79,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1179,11 +779,6 @@
                  "id":80,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1192,11 +787,6 @@
                 {
                  "id":81,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1207,11 +797,6 @@
                  "id":82,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1220,11 +805,6 @@
                 {
                  "id":83,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1235,11 +815,6 @@
                  "id":84,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1248,11 +823,6 @@
                 {
                  "id":85,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1263,11 +833,6 @@
                  "id":86,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1276,11 +841,6 @@
                 {
                  "id":87,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1291,11 +851,6 @@
                  "id":88,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1304,11 +859,6 @@
                 {
                  "id":89,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1319,11 +869,6 @@
                  "id":90,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1332,11 +877,6 @@
                 {
                  "id":91,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1347,11 +887,6 @@
                  "id":92,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1360,11 +895,6 @@
                 {
                  "id":93,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1375,11 +905,6 @@
                  "id":94,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1388,11 +913,6 @@
                 {
                  "id":95,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1403,11 +923,6 @@
                  "id":96,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1416,11 +931,6 @@
                 {
                  "id":97,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1431,11 +941,6 @@
                  "id":98,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1444,11 +949,6 @@
                 {
                  "id":99,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1459,11 +959,6 @@
                  "id":100,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1472,11 +967,6 @@
                 {
                  "id":101,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1487,11 +977,6 @@
                  "id":102,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1500,11 +985,6 @@
                 {
                  "id":103,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1515,11 +995,6 @@
                  "id":104,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1528,11 +1003,6 @@
                 {
                  "id":105,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1543,11 +1013,6 @@
                  "id":106,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1556,11 +1021,6 @@
                 {
                  "id":107,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1571,11 +1031,6 @@
                  "id":108,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1584,11 +1039,6 @@
                 {
                  "id":109,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1599,11 +1049,6 @@
                  "id":110,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1612,11 +1057,6 @@
                 {
                  "id":111,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1627,11 +1067,6 @@
                  "id":112,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1640,11 +1075,6 @@
                 {
                  "id":113,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1655,11 +1085,6 @@
                  "id":114,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1668,11 +1093,6 @@
                 {
                  "id":115,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1683,11 +1103,6 @@
                  "id":116,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1696,11 +1111,6 @@
                 {
                  "id":117,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1711,11 +1121,6 @@
                  "id":118,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1724,11 +1129,6 @@
                 {
                  "id":119,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1739,11 +1139,6 @@
                  "id":120,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1752,11 +1147,6 @@
                 {
                  "id":121,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1767,11 +1157,6 @@
                  "id":122,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1780,11 +1165,6 @@
                 {
                  "id":123,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1795,11 +1175,6 @@
                  "id":124,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1808,11 +1183,6 @@
                 {
                  "id":125,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1823,11 +1193,6 @@
                  "id":126,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1836,11 +1201,6 @@
                 {
                  "id":127,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1851,11 +1211,6 @@
                  "id":128,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1864,11 +1219,6 @@
                 {
                  "id":129,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1879,11 +1229,6 @@
                  "id":130,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1892,11 +1237,6 @@
                 {
                  "id":131,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1907,11 +1247,6 @@
                  "id":132,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1920,11 +1255,6 @@
                 {
                  "id":133,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1935,11 +1265,6 @@
                  "id":134,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1948,11 +1273,6 @@
                 {
                  "id":135,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1963,11 +1283,6 @@
                  "id":136,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1976,11 +1291,6 @@
                 {
                  "id":137,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1991,11 +1301,6 @@
                  "id":138,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2004,11 +1309,6 @@
                 {
                  "id":139,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2019,11 +1319,6 @@
                  "id":140,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2032,11 +1327,6 @@
                 {
                  "id":141,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2047,11 +1337,6 @@
                  "id":142,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2060,11 +1345,6 @@
                 {
                  "id":143,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2075,11 +1355,6 @@
                  "id":144,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2088,11 +1363,6 @@
                 {
                  "id":145,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2103,11 +1373,6 @@
                  "id":146,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2116,11 +1381,6 @@
                 {
                  "id":147,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2131,11 +1391,6 @@
                  "id":148,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2144,11 +1399,6 @@
                 {
                  "id":149,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2159,11 +1409,6 @@
                  "id":150,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2172,11 +1417,6 @@
                 {
                  "id":151,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2187,11 +1427,6 @@
                  "id":152,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2200,11 +1435,6 @@
                 {
                  "id":153,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2215,11 +1445,6 @@
                  "id":154,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2228,11 +1453,6 @@
                 {
                  "id":155,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2243,11 +1463,6 @@
                  "id":156,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2256,11 +1471,6 @@
                 {
                  "id":157,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2271,11 +1481,6 @@
                  "id":158,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2284,11 +1489,6 @@
                 {
                  "id":159,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2299,11 +1499,6 @@
                  "id":160,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2312,11 +1507,6 @@
                 {
                  "id":161,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2327,11 +1517,6 @@
                  "id":162,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2340,11 +1525,6 @@
                 {
                  "id":163,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2355,11 +1535,6 @@
                  "id":164,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2368,11 +1543,6 @@
                 {
                  "id":165,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2383,11 +1553,6 @@
                  "id":166,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2396,11 +1561,6 @@
                 {
                  "id":167,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2411,11 +1571,6 @@
                  "id":168,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2424,11 +1579,6 @@
                 {
                  "id":169,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2439,11 +1589,6 @@
                  "id":170,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2452,11 +1597,6 @@
                 {
                  "id":171,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2467,11 +1607,6 @@
                  "id":172,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2480,11 +1615,6 @@
                 {
                  "id":173,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2495,11 +1625,6 @@
                  "id":174,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2508,11 +1633,6 @@
                 {
                  "id":175,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2523,11 +1643,6 @@
                  "id":176,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2536,11 +1651,6 @@
                 {
                  "id":177,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2551,11 +1661,6 @@
                  "id":178,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2564,11 +1669,6 @@
                 {
                  "id":179,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2579,11 +1679,6 @@
                  "id":180,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2592,11 +1687,6 @@
                 {
                  "id":181,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2607,11 +1697,6 @@
                  "id":182,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2620,11 +1705,6 @@
                 {
                  "id":183,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2635,11 +1715,6 @@
                  "id":184,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2648,11 +1723,6 @@
                 {
                  "id":185,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2663,11 +1733,6 @@
                  "id":186,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2676,11 +1741,6 @@
                 {
                  "id":187,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2691,11 +1751,6 @@
                  "id":188,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2704,11 +1759,6 @@
                 {
                  "id":189,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2719,11 +1769,6 @@
                  "id":190,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2732,11 +1777,6 @@
                 {
                  "id":191,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2747,11 +1787,6 @@
                  "id":192,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2760,11 +1795,6 @@
                 {
                  "id":193,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2775,11 +1805,6 @@
                  "id":194,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2788,11 +1813,6 @@
                 {
                  "id":195,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2803,11 +1823,6 @@
                  "id":196,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2816,11 +1831,6 @@
                 {
                  "id":197,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2831,11 +1841,6 @@
                  "id":198,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2844,11 +1849,6 @@
                 {
                  "id":199,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2859,11 +1859,6 @@
                  "id":200,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2872,11 +1867,6 @@
                 {
                  "id":201,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2887,11 +1877,6 @@
                  "id":202,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2900,11 +1885,6 @@
                 {
                  "id":203,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2915,11 +1895,6 @@
                  "id":204,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2928,11 +1903,6 @@
                 {
                  "id":205,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2943,11 +1913,6 @@
                  "id":206,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2956,11 +1921,6 @@
                 {
                  "id":207,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2971,11 +1931,6 @@
                  "id":208,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2984,11 +1939,6 @@
                 {
                  "id":209,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2999,11 +1949,6 @@
                  "id":210,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3012,11 +1957,6 @@
                 {
                  "id":211,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3027,11 +1967,6 @@
                  "id":212,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3040,11 +1975,6 @@
                 {
                  "id":213,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3055,11 +1985,6 @@
                  "id":214,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3068,11 +1993,6 @@
                 {
                  "id":215,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3083,11 +2003,6 @@
                  "id":216,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3096,11 +2011,6 @@
                 {
                  "id":217,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3111,11 +2021,6 @@
                  "id":218,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3124,11 +2029,6 @@
                 {
                  "id":219,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3139,11 +2039,6 @@
                  "id":220,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3152,11 +2047,6 @@
                 {
                  "id":221,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3167,11 +2057,6 @@
                  "id":222,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3180,11 +2065,6 @@
                 {
                  "id":223,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3195,11 +2075,6 @@
                  "id":224,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3208,11 +2083,6 @@
                 {
                  "id":225,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3223,11 +2093,6 @@
                  "id":226,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3236,11 +2101,6 @@
                 {
                  "id":227,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3251,11 +2111,6 @@
                  "id":228,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3264,11 +2119,6 @@
                 {
                  "id":229,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3279,11 +2129,6 @@
                  "id":230,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3292,11 +2137,6 @@
                 {
                  "id":231,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3307,11 +2147,6 @@
                  "id":232,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3320,11 +2155,6 @@
                 {
                  "id":233,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3335,11 +2165,6 @@
                  "id":234,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3348,11 +2173,6 @@
                 {
                  "id":235,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3363,11 +2183,6 @@
                  "id":236,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3376,11 +2191,6 @@
                 {
                  "id":237,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3391,11 +2201,6 @@
                  "id":238,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3404,11 +2209,6 @@
                 {
                  "id":239,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3419,11 +2219,6 @@
                  "id":240,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3432,11 +2227,6 @@
                 {
                  "id":241,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3447,11 +2237,6 @@
                  "id":242,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3460,11 +2245,6 @@
                 {
                  "id":243,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3475,11 +2255,6 @@
                  "id":244,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3488,11 +2263,6 @@
                 {
                  "id":245,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3503,11 +2273,6 @@
                  "id":246,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3516,11 +2281,6 @@
                 {
                  "id":247,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3531,11 +2291,6 @@
                  "id":248,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3544,11 +2299,6 @@
                 {
                  "id":249,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3559,11 +2309,6 @@
                  "id":250,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3572,11 +2317,6 @@
                 {
                  "id":251,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3587,11 +2327,6 @@
                  "id":252,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3600,11 +2335,6 @@
                 {
                  "id":253,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3615,11 +2345,6 @@
                  "id":254,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3628,11 +2353,6 @@
                 {
                  "id":255,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3643,11 +2363,6 @@
                  "id":256,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3656,11 +2371,6 @@
                 {
                  "id":257,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3671,11 +2381,6 @@
                  "id":258,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3684,11 +2389,6 @@
                 {
                  "id":259,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3699,11 +2399,6 @@
                  "id":260,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3712,11 +2407,6 @@
                 {
                  "id":261,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3727,11 +2417,6 @@
                  "id":262,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3740,11 +2425,6 @@
                 {
                  "id":263,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3755,11 +2435,6 @@
                  "id":264,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3768,11 +2443,6 @@
                 {
                  "id":265,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3783,11 +2453,6 @@
                  "id":266,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3796,11 +2461,6 @@
                 {
                  "id":267,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3811,11 +2471,6 @@
                  "id":268,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3824,11 +2479,6 @@
                 {
                  "id":269,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3839,11 +2489,6 @@
                  "id":270,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3852,11 +2497,6 @@
                 {
                  "id":271,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3867,11 +2507,6 @@
                  "id":272,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3880,11 +2515,6 @@
                 {
                  "id":273,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3895,11 +2525,6 @@
                  "id":274,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3908,11 +2533,6 @@
                 {
                  "id":275,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3923,11 +2543,6 @@
                  "id":276,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3936,11 +2551,6 @@
                 {
                  "id":277,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3951,11 +2561,6 @@
                  "id":278,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3964,11 +2569,6 @@
                 {
                  "id":279,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3979,11 +2579,6 @@
                  "id":280,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3992,11 +2587,6 @@
                 {
                  "id":281,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4007,11 +2597,6 @@
                  "id":282,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4020,11 +2605,6 @@
                 {
                  "id":283,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4035,11 +2615,6 @@
                  "id":284,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4048,11 +2623,6 @@
                 {
                  "id":285,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4063,11 +2633,6 @@
                  "id":286,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4076,11 +2641,6 @@
                 {
                  "id":287,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4091,11 +2651,6 @@
                  "id":288,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4104,11 +2659,6 @@
                 {
                  "id":289,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4119,11 +2669,6 @@
                  "id":290,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4132,11 +2677,6 @@
                 {
                  "id":291,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4147,11 +2687,6 @@
                  "id":292,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4160,11 +2695,6 @@
                 {
                  "id":293,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4175,11 +2705,6 @@
                  "id":294,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4188,11 +2713,6 @@
                 {
                  "id":295,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4203,11 +2723,6 @@
                  "id":296,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4216,11 +2731,6 @@
                 {
                  "id":297,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4231,11 +2741,6 @@
                  "id":298,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4244,11 +2749,6 @@
                 {
                  "id":299,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4259,11 +2759,6 @@
                  "id":300,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4272,11 +2767,6 @@
                 {
                  "id":301,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4287,11 +2777,6 @@
                  "id":302,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4300,11 +2785,6 @@
                 {
                  "id":303,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4315,11 +2795,6 @@
                  "id":304,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4328,11 +2803,6 @@
                 {
                  "id":305,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4343,11 +2813,6 @@
                  "id":306,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4356,11 +2821,6 @@
                 {
                  "id":307,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4371,11 +2831,6 @@
                  "id":308,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4384,11 +2839,6 @@
                 {
                  "id":309,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4399,11 +2849,6 @@
                  "id":310,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4412,11 +2857,6 @@
                 {
                  "id":311,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4427,11 +2867,6 @@
                  "id":312,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4440,11 +2875,6 @@
                 {
                  "id":313,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4455,11 +2885,6 @@
                  "id":314,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4468,11 +2893,6 @@
                 {
                  "id":315,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4483,11 +2903,6 @@
                  "id":316,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4496,11 +2911,6 @@
                 {
                  "id":317,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4511,11 +2921,6 @@
                  "id":318,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4524,11 +2929,6 @@
                 {
                  "id":319,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4539,11 +2939,6 @@
                  "id":320,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4552,11 +2947,6 @@
                 {
                  "id":321,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4567,11 +2957,6 @@
                  "id":322,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4580,11 +2965,6 @@
                 {
                  "id":323,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4595,11 +2975,6 @@
                  "id":324,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4608,11 +2983,6 @@
                 {
                  "id":325,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4623,11 +2993,6 @@
                  "id":326,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4636,11 +3001,6 @@
                 {
                  "id":327,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4651,11 +3011,6 @@
                  "id":328,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4664,11 +3019,6 @@
                 {
                  "id":329,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4679,11 +3029,6 @@
                  "id":330,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4692,11 +3037,6 @@
                 {
                  "id":331,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4707,11 +3047,6 @@
                  "id":332,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4720,11 +3055,6 @@
                 {
                  "id":333,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4735,11 +3065,6 @@
                  "id":334,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4748,11 +3073,6 @@
                 {
                  "id":335,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4763,11 +3083,6 @@
                  "id":336,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4776,11 +3091,6 @@
                 {
                  "id":337,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4791,11 +3101,6 @@
                  "id":338,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4804,11 +3109,6 @@
                 {
                  "id":339,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4819,11 +3119,6 @@
                  "id":340,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4832,11 +3127,6 @@
                 {
                  "id":341,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4847,11 +3137,6 @@
                  "id":342,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4860,11 +3145,6 @@
                 {
                  "id":343,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4875,11 +3155,6 @@
                  "id":344,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4888,11 +3163,6 @@
                 {
                  "id":345,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4903,11 +3173,6 @@
                  "id":346,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4916,11 +3181,6 @@
                 {
                  "id":347,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4931,11 +3191,6 @@
                  "id":348,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4944,11 +3199,6 @@
                 {
                  "id":349,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4959,11 +3209,6 @@
                  "id":350,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4972,11 +3217,6 @@
                 {
                  "id":351,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4987,11 +3227,6 @@
                  "id":352,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5000,11 +3235,6 @@
                 {
                  "id":353,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5015,11 +3245,6 @@
                  "id":354,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5028,11 +3253,6 @@
                 {
                  "id":355,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5043,11 +3263,6 @@
                  "id":356,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5056,11 +3271,6 @@
                 {
                  "id":357,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5071,11 +3281,6 @@
                  "id":358,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5084,11 +3289,6 @@
                 {
                  "id":359,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5099,11 +3299,6 @@
                  "id":360,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5112,11 +3307,6 @@
                 {
                  "id":361,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5127,11 +3317,6 @@
                  "id":362,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5140,11 +3325,6 @@
                 {
                  "id":363,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5155,11 +3335,6 @@
                  "id":364,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5168,11 +3343,6 @@
                 {
                  "id":365,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5183,11 +3353,6 @@
                  "id":366,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5196,11 +3361,6 @@
                 {
                  "id":367,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5211,11 +3371,6 @@
                  "id":368,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5224,11 +3379,6 @@
                 {
                  "id":369,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5239,11 +3389,6 @@
                  "id":370,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5252,11 +3397,6 @@
                 {
                  "id":371,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5267,11 +3407,6 @@
                  "id":372,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5280,11 +3415,6 @@
                 {
                  "id":373,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5295,11 +3425,6 @@
                  "id":374,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5308,11 +3433,6 @@
                 {
                  "id":375,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5323,11 +3443,6 @@
                  "id":376,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5336,11 +3451,6 @@
                 {
                  "id":377,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5351,11 +3461,6 @@
                  "id":378,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5364,11 +3469,6 @@
                 {
                  "id":379,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5379,11 +3479,6 @@
                  "id":380,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5392,11 +3487,6 @@
                 {
                  "id":381,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5407,11 +3497,6 @@
                  "id":382,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5420,11 +3505,6 @@
                 {
                  "id":383,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5435,11 +3515,6 @@
                  "id":384,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5448,11 +3523,6 @@
                 {
                  "id":385,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5463,11 +3533,6 @@
                  "id":386,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5476,11 +3541,6 @@
                 {
                  "id":387,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5491,11 +3551,6 @@
                  "id":388,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5504,11 +3559,6 @@
                 {
                  "id":389,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5519,11 +3569,6 @@
                  "id":390,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5532,11 +3577,6 @@
                 {
                  "id":391,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5547,11 +3587,6 @@
                  "id":392,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5560,11 +3595,6 @@
                 {
                  "id":393,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5575,11 +3605,6 @@
                  "id":394,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5588,11 +3613,6 @@
                 {
                  "id":395,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5603,11 +3623,6 @@
                  "id":396,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5616,11 +3631,6 @@
                 {
                  "id":397,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5631,11 +3641,6 @@
                  "id":398,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5644,11 +3649,6 @@
                 {
                  "id":399,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5659,11 +3659,6 @@
                  "id":400,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5672,11 +3667,6 @@
                 {
                  "id":401,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5687,11 +3677,6 @@
                  "id":402,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5700,11 +3685,6 @@
                 {
                  "id":403,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5715,11 +3695,6 @@
                  "id":404,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5728,11 +3703,6 @@
                 {
                  "id":405,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5743,11 +3713,6 @@
                  "id":406,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5756,11 +3721,6 @@
                 {
                  "id":407,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5771,11 +3731,6 @@
                  "id":408,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5784,11 +3739,6 @@
                 {
                  "id":409,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5799,11 +3749,6 @@
                  "id":410,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5812,11 +3757,6 @@
                 {
                  "id":411,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5827,11 +3767,6 @@
                  "id":412,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5840,11 +3775,6 @@
                 {
                  "id":413,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5855,11 +3785,6 @@
                  "id":414,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5868,11 +3793,6 @@
                 {
                  "id":415,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5883,11 +3803,6 @@
                  "id":416,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5896,11 +3811,6 @@
                 {
                  "id":417,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5911,11 +3821,6 @@
                  "id":418,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5924,11 +3829,6 @@
                 {
                  "id":419,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5939,11 +3839,6 @@
                  "id":420,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5952,11 +3847,6 @@
                 {
                  "id":421,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5967,11 +3857,6 @@
                  "id":422,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -5980,11 +3865,6 @@
                 {
                  "id":423,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -5995,11 +3875,6 @@
                  "id":424,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6008,11 +3883,6 @@
                 {
                  "id":425,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6023,11 +3893,6 @@
                  "id":426,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6036,11 +3901,6 @@
                 {
                  "id":427,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6051,11 +3911,6 @@
                  "id":428,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6064,11 +3919,6 @@
                 {
                  "id":429,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6079,11 +3929,6 @@
                  "id":430,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6092,11 +3937,6 @@
                 {
                  "id":431,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6107,11 +3947,6 @@
                  "id":432,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6120,11 +3955,6 @@
                 {
                  "id":433,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6135,11 +3965,6 @@
                  "id":434,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6148,11 +3973,6 @@
                 {
                  "id":435,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6163,11 +3983,6 @@
                  "id":436,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6176,11 +3991,6 @@
                 {
                  "id":437,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6191,11 +4001,6 @@
                  "id":438,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6204,11 +4009,6 @@
                 {
                  "id":439,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6219,11 +4019,6 @@
                  "id":440,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6232,11 +4027,6 @@
                 {
                  "id":441,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6247,11 +4037,6 @@
                  "id":442,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6260,11 +4045,6 @@
                 {
                  "id":443,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6275,11 +4055,6 @@
                  "id":444,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6288,11 +4063,6 @@
                 {
                  "id":445,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6303,11 +4073,6 @@
                  "id":446,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6316,11 +4081,6 @@
                 {
                  "id":447,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6331,11 +4091,6 @@
                  "id":448,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6344,11 +4099,6 @@
                 {
                  "id":449,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6359,11 +4109,6 @@
                  "id":450,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6372,11 +4117,6 @@
                 {
                  "id":451,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6387,11 +4127,6 @@
                  "id":452,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6400,11 +4135,6 @@
                 {
                  "id":453,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6415,11 +4145,6 @@
                  "id":454,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6428,11 +4153,6 @@
                 {
                  "id":455,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6443,11 +4163,6 @@
                  "id":456,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6456,11 +4171,6 @@
                 {
                  "id":457,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6471,11 +4181,6 @@
                  "id":458,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6484,11 +4189,6 @@
                 {
                  "id":459,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -6499,11 +4199,6 @@
                  "id":460,
                  "properties":[
                         {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -6512,11 +4207,6 @@
                 {
                  "id":461,
                  "properties":[
-                        {
-                         "name":"objective",
-                         "type":"bool",
-                         "value":false
-                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",

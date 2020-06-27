@@ -1,6 +1,7 @@
 import { Direction } from '../constants/directions';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { DungeonBehavior } from '../behaviors/dungeon-behavior';
+import { GridObject } from './grid-object';
 
 export type GridTileProperties = {
   walkable: boolean;
@@ -14,7 +15,7 @@ export enum GridTileBehaviorType {
 
 export class GridTile {
   public behaviors: Record<GridTileBehaviorType, DungeonBehavior[]>;
-  // private objects: DungeonObject[];
+  private objects: GridObject[];
 
   constructor(
     public readonly scene: ScoochDungeonScene,
@@ -30,19 +31,13 @@ export class GridTile {
       [GridTileBehaviorType.EXIT]: [],
     };
 
-    // this.objects = [];
+    this.objects = [];
   }
-
-  /*
-  setObjects(objects: DungeonObject[]) {
-    this.objects = objects;
-  }
-  */
 
   destroy() {
     delete this.properties;
 
-    // this.objects.forEach(object => object.destroy());
+    this.objects.forEach(object => object.destroy());
 
     this.behaviors[GridTileBehaviorType.INPUT] = [];
     this.behaviors[GridTileBehaviorType.ENTER] = [];
@@ -63,7 +58,10 @@ export class GridTile {
     return x === this.gridX && y === this.gridY;
   }
 
-  /*
+  setObjects(objects: GridObject[]) {
+    this.objects = objects;
+  }
+
   getObject(name: string) {
     return this.objects.find(object => object.name === name);
   }
@@ -72,7 +70,7 @@ export class GridTile {
     return this.objects.some(object => object.name === name);
   }
 
-  addObject(dungeonObject: DungeonObject) {
+  addObject(dungeonObject: GridObject) {
     this.objects.push(dungeonObject);
   }
 
@@ -81,7 +79,6 @@ export class GridTile {
     const [dungeonObject] = this.objects.splice(dungeonObjectIndex, 1);
     dungeonObject.destroy();
   }
-  */
 
   addBehavior(type: GridTileBehaviorType, behavior: DungeonBehavior) {
     this.behaviors[type].push(behavior);

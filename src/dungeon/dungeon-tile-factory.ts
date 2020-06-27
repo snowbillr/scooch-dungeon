@@ -5,6 +5,7 @@ import { EnterBehaviors } from "../behaviors/enter-behaviors";
 import { ExitBehaviors } from "../behaviors/exit-behaviors";
 import { DungeonObjectFactory } from './dungeon-object-factory';
 import { DungeonScene } from '../scenes/dungeon-scene';
+import { objectsList } from './objects/objects-list';
 
 export const OBJECTS_KEY = 'objects';
 
@@ -14,7 +15,7 @@ export class DungeonTileFactory {
   constructor(
     private scene: DungeonScene
   ) {
-    this.dungeonObjectFactory = new DungeonObjectFactory(scene);
+    this.dungeonObjectFactory = new DungeonObjectFactory(scene, objectsList);
   }
 
   create(

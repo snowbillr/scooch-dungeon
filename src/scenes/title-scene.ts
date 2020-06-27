@@ -3,6 +3,7 @@ import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { ProgressDocument } from "../persistence/progress-document";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { DebugScene } from './debug-scene';
+import { LevelGroup } from '../levels/level-group';
 
 export class TitleScene extends ScoochDungeonScene {
   constructor() {
@@ -30,6 +31,18 @@ export class TitleScene extends ScoochDungeonScene {
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
       this.scene.start(SCENE_KEYS.LEVEL_SELECT);
     });
+
+    // temp debug
+    this.add.text(this.cameras.main.centerX, Viewport.HEIGHT / 2 + 100, 'level 000')
+      .setInteractive()
+      .on('pointerup', () => {
+        this.levelSession.begin({
+          levelGroup: new LevelGroup("Beginner's Alley"),
+          currentLevelRelativeIndex: 0,
+          maxHealth: 2
+        });
+        this.scene.start(SCENE_KEYS.DUNGEON);
+      })
 
     this.tweens.timeline({
       tweens: [
