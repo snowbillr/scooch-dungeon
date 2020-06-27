@@ -4,139 +4,57 @@ import { SCENE_KEYS } from '../constants/scene-keys';
 import { ProgressDocument } from '../persistence/progress-document';
 import { LevelGroup } from '../levels/level-group';
 import { PlayerStatsDocument } from '../persistence/player-stats-documents';
-
-const cameraScrollLimits = {
-  min: -650,
-  max: -525
-};
+import { Dungeon } from '../dungeon/dungeon';
+import { Entity } from 'phecs/dist/entity';
+import { HeroPrefab } from '../prefabs/hero/prefab';
+import { SpriteComponent } from '../components/sprite-component';
+import { GridMapFactory } from '../grid-maps/grid-map-factory';
+import { GridMap } from '../grid-maps/grid-map';
+import { Viewport } from '../constants/viewport';
 
 export class LevelSelectScene extends ScoochDungeonScene {
+  public gridMap!: GridMap;
+  public hero!: Entity;
+
   constructor() {
     super({ key: SCENE_KEYS.LEVEL_SELECT });
   }
 
+  init() {
+    this.phecs.register.prefab('hero', HeroPrefab);
+  }
+
   create() {
-    this.cameras.main.setBackgroundColor(0x3D253B);
-    this.add.image(0, 96, 'level-select-background')
-      .setOrigin(0, 1)
-      .setAlpha(0.5);
+    const gridMapFactory = new GridMapFactory(this);
+    this.gridMap = gridMapFactory.createGridMap('overworld-000', 0, 0);
 
-    this.input.on(Phaser.Input.Events.POINTER_MOVE, () => {
-      if (this.input.activePointer.isDown) {
-        const deltaY = this.input.activePointer.prevPosition.y - this.input.activePointer.position.y;
-        const newCameraScrollY = this.cameras.main.scrollY + deltaY
+    const heroStartMarker = this.gridMap.getMarker('entrance');
 
-        this.cameras.main.scrollY = Phaser.Math.Clamp(newCameraScrollY, cameraScrollLimits.min, cameraScrollLimits.max);
-      }
-    });
+    this.hero = this.phecs.add.prefab('hero', {
+      gridX: heroStartMarker.gridX,
+      gridY: heroStartMarker.gridY
+    }, heroStartMarker.worldX, heroStartMarker.worldY);
 
-    const x = this.scale.width / 2;
-    const yStep = -96;
+
+    var { x, y, width, height } = this.calculateCameraBounds();
+    this.cameras.main.setBounds(x, y, width, height);
+    this.cameras.main.startFollow(this.hero.getComponent(SpriteComponent).sprite);
+  }
+
+  private calculateCameraBounds() {
+    let x = 0;
     let y = 0;
+    const width = this.gridMap.worldWidth;
+    const height = this.gridMap.worldHeight;
 
-    levels.levelGroups.forEach(levelGroup => {
-      const levelGroupDisplay = new LevelGroupDisplay(this, levelGroup.name, x, y);
-      y -= levelGroupDisplay.gameObject.getBounds().height - yStep;
-    });
-
-    this.add.bitmapText(this.scale.width / 2, 50, 'matchup-64', 'Level Select')
-      .setOrigin(0.5)
-      .setScrollFactor(0);
-
-    this.cameras.main.scrollY = cameraScrollLimits.max;
-  }
-}
-
-class LevelGroupDisplay {
-  public gameObject: Phaser.GameObjects.Container;
-
-  constructor(private scene: ScoochDungeonScene, private levelGroupName: string, x: number, y: number) {
-    const progress = scene.persistence.getDocument<ProgressDocument>('progress');
-    const playerStats = scene.persistence.getDocument<PlayerStatsDocument>('player-stats');
-
-    const levelGroup = new LevelGroup(levelGroupName);
-    const levels = levelGroup.getLevels();
-
-    const goButton = scene.add.sprite(0, 0, 'level-go')
-
-    if (progress.getLevelGroupUnlocked(levelGroupName)) {
-      goButton
-        .setFrame(0)
-        .setInteractive()
-        .on(Phaser.Input.Events.POINTER_DOWN, () => goButton.setFrame(1))
-        .on(Phaser.Input.Events.POINTER_OUT, () => goButton.setFrame(0))
-        .on(Phaser.Input.Events.POINTER_UP, () => {
-          goButton.setFrame(0);
-
-          scene.levelSession.begin({
-            levelGroup,
-            currentLevelRelativeIndex: 0,
-            maxHealth: playerStats.getMaxHealth()
-          });
-
-          scene.scene.start(SCENE_KEYS.DUNGEON)
-        });
-    } else {
-      goButton.setFrame(2);
+    if (width < Viewport.WIDTH) {
+      x = x - (Viewport.WIDTH - width) / 2;
     }
 
-    const goButtonSpace = goButton.height + 16;
-
-    const groupNameText = scene.add.bitmapText(0, -goButtonSpace, 'matchup-32', levelGroup.name)
-                            .setOrigin(0.5)
-    const groupNameHeight = groupNameText.getTextBounds().local.height;
-    const groupNamePadding = 24;
-    const groupNameSpace = groupNameHeight + groupNamePadding;
-
-    const yStep = -40;
-    const levelButtons = levels.map((level, i) => {
-      return new LevelButton(scene, level.getIndex(), 0, yStep * i - goButtonSpace - groupNameSpace);
-    });
-
-    //                          level buttons
-    //                               |                 level buttons padding
-    const levelButtonsHeight = (levels.length * 32) + ((levels.length + 1) * 8);
-
-    this.gameObject = scene.add.container(x, y, [
-      scene.add.rectangle(0, -24 - goButtonSpace, 64, levelButtonsHeight, 0xb39e89, 0.5)
-        .setOrigin(0.5, 1)
-        .setStrokeStyle(4, 0xD9A066),
-      groupNameText,
-      ...levelButtons.map(lb => lb.gameObject),
-      goButton
-    ]);
-  }
-}
-
-class LevelButton {
-  public gameObject: Phaser.GameObjects.Container;
-  private button: Phaser.GameObjects.Sprite;
-  private star: Phaser.GameObjects.Sprite;
-
-  private enabled: boolean = true;
-  private completed: boolean = false;
-
-  constructor(private scene: ScoochDungeonScene, private levelNumber: number, x: number, y: number) {
-    const progress = scene.persistence.getDocument<ProgressDocument>('progress');
-    const levelProgress = progress.isLevelCompleted(levelNumber);
-
-    this.enabled = levelProgress?.attempts?.length > 0;
-    this.completed = levelProgress?.attempts?.length > 0;
-
-    this.gameObject = scene.add.container(x, y);
-    this.gameObject.add([
-      this.button = scene.add.sprite(0, 0, 'level-button'),
-      this.star = scene.add.sprite(0, -1, 'star')
-    ]);
-
-    this.gameObject.setSize(32, 32);
-
-    if (this.enabled) {
-      this.button.setFrame(0);
-    } else {
-      this.button.setFrame(1);
+    if (height < Viewport.HEIGHT) {
+      y = y - (Viewport.HEIGHT - height) / 2;
     }
 
-    this.star.setVisible(this.completed);
+    return { x, y, width, height };
   }
 }

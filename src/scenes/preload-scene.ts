@@ -34,11 +34,14 @@ export class PreloadScene extends ScoochDungeonScene {
     this.load.pack('fonts-pack', 'assets/fonts/pack.json');
     this.load.pack('interface-pack', 'assets/interface/pack.json');
     this.load.pack('characters-pack', 'assets/characters/pack.json');
+    this.load.pack('overworld-pack', 'assets/overworld/pack.json');
 
+    this.load.image('overworld-tilesheet', 'assets/maps/overworld-tilesheet.png');
     this.load.image('dungeon-spritesheet', 'assets/maps/dungeon-spritesheet.png');
 
     const levelLoader = new LevelLoader(this.load);
     levelLoader.load();
+
   }
 
   create() {

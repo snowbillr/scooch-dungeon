@@ -1,0 +1,11 @@
+{
+  "all": {
+    "files": [
+      {
+        "type": "tilemapTiledJSON",
+        "key": "overworld-000",
+        "url": "assets/overworld/000.json"
+      }
+    ]
+  }
+}
