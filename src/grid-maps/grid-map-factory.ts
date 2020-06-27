@@ -7,21 +7,20 @@ import { GridMap } from './grid-map';
 import { GridMarker } from './grid-marker';
 
 export class GridMapFactory {
-  private gridTileFactory: GridTileFactory;
 
   constructor(
-    private scene: ScoochDungeonScene
-  ) {
-    this.gridTileFactory = new GridTileFactory(scene);
-  }
+    private scene: ScoochDungeonScene,
+    private gridTileFactory: GridTileFactory
+  ) {}
 
-  public createGridMap(levelKey: string, x: number, y: number) {
+  public createGridMap(tilesetName: string, tilesetSource: string, levelKey: string, x: number, y: number) {
     const tilemap = this.scene.add.tilemap(levelKey);
-    tilemap.addTilesetImage('overworld-tileset', 'overworld-tilesheet');
+    // tilemap.addTilesetImage('overworld-tileset', 'overworld-tilesheet');
+    tilemap.addTilesetImage(tilesetName, tilesetSource);
 
-    const floor = this.createFloor(tilemap, x, y);
+    const floor = this.createFloor(tilemap, tilesetName, x, y);
+
     const gridTiles = this.createGridTiles(tilemap, floor);
-
     const gridMarkers = this.createGridMarkers(tilemap, x, y);
 
     const gridMap = new GridMap(gridTiles, gridMarkers, floor, tilemap);
@@ -31,8 +30,8 @@ export class GridMapFactory {
     return gridMap;
   }
 
-  private createFloor(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): Phaser.Tilemaps.DynamicTilemapLayer {
-    return tilemap.createDynamicLayer('floor', 'overworld-tileset', x, y);
+  private createFloor(tilemap: Phaser.Tilemaps.Tilemap, tilesetName: string, x: number, y: number): Phaser.Tilemaps.DynamicTilemapLayer {
+    return tilemap.createDynamicLayer('floor', tilesetName, x, y);
   }
 
   private createGridTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): GridTile[] {

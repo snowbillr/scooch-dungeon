@@ -1,139 +1,20 @@
 import { Dungeon } from './dungeon';
-import { DungeonTile } from './dungeon-tile';
-import { DungeonMarker } from './dungeon-marker';
-import { DungeonTileFactory, OBJECTS_KEY } from './dungeon-tile-factory';
 import { DungeonScene } from '../scenes/dungeon-scene';
-import { normalize } from '../lib/tiled-properties-normalizer';
+import { GridMapFactory } from '../grid-maps/grid-map-factory';
+import { GridTileFactory } from '../grid-maps/grid-tile-factory';
+import { GridObjectFactory } from '../grid-maps/grid-object-factory';
+import { objectsList } from './objects/objects-list';
+
 
 export class DungeonFactory {
-  private dungeonTileFactory: DungeonTileFactory;
+  private gridMapFactory: GridMapFactory;
 
-  constructor(
-    private scene: DungeonScene,
-  ) {
-    this.dungeonTileFactory = new DungeonTileFactory(scene);
+  constructor(private scene: DungeonScene) {
+    this.gridMapFactory = new GridMapFactory(scene, new GridTileFactory(scene, new GridObjectFactory(scene, objectsList)));
   }
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {
-    const tilemap = this.scene.add.tilemap(levelKey);
-    tilemap.addTilesetImage('dungeon-tileset', 'dungeon-spritesheet');
-
-    const dungeonFloor = this.createFloor(tilemap, x, y);
-    tilemap.setLayer('floor');
-
-    const dungeonTiles = this.createDungeonTiles(tilemap, dungeonFloor);
-    const dungeonMarkers = this.createDungeonMarkers(tilemap, x, y);
-
-    const dungeon = new Dungeon(dungeonTiles, dungeonMarkers, dungeonFloor, tilemap);
-
-    dungeonTiles.forEach(dungeonTile => this.dungeonTileFactory.addBehaviors(dungeonTile, dungeon));
-
-    return dungeon;
-  }
-
-  private createFloor(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): Phaser.Tilemaps.DynamicTilemapLayer {
-    return tilemap.createDynamicLayer('floor', 'dungeon-tileset', x, y);
-  }
-
-  private createDungeonTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): DungeonTile[] {
-    const tileData = new TileData();
-
-    // gather floor tile data
-    floor.forEachTile(function(tile: Phaser.Tilemaps.Tile) {
-      Object.entries(tile.properties).forEach(([key, value]) => {
-        tileData.addKeyValue(tile.x, tile.y, key, value);
-      });
-    }, this, 0, 0, tilemap.width, tilemap.height, {
-      isNotEmpty: true
-    });
-
-    // gather object tile data
-    const objects = tilemap.getObjectLayer('objects').objects.map(o => {
-      return {
-        gridX: Math.round(o.x! / 32),
-        gridY: Math.round((o.y! - 32) / 32),
-        index: o.gid!,
-        properties: normalize(o.properties!)
-      }
-    });
-    objects.forEach(object => {
-      tileData.addObject(object.gridX, object.gridY, object.index, object.properties);
-
-      Object.entries(object.properties).forEach(([key, value]) => {
-        tileData.addKeyValue(object.gridX, object.gridY, key, value);
-      });
-    });
-
-    // create tiles
-    const dungeonTiles: DungeonTile[] = [];
-    tileData.forEach((coordinates, properties, objects) => {
-      const worldCoordinates = tilemap.tileToWorldXY(coordinates.x, coordinates.y);
-
-      const dungeonTile = this.dungeonTileFactory.create(coordinates.x, coordinates.y, worldCoordinates.x, worldCoordinates.y, properties, objects)
-      dungeonTiles.push(dungeonTile);
-    });
-
-    return dungeonTiles;
-  }
-
-  private createDungeonMarkers(tilemap: Phaser.Tilemaps.Tilemap, x: number, y: number): Record<string, DungeonMarker> {
-    const markers = tilemap.getObjectLayer('markers').objects;
-    const dungeonMarkers: Record<string, DungeonMarker> = markers.reduce((acc, marker) => {
-      const gridCoordinates = tilemap.getTileAtWorldXY(marker.x! + x, marker.y! + y);
-      const worldCoordinates = tilemap.tileToWorldXY(gridCoordinates.x, gridCoordinates.y);
-
-      acc[marker.name] = new DungeonMarker(marker.name, gridCoordinates.x, gridCoordinates.y, worldCoordinates.x, worldCoordinates.y);
-
-      return acc;
-    }, {} as Record<string, DungeonMarker>);
-
-    return dungeonMarkers;
-  }
-}
-
-type TileDataForEachCallback = (coordinates: { x: number; y: number }, data: Record<string, any>, objects: Record<string, any>[]) => void;
-class TileData {
-  private tileData: Record<string, Record<string, any[]>>;
-  private tileObjects: Record<string, Record<string, any>[]>;
-
-  constructor() {
-    this.tileData = {};
-    this.tileObjects = {};
-  }
-
-  addKeyValue(x: number, y: number, key: string, value: any) {
-    const tileKey = this.coordinatesToTileKey(x, y);
-    this.tileData[tileKey] = this.tileData[tileKey] ?? {}
-
-    this.tileData[tileKey][key] = this.tileData[tileKey][key] ?? [];
-    this.tileData[tileKey][key].push(value);
-  }
-
-  addObject(x: number, y: number, index: number, properties: Record<string, any>) {
-    const tileKey = this.coordinatesToTileKey(x, y);
-
-    this.tileObjects[tileKey] = this.tileObjects[tileKey] ?? [];
-    this.tileObjects[tileKey].push({
-      index,
-      properties
-    });
-  }
-
-  forEach(fn: TileDataForEachCallback) {
-    Object.entries(this.tileData).forEach(([tileKey, data]) => {
-      const coordinates = this.tileKeyToCoordinates(tileKey);
-
-      fn(coordinates, data, this.tileObjects[tileKey]);
-    });
-  }
-
-  private coordinatesToTileKey(x: number, y: number) {
-    return `${x},${y}`;
-  }
-
-  private tileKeyToCoordinates(tileKey: string) {
-    const [x, y] = tileKey.split(',').map(Number);
-
-    return { x, y };
+    const gridMap = this.gridMapFactory.createGridMap('dungeon-tileset', 'dungeon-spritesheet', levelKey, x, y);
+    return new Dungeon(gridMap);
   }
 }

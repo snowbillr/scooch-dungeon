@@ -1,20 +1,22 @@
 import { DungeonObject } from '../dungeon-object';
-import { DungeonTile, DungeonTileBehaviorType } from '../dungeon-tile';
 import { DamageActorBehavior } from '../../behaviors/enter/damage-actor';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridObject } from '../../grid-maps/grid-object';
+import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
+import { GridTile, GridTileBehaviorType } from '../../grid-maps/grid-tile';
 
 const REVEALED_DURATION = 2000;
 const HIDDEN_DURATION = 3000;
 const INITIAL_OFFSET = 1000;
 
-export class Spikes extends DungeonObject {
+export class Spikes extends GridObject {
   private damageActorBehavior: DamageActorBehavior;
 
   private hiddenDuration: number;
 
   constructor(
-    scene: DungeonScene,
-    dungeonTile: DungeonTile,
+    scene: ScoochDungeonScene,
+    dungeonTile: GridTile,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
     extraProperties: Record<string, any>
@@ -33,12 +35,12 @@ export class Spikes extends DungeonObject {
     await this.playAnimation('spikes-peek');
     await this.playAnimation('spikes-reveal');
 
-    this.dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
+    this.dungeonTile.addBehavior(GridTileBehaviorType.ENTER, this.damageActorBehavior);
 
     await this.wait(REVEALED_DURATION);
     await this.playAnimation('spikes-hide');
 
-    this.dungeonTile.removeBehavior(DungeonTileBehaviorType.ENTER, this.damageActorBehavior);
+    this.dungeonTile.removeBehavior(GridTileBehaviorType.ENTER, this.damageActorBehavior);
 
     this.scene.time.delayedCall(this.hiddenDuration, () => this.startCycle());
   }

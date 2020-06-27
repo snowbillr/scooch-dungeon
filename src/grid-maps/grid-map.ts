@@ -12,10 +12,10 @@ export class GridMap {
   public readonly gridHeight: number;
 
   constructor(
-    private gridTiles: GridTile[],
+    public gridTiles: GridTile[],
     private markers: Record<string, GridMarker>,
     private floor: Phaser.Tilemaps.DynamicTilemapLayer  ,
-    tilemap: Phaser.Tilemaps.Tilemap
+    public tilemap: Phaser.Tilemaps.Tilemap
   ) {
     this.worldWidth = tilemap.widthInPixels;
     this.worldHeight = tilemap.heightInPixels;

@@ -1,7 +1,7 @@
 import { Direction } from "../../constants/directions";
-import { DungeonObjectFactory } from "../../dungeon/dungeon-object-factory";
 import { DungeonBehavior } from '../dungeon-behavior';
 import { objectsList } from '../../dungeon/objects/objects-list';
+import { GridObjectFactory } from '../../grid-maps/grid-object-factory';
 
 export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
   public priority: number = 100;
@@ -46,7 +46,7 @@ export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
       [Direction.RIGHT]: tileWidth / 2,
     }[objectiveDirection];
 
-    const objectFactory = new DungeonObjectFactory(this.scene, objectsList);
+    const objectFactory = new GridObjectFactory(this.scene, objectsList);
     const swipeIndicatorDungeonObject = objectFactory.createByName(this.tile, 'swipe-indicator');
 
     // TODO get half the tile width/height in a better way

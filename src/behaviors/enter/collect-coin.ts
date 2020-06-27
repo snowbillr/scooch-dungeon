@@ -1,6 +1,6 @@
-import { DungeonTileBehaviorType } from "../../dungeon/dungeon-tile";
 import { Direction } from "../../constants/directions";
 import { DungeonBehavior } from '../dungeon-behavior';
+import { GridTileBehaviorType } from '../../grid-maps/grid-tile';
 
 export class CollectCoinBehavior extends DungeonBehavior {
   public priority: number = 100;
@@ -26,7 +26,7 @@ export class CollectCoinBehavior extends DungeonBehavior {
       duration: 200
     });
 
-    this.tile.removeBehavior(DungeonTileBehaviorType.ENTER, this);
+    this.tile.removeBehavior(GridTileBehaviorType.ENTER, this);
 
     return false;
   }

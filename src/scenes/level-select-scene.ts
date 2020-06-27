@@ -11,6 +11,8 @@ import { SpriteComponent } from '../components/sprite-component';
 import { GridMapFactory } from '../grid-maps/grid-map-factory';
 import { GridMap } from '../grid-maps/grid-map';
 import { Viewport } from '../constants/viewport';
+import { GridTileFactory } from '../grid-maps/grid-tile-factory';
+import { GridObjectFactory } from '../grid-maps/grid-object-factory';
 
 export class LevelSelectScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
@@ -25,8 +27,8 @@ export class LevelSelectScene extends ScoochDungeonScene {
   }
 
   create() {
-    const gridMapFactory = new GridMapFactory(this);
-    this.gridMap = gridMapFactory.createGridMap('overworld-000', 0, 0);
+    const gridMapFactory = new GridMapFactory(this, new GridTileFactory(this, new GridObjectFactory(this, [])));
+    this.gridMap = gridMapFactory.createGridMap('overworld-tileset', 'overworld-tilesheet', 'overworld-000', 0, 0);
 
     const heroStartMarker = this.gridMap.getMarker('entrance');
 

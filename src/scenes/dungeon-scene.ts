@@ -11,12 +11,13 @@ import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
 import { HUDScene } from "./hud-scene";
-import { DungeonTileBehaviorType } from "../dungeon/dungeon-tile";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
 import { ComboTracker } from '../lib/combo-tracker';
 import { LevelGroup } from '../levels/level-group';
 import { PlayerStatsDocument } from '../persistence/player-stats-documents';
+import { GridMapFactory } from '../grid-maps/grid-map-factory';
+import { GridTileBehaviorType } from '../grid-maps/grid-tile';
 
 export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
@@ -45,7 +46,7 @@ export class DungeonScene extends ScoochDungeonScene {
     const dungeonFactory = new DungeonFactory(this);
     this.dungeon = dungeonFactory.createDungeon(level.getKey(), 0, 0);
 
-    const heroStartMarker = this.dungeon.getMarker('hero-start');
+    const heroStartMarker = this.dungeon.gridMap.getMarker('hero-start');
 
     this.hero = this.phecs.add.prefab('hero', {
       gridX: heroStartMarker.gridX,
@@ -116,9 +117,9 @@ export class DungeonScene extends ScoochDungeonScene {
     const nextDirection = this.queuedInput.splice(0, 1)[0];
 
     const coordinates = this.hero.getComponent(GridPositionComponent);
-    const tile = this.dungeon.getTile(coordinates.gridX, coordinates.gridY);
+    const tile = this.dungeon.gridMap.getTile(coordinates.gridX, coordinates.gridY);
 
-    tile.runBehaviors(DungeonTileBehaviorType.INPUT, nextDirection);
+    tile.runBehaviors(GridTileBehaviorType.INPUT, nextDirection);
   }
 
   public incrementCombo() {
@@ -141,8 +142,8 @@ export class DungeonScene extends ScoochDungeonScene {
   private calculateCameraBounds() {
     let x = 0;
     let y = 0;
-    const width = this.dungeon.worldWidth;
-    const height = this.dungeon.worldHeight;
+    const width = this.dungeon.gridMap.worldWidth;
+    const height = this.dungeon.gridMap.worldHeight;
 
     if (width < Viewport.WIDTH) {
       x = x - (Viewport.WIDTH - width) / 2;

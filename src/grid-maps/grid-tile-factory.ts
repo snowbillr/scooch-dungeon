@@ -6,12 +6,10 @@ import { GridObjectFactory } from './grid-object-factory';
 export const OBJECTS_KEY = 'objects';
 
 export class GridTileFactory {
-  private dungeonObjectFactory: GridObjectFactory;
-
   constructor(
-    private scene: ScoochDungeonScene
+    private scene: ScoochDungeonScene,
+    private dungeonObjectFactory: GridObjectFactory
   ) {
-    this.dungeonObjectFactory = new GridObjectFactory(scene, []);
   }
 
   create(
@@ -57,14 +55,14 @@ export class GridTileFactory {
     EnterBehaviors.forEach(Behavior => {
       const enterBehavior = new Behavior(this.scene, dungeonTile, dungeon);
       if (enterBehavior.isApplicable()) {
-        dungeonTile.addBehavior(DungeonTileBehaviorType.ENTER, enterBehavior);
+        dungeonTile.addBehavior(GridTileBehaviorType.ENTER, enterBehavior);
       }
     });
 
     ExitBehaviors.forEach(Behavior => {
       const exitBehavior = new Behavior(this.scene, dungeonTile, dungeon);
       if (exitBehavior.isApplicable()) {
-        dungeonTile.addBehavior(DungeonTileBehaviorType.EXIT, exitBehavior);
+        dungeonTile.addBehavior(GridTileBehaviorType.EXIT, exitBehavior);
       }
     });
     */

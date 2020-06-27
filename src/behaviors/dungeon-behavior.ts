@@ -1,7 +1,7 @@
 import { DungeonScene } from '../scenes/dungeon-scene';
-import { DungeonTile } from '../dungeon/dungeon-tile';
 import { Dungeon } from '../dungeon/dungeon';
 import { Direction } from '../constants/directions';
+import { GridTile } from '../grid-maps/grid-tile';
 
 export abstract class DungeonBehavior {
   public readonly id: string;
@@ -9,7 +9,7 @@ export abstract class DungeonBehavior {
 
   constructor(
     protected scene: DungeonScene,
-    protected tile: DungeonTile,
+    protected tile: GridTile,
     protected dungeon: Dungeon
   ) {
     this.id = this.generateId();

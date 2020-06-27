@@ -21,14 +21,14 @@ export class GridObjectFactory {
 
   createByIndex(dungeonTile: GridTile, tileIndex: number, extraProperties: Record<string, any>) {
     const objectProperties = Object.values(this.objectPropertiesList).find(p => p.tileIndex === tileIndex);
-    if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${tileIndex}`);
+    if (!objectProperties) throw new Error(`GridObjectFactory: missing properties for ${tileIndex}`);
 
     return this.create(dungeonTile, objectProperties, extraProperties);
   }
 
   createByName(dungeonTile: GridTile, name: string) {
     const objectProperties = Object.values(this.objectPropertiesList).find(p => p.name === name);
-    if (!objectProperties) throw new Error(`DungeonObjectFactory: missing properties for ${name}`);
+    if (!objectProperties) throw new Error(`GridObjectFactory: missing properties for ${name}`);
 
     return this.create(dungeonTile, objectProperties);
   }
