@@ -62,7 +62,7 @@ export class GridMap {
     if (gridCursor.exists()) {
       const tile = gridCursor.getTile();
 
-      return tile.isWalkable() ? tile : undefined;
+      return tile.getProperty("walkable") ? tile : undefined;
     } else {
       return undefined;
     }

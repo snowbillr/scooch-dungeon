@@ -10,14 +10,14 @@ export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
     const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
-                 .some(({ dungeonTile }) => dungeonTile.isObjective());
+                 .some(({ dungeonTile }) => dungeonTile.getProperty('objective'));
   }
   public run(direction: Direction): boolean {
     const cursor = this.scene.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     let objectiveDirection: Direction | undefined;
     cursor.getCardinalNeighbors().forEach(({ dungeonTile, direction }) => {
-      if (dungeonTile.isObjective()) {
+      if (dungeonTile.getProperty('objective')) {
         objectiveDirection = direction;
       }
     });

@@ -7,7 +7,7 @@ export class MoveBehavior extends GridTileBehavior<LevelSelectScene> {
   public priority: number = 90;
 
   isApplicable() {
-    return this.tile.isWalkable();
+    return this.tile.getProperty('walkable');
   }
 
   public run(direction: Direction): boolean {

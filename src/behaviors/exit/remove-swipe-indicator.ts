@@ -8,7 +8,7 @@ export class RemoveSwipeIndicatorBehavior extends DungeonBehavior {
     const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
-      .some(({ dungeonTile }) => dungeonTile.isObjective());
+      .some(({ dungeonTile }) => dungeonTile.getProperty('objective'));
   }
 
   public run(direction: Direction): boolean {

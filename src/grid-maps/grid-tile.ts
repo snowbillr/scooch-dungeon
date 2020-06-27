@@ -44,15 +44,9 @@ export class GridTile {
     this.behaviors[GridTileBehaviorType.EXIT] = [];
   }
 
-  isWalkable() {
-    return this.properties.walkable;
+  getProperty(propertyName: keyof GridTileProperties): any {
+    return this.properties[propertyName];
   }
-
-  /*
-  isObjective() {
-    return this.properties.objective;
-  }
-  */
 
   isGridPosition(x: number, y: number) {
     return x === this.gridX && y === this.gridY;

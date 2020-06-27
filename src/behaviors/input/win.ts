@@ -11,7 +11,7 @@ export class WinBehavior extends DungeonBehavior {
     const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
-      .some(({ dungeonTile }) => dungeonTile.isObjective());
+      .some(({ dungeonTile }) => dungeonTile.getProperty('objective'));
   }
 
   public run(direction: Direction): boolean {
@@ -19,7 +19,7 @@ export class WinBehavior extends DungeonBehavior {
 
     const cursor = this.scene.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
     cursor.move(direction);
-    if (!cursor.getTile().isObjective()) return false;
+    if (!cursor.getTile().getProperty('objective')) return false;
 
     this.tile.removeObject('swipe-indicator');
     const objectiveSprite = cursor.getTile().getObject('objective')?.sprite;

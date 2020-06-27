@@ -35,10 +35,6 @@ export class DungeonTile {
     this.objects = [];
   }
 
-  setObjects(objects: DungeonObject[]) {
-    this.objects = objects;
-  }
-
   destroy() {
     delete this.properties;
 
@@ -49,16 +45,16 @@ export class DungeonTile {
     this.behaviors[DungeonTileBehaviorType.EXIT] = [];
   }
 
-  isWalkable() {
-    return this.properties.walkable;
-  }
-
-  isObjective() {
-    return this.properties.objective;
+  getProperty(propertyName: keyof DungeonTileProperties): any {
+    return this.properties[propertyName];
   }
 
   isGridPosition(x: number, y: number) {
     return x === this.gridX && y === this.gridY;
+  }
+
+  setObjects(objects: DungeonObject[]) {
+    this.objects = objects;
   }
 
   getObject(name: string) {
