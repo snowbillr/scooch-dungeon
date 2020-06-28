@@ -1,6 +1,7 @@
 import { Direction } from "../../constants/directions";
 import { DungeonBehavior } from '../dungeon-behavior';
 import { GridTileBehaviorType } from '../../grid-maps/grid-tile';
+import { DungeonScene } from '../../scenes/dungeon-scene';
 
 export class CollectCoinBehavior extends DungeonBehavior {
   public priority: number = 100;
@@ -9,15 +10,15 @@ export class CollectCoinBehavior extends DungeonBehavior {
     return this.tile.hasObject('coin');
   }
 
-  public run(direction: Direction): boolean {
+  public run(scene: DungeonScene, direction: Direction): boolean {
     const coinSprite = this.tile.getObject('coin')?.sprite;
 
-    this.scene.sfx.playCoinSfx();
+    scene.sfx.playCoinSfx();
 
-    this.scene.dungeon.stats.incrementCoins();
-    this.scene.hud.setCollectedCoins(this.scene.dungeon.stats.getCoins());
+    scene.dungeon.stats.incrementCoins();
+    scene.hud.setCollectedCoins(scene.dungeon.stats.getCoins());
 
-    this.scene.tweens.add({
+    scene.tweens.add({
       targets: coinSprite,
       props: {
         y: '-=50',

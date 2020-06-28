@@ -2,9 +2,11 @@ import { Direction } from '../constants/directions';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { DungeonBehavior } from '../behaviors/dungeon-behavior';
 import { GridObject } from './grid-object';
+import { GridMap } from './grid-map';
 
 export type GridTileProperties = {
   walkable: boolean;
+  objective: boolean;
 };
 
 export enum GridTileBehaviorType {
@@ -13,12 +15,14 @@ export enum GridTileBehaviorType {
   EXIT = 'EXIT'
 };
 
-export class GridTile {
+export class GridTile<T extends ScoochDungeonScene> {
   public behaviors: Record<GridTileBehaviorType, DungeonBehavior[]>;
-  private objects: GridObject[];
+  public gridMap!: GridMap<T>;
+
+  private objects: GridObject<T>[];
 
   constructor(
-    public readonly scene: ScoochDungeonScene,
+    private readonly scene: T,
     public readonly gridX: number,
     public readonly gridY: number,
     public readonly worldX: number,
@@ -32,6 +36,10 @@ export class GridTile {
     };
 
     this.objects = [];
+  }
+
+  setGridMap(gridMap: GridMap<T>) {
+    this.gridMap = gridMap;
   }
 
   destroy() {
@@ -52,11 +60,11 @@ export class GridTile {
     return x === this.gridX && y === this.gridY;
   }
 
-  setObjects(objects: GridObject[]) {
+  setObjects(objects: GridObject<T>[]) {
     this.objects = objects;
   }
 
-  getObject(name: string) {
+  getObject(name: string): GridObject<T> | undefined {
     return this.objects.find(object => object.name === name);
   }
 
@@ -64,7 +72,7 @@ export class GridTile {
     return this.objects.some(object => object.name === name);
   }
 
-  addObject(dungeonObject: GridObject) {
+  addObject(dungeonObject: GridObject<T>) {
     this.objects.push(dungeonObject);
   }
 
@@ -90,7 +98,7 @@ export class GridTile {
     const sortedBehaviors = behaviors.slice().sort((a, b) => b.priority - a.priority);
 
     for (let behavior of sortedBehaviors) {
-      const stopPropagation = behavior.run(direction)
+      const stopPropagation = behavior.run(this.scene, direction)
 
       if (stopPropagation) break;
     };

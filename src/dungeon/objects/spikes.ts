@@ -9,21 +9,21 @@ const REVEALED_DURATION = 2000;
 const HIDDEN_DURATION = 3000;
 const INITIAL_OFFSET = 1000;
 
-export class Spikes extends GridObject {
+export class Spikes extends GridObject<DungeonScene> {
   private damageActorBehavior: DamageActorBehavior;
 
   private hiddenDuration: number;
 
   constructor(
-    scene: ScoochDungeonScene,
-    dungeonTile: GridTile,
+    scene: DungeonScene,
+    dungeonTile: GridTile<DungeonScene>,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
     extraProperties: Record<string, any>
   ) {
     super(scene, dungeonTile, name, sprite, extraProperties);
 
-    this.damageActorBehavior = new DamageActorBehavior(this.scene, this.dungeonTile, this.scene.dungeon);
+    this.damageActorBehavior = new DamageActorBehavior(this.dungeonTile);
     this.damageActorBehavior.setDamage(0.5);
 
     this.hiddenDuration = extraProperties.hiddenDuration ?? HIDDEN_DURATION;

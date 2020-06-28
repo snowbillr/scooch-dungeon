@@ -7,7 +7,7 @@ import { objectsList } from './objects/objects-list';
 
 
 export class DungeonFactory {
-  private gridMapFactory: GridMapFactory;
+  private gridMapFactory: GridMapFactory<DungeonScene>;
 
   constructor(private scene: DungeonScene) {
     this.gridMapFactory = new GridMapFactory(scene, new GridTileFactory(scene, new GridObjectFactory(scene, objectsList)));

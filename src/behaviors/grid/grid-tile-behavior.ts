@@ -1,23 +1,21 @@
 import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
 import { GridTile } from '../../grid-maps/grid-tile';
-import { GridMap } from '../../grid-maps/grid-map';
 import { Direction } from '../../constants/directions';
 
-export abstract class GridTileBehavior<T extends ScoochDungeonScene = ScoochDungeonScene> {
-  public readonly id: string;
+export abstract class GridTileBehavior<T extends ScoochDungeonScene> {
   public abstract priority: number;
 
+  public readonly id: string;
+
   constructor(
-    protected scene: T,
-    protected tile: GridTile,
-    protected gridMap: GridMap
+    protected tile: GridTile<T>,
   ) {
     this.id = this.generateId();
   }
 
   public abstract isApplicable(): boolean;
 
-  public abstract run(direction: Direction): boolean;
+  public abstract run(scene: T, direction: Direction): boolean;
 
   private generateId() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {

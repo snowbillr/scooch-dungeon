@@ -2,6 +2,7 @@ import { Direction } from "../../constants/directions";
 import { SCENE_KEYS } from '../../constants/scene-keys';
 import { SpriteComponent } from '../../components/sprite-component';
 import { DungeonBehavior } from '../dungeon-behavior';
+import { DungeonScene } from '../../scenes/dungeon-scene';
 
 export class DamageActorBehavior extends DungeonBehavior {
   private damage: number = 0.5;
@@ -16,34 +17,34 @@ export class DamageActorBehavior extends DungeonBehavior {
     return false;
   }
 
-  public run(direction: Direction): boolean {
-    const levelSession = this.scene.levelSession;
+  public run(scene: DungeonScene, direction: Direction): boolean {
+    const levelSession = scene.levelSession;
 
-    this.scene.resetCombo();
+    scene.resetCombo();
 
     levelSession.subtractHealth(this.damage);
-    this.scene.hud.updateHealth(levelSession.getHealth(), levelSession.getMaxHealth());
+    scene.hud.updateHealth(levelSession.getHealth(), levelSession.getMaxHealth());
 
-    this.scene.cameras.main.shake(200, 0.01);
+    scene.cameras.main.shake(200, 0.01);
 
     if (levelSession.getHealth() <= 0) {
-      this.scene.sfx.pauseLevelMusic();
-      this.scene.sfx.playDieSfx();
+      scene.sfx.pauseLevelMusic();
+      scene.sfx.playDieSfx();
 
-      const heroSprite = this.scene.hero.getComponent(SpriteComponent);
-      this.scene.tweens.killTweensOf(heroSprite.sprite)
+      const heroSprite = scene.hero.getComponent(SpriteComponent);
+      scene.tweens.killTweensOf(heroSprite.sprite)
       heroSprite.sprite.on(`${Phaser.Animations.Events.SPRITE_ANIMATION_KEY_COMPLETE}hero-die`, () => {
-        this.scene.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
+        scene.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
           if (progress >= 0.99) {
-            this.scene.scene.stop();
-            this.scene.scene.stop(SCENE_KEYS.HUD);
-            this.scene.scene.start(SCENE_KEYS.DEATH);
+            scene.scene.stop();
+            scene.scene.stop(SCENE_KEYS.HUD);
+            scene.scene.start(SCENE_KEYS.DEATH);
           }
         })
       })
       heroSprite.sprite.anims.play('hero-die')
     } else {
-      this.scene.sfx.playHurtSfx();
+      scene.sfx.playHurtSfx();
     }
 
     return false;

@@ -2,22 +2,24 @@ import { Direction } from "../../constants/directions";
 import { DungeonBehavior } from '../dungeon-behavior';
 import { objectsList } from '../../dungeon/objects/objects-list';
 import { GridObjectFactory } from '../../grid-maps/grid-object-factory';
+import { DungeonScene } from '../../scenes/dungeon-scene';
 
 export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
   public priority: number = 100;
 
   public isApplicable(): boolean {
-    const cursor = this.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
+    const cursor = this.tile.gridMap.getCursor(this.tile.gridX, this.tile.gridY);
 
     return cursor.getCardinalNeighbors()
-                 .some(({ dungeonTile }) => dungeonTile.getProperty('objective'));
+                 .some(({ gridTile }) => gridTile.getProperty('objective'));
   }
-  public run(direction: Direction): boolean {
-    const cursor = this.scene.dungeon.getCursor(this.tile.gridX, this.tile.gridY);
+
+  public run(scene: DungeonScene, direction: Direction): boolean {
+    const cursor = this.tile.gridMap.getCursor(this.tile.gridX, this.tile.gridY);
 
     let objectiveDirection: Direction | undefined;
-    cursor.getCardinalNeighbors().forEach(({ dungeonTile, direction }) => {
-      if (dungeonTile.getProperty('objective')) {
+    cursor.getCardinalNeighbors().forEach(({ gridTile, direction }) => {
+      if (gridTile.getProperty('objective')) {
         objectiveDirection = direction;
       }
     });
@@ -46,10 +48,9 @@ export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
       [Direction.RIGHT]: tileWidth / 2,
     }[objectiveDirection];
 
-    const objectFactory = new GridObjectFactory(this.scene, objectsList);
+    const objectFactory = new GridObjectFactory(scene, objectsList);
     const swipeIndicatorDungeonObject = objectFactory.createByName(this.tile, 'swipe-indicator');
 
-    // TODO get half the tile width/height in a better way
     swipeIndicatorDungeonObject.sprite
       .setPosition(this.tile.worldX + xOffset, this.tile.worldY + yOffset)
       .setOrigin(0.5)

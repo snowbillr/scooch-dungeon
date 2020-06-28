@@ -1,14 +1,14 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { GridTile, GridTileProperties, GridTileBehaviorType } from './grid-tile';
-import { GridMap } from './grid-map';
 import { GridObjectFactory } from './grid-object-factory';
+import { InputBehaviors } from '../behaviors/input-behaviors';
+import { EnterBehaviors } from '../behaviors/enter-behaviors';
+import { ExitBehaviors } from '../behaviors/exit-behaviors';
 
-export const OBJECTS_KEY = 'objects';
-
-export class GridTileFactory {
+export class GridTileFactory<T extends ScoochDungeonScene> {
   constructor(
-    private scene: ScoochDungeonScene,
-    private dungeonObjectFactory: GridObjectFactory
+    private scene: T,
+    private dungeonObjectFactory: GridObjectFactory<T>
   ) {
   }
 
@@ -19,9 +19,10 @@ export class GridTileFactory {
     worldY: number,
     properties: Record<string, any[]>,
     objects: Record<string, any>[]
-  ): GridTile {
+  ): GridTile<T> {
     const computedProperties: GridTileProperties = {
       walkable: properties.walkable.reduce((acc, w) => acc && w, true),
+      objective: properties.objective.reduce((acc, o) => acc || o, false),
     };
 
     const gridTile = new GridTile(
@@ -41,30 +42,26 @@ export class GridTileFactory {
     return gridTile;
   }
 
-  addBehaviors(gridTile: GridTile, gridMap: GridMap) {
-    /*
+  addBehaviors(gridTile: GridTile<T>) {
     InputBehaviors.forEach(Behavior => {
-      const inputBehavior = new Behavior(this.scene, gridTile, gridMap);
+      const inputBehavior = new Behavior(gridTile);
       if (inputBehavior.isApplicable()) {
         gridTile.addBehavior(GridTileBehaviorType.INPUT, inputBehavior);
       }
     });
-    */
 
-    /*
     EnterBehaviors.forEach(Behavior => {
-      const enterBehavior = new Behavior(this.scene, dungeonTile, dungeon);
+      const enterBehavior = new Behavior(gridTile);
       if (enterBehavior.isApplicable()) {
-        dungeonTile.addBehavior(GridTileBehaviorType.ENTER, enterBehavior);
+        gridTile.addBehavior(GridTileBehaviorType.ENTER, enterBehavior);
       }
     });
 
     ExitBehaviors.forEach(Behavior => {
-      const exitBehavior = new Behavior(this.scene, dungeonTile, dungeon);
+      const exitBehavior = new Behavior(gridTile);
       if (exitBehavior.isApplicable()) {
-        dungeonTile.addBehavior(GridTileBehaviorType.EXIT, exitBehavior);
+        gridTile.addBehavior(GridTileBehaviorType.EXIT, exitBehavior);
       }
     });
-    */
   }
 }

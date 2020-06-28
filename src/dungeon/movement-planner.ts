@@ -8,13 +8,14 @@ import { DungeonScene } from "../scenes/dungeon-scene";
 import { CallbackQueue } from '../lib/callback-queue';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { GridTileBehaviorType } from '../grid-maps/grid-tile';
+import { GridMap } from '../grid-maps/grid-map';
 
 export const MovementPlanner = {
-  buildMovementTimeline(scene: ScoochDungeonScene, hero: Entity, dungeon: Dungeon, direction: Direction, onComplete: () => void = () => {}) {
+  buildMovementTimeline(scene: ScoochDungeonScene, hero: Entity, gridMap: GridMap<ScoochDungeonScene>, direction: Direction, onComplete: () => void = () => {}) {
     const heroSprite = hero.getComponent(SpriteComponent).sprite;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);
-    let canMove = dungeon.gridMap.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
+    let canMove = gridMap.getCursor(plannerPosition.x, plannerPosition.y).move(direction);
 
     // https://codepen.io/snowbillr/pen/vYNaEJd?editors=1111
     // Phaser doesn't reliably call timeline tween's callbacks in order.
@@ -41,8 +42,8 @@ export const MovementPlanner = {
     });
 
     while(canMove) {
-      const currentTile = dungeon.gridMap.getTile(plannerPosition.x, plannerPosition.y);
-      const nextTile = dungeon.gridMap.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
+      const currentTile = gridMap.getTile(plannerPosition.x, plannerPosition.y);
+      const nextTile = gridMap.getWalkableNeighborTile(plannerPosition.x, plannerPosition.y, direction);
 
       if (nextTile) {
         const nextTileWorldPosition = new Phaser.Math.Vector2(nextTile.worldX, nextTile.worldY);

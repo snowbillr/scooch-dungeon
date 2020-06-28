@@ -33,11 +33,21 @@ export class TitleScene extends ScoochDungeonScene {
     });
 
     // temp debug
-    this.add.text(this.cameras.main.centerX, Viewport.HEIGHT / 2 + 100, 'level 000')
+    this.add.text(this.cameras.main.centerX, Viewport.HEIGHT / 2 + 100, 'beginner\'s alley')
       .setInteractive()
       .on('pointerup', () => {
         this.levelSession.begin({
           levelGroup: new LevelGroup("Beginner's Alley"),
+          currentLevelRelativeIndex: 0,
+          maxHealth: 2
+        });
+        this.scene.start(SCENE_KEYS.DUNGEON);
+      })
+    this.add.text(this.cameras.main.centerX, Viewport.HEIGHT / 2 + 150, 'spike lane')
+      .setInteractive()
+      .on('pointerup', () => {
+        this.levelSession.begin({
+          levelGroup: new LevelGroup("Spike Lane"),
           currentLevelRelativeIndex: 0,
           maxHealth: 2
         });

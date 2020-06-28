@@ -1,13 +1,14 @@
 import { Direction } from "../constants/directions";
 import { GridMap } from './grid-map';
 import { GridTile } from './grid-tile';
+import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
-export class GridCursor {
+export class GridCursor<T extends ScoochDungeonScene> {
   private initialX: number;
   private initialY: number;
 
   constructor(
-    private gridMap: GridMap,
+    private gridMap: GridMap<T>,
     private x: number,
     private y: number
   ) {
@@ -74,17 +75,17 @@ export class GridCursor {
     return this.gridMap.hasTile(this.x, this.y);
   }
 
-  getTile(): GridTile {
+  getTile(): GridTile<T> {
     return this.gridMap.getTile(this.x, this.y);
   }
 
-  getCardinalNeighbors(): { dungeonTile: GridTile, direction: Direction }[] {
+  getCardinalNeighbors(): { gridTile: GridTile<T>, direction: Direction }[] {
     const cardinalNeighbors = [];
 
     if (this.up()) {
       cardinalNeighbors.push({
         direction: Direction.UP,
-        dungeonTile: this.getTile()
+        gridTile: this.getTile()
       });
     }
     this.down();
@@ -92,7 +93,7 @@ export class GridCursor {
     if (this.down()) {
       cardinalNeighbors.push({
         direction: Direction.DOWN,
-        dungeonTile: this.getTile()
+        gridTile: this.getTile()
       });
     }
     this.up();
@@ -100,7 +101,7 @@ export class GridCursor {
     if (this.left()) {
       cardinalNeighbors.push({
         direction: Direction.LEFT,
-        dungeonTile: this.getTile()
+        gridTile: this.getTile()
       });
     }
     this.right();
@@ -108,7 +109,7 @@ export class GridCursor {
     if (this.right()) {
       cardinalNeighbors.push({
         direction: Direction.RIGHT,
-        dungeonTile: this.getTile()
+        gridTile: this.getTile()
       });
     }
     this.left();

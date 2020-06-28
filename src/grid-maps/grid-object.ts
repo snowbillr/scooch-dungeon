@@ -1,20 +1,20 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { GridTile } from './grid-tile';
 
-export interface GridObjectConstructor {
+export interface GridObjectConstructor<T extends ScoochDungeonScene> {
   new (
-    scene: ScoochDungeonScene,
-    dungeonTile: GridTile,
+    scene: T,
+    dungeonTile: GridTile<T>,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
     extraProperties: Record<string, any>
-  ): GridObject;
+  ): GridObject<T>;
 }
 
-export class GridObject {
+export class GridObject<T extends ScoochDungeonScene> {
   constructor(
-    public scene: ScoochDungeonScene,
-    protected dungeonTile: GridTile,
+    public scene: T,
+    protected dungeonTile: GridTile<T>,
     public name: string,
     public sprite: Phaser.GameObjects.Sprite,
     extraProperties: Record<string, any>

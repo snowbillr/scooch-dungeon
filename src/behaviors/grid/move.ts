@@ -10,11 +10,11 @@ export class MoveBehavior extends GridTileBehavior<LevelSelectScene> {
     return this.tile.getProperty('walkable');
   }
 
-  public run(direction: Direction): boolean {
+  public run(scene: LevelSelectScene, direction: Direction): boolean {
     const movementTimeline = MovementPlanner.buildMovementTimeline(
-      this.scene,
-      this.scene.hero,
-      this.scene.gridMap,
+      scene,
+      scene.hero,
+      this.tile.gridMap,
       direction
     );
     movementTimeline.play();
