@@ -1,6 +1,5 @@
-import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
-import { GridTile } from '../../grid-maps/grid-tile';
-import { Direction } from '../../constants/directions';
+import { GridTile } from './grid-tile';
+import { Direction } from '../constants/directions';
 
 export abstract class GridTileBehavior {
   public abstract priority: number;

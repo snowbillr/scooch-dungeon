@@ -2,7 +2,7 @@ import { MovementPlanner } from "../../dungeon/movement-planner";
 import { Direction } from "../../constants/directions";
 import { StateMachineComponent } from '../../components/state-machine-component';
 import { DungeonScene } from '../../scenes/dungeon-scene';
-import { GridTileBehavior } from '../grid/grid-tile-behavior';
+import { GridTileBehavior } from '../../grid-maps/grid-tile-behavior';
 
 export class MoveBehavior extends GridTileBehavior {
   public priority: number = 90;

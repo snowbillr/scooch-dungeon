@@ -2,7 +2,7 @@ import { Direction } from "../../constants/directions";
 import { SCENE_KEYS } from '../../constants/scene-keys';
 import { SpriteComponent } from '../../components/sprite-component';
 import { DungeonScene } from '../../scenes/dungeon-scene';
-import { GridTileBehavior } from '../grid/grid-tile-behavior';
+import { GridTileBehavior } from '../../grid-maps/grid-tile-behavior';
 
 export class DamageActorBehavior extends GridTileBehavior {
   private damage: number = 0.5;

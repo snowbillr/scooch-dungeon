@@ -1,7 +1,7 @@
 import { Direction } from '../constants/directions';
 import { GridObject } from './grid-object';
 import { GridMap } from './grid-map';
-import { GridTileBehavior } from '../behaviors/grid/grid-tile-behavior';
+import { GridTileBehavior } from './grid-tile-behavior';
 
 export type GridTileProperties = {
   walkable: boolean;
