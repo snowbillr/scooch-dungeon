@@ -1,8 +1,7 @@
 import { Direction } from '../constants/directions';
-import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
-import { DungeonBehavior } from '../behaviors/dungeon-behavior';
 import { GridObject } from './grid-object';
 import { GridMap } from './grid-map';
+import { GridTileBehavior } from '../behaviors/grid/grid-tile-behavior';
 
 export type GridTileProperties = {
   walkable: boolean;
@@ -16,7 +15,7 @@ export enum GridTileBehaviorType {
 };
 
 export class GridTile {
-  public behaviors: Record<GridTileBehaviorType, DungeonBehavior[]>;
+  public behaviors: Record<GridTileBehaviorType, GridTileBehavior[]>;
   public gridMap!: GridMap;
 
   private objects: GridObject[];
@@ -82,11 +81,11 @@ export class GridTile {
     dungeonObject.destroy();
   }
 
-  addBehavior(type: GridTileBehaviorType, behavior: DungeonBehavior) {
+  addBehavior(type: GridTileBehaviorType, behavior: GridTileBehavior) {
     this.behaviors[type].push(behavior);
   }
 
-  removeBehavior(type: GridTileBehaviorType, targetBehavior: DungeonBehavior) {
+  removeBehavior(type: GridTileBehaviorType, targetBehavior: GridTileBehavior) {
     const behaviors = this.behaviors[type];
 
     const behaviorIndex = behaviors.findIndex(behavior => behavior.id == targetBehavior.id);

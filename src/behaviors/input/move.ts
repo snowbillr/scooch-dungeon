@@ -1,10 +1,10 @@
 import { MovementPlanner } from "../../dungeon/movement-planner";
 import { Direction } from "../../constants/directions";
-import { DungeonBehavior } from '../dungeon-behavior';
 import { StateMachineComponent } from '../../components/state-machine-component';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class MoveBehavior extends DungeonBehavior {
+export class MoveBehavior extends GridTileBehavior {
   public priority: number = 90;
 
   isApplicable() {

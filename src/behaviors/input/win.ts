@@ -2,10 +2,10 @@ import { Direction } from "../../constants/directions";
 import { ProgressDocument } from "../../persistence/progress-document";
 import { StateMachineComponent } from '../../components/state-machine-component';
 import { SCENE_KEYS } from '../../constants/scene-keys';
-import { DungeonBehavior } from '../dungeon-behavior';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class WinBehavior extends DungeonBehavior {
+export class WinBehavior extends GridTileBehavior {
   public priority: number = 100;
 
   public isApplicable(): boolean {

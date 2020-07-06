@@ -1,8 +1,8 @@
 import { Direction } from "../../constants/directions";
-import { DungeonBehavior } from '../dungeon-behavior';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class RemoveSwipeIndicatorBehavior extends DungeonBehavior {
+export class RemoveSwipeIndicatorBehavior extends GridTileBehavior {
   public priority: number = 100;
 
   public isApplicable(): boolean {

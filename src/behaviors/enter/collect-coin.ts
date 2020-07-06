@@ -1,9 +1,9 @@
 import { Direction } from "../../constants/directions";
-import { DungeonBehavior } from '../dungeon-behavior';
 import { GridTileBehaviorType } from '../../grid-maps/grid-tile';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class CollectCoinBehavior extends DungeonBehavior {
+export class CollectCoinBehavior extends GridTileBehavior {
   public priority: number = 100;
 
   public isApplicable(): boolean {

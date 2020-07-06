@@ -1,10 +1,10 @@
 import { Direction } from "../../constants/directions";
 import { SCENE_KEYS } from '../../constants/scene-keys';
 import { SpriteComponent } from '../../components/sprite-component';
-import { DungeonBehavior } from '../dungeon-behavior';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class DamageActorBehavior extends DungeonBehavior {
+export class DamageActorBehavior extends GridTileBehavior {
   private damage: number = 0.5;
 
   public priority: number = 100;

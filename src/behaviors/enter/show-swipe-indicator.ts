@@ -1,10 +1,10 @@
 import { Direction } from "../../constants/directions";
-import { DungeonBehavior } from '../dungeon-behavior';
 import { objectsList } from '../../dungeon/objects/objects-list';
 import { GridObjectFactory } from '../../grid-maps/grid-object-factory';
 import { DungeonScene } from '../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../grid/grid-tile-behavior';
 
-export class ShowSwipeIndicatorBehavior extends DungeonBehavior {
+export class ShowSwipeIndicatorBehavior extends GridTileBehavior {
   public priority: number = 100;
 
   public isApplicable(): boolean {
