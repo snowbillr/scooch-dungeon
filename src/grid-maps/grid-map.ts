@@ -11,17 +11,20 @@ export class GridMap<T extends ScoochDungeonScene> {
   public readonly worldHeight: number;
   public readonly gridWidth: number;
   public readonly gridHeight: number;
+  public readonly properties: Record<string, any>;
 
   constructor(
     public gridTiles: GridTile<T>[],
     private markers: Record<string, GridMarker>,
     private floor: Phaser.Tilemaps.DynamicTilemapLayer  ,
-    public tilemap: Phaser.Tilemaps.Tilemap
+    tilemap: Phaser.Tilemaps.Tilemap
   ) {
     this.worldWidth = tilemap.widthInPixels;
     this.worldHeight = tilemap.heightInPixels;
     this.gridWidth = tilemap.width;
     this.gridHeight = tilemap.height;
+
+    this.properties = normalize(tilemap.properties);
   }
 
   public destroy() {

@@ -1,9 +1,6 @@
 import { DungeonStats } from "./dungeon-stats";
 
-import { normalize } from '../lib/tiled-properties-normalizer';
 import { GridMap } from '../grid-maps/grid-map';
-import { GridTile } from '../grid-maps/grid-tile';
-import { GridMarker } from '../grid-maps/grid-marker';
 import { DungeonScene } from '../scenes/dungeon-scene';
 
 export class Dungeon {
@@ -17,7 +14,7 @@ export class Dungeon {
     gridMap: GridMap<DungeonScene>) {
     this.gridMap = gridMap;
 
-    this.message = normalize(gridMap.tilemap.properties).message;
+    this.message = gridMap.properties.message;
 
     this.coinCount = gridMap.gridTiles.reduce((count, dungeonTile) => {
       if (Boolean(dungeonTile.getObject('coin'))) {
