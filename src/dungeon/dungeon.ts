@@ -17,7 +17,7 @@ export class Dungeon {
     this.message = gridMap.properties.message;
 
     this.coinCount = gridMap.gridTiles.reduce((count, dungeonTile) => {
-      if (Boolean(dungeonTile.getObject('coin'))) {
+      if (dungeonTile.hasObject('coin')) {
         return count + 1;
       } else {
         return count;
