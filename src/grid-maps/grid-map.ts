@@ -6,7 +6,7 @@ import { GridMarker } from './grid-marker';
 import { GridCursor } from './grid-cursor';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
-export class GridMap<T extends ScoochDungeonScene> {
+export class GridMap {
   public readonly worldWidth: number;
   public readonly worldHeight: number;
   public readonly gridWidth: number;
@@ -14,7 +14,7 @@ export class GridMap<T extends ScoochDungeonScene> {
   public readonly properties: Record<string, any>;
 
   constructor(
-    public gridTiles: GridTile<T>[],
+    public gridTiles: GridTile[],
     private markers: Record<string, GridMarker>,
     private tilemap: Phaser.Tilemaps.Tilemap
   ) {
@@ -40,7 +40,7 @@ export class GridMap<T extends ScoochDungeonScene> {
     return this.markers[name];
   }
 
-  public getCursor(x: number, y: number): GridCursor<T> {
+  public getCursor(x: number, y: number): GridCursor {
     return new GridCursor(this, x, y);
   }
 
@@ -48,7 +48,7 @@ export class GridMap<T extends ScoochDungeonScene> {
     return this.gridTiles.some(tile => tile.isGridPosition(x, y));
   }
 
-  public getTile(x: number, y: number): GridTile<T> {
+  public getTile(x: number, y: number): GridTile {
     const tile = this.gridTiles
       .find(tile => tile.isGridPosition(x, y));
 
@@ -57,7 +57,7 @@ export class GridMap<T extends ScoochDungeonScene> {
     return tile;
   }
 
-  public getWalkableNeighborTile(x: number, y: number, direction: Direction): GridTile<T> | undefined {
+  public getWalkableNeighborTile(x: number, y: number, direction: Direction): GridTile | undefined {
     const gridCursor = this.getCursor(x, y);
     gridCursor.move(direction);
 

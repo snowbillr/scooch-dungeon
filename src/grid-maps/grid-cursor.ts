@@ -3,12 +3,12 @@ import { GridMap } from './grid-map';
 import { GridTile } from './grid-tile';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
-export class GridCursor<T extends ScoochDungeonScene> {
+export class GridCursor {
   private initialX: number;
   private initialY: number;
 
   constructor(
-    private gridMap: GridMap<T>,
+    private gridMap: GridMap,
     private x: number,
     private y: number
   ) {
@@ -75,11 +75,11 @@ export class GridCursor<T extends ScoochDungeonScene> {
     return this.gridMap.hasTile(this.x, this.y);
   }
 
-  getTile(): GridTile<T> {
+  getTile(): GridTile {
     return this.gridMap.getTile(this.x, this.y);
   }
 
-  getCardinalNeighbors(): { gridTile: GridTile<T>, direction: Direction }[] {
+  getCardinalNeighbors(): { gridTile: GridTile, direction: Direction }[] {
     const cardinalNeighbors = [];
 
     if (this.up()) {

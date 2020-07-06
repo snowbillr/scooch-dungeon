@@ -1,22 +1,20 @@
-import { DungeonObject } from '../dungeon-object';
 import { DamageActorBehavior } from '../../behaviors/enter/damage-actor';
 import { DungeonScene } from '../../scenes/dungeon-scene';
 import { GridObject } from '../../grid-maps/grid-object';
-import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
 import { GridTile, GridTileBehaviorType } from '../../grid-maps/grid-tile';
 
 const REVEALED_DURATION = 2000;
 const HIDDEN_DURATION = 3000;
 const INITIAL_OFFSET = 1000;
 
-export class Spikes extends GridObject<DungeonScene> {
+export class Spikes extends GridObject {
   private damageActorBehavior: DamageActorBehavior;
 
   private hiddenDuration: number;
 
   constructor(
-    scene: DungeonScene,
-    dungeonTile: GridTile<DungeonScene>,
+    scene: Phaser.Scene,
+    dungeonTile: GridTile,
     name: string,
     sprite: Phaser.GameObjects.Sprite,
     extraProperties: Record<string, any>

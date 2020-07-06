@@ -15,14 +15,14 @@ export enum GridTileBehaviorType {
   EXIT = 'EXIT'
 };
 
-export class GridTile<T extends ScoochDungeonScene> {
+export class GridTile {
   public behaviors: Record<GridTileBehaviorType, DungeonBehavior[]>;
-  public gridMap!: GridMap<T>;
+  public gridMap!: GridMap;
 
-  private objects: GridObject<T>[];
+  private objects: GridObject[];
 
   constructor(
-    private readonly scene: T,
+    private readonly scene: Phaser.Scene,
     public readonly gridX: number,
     public readonly gridY: number,
     public readonly worldX: number,
@@ -38,7 +38,7 @@ export class GridTile<T extends ScoochDungeonScene> {
     this.objects = [];
   }
 
-  setGridMap(gridMap: GridMap<T>) {
+  setGridMap(gridMap: GridMap) {
     this.gridMap = gridMap;
   }
 
@@ -60,11 +60,11 @@ export class GridTile<T extends ScoochDungeonScene> {
     return x === this.gridX && y === this.gridY;
   }
 
-  setObjects(objects: GridObject<T>[]) {
+  setObjects(objects: GridObject[]) {
     this.objects = objects;
   }
 
-  getObject(name: string): GridObject<T> | undefined {
+  getObject(name: string): GridObject | undefined {
     return this.objects.find(object => object.name === name);
   }
 
@@ -72,7 +72,7 @@ export class GridTile<T extends ScoochDungeonScene> {
     return this.objects.some(object => object.name === name);
   }
 
-  addObject(dungeonObject: GridObject<T>) {
+  addObject(dungeonObject: GridObject) {
     this.objects.push(dungeonObject);
   }
 

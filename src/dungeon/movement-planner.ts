@@ -11,7 +11,7 @@ import { GridTileBehaviorType } from '../grid-maps/grid-tile';
 import { GridMap } from '../grid-maps/grid-map';
 
 export const MovementPlanner = {
-  buildMovementTimeline(scene: ScoochDungeonScene, hero: Entity, gridMap: GridMap<ScoochDungeonScene>, direction: Direction, onComplete: () => void = () => {}) {
+  buildMovementTimeline(scene: ScoochDungeonScene, hero: Entity, gridMap: GridMap, direction: Direction, onComplete: () => void = () => {}) {
     const heroSprite = hero.getComponent(SpriteComponent).sprite;
     const heroGridPosition = hero.getComponent(GridPositionComponent);
     const plannerPosition = new Phaser.Math.Vector2(heroGridPosition.gridX, heroGridPosition.gridY);

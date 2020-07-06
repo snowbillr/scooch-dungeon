@@ -2,20 +2,20 @@ import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
 import { GridTile } from '../../grid-maps/grid-tile';
 import { Direction } from '../../constants/directions';
 
-export abstract class GridTileBehavior<T extends ScoochDungeonScene> {
+export abstract class GridTileBehavior {
   public abstract priority: number;
 
   public readonly id: string;
 
   constructor(
-    protected tile: GridTile<T>,
+    protected tile: GridTile,
   ) {
     this.id = this.generateId();
   }
 
   public abstract isApplicable(): boolean;
 
-  public abstract run(scene: T, direction: Direction): boolean;
+  public abstract run(scene: Phaser.Scene, direction: Direction): boolean;
 
   private generateId() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {

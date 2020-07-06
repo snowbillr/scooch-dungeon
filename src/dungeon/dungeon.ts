@@ -1,17 +1,16 @@
 import { DungeonStats } from "./dungeon-stats";
 
 import { GridMap } from '../grid-maps/grid-map';
-import { DungeonScene } from '../scenes/dungeon-scene';
 
 export class Dungeon {
   public readonly stats: DungeonStats;
   public readonly coinCount: number;
   public readonly message: string;
 
-  public readonly gridMap: GridMap<DungeonScene>;
+  public readonly gridMap: GridMap;
 
   constructor(
-    gridMap: GridMap<DungeonScene>) {
+    gridMap: GridMap) {
     this.gridMap = gridMap;
 
     this.message = gridMap.properties.message;

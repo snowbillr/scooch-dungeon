@@ -3,7 +3,7 @@ import { Direction } from "../../constants/directions";
 import { GridTileBehavior } from './grid-tile-behavior';
 import { LevelSelectScene } from '../../scenes/level-select-scene';
 
-export class MoveBehavior extends GridTileBehavior<LevelSelectScene> {
+export class MoveBehavior extends GridTileBehavior {
   public priority: number = 90;
 
   isApplicable() {

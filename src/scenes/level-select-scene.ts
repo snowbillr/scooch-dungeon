@@ -15,7 +15,7 @@ import { GridTileFactory } from '../grid-maps/grid-tile-factory';
 import { GridObjectFactory } from '../grid-maps/grid-object-factory';
 
 export class LevelSelectScene extends ScoochDungeonScene {
-  public gridMap!: GridMap<LevelSelectScene>;
+  public gridMap!: GridMap;
   public hero!: Entity;
 
   constructor() {

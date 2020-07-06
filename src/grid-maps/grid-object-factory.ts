@@ -3,37 +3,37 @@ import { GridObjectConstructor, GridObject } from './grid-object';
 import { GridTile } from './grid-tile';
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
-type GridObjectProperties<T extends ScoochDungeonScene> = {
+type GridObjectProperties = {
   name: string;
   tileIndex?: number;
   texture: string;
   frame?: number | string;
   animation?: string;
   depth: number;
-  klass?: GridObjectConstructor<T>;
+  klass?: GridObjectConstructor;
 }
 
-export class GridObjectFactory<T extends ScoochDungeonScene> {
+export class GridObjectFactory {
   constructor(
-    private readonly scene: T,
-    private readonly objectPropertiesList: GridObjectProperties<T>[]
+    private readonly scene: Phaser.Scene,
+    private readonly objectPropertiesList: GridObjectProperties[]
   ) {}
 
-  createByIndex(dungeonTile: GridTile<T>, tileIndex: number, extraProperties: Record<string, any>) {
+  createByIndex(dungeonTile: GridTile, tileIndex: number, extraProperties: Record<string, any>) {
     const objectProperties = Object.values(this.objectPropertiesList).find(p => p.tileIndex === tileIndex);
     if (!objectProperties) throw new Error(`GridObjectFactory: missing properties for ${tileIndex}`);
 
     return this.create(dungeonTile, objectProperties, extraProperties);
   }
 
-  createByName(dungeonTile: GridTile<T>, name: string) {
+  createByName(dungeonTile: GridTile, name: string) {
     const objectProperties = Object.values(this.objectPropertiesList).find(p => p.name === name);
     if (!objectProperties) throw new Error(`GridObjectFactory: missing properties for ${name}`);
 
     return this.create(dungeonTile, objectProperties);
   }
 
-  private create(dungeonTile: GridTile<T>, objectProperties: GridObjectProperties<T>, extraProperties: Record<string, any> = {}) {
+  private create(dungeonTile: GridTile, objectProperties: GridObjectProperties, extraProperties: Record<string, any> = {}) {
     const texture = objectProperties.texture;
     const frame = objectProperties.frame;
     const depth = objectProperties.depth;

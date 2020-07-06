@@ -5,10 +5,10 @@ import { InputBehaviors } from '../behaviors/input-behaviors';
 import { EnterBehaviors } from '../behaviors/enter-behaviors';
 import { ExitBehaviors } from '../behaviors/exit-behaviors';
 
-export class GridTileFactory<T extends ScoochDungeonScene> {
+export class GridTileFactory {
   constructor(
-    private scene: T,
-    private dungeonObjectFactory: GridObjectFactory<T>
+    private scene: Phaser.Scene,
+    private dungeonObjectFactory: GridObjectFactory
   ) {
   }
 
@@ -19,7 +19,7 @@ export class GridTileFactory<T extends ScoochDungeonScene> {
     worldY: number,
     properties: Record<string, any[]>,
     objects: Record<string, any>[]
-  ): GridTile<T> {
+  ): GridTile {
     const computedProperties: GridTileProperties = {
       walkable: properties.walkable.reduce((acc, w) => acc && w, true),
       objective: properties.objective.reduce((acc, o) => acc || o, false),
@@ -42,7 +42,7 @@ export class GridTileFactory<T extends ScoochDungeonScene> {
     return gridTile;
   }
 
-  addBehaviors(gridTile: GridTile<T>) {
+  addBehaviors(gridTile: GridTile) {
     InputBehaviors.forEach(Behavior => {
       const inputBehavior = new Behavior(gridTile);
       if (inputBehavior.isApplicable()) {

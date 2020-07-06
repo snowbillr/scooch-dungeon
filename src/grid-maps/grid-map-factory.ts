@@ -6,10 +6,10 @@ import { GridTileFactory } from './grid-tile-factory';
 import { GridMap } from './grid-map';
 import { GridMarker } from './grid-marker';
 
-export class GridMapFactory<T extends ScoochDungeonScene> {
+export class GridMapFactory {
   constructor(
-    private scene: T,
-    private gridTileFactory: GridTileFactory<T>
+    private scene: Phaser.Scene,
+    private gridTileFactory: GridTileFactory
   ) {}
 
   public createGridMap(tilesetName: string, tilesetSource: string, levelKey: string, x: number, y: number) {
@@ -32,7 +32,7 @@ export class GridMapFactory<T extends ScoochDungeonScene> {
     return tilemap.createDynamicLayer('floor', tilesetName, x, y);
   }
 
-  private createGridTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): GridTile<T>[] {
+  private createGridTiles(tilemap: Phaser.Tilemaps.Tilemap, floor: Phaser.Tilemaps.DynamicTilemapLayer): GridTile[] {
     const tileData = new GridTileData();
 
     // gather floor tile data
@@ -63,7 +63,7 @@ export class GridMapFactory<T extends ScoochDungeonScene> {
     });
 
     // create tiles
-    const gridTiles: GridTile<T>[] = [];
+    const gridTiles: GridTile[] = [];
     tileData.forEach((coordinates, properties, objects) => {
       const worldCoordinates = tilemap.tileToWorldXY(coordinates.x, coordinates.y);
 
