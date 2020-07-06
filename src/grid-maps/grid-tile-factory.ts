@@ -1,14 +1,16 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
-import { GridTile, GridTileProperties, GridTileBehaviorType, GridTilePropertiesComputer } from './grid-tile';
+import { GridTile, GridTileProperties, GridTileBehaviorType, GridTilePropertiesComputer, GridTileBehaviorMap } from './grid-tile';
 import { GridObjectFactory } from './grid-object-factory';
 import { InputBehaviors } from '../dungeon/behaviors/input-behaviors';
 import { EnterBehaviors } from '../dungeon/behaviors/enter-behaviors';
 import { ExitBehaviors } from '../dungeon/behaviors/exit-behaviors';
+import { GridTileBehavior } from './grid-tile-behavior';
 
 export class GridTileFactory {
   constructor(
     private scene: Phaser.Scene,
     private gridTilePropertiesComputer: GridTilePropertiesComputer,
+    private gridTileBehaviorMap: GridTileBehaviorMap,
     private dungeonObjectFactory: GridObjectFactory
   ) {
   }
@@ -39,25 +41,13 @@ export class GridTileFactory {
   }
 
   addBehaviors(gridTile: GridTile) {
-    InputBehaviors.forEach(Behavior => {
-      const inputBehavior = new Behavior(gridTile);
-      if (inputBehavior.isApplicable()) {
-        gridTile.addBehavior(GridTileBehaviorType.INPUT, inputBehavior);
-      }
-    });
-
-    EnterBehaviors.forEach(Behavior => {
-      const enterBehavior = new Behavior(gridTile);
-      if (enterBehavior.isApplicable()) {
-        gridTile.addBehavior(GridTileBehaviorType.ENTER, enterBehavior);
-      }
-    });
-
-    ExitBehaviors.forEach(Behavior => {
-      const exitBehavior = new Behavior(gridTile);
-      if (exitBehavior.isApplicable()) {
-        gridTile.addBehavior(GridTileBehaviorType.EXIT, exitBehavior);
-      }
+    Object.entries(this.gridTileBehaviorMap).forEach(([type, behaviors]) => {
+      behaviors.forEach(Behavior => {
+        const behavior = new Behavior(gridTile);
+        if (behavior.isApplicable()) {
+          gridTile.addBehavior(type as GridTileBehaviorType, behavior);
+        }
+      });
     });
   }
 }

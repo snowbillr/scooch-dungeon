@@ -1,7 +1,7 @@
 import { Direction } from '../constants/directions';
 import { GridObject } from './grid-object';
 import { GridMap } from './grid-map';
-import { GridTileBehavior } from './grid-tile-behavior';
+import { GridTileBehavior, GridTileBehaviorConstructor } from './grid-tile-behavior';
 
 export type GridTileProperties = Record<string, any>;
 export type GridTilePropertiesComputer = (rawProperties: RawProperties) => GridTileProperties;
@@ -13,8 +13,10 @@ export enum GridTileBehaviorType {
   EXIT = 'EXIT'
 };
 
+export type GridTileBehaviorMap = Record<GridTileBehaviorType, GridTileBehaviorConstructor[]>;
+
 export class GridTile {
-  public behaviors: Record<GridTileBehaviorType, GridTileBehavior[]>;
+  public behaviors: GridTileBehaviorMap;
   public gridMap!: GridMap;
 
   private objects: GridObject[];

@@ -1,6 +1,10 @@
 import { GridTile } from './grid-tile';
 import { Direction } from '../constants/directions';
 
+export interface GridTileBehaviorConstructor {
+  new (tile: GridTile): GridTileBehavior;
+}
+
 export abstract class GridTileBehavior {
   public abstract priority: number;
 

@@ -13,6 +13,7 @@ import { GridMap } from '../grid-maps/grid-map';
 import { Viewport } from '../constants/viewport';
 import { GridTileFactory } from '../grid-maps/grid-tile-factory';
 import { GridObjectFactory } from '../grid-maps/grid-object-factory';
+import { GridTileBehaviorType } from '../grid-maps/grid-tile';
 
 export class OverworldScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
@@ -28,11 +29,20 @@ export class OverworldScene extends ScoochDungeonScene {
 
   create() {
     const gridObjectFactory = new GridObjectFactory(this, []);
-    const gridTileFactory = new GridTileFactory(this, rawProperties => {
-      return {
-        walkable: rawProperties.walkable.reduce((acc, w) => acc && w, true),
-      };
-    }, gridObjectFactory);
+    const gridTileFactory = new GridTileFactory(
+      this,
+      rawProperties => {
+        return {
+          walkable: rawProperties.walkable.reduce((acc, w) => acc && w, true),
+        };
+      },
+      {
+        [GridTileBehaviorType.INPUT]: [],
+        [GridTileBehaviorType.ENTER]: [],
+        [GridTileBehaviorType.EXIT]: [],
+      },
+      gridObjectFactory
+    );
     const gridMapFactory = new GridMapFactory(this, gridTileFactory);
 
     this.gridMap = gridMapFactory.createGridMap('overworld-tileset', 'overworld-tilesheet', 'overworld-000', 0, 0);
