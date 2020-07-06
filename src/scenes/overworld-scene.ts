@@ -14,6 +14,8 @@ import { Viewport } from '../constants/viewport';
 import { GridTileFactory } from '../grid-maps/grid-tile-factory';
 import { GridObjectFactory } from '../grid-maps/grid-object-factory';
 import { GridTileBehaviorType } from '../grid-maps/grid-tile';
+import { InputBehaviors } from '../overworld/behaviors/input-behaviors';
+import { GridPositionComponent } from '../components/grid-position-component';
 
 export class OverworldScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
@@ -37,7 +39,7 @@ export class OverworldScene extends ScoochDungeonScene {
         };
       },
       {
-        [GridTileBehaviorType.INPUT]: [],
+        [GridTileBehaviorType.INPUT]: InputBehaviors,
         [GridTileBehaviorType.ENTER]: [],
         [GridTileBehaviorType.EXIT]: [],
       },
@@ -54,6 +56,12 @@ export class OverworldScene extends ScoochDungeonScene {
       gridY: heroStartMarker.gridY
     }, heroStartMarker.worldX, heroStartMarker.worldY);
 
+    this.swipe.addListener(direction => {
+      const coordinates = this.hero.getComponent(GridPositionComponent);
+      const tile = this.gridMap.getTile(coordinates.gridX, coordinates.gridY);
+
+      tile.runBehaviors(GridTileBehaviorType.INPUT, direction);
+    });
 
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);
