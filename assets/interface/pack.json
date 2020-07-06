@@ -111,6 +111,11 @@
         "key": "star",
         "type": "image",
         "url": "assets/interface/star.png"
+      },
+      {
+        "key": "level-indicator",
+        "type": "image",
+        "url": "assets/interface/level-indicator.png"
       }
     ]
   }

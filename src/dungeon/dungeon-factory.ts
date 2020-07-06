@@ -3,7 +3,7 @@ import { DungeonScene } from '../scenes/dungeon-scene';
 import { GridMapFactory } from '../grid-maps/grid-map-factory';
 import { GridTileFactory } from '../grid-maps/grid-tile-factory';
 import { GridObjectFactory } from '../grid-maps/grid-object-factory';
-import { objectsList } from './objects/objects-list';
+import { dungeonObjectsList } from './objects/dungeon-objects-list';
 import { GridTileBehaviorType } from '../grid-maps/grid-tile';
 import { InputBehaviors } from './behaviors/input-behaviors';
 import { EnterBehaviors } from './behaviors/enter-behaviors';
@@ -14,7 +14,7 @@ export class DungeonFactory {
   private gridMapFactory: GridMapFactory;
 
   constructor(scene: DungeonScene) {
-    const gridObjectFactory = new GridObjectFactory(scene, objectsList);
+    const gridObjectFactory = new GridObjectFactory(scene, dungeonObjectsList);
     const gridTileFactory = new GridTileFactory(
       scene,
       rawProperties => {

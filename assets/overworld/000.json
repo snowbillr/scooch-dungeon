@@ -15,6 +15,73 @@
         }, 
         {
          "draworder":"topdown",
+         "id":3,
+         "name":"objects",
+         "objects":[
+                {
+                 "gid":2,
+                 "height":32,
+                 "id":4,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"levelGroup",
+                         "type":"string",
+                         "value":"Beginner's Alley"
+                        }, 
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":128,
+                 "y":288
+                }, 
+                {
+                 "gid":2,
+                 "height":32,
+                 "id":5,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"levelGroup",
+                         "type":"string",
+                         "value":"Spike Lane"
+                        }, 
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"walkable",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":448,
+                 "y":288
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":2,
          "name":"markers",
          "objects":[
@@ -36,8 +103,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":3,
- "nextobjectid":4,
+ "nextlayerid":4,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
@@ -59,6 +126,11 @@
                  "id":0,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -68,14 +140,24 @@
                  "id":1,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }]
                 }, 
                 {
                  "id":2,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -86,6 +168,11 @@
                  "id":3,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -94,6 +181,11 @@
                 {
                  "id":4,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -104,6 +196,11 @@
                  "id":5,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -112,6 +209,11 @@
                 {
                  "id":6,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -122,6 +224,11 @@
                  "id":7,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -130,6 +237,11 @@
                 {
                  "id":8,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -140,6 +252,11 @@
                  "id":9,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -148,6 +265,11 @@
                 {
                  "id":10,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -158,6 +280,11 @@
                  "id":11,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -166,6 +293,11 @@
                 {
                  "id":12,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -176,6 +308,11 @@
                  "id":13,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -184,6 +321,11 @@
                 {
                  "id":14,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -194,6 +336,11 @@
                  "id":15,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -202,6 +349,11 @@
                 {
                  "id":16,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -212,6 +364,11 @@
                  "id":17,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -220,6 +377,11 @@
                 {
                  "id":18,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -230,6 +392,11 @@
                  "id":19,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -238,6 +405,11 @@
                 {
                  "id":20,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -248,6 +420,11 @@
                  "id":21,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -256,6 +433,11 @@
                 {
                  "id":22,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -266,6 +448,11 @@
                  "id":23,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -274,6 +461,11 @@
                 {
                  "id":24,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -284,6 +476,11 @@
                  "id":25,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -292,6 +489,11 @@
                 {
                  "id":26,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -302,6 +504,11 @@
                  "id":27,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -310,6 +517,11 @@
                 {
                  "id":28,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -320,6 +532,11 @@
                  "id":29,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -328,6 +545,11 @@
                 {
                  "id":30,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -338,6 +560,11 @@
                  "id":31,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -346,6 +573,11 @@
                 {
                  "id":32,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -356,6 +588,11 @@
                  "id":33,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -364,6 +601,11 @@
                 {
                  "id":34,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -374,6 +616,11 @@
                  "id":35,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -382,6 +629,11 @@
                 {
                  "id":36,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -392,6 +644,11 @@
                  "id":37,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -400,6 +657,11 @@
                 {
                  "id":38,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -410,6 +672,11 @@
                  "id":39,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -418,6 +685,11 @@
                 {
                  "id":40,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -428,6 +700,11 @@
                  "id":41,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -436,6 +713,11 @@
                 {
                  "id":42,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -446,6 +728,11 @@
                  "id":43,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -454,6 +741,11 @@
                 {
                  "id":44,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -464,6 +756,11 @@
                  "id":45,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -472,6 +769,11 @@
                 {
                  "id":46,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -482,6 +784,11 @@
                  "id":47,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -490,6 +797,11 @@
                 {
                  "id":48,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -500,6 +812,11 @@
                  "id":49,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -508,6 +825,11 @@
                 {
                  "id":50,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -518,6 +840,11 @@
                  "id":51,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -526,6 +853,11 @@
                 {
                  "id":52,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -536,6 +868,11 @@
                  "id":53,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -544,6 +881,11 @@
                 {
                  "id":54,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -554,6 +896,11 @@
                  "id":55,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -562,6 +909,11 @@
                 {
                  "id":56,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -572,6 +924,11 @@
                  "id":57,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -580,6 +937,11 @@
                 {
                  "id":58,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -590,6 +952,11 @@
                  "id":59,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -598,6 +965,11 @@
                 {
                  "id":60,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -608,6 +980,11 @@
                  "id":61,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":true
@@ -616,6 +993,11 @@
                 {
                  "id":62,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -626,6 +1008,11 @@
                  "id":63,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -634,6 +1021,11 @@
                 {
                  "id":64,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -644,6 +1036,11 @@
                  "id":65,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -652,6 +1049,11 @@
                 {
                  "id":66,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -662,6 +1064,11 @@
                  "id":67,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -670,6 +1077,11 @@
                 {
                  "id":68,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -680,6 +1092,11 @@
                  "id":69,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -688,6 +1105,11 @@
                 {
                  "id":70,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -698,6 +1120,11 @@
                  "id":71,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -706,6 +1133,11 @@
                 {
                  "id":72,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -716,6 +1148,11 @@
                  "id":73,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -724,6 +1161,11 @@
                 {
                  "id":74,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -734,6 +1176,11 @@
                  "id":75,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -742,6 +1189,11 @@
                 {
                  "id":76,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -752,6 +1204,11 @@
                  "id":77,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -760,6 +1217,11 @@
                 {
                  "id":78,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -770,6 +1232,11 @@
                  "id":79,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -778,6 +1245,11 @@
                 {
                  "id":80,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -788,6 +1260,11 @@
                  "id":81,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -796,6 +1273,11 @@
                 {
                  "id":82,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -806,6 +1288,11 @@
                  "id":83,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -814,6 +1301,11 @@
                 {
                  "id":84,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -824,6 +1316,11 @@
                  "id":85,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -832,6 +1329,11 @@
                 {
                  "id":86,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -842,6 +1344,11 @@
                  "id":87,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -850,6 +1357,11 @@
                 {
                  "id":88,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -860,6 +1372,11 @@
                  "id":89,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -868,6 +1385,11 @@
                 {
                  "id":90,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -878,6 +1400,11 @@
                  "id":91,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -886,6 +1413,11 @@
                 {
                  "id":92,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -896,6 +1428,11 @@
                  "id":93,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -904,6 +1441,11 @@
                 {
                  "id":94,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -914,6 +1456,11 @@
                  "id":95,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -922,6 +1469,11 @@
                 {
                  "id":96,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -932,6 +1484,11 @@
                  "id":97,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -940,6 +1497,11 @@
                 {
                  "id":98,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -950,6 +1512,11 @@
                  "id":99,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -958,6 +1525,11 @@
                 {
                  "id":100,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -968,6 +1540,11 @@
                  "id":101,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -976,6 +1553,11 @@
                 {
                  "id":102,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -986,6 +1568,11 @@
                  "id":103,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -994,6 +1581,11 @@
                 {
                  "id":104,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1004,6 +1596,11 @@
                  "id":105,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1012,6 +1609,11 @@
                 {
                  "id":106,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1022,6 +1624,11 @@
                  "id":107,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1030,6 +1637,11 @@
                 {
                  "id":108,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1040,6 +1652,11 @@
                  "id":109,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1048,6 +1665,11 @@
                 {
                  "id":110,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1058,6 +1680,11 @@
                  "id":111,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1066,6 +1693,11 @@
                 {
                  "id":112,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1076,6 +1708,11 @@
                  "id":113,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1084,6 +1721,11 @@
                 {
                  "id":114,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1094,6 +1736,11 @@
                  "id":115,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1102,6 +1749,11 @@
                 {
                  "id":116,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1112,6 +1764,11 @@
                  "id":117,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1120,6 +1777,11 @@
                 {
                  "id":118,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1130,6 +1792,11 @@
                  "id":119,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1138,6 +1805,11 @@
                 {
                  "id":120,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1148,6 +1820,11 @@
                  "id":121,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1156,6 +1833,11 @@
                 {
                  "id":122,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1166,6 +1848,11 @@
                  "id":123,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1174,6 +1861,11 @@
                 {
                  "id":124,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1184,6 +1876,11 @@
                  "id":125,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1192,6 +1889,11 @@
                 {
                  "id":126,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1202,6 +1904,11 @@
                  "id":127,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1210,6 +1917,11 @@
                 {
                  "id":128,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1220,6 +1932,11 @@
                  "id":129,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1228,6 +1945,11 @@
                 {
                  "id":130,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1238,6 +1960,11 @@
                  "id":131,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1246,6 +1973,11 @@
                 {
                  "id":132,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1256,6 +1988,11 @@
                  "id":133,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1264,6 +2001,11 @@
                 {
                  "id":134,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1274,6 +2016,11 @@
                  "id":135,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1282,6 +2029,11 @@
                 {
                  "id":136,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1292,6 +2044,11 @@
                  "id":137,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1300,6 +2057,11 @@
                 {
                  "id":138,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1310,6 +2072,11 @@
                  "id":139,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1318,6 +2085,11 @@
                 {
                  "id":140,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1328,6 +2100,11 @@
                  "id":141,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1336,6 +2113,11 @@
                 {
                  "id":142,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1346,6 +2128,11 @@
                  "id":143,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1354,6 +2141,11 @@
                 {
                  "id":144,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1364,6 +2156,11 @@
                  "id":145,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1372,6 +2169,11 @@
                 {
                  "id":146,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1382,6 +2184,11 @@
                  "id":147,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1390,6 +2197,11 @@
                 {
                  "id":148,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1400,6 +2212,11 @@
                  "id":149,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1408,6 +2225,11 @@
                 {
                  "id":150,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1418,6 +2240,11 @@
                  "id":151,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1426,6 +2253,11 @@
                 {
                  "id":152,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1436,6 +2268,11 @@
                  "id":153,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1444,6 +2281,11 @@
                 {
                  "id":154,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1454,6 +2296,11 @@
                  "id":155,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1462,6 +2309,11 @@
                 {
                  "id":156,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1472,6 +2324,11 @@
                  "id":157,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1480,6 +2337,11 @@
                 {
                  "id":158,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1490,6 +2352,11 @@
                  "id":159,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1498,6 +2365,11 @@
                 {
                  "id":160,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1508,6 +2380,11 @@
                  "id":161,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1516,6 +2393,11 @@
                 {
                  "id":162,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1526,6 +2408,11 @@
                  "id":163,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1534,6 +2421,11 @@
                 {
                  "id":164,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1544,6 +2436,11 @@
                  "id":165,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1552,6 +2449,11 @@
                 {
                  "id":166,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1562,6 +2464,11 @@
                  "id":167,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1570,6 +2477,11 @@
                 {
                  "id":168,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1580,6 +2492,11 @@
                  "id":169,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1588,6 +2505,11 @@
                 {
                  "id":170,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1598,6 +2520,11 @@
                  "id":171,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1606,6 +2533,11 @@
                 {
                  "id":172,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1616,6 +2548,11 @@
                  "id":173,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1624,6 +2561,11 @@
                 {
                  "id":174,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1634,6 +2576,11 @@
                  "id":175,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1642,6 +2589,11 @@
                 {
                  "id":176,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1652,6 +2604,11 @@
                  "id":177,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1660,6 +2617,11 @@
                 {
                  "id":178,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1670,6 +2632,11 @@
                  "id":179,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1678,6 +2645,11 @@
                 {
                  "id":180,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1688,6 +2660,11 @@
                  "id":181,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1696,6 +2673,11 @@
                 {
                  "id":182,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1706,6 +2688,11 @@
                  "id":183,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1714,6 +2701,11 @@
                 {
                  "id":184,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1724,6 +2716,11 @@
                  "id":185,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1732,6 +2729,11 @@
                 {
                  "id":186,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1742,6 +2744,11 @@
                  "id":187,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1750,6 +2757,11 @@
                 {
                  "id":188,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1760,6 +2772,11 @@
                  "id":189,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1768,6 +2785,11 @@
                 {
                  "id":190,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1778,6 +2800,11 @@
                  "id":191,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1786,6 +2813,11 @@
                 {
                  "id":192,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1796,6 +2828,11 @@
                  "id":193,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1804,6 +2841,11 @@
                 {
                  "id":194,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1814,6 +2856,11 @@
                  "id":195,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1822,6 +2869,11 @@
                 {
                  "id":196,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1832,6 +2884,11 @@
                  "id":197,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1840,6 +2897,11 @@
                 {
                  "id":198,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1850,6 +2912,11 @@
                  "id":199,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1858,6 +2925,11 @@
                 {
                  "id":200,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1868,6 +2940,11 @@
                  "id":201,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1876,6 +2953,11 @@
                 {
                  "id":202,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1886,6 +2968,11 @@
                  "id":203,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1894,6 +2981,11 @@
                 {
                  "id":204,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1904,6 +2996,11 @@
                  "id":205,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1912,6 +3009,11 @@
                 {
                  "id":206,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1922,6 +3024,11 @@
                  "id":207,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1930,6 +3037,11 @@
                 {
                  "id":208,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1940,6 +3052,11 @@
                  "id":209,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1948,6 +3065,11 @@
                 {
                  "id":210,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1958,6 +3080,11 @@
                  "id":211,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1966,6 +3093,11 @@
                 {
                  "id":212,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1976,6 +3108,11 @@
                  "id":213,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -1984,6 +3121,11 @@
                 {
                  "id":214,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -1994,6 +3136,11 @@
                  "id":215,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2002,6 +3149,11 @@
                 {
                  "id":216,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2012,6 +3164,11 @@
                  "id":217,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2020,6 +3177,11 @@
                 {
                  "id":218,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2030,6 +3192,11 @@
                  "id":219,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2038,6 +3205,11 @@
                 {
                  "id":220,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2048,6 +3220,11 @@
                  "id":221,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2056,6 +3233,11 @@
                 {
                  "id":222,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2066,6 +3248,11 @@
                  "id":223,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2074,6 +3261,11 @@
                 {
                  "id":224,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2084,6 +3276,11 @@
                  "id":225,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2092,6 +3289,11 @@
                 {
                  "id":226,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2102,6 +3304,11 @@
                  "id":227,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2110,6 +3317,11 @@
                 {
                  "id":228,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2120,6 +3332,11 @@
                  "id":229,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2128,6 +3345,11 @@
                 {
                  "id":230,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2138,6 +3360,11 @@
                  "id":231,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2146,6 +3373,11 @@
                 {
                  "id":232,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2156,6 +3388,11 @@
                  "id":233,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2164,6 +3401,11 @@
                 {
                  "id":234,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2174,6 +3416,11 @@
                  "id":235,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2182,6 +3429,11 @@
                 {
                  "id":236,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2192,6 +3444,11 @@
                  "id":237,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2200,6 +3457,11 @@
                 {
                  "id":238,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2210,6 +3472,11 @@
                  "id":239,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2218,6 +3485,11 @@
                 {
                  "id":240,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2228,6 +3500,11 @@
                  "id":241,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2236,6 +3513,11 @@
                 {
                  "id":242,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2246,6 +3528,11 @@
                  "id":243,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2254,6 +3541,11 @@
                 {
                  "id":244,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2264,6 +3556,11 @@
                  "id":245,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2272,6 +3569,11 @@
                 {
                  "id":246,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2282,6 +3584,11 @@
                  "id":247,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2290,6 +3597,11 @@
                 {
                  "id":248,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2300,6 +3612,11 @@
                  "id":249,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2308,6 +3625,11 @@
                 {
                  "id":250,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2318,6 +3640,11 @@
                  "id":251,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2326,6 +3653,11 @@
                 {
                  "id":252,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2336,6 +3668,11 @@
                  "id":253,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2344,6 +3681,11 @@
                 {
                  "id":254,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2354,6 +3696,11 @@
                  "id":255,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2362,6 +3709,11 @@
                 {
                  "id":256,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2372,6 +3724,11 @@
                  "id":257,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2380,6 +3737,11 @@
                 {
                  "id":258,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2390,6 +3752,11 @@
                  "id":259,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2398,6 +3765,11 @@
                 {
                  "id":260,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2408,6 +3780,11 @@
                  "id":261,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2416,6 +3793,11 @@
                 {
                  "id":262,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2426,6 +3808,11 @@
                  "id":263,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2434,6 +3821,11 @@
                 {
                  "id":264,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2444,6 +3836,11 @@
                  "id":265,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2452,6 +3849,11 @@
                 {
                  "id":266,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2462,6 +3864,11 @@
                  "id":267,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2470,6 +3877,11 @@
                 {
                  "id":268,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2480,6 +3892,11 @@
                  "id":269,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2488,6 +3905,11 @@
                 {
                  "id":270,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2498,6 +3920,11 @@
                  "id":271,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2506,6 +3933,11 @@
                 {
                  "id":272,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2516,6 +3948,11 @@
                  "id":273,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2524,6 +3961,11 @@
                 {
                  "id":274,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2534,6 +3976,11 @@
                  "id":275,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2542,6 +3989,11 @@
                 {
                  "id":276,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2552,6 +4004,11 @@
                  "id":277,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2560,6 +4017,11 @@
                 {
                  "id":278,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2570,6 +4032,11 @@
                  "id":279,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2578,6 +4045,11 @@
                 {
                  "id":280,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2588,6 +4060,11 @@
                  "id":281,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2596,6 +4073,11 @@
                 {
                  "id":282,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2606,6 +4088,11 @@
                  "id":283,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2614,6 +4101,11 @@
                 {
                  "id":284,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2624,6 +4116,11 @@
                  "id":285,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2632,6 +4129,11 @@
                 {
                  "id":286,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2642,6 +4144,11 @@
                  "id":287,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2650,6 +4157,11 @@
                 {
                  "id":288,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2660,6 +4172,11 @@
                  "id":289,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2668,6 +4185,11 @@
                 {
                  "id":290,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2678,6 +4200,11 @@
                  "id":291,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2686,6 +4213,11 @@
                 {
                  "id":292,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2696,6 +4228,11 @@
                  "id":293,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2704,6 +4241,11 @@
                 {
                  "id":294,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2714,6 +4256,11 @@
                  "id":295,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2722,6 +4269,11 @@
                 {
                  "id":296,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2732,6 +4284,11 @@
                  "id":297,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2740,6 +4297,11 @@
                 {
                  "id":298,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2750,6 +4312,11 @@
                  "id":299,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2758,6 +4325,11 @@
                 {
                  "id":300,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2768,6 +4340,11 @@
                  "id":301,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2776,6 +4353,11 @@
                 {
                  "id":302,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2786,6 +4368,11 @@
                  "id":303,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2794,6 +4381,11 @@
                 {
                  "id":304,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2804,6 +4396,11 @@
                  "id":305,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2812,6 +4409,11 @@
                 {
                  "id":306,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2822,6 +4424,11 @@
                  "id":307,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2830,6 +4437,11 @@
                 {
                  "id":308,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2840,6 +4452,11 @@
                  "id":309,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2848,6 +4465,11 @@
                 {
                  "id":310,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2858,6 +4480,11 @@
                  "id":311,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2866,6 +4493,11 @@
                 {
                  "id":312,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2876,6 +4508,11 @@
                  "id":313,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2884,6 +4521,11 @@
                 {
                  "id":314,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2894,6 +4536,11 @@
                  "id":315,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2902,6 +4549,11 @@
                 {
                  "id":316,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2912,6 +4564,11 @@
                  "id":317,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2920,6 +4577,11 @@
                 {
                  "id":318,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2930,6 +4592,11 @@
                  "id":319,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2938,6 +4605,11 @@
                 {
                  "id":320,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2948,6 +4620,11 @@
                  "id":321,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2956,6 +4633,11 @@
                 {
                  "id":322,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2966,6 +4648,11 @@
                  "id":323,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2974,6 +4661,11 @@
                 {
                  "id":324,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -2984,6 +4676,11 @@
                  "id":325,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -2992,6 +4689,11 @@
                 {
                  "id":326,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3002,6 +4704,11 @@
                  "id":327,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3010,6 +4717,11 @@
                 {
                  "id":328,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3020,6 +4732,11 @@
                  "id":329,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3028,6 +4745,11 @@
                 {
                  "id":330,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3038,6 +4760,11 @@
                  "id":331,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3046,6 +4773,11 @@
                 {
                  "id":332,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3056,6 +4788,11 @@
                  "id":333,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3064,6 +4801,11 @@
                 {
                  "id":334,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3074,6 +4816,11 @@
                  "id":335,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3082,6 +4829,11 @@
                 {
                  "id":336,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3092,6 +4844,11 @@
                  "id":337,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3100,6 +4857,11 @@
                 {
                  "id":338,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3110,6 +4872,11 @@
                  "id":339,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3118,6 +4885,11 @@
                 {
                  "id":340,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3128,6 +4900,11 @@
                  "id":341,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3136,6 +4913,11 @@
                 {
                  "id":342,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3146,6 +4928,11 @@
                  "id":343,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3154,6 +4941,11 @@
                 {
                  "id":344,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3164,6 +4956,11 @@
                  "id":345,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3172,6 +4969,11 @@
                 {
                  "id":346,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3182,6 +4984,11 @@
                  "id":347,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3190,6 +4997,11 @@
                 {
                  "id":348,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3200,6 +5012,11 @@
                  "id":349,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3208,6 +5025,11 @@
                 {
                  "id":350,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3218,6 +5040,11 @@
                  "id":351,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3226,6 +5053,11 @@
                 {
                  "id":352,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3236,6 +5068,11 @@
                  "id":353,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3244,6 +5081,11 @@
                 {
                  "id":354,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3254,6 +5096,11 @@
                  "id":355,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3262,6 +5109,11 @@
                 {
                  "id":356,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3272,6 +5124,11 @@
                  "id":357,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3280,6 +5137,11 @@
                 {
                  "id":358,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3290,6 +5152,11 @@
                  "id":359,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3298,6 +5165,11 @@
                 {
                  "id":360,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3308,6 +5180,11 @@
                  "id":361,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3316,6 +5193,11 @@
                 {
                  "id":362,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3326,6 +5208,11 @@
                  "id":363,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3334,6 +5221,11 @@
                 {
                  "id":364,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3344,6 +5236,11 @@
                  "id":365,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3352,6 +5249,11 @@
                 {
                  "id":366,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3362,6 +5264,11 @@
                  "id":367,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3370,6 +5277,11 @@
                 {
                  "id":368,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3380,6 +5292,11 @@
                  "id":369,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3388,6 +5305,11 @@
                 {
                  "id":370,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3398,6 +5320,11 @@
                  "id":371,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3406,6 +5333,11 @@
                 {
                  "id":372,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3416,6 +5348,11 @@
                  "id":373,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3424,6 +5361,11 @@
                 {
                  "id":374,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3434,6 +5376,11 @@
                  "id":375,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3442,6 +5389,11 @@
                 {
                  "id":376,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3452,6 +5404,11 @@
                  "id":377,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3460,6 +5417,11 @@
                 {
                  "id":378,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3470,6 +5432,11 @@
                  "id":379,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3478,6 +5445,11 @@
                 {
                  "id":380,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3488,6 +5460,11 @@
                  "id":381,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3496,6 +5473,11 @@
                 {
                  "id":382,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3506,6 +5488,11 @@
                  "id":383,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3514,6 +5501,11 @@
                 {
                  "id":384,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3524,6 +5516,11 @@
                  "id":385,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3532,6 +5529,11 @@
                 {
                  "id":386,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3542,6 +5544,11 @@
                  "id":387,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3550,6 +5557,11 @@
                 {
                  "id":388,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3560,6 +5572,11 @@
                  "id":389,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3568,6 +5585,11 @@
                 {
                  "id":390,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3578,6 +5600,11 @@
                  "id":391,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3586,6 +5613,11 @@
                 {
                  "id":392,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3596,6 +5628,11 @@
                  "id":393,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3604,6 +5641,11 @@
                 {
                  "id":394,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3614,6 +5656,11 @@
                  "id":395,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3622,6 +5669,11 @@
                 {
                  "id":396,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3632,6 +5684,11 @@
                  "id":397,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3640,6 +5697,11 @@
                 {
                  "id":398,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3650,6 +5712,11 @@
                  "id":399,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3658,6 +5725,11 @@
                 {
                  "id":400,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3668,6 +5740,11 @@
                  "id":401,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3676,6 +5753,11 @@
                 {
                  "id":402,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3686,6 +5768,11 @@
                  "id":403,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3694,6 +5781,11 @@
                 {
                  "id":404,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3704,6 +5796,11 @@
                  "id":405,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3712,6 +5809,11 @@
                 {
                  "id":406,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3722,6 +5824,11 @@
                  "id":407,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3730,6 +5837,11 @@
                 {
                  "id":408,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3740,6 +5852,11 @@
                  "id":409,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3748,6 +5865,11 @@
                 {
                  "id":410,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3758,6 +5880,11 @@
                  "id":411,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3766,6 +5893,11 @@
                 {
                  "id":412,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3776,6 +5908,11 @@
                  "id":413,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3784,6 +5921,11 @@
                 {
                  "id":414,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3794,6 +5936,11 @@
                  "id":415,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3802,6 +5949,11 @@
                 {
                  "id":416,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3812,6 +5964,11 @@
                  "id":417,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3820,6 +5977,11 @@
                 {
                  "id":418,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3830,6 +5992,11 @@
                  "id":419,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3838,6 +6005,11 @@
                 {
                  "id":420,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3848,6 +6020,11 @@
                  "id":421,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3856,6 +6033,11 @@
                 {
                  "id":422,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3866,6 +6048,11 @@
                  "id":423,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3874,6 +6061,11 @@
                 {
                  "id":424,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3884,6 +6076,11 @@
                  "id":425,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3892,6 +6089,11 @@
                 {
                  "id":426,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3902,6 +6104,11 @@
                  "id":427,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3910,6 +6117,11 @@
                 {
                  "id":428,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3920,6 +6132,11 @@
                  "id":429,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3928,6 +6145,11 @@
                 {
                  "id":430,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3938,6 +6160,11 @@
                  "id":431,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3946,6 +6173,11 @@
                 {
                  "id":432,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3956,6 +6188,11 @@
                  "id":433,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3964,6 +6201,11 @@
                 {
                  "id":434,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3974,6 +6216,11 @@
                  "id":435,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -3982,6 +6229,11 @@
                 {
                  "id":436,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -3992,6 +6244,11 @@
                  "id":437,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4000,6 +6257,11 @@
                 {
                  "id":438,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4010,6 +6272,11 @@
                  "id":439,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4018,6 +6285,11 @@
                 {
                  "id":440,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4028,6 +6300,11 @@
                  "id":441,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4036,6 +6313,11 @@
                 {
                  "id":442,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4046,6 +6328,11 @@
                  "id":443,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4054,6 +6341,11 @@
                 {
                  "id":444,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4064,6 +6356,11 @@
                  "id":445,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4072,6 +6369,11 @@
                 {
                  "id":446,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4082,6 +6384,11 @@
                  "id":447,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4090,6 +6397,11 @@
                 {
                  "id":448,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4100,6 +6412,11 @@
                  "id":449,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4108,6 +6425,11 @@
                 {
                  "id":450,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4118,6 +6440,11 @@
                  "id":451,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4126,6 +6453,11 @@
                 {
                  "id":452,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4136,6 +6468,11 @@
                  "id":453,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4144,6 +6481,11 @@
                 {
                  "id":454,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4154,6 +6496,11 @@
                  "id":455,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4162,6 +6509,11 @@
                 {
                  "id":456,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4172,6 +6524,11 @@
                  "id":457,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4180,6 +6537,11 @@
                 {
                  "id":458,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",
@@ -4190,6 +6552,11 @@
                  "id":459,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4199,6 +6566,11 @@
                  "id":460,
                  "properties":[
                         {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"walkable",
                          "type":"bool",
                          "value":false
@@ -4207,6 +6579,11 @@
                 {
                  "id":461,
                  "properties":[
+                        {
+                         "name":"levelIndicator",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"walkable",
                          "type":"bool",

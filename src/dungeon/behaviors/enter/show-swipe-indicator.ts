@@ -1,5 +1,5 @@
 import { Direction } from "../../../constants/directions";
-import { objectsList } from '../../objects/objects-list';
+import { dungeonObjectsList } from '../../objects/dungeon-objects-list';
 import { GridObjectFactory } from '../../../grid-maps/grid-object-factory';
 import { DungeonScene } from '../../../scenes/dungeon-scene';
 import { GridTileBehavior } from '../../../grid-maps/grid-tile-behavior';
@@ -48,7 +48,7 @@ export class ShowSwipeIndicatorBehavior extends GridTileBehavior {
       [Direction.RIGHT]: tileWidth / 2,
     }[objectiveDirection];
 
-    const objectFactory = new GridObjectFactory(scene, objectsList);
+    const objectFactory = new GridObjectFactory(scene, dungeonObjectsList);
     const swipeIndicatorDungeonObject = objectFactory.createByName(this.tile, 'swipe-indicator');
 
     swipeIndicatorDungeonObject.sprite

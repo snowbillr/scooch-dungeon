@@ -1,7 +1,7 @@
 import { Depths } from '../../constants/depths';
 import { Spikes } from './spikes';
 
-export const objectsList = [
+export const dungeonObjectsList = [
   {
     name: 'rock',
     tileIndex: 50,

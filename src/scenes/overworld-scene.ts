@@ -16,6 +16,9 @@ import { GridObjectFactory } from '../grid-maps/grid-object-factory';
 import { GridTileBehaviorType } from '../grid-maps/grid-tile';
 import { InputBehaviors } from '../overworld/behaviors/input-behaviors';
 import { GridPositionComponent } from '../components/grid-position-component';
+import { overworldObjectsList } from '../overworld/objects/objects-list';
+import { EnterBehaviors } from '../overworld/behaviors/enter-behaviors';
+import { ExitBehaviors } from '../overworld/behaviors/exit-behaviors';
 
 export class OverworldScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
@@ -30,7 +33,7 @@ export class OverworldScene extends ScoochDungeonScene {
   }
 
   create() {
-    const gridObjectFactory = new GridObjectFactory(this, []);
+    const gridObjectFactory = new GridObjectFactory(this, overworldObjectsList);
     const gridTileFactory = new GridTileFactory(
       this,
       rawProperties => {
@@ -40,8 +43,8 @@ export class OverworldScene extends ScoochDungeonScene {
       },
       {
         [GridTileBehaviorType.INPUT]: InputBehaviors,
-        [GridTileBehaviorType.ENTER]: [],
-        [GridTileBehaviorType.EXIT]: [],
+        [GridTileBehaviorType.ENTER]: EnterBehaviors,
+        [GridTileBehaviorType.EXIT]: ExitBehaviors
       },
       gridObjectFactory
     );
