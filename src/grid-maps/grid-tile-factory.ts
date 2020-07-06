@@ -1,9 +1,9 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 import { GridTile, GridTileProperties, GridTileBehaviorType } from './grid-tile';
 import { GridObjectFactory } from './grid-object-factory';
-import { InputBehaviors } from '../behaviors/input-behaviors';
-import { EnterBehaviors } from '../behaviors/enter-behaviors';
-import { ExitBehaviors } from '../behaviors/exit-behaviors';
+import { InputBehaviors } from '../dungeon/behaviors/input-behaviors';
+import { EnterBehaviors } from '../dungeon/behaviors/enter-behaviors';
+import { ExitBehaviors } from '../dungeon/behaviors/exit-behaviors';
 
 export class GridTileFactory {
   constructor(

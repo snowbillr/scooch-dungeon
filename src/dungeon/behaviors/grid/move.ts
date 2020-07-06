@@ -1,7 +1,7 @@
-import { MovementPlanner } from "../../dungeon/movement-planner";
-import { Direction } from "../../constants/directions";
-import { LevelSelectScene } from '../../scenes/level-select-scene';
-import { GridTileBehavior } from '../../grid-maps/grid-tile-behavior';
+import { MovementPlanner } from "../../movement-planner";
+import { Direction } from "../../../constants/directions";
+import { LevelSelectScene } from '../../../scenes/level-select-scene';
+import { GridTileBehavior } from '../../../grid-maps/grid-tile-behavior';
 
 export class MoveBehavior extends GridTileBehavior {
   public priority: number = 90;

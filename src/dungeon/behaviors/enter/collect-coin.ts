@@ -1,7 +1,7 @@
-import { Direction } from "../../constants/directions";
-import { GridTileBehaviorType } from '../../grid-maps/grid-tile';
-import { DungeonScene } from '../../scenes/dungeon-scene';
-import { GridTileBehavior } from '../../grid-maps/grid-tile-behavior';
+import { Direction } from "../../../constants/directions";
+import { GridTileBehaviorType } from '../../../grid-maps/grid-tile';
+import { DungeonScene } from '../../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../../../grid-maps/grid-tile-behavior';
 
 export class CollectCoinBehavior extends GridTileBehavior {
   public priority: number = 100;

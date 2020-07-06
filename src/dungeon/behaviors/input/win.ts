@@ -1,9 +1,9 @@
-import { Direction } from "../../constants/directions";
-import { ProgressDocument } from "../../persistence/progress-document";
-import { StateMachineComponent } from '../../components/state-machine-component';
-import { SCENE_KEYS } from '../../constants/scene-keys';
-import { DungeonScene } from '../../scenes/dungeon-scene';
-import { GridTileBehavior } from '../../grid-maps/grid-tile-behavior';
+import { Direction } from "../../../constants/directions";
+import { ProgressDocument } from "../../../persistence/progress-document";
+import { StateMachineComponent } from '../../../components/state-machine-component';
+import { SCENE_KEYS } from '../../../constants/scene-keys';
+import { DungeonScene } from '../../../scenes/dungeon-scene';
+import { GridTileBehavior } from '../../../grid-maps/grid-tile-behavior';
 
 export class WinBehavior extends GridTileBehavior {
   public priority: number = 100;

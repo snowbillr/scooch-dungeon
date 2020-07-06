@@ -1,4 +1,4 @@
-import { DamageActorBehavior } from '../../behaviors/enter/damage-actor';
+import { DamageActorBehavior } from '../behaviors/enter/damage-actor';
 import { DungeonScene } from '../../scenes/dungeon-scene';
 import { GridObject } from '../../grid-maps/grid-object';
 import { GridTile, GridTileBehaviorType } from '../../grid-maps/grid-tile';
