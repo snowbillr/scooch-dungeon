@@ -21,7 +21,7 @@ export class GridMapFactory<T extends ScoochDungeonScene> {
     const gridTiles = this.createGridTiles(tilemap, floor);
     const gridMarkers = this.createGridMarkers(tilemap, x, y);
 
-    const gridMap = new GridMap(gridTiles, gridMarkers, floor, tilemap);
+    const gridMap = new GridMap(gridTiles, gridMarkers, tilemap);
     gridTiles.forEach(gridTile => gridTile.setGridMap(gridMap));
     gridTiles.forEach(gridTile => this.gridTileFactory.addBehaviors(gridTile));
 

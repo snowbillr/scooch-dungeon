@@ -16,8 +16,7 @@ export class GridMap<T extends ScoochDungeonScene> {
   constructor(
     public gridTiles: GridTile<T>[],
     private markers: Record<string, GridMarker>,
-    private floor: Phaser.Tilemaps.DynamicTilemapLayer  ,
-    tilemap: Phaser.Tilemaps.Tilemap
+    private tilemap: Phaser.Tilemaps.Tilemap
   ) {
     this.worldWidth = tilemap.widthInPixels;
     this.worldHeight = tilemap.heightInPixels;
@@ -33,9 +32,8 @@ export class GridMap<T extends ScoochDungeonScene> {
 
     delete this.markers;
 
-    this.floor.destroy();
-
-    delete this.floor;
+    this.tilemap.destroy();
+    delete this.tilemap;
   }
 
   public getMarker(name: string): GridMarker {
