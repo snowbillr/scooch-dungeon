@@ -9,8 +9,19 @@ import { objectsList } from './objects/objects-list';
 export class DungeonFactory {
   private gridMapFactory: GridMapFactory;
 
-  constructor(private scene: DungeonScene) {
-    this.gridMapFactory = new GridMapFactory(scene, new GridTileFactory(scene, new GridObjectFactory(scene, objectsList)));
+  constructor(scene: DungeonScene) {
+    const gridObjectFactory = new GridObjectFactory(scene, objectsList);
+    const gridTileFactory = new GridTileFactory(
+      scene,
+      rawProperties => {
+        return {
+          walkable: rawProperties.walkable.reduce((acc, w) => acc && w, true),
+          objective: rawProperties.objective.reduce((acc, o) => acc || o, false),
+        }
+      },
+      gridObjectFactory
+    );
+    this.gridMapFactory = new GridMapFactory(scene, gridTileFactory);
   }
 
   public createDungeon(levelKey: string, x: number, y: number): Dungeon {

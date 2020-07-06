@@ -3,10 +3,9 @@ import { GridObject } from './grid-object';
 import { GridMap } from './grid-map';
 import { GridTileBehavior } from './grid-tile-behavior';
 
-export type GridTileProperties = {
-  walkable: boolean;
-  objective: boolean;
-};
+export type GridTileProperties = Record<string, any>;
+export type GridTilePropertiesComputer = (rawProperties: RawProperties) => GridTileProperties;
+type RawProperties = Record<string, any[]>;
 
 export enum GridTileBehaviorType {
   INPUT = 'INPUT',
@@ -51,7 +50,7 @@ export class GridTile {
     this.behaviors[GridTileBehaviorType.EXIT] = [];
   }
 
-  getProperty(propertyName: keyof GridTileProperties): any {
+  getProperty<K extends keyof GridTileProperties>(propertyName: K): GridTileProperties[K] {
     return this.properties[propertyName];
   }
 

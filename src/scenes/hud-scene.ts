@@ -130,7 +130,7 @@ export class HUDScene extends ScoochDungeonScene {
                 this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
                   this.scene.stop();
                   this.scene.stop(SCENE_KEYS.DUNGEON);
-                  this.scene.start(SCENE_KEYS.LEVEL_SELECT);
+                  this.scene.start(SCENE_KEYS.OVERWORLD);
                 });
                 this.cameras.main.fadeOut(1000);
               }).gameObject,

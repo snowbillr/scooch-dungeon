@@ -1,7 +1,5 @@
-import { Depths } from "../constants/depths";
 import { GridObjectConstructor, GridObject } from './grid-object';
 import { GridTile } from './grid-tile';
-import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
 
 type GridObjectProperties = {
   name: string;

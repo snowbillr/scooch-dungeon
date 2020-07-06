@@ -29,7 +29,7 @@ export class TitleScene extends ScoochDungeonScene {
     const isNewGame = progress.getLastCompletedLevelNumber() === 0;
     const playButtonText = isNewGame ? 'Play' : 'Continue';
     const playButton = this.addButton(this.cameras.main.centerX, Viewport.HEIGHT + 100, playButtonText, () => {
-      this.scene.start(SCENE_KEYS.LEVEL_SELECT);
+      this.scene.start(SCENE_KEYS.OVERWORLD);
     });
 
     // temp debug

@@ -1,5 +1,5 @@
 import { ScoochDungeonScene } from '../scenes/scooch-dungeon-scene';
-import { GridTile, GridTileProperties, GridTileBehaviorType } from './grid-tile';
+import { GridTile, GridTileProperties, GridTileBehaviorType, GridTilePropertiesComputer } from './grid-tile';
 import { GridObjectFactory } from './grid-object-factory';
 import { InputBehaviors } from '../dungeon/behaviors/input-behaviors';
 import { EnterBehaviors } from '../dungeon/behaviors/enter-behaviors';
@@ -8,6 +8,7 @@ import { ExitBehaviors } from '../dungeon/behaviors/exit-behaviors';
 export class GridTileFactory {
   constructor(
     private scene: Phaser.Scene,
+    private gridTilePropertiesComputer: GridTilePropertiesComputer,
     private dungeonObjectFactory: GridObjectFactory
   ) {
   }
@@ -20,18 +21,13 @@ export class GridTileFactory {
     properties: Record<string, any[]>,
     objects: Record<string, any>[]
   ): GridTile {
-    const computedProperties: GridTileProperties = {
-      walkable: properties.walkable.reduce((acc, w) => acc && w, true),
-      objective: properties.objective.reduce((acc, o) => acc || o, false),
-    };
-
     const gridTile = new GridTile(
       this.scene,
       gridX,
       gridY,
       worldX,
       worldY,
-      computedProperties
+      this.gridTilePropertiesComputer(properties)
     );
 
     const createdObjects = (objects || []).map(({ index, properties }) => {

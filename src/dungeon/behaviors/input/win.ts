@@ -45,7 +45,7 @@ export class WinBehavior extends GridTileBehavior {
         scene.persistence.store();
 
         if (scene.levelSession.didCompleteLevelGroup()) {
-          scene.scene.start(SCENE_KEYS.LEVEL_SELECT);
+          scene.scene.start(SCENE_KEYS.OVERWORLD);
         } else {
           scene.levelSession.incrementCurrentLevelRelativeIndex();
           scene.scene.restart();

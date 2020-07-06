@@ -12,7 +12,7 @@ import { HUDScene } from './scenes/hud-scene';
 import { DebugScene } from './scenes/debug-scene';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 import { DeathScene } from './scenes/death-scene';
-import { LevelSelectScene } from './scenes/level-select-scene';
+import { OverworldScene } from './scenes/overworld-scene';
 import { LevelSessionPluginConfig } from './plugins/global/level-session-plugin';
 
 class GameScene extends Phaser.Scene {
@@ -51,7 +51,7 @@ const scenes = [
   TitleScene,
   DungeonScene,
   DeathScene,
-  LevelSelectScene,
+  OverworldScene,
 
   HUDScene,
   SfxScene

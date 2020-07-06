@@ -14,12 +14,12 @@ import { Viewport } from '../constants/viewport';
 import { GridTileFactory } from '../grid-maps/grid-tile-factory';
 import { GridObjectFactory } from '../grid-maps/grid-object-factory';
 
-export class LevelSelectScene extends ScoochDungeonScene {
+export class OverworldScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
   public hero!: Entity;
 
   constructor() {
-    super({ key: SCENE_KEYS.LEVEL_SELECT });
+    super({ key: SCENE_KEYS.OVERWORLD });
   }
 
   init() {
@@ -27,7 +27,14 @@ export class LevelSelectScene extends ScoochDungeonScene {
   }
 
   create() {
-    const gridMapFactory = new GridMapFactory(this, new GridTileFactory(this, new GridObjectFactory(this, [])));
+    const gridObjectFactory = new GridObjectFactory(this, []);
+    const gridTileFactory = new GridTileFactory(this, rawProperties => {
+      return {
+        walkable: rawProperties.walkable.reduce((acc, w) => acc && w, true),
+      };
+    }, gridObjectFactory);
+    const gridMapFactory = new GridMapFactory(this, gridTileFactory);
+
     this.gridMap = gridMapFactory.createGridMap('overworld-tileset', 'overworld-tilesheet', 'overworld-000', 0, 0);
 
     const heroStartMarker = this.gridMap.getMarker('entrance');
