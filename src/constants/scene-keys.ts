@@ -1,5 +1,5 @@
 export const SCENE_KEYS = {
-  HUD: 'hud',
+  DUNGEON_HUD: 'dungeon-hud',
   PRELOAD: 'preload',
   BOOT: 'boot',
   DUNGEON: 'dungeon',
@@ -7,5 +7,6 @@ export const SCENE_KEYS = {
   SFX: 'sfx',
   DEBUG: 'debug',
   DEATH: 'death',
-  OVERWORLD: 'overworld'
+  OVERWORLD: 'overworld',
+  OVERWORLD_HUD: 'overworld-hud'
 }

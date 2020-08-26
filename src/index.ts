@@ -8,12 +8,13 @@ import { PersistencePlugin } from './plugins/global/persistence-plugin';
 import { BootScene } from './scenes/boot-scene';
 import { SwipePlugin } from './plugins/scene/swipe-plugin';
 import { SfxScene } from './scenes/sfx-scene';
-import { HUDScene } from './scenes/hud-scene';
+import { DungeonHUDScene } from './scenes/dungeon-hud-scene';
 import { DebugScene } from './scenes/debug-scene';
 import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 import { DeathScene } from './scenes/death-scene';
 import { OverworldScene } from './scenes/overworld-scene';
 import { LevelSessionPluginConfig } from './plugins/global/level-session-plugin';
+import { OverworldHUDScene } from './scenes/overworld-hud-scene';
 
 class GameScene extends Phaser.Scene {
   phecs!: PhecsPlugin;
@@ -53,7 +54,8 @@ const scenes = [
   DeathScene,
   OverworldScene,
 
-  HUDScene,
+  DungeonHUDScene,
+  OverworldHUDScene,
   SfxScene
 ];
 

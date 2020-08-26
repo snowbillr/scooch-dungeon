@@ -37,7 +37,7 @@ export class DamageActorBehavior extends GridTileBehavior {
         scene.cameras.main.fadeOut(500, 0, 0, 0, (camera: any, progress: number) => {
           if (progress >= 0.99) {
             scene.scene.stop();
-            scene.scene.stop(SCENE_KEYS.HUD);
+            scene.scene.stop(SCENE_KEYS.DUNGEON_HUD);
             scene.scene.start(SCENE_KEYS.DEATH);
           }
         })
