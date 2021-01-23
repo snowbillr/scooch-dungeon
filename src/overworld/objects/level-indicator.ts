@@ -4,10 +4,13 @@ import { ScoochDungeonScene } from '../../scenes/scooch-dungeon-scene';
 import { ShowLevelScreenBehavior } from '../behaviors/enter/show-level-screen';
 import { HideLevelScreenBehavior } from '../behaviors/exit/hide-level-screen';
 import { LevelGroup } from '../../levels/level-group';
+import { LevelSelectBox } from '../level-select-box';
 
 export class LevelIndicator extends GridObject {
   private showLevelScreenBehavior: ShowLevelScreenBehavior;
   private hideLevelScreenBehavior: HideLevelScreenBehavior;
+
+  private levelSelectBox: LevelSelectBox;
 
   constructor(
     scene: Phaser.Scene,
@@ -29,5 +32,13 @@ export class LevelIndicator extends GridObject {
 
     this.dungeonTile.addBehavior(GridTileBehaviorType.ENTER, this.showLevelScreenBehavior);
     this.dungeonTile.addBehavior(GridTileBehaviorType.EXIT, this.hideLevelScreenBehavior);
+  }
+
+  showLevelSelect() {
+
+  }
+
+  hideLevelSelect() {
+
   }
 }
