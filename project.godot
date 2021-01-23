@@ -8,16 +8,97 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "FizzyMachine",
+"language": "GDScript",
+"path": "res://addons/fizzy/fizzy_machine.gd"
+}, {
+"base": "Node",
+"class": "FizzyState",
+"language": "GDScript",
+"path": "res://addons/fizzy/fizzy_state.gd"
+} ]
 _global_script_class_icons={
-
+"FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
+"FizzyState": "res://addons/fizzy/fizzy_state_icon.png"
 }
 
 [application]
 
 config/name="scooch-dungeon"
+run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=342
+window/size/height=608
+window/size/resizable=false
+window/handheld/orientation="portrait"
+window/stretch/aspect="keep"
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+quality/2d/use_nvidia_rect_flicker_workaround=true
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

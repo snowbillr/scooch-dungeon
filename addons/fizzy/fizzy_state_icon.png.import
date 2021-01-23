@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/matchup-24.png-f13e66bc90aabd4da79303a2d14670b9.stex"
+path="res://.import/fizzy_state_icon.png-78a7f5eddd08aa03b03c76a33632a2be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fonts/matchup-24.png"
-dest_files=[ "res://.import/matchup-24.png-f13e66bc90aabd4da79303a2d14670b9.stex" ]
+source_file="res://addons/fizzy/fizzy_state_icon.png"
+dest_files=[ "res://.import/fizzy_state_icon.png-78a7f5eddd08aa03b03c76a33632a2be.stex" ]
 
 [params]
 

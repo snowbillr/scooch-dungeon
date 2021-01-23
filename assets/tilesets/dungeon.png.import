@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/matchup-64-white.png-279027fe13d6bb4810d54588dc8a9dfe.stex"
+path="res://.import/dungeon.png-aa16f5d82612e1e90318b58c9dc7f380.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fonts/matchup-64-white.png"
-dest_files=[ "res://.import/matchup-64-white.png-279027fe13d6bb4810d54588dc8a9dfe.stex" ]
+source_file="res://assets/tilesets/dungeon.png"
+dest_files=[ "res://.import/dungeon.png-aa16f5d82612e1e90318b58c9dc7f380.stex" ]
 
 [params]
 
