@@ -1,10 +1,5 @@
-import levels from '../../data/levels.json';
 import { ScoochDungeonScene } from './scooch-dungeon-scene';
 import { SCENE_KEYS } from '../constants/scene-keys';
-import { ProgressDocument } from '../persistence/progress-document';
-import { LevelGroup } from '../levels/level-group';
-import { PlayerStatsDocument } from '../persistence/player-stats-documents';
-import { Dungeon } from '../dungeon/dungeon';
 import { Entity } from 'phecs/dist/entity';
 import { HeroPrefab } from '../prefabs/hero/prefab';
 import { SpriteComponent } from '../components/sprite-component';
@@ -19,10 +14,13 @@ import { GridPositionComponent } from '../components/grid-position-component';
 import { overworldObjectsList } from '../overworld/objects/objects-list';
 import { EnterBehaviors } from '../overworld/behaviors/enter-behaviors';
 import { ExitBehaviors } from '../overworld/behaviors/exit-behaviors';
+import { OverworldHUDScene } from './overworld-hud-scene';
 
 export class OverworldScene extends ScoochDungeonScene {
   public gridMap!: GridMap;
   public hero!: Entity;
+
+  public hud!: OverworldHUDScene;
 
   constructor() {
     super({ key: SCENE_KEYS.OVERWORLD });
@@ -65,6 +63,9 @@ export class OverworldScene extends ScoochDungeonScene {
 
       tile.runBehaviors(GridTileBehaviorType.INPUT, direction);
     });
+
+    this.scene.launch(SCENE_KEYS.OVERWORLD_HUD);
+    this.hud = this.scene.get(SCENE_KEYS.OVERWORLD_HUD) as OverworldHUDScene;
 
     var { x, y, width, height } = this.calculateCameraBounds();
     this.cameras.main.setBounds(x, y, width, height);

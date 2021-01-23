@@ -29,7 +29,7 @@ export class WinBehavior extends GridTileBehavior {
       objectiveSprite?.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, resolve);
     });
 
-    scene.scene.stop(SCENE_KEYS.HUD);
+    scene.scene.stop(SCENE_KEYS.DUNGEON_HUD);
     scene.sfx.pauseLevelMusic();
     objectiveSprite?.anims.play('objective-win');
 

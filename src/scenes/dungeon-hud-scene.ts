@@ -10,14 +10,14 @@ import { ComboMeter } from '../hud/combo-meter';
 
 const VIEWPORT_PADDING = 60;
 
-export class HUDScene extends ScoochDungeonScene {
+export class DungeonHUDScene extends ScoochDungeonScene {
   private collectedCoinsText!: Phaser.GameObjects.BitmapText;
   private totalCoinsText!: Phaser.GameObjects.BitmapText;
   private hearts!: Heart[];
   public comboMeter!: ComboMeter;
 
   constructor() {
-    super({ key: SCENE_KEYS.HUD });
+    super({ key: SCENE_KEYS.DUNGEON_HUD });
   }
 
   create(hudData: any) {

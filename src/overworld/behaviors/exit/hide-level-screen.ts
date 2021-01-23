@@ -1,6 +1,7 @@
 import { GridTileBehavior } from '../../../grid-maps/grid-tile-behavior';
 import { Direction } from '../../../constants/directions';
 import { LevelGroup } from '../../../levels/level-group';
+import { OverworldScene } from '../../../scenes/overworld-scene';
 
 export class HideLevelScreenBehavior extends GridTileBehavior {
   public priority: number = 100;
@@ -11,7 +12,7 @@ export class HideLevelScreenBehavior extends GridTileBehavior {
   }
 
   public run(scene: Phaser.Scene, direction: Direction): boolean {
-    console.log('hide level screen')
+    (scene as OverworldScene).hud.hideLevelScreen();
 
     return false;
   }

@@ -10,7 +10,7 @@ import { StateMachineComponent } from "../components/state-machine-component";
 import { Entity } from "phecs/dist/entity";
 import { Viewport } from "../constants/viewport";
 import { ScoochDungeonScene } from "./scooch-dungeon-scene";
-import { HUDScene } from "./hud-scene";
+import { DungeonHUDScene } from "./dungeon-hud-scene";
 import { SCENE_KEYS } from '../constants/scene-keys';
 import { Depths } from '../constants/depths';
 import { ComboTracker } from '../lib/combo-tracker';
@@ -23,7 +23,7 @@ export class DungeonScene extends ScoochDungeonScene {
   public dungeon!: Dungeon;
   public hero!: Entity;
 
-  public hud!: HUDScene;
+  public hud!: DungeonHUDScene;
 
   private comboTracker: ComboTracker;
 
@@ -83,12 +83,12 @@ export class DungeonScene extends ScoochDungeonScene {
 
     this.sfx.playLevelMusic();
 
-    this.scene.launch(SCENE_KEYS.HUD, {
+    this.scene.launch(SCENE_KEYS.DUNGEON_HUD, {
       totalCoins: this.dungeon.coinCount,
       maxHealth: this.persistence.getDocument<PlayerStatsDocument>('player-stats').getMaxHealth(),
       currentHealth: this.levelSession.getHealth(),
     });
-    this.hud = this.scene.get(SCENE_KEYS.HUD) as HUDScene;
+    this.hud = this.scene.get(SCENE_KEYS.DUNGEON_HUD) as DungeonHUDScene;
   }
 
   public resetLevel() {
