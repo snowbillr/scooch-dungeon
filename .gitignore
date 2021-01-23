@@ -1,4 +1,10 @@
 .cache
 
-node_modules
-dist
+# Phaser specific
+node_modules/
+dist/
+
+# Godot specific
+.import/
+export.cfg
+export_presets.cfg

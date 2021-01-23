@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/die.ogg-54f431e2952219b4ef36b99b37b0cb15.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/die.ogg"
+dest_files=[ "res://.import/die.ogg-54f431e2952219b4ef36b99b37b0cb15.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
