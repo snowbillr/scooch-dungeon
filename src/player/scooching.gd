@@ -9,7 +9,7 @@ func fizzy_enter(data) -> void:
 
 func fizzy_physics_process(delta) -> void:
     target.sprite.animation = "move"
-    var collision = target.body.move_and_collide(direction * speed * delta)
+    var collision = target.move_and_collide(direction * speed * delta)
     if collision != null:
         fsm.transition_to("idle", null)
 
