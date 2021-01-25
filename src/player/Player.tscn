@@ -135,9 +135,14 @@ script = ExtResource( 5 )
 position = Vector2( 0, -12 )
 frames = SubResource( 19 )
 animation = "move"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 20 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0

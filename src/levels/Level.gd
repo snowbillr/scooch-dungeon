@@ -7,6 +7,7 @@ extends Node2D
 
 onready var tilemap = $TileMap
 onready var player = $Player
+onready var camera = $Camera2D
 
 func _on_SwipeDetector_swiped(direction: Vector2) -> void:
     if player.fsm.current_state.name == "idle":

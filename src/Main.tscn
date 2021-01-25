@@ -23,9 +23,6 @@ tile_data = PoolIntArray( 0, 18, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 1
 [node name="Player" parent="World/Level" instance=ExtResource( 2 )]
 position = Vector2( 48, 208 )
 
-[node name="Camera2D" type="Camera2D" parent="World/Level/Player"]
-current = true
-
 [node name="SwipeDetector" type="Node" parent="World/Level"]
 script = ExtResource( 3 )
 [connection signal="swiped" from="World/Level/SwipeDetector" to="World/Level" method="_on_SwipeDetector_swiped"]
