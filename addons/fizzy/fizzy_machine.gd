@@ -19,7 +19,7 @@ func _ready() -> void:
         state.fsm = self
 
     current_state = _get_state_by_name(initial_state_name)
-    current_state.fizzy_enter({})
+    current_state.call_deferred("fizzy_enter", {})
 
 func transition_to(state_name: String, data) -> void:
     current_state_transition_triggers = []

@@ -44,6 +44,10 @@ window/size/resizable=false
 window/handheld/orientation="portrait"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "fizzy" )
+
 [input]
 
 ui_accept={
