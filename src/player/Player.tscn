@@ -2,9 +2,9 @@
 
 [ext_resource path="res://src/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/hero/spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://src/player/idle.gd" type="Script" id=3]
+[ext_resource path="res://src/player/states/idle.gd" type="Script" id=3]
 [ext_resource path="res://addons/fizzy/fizzy_machine.gd" type="Script" id=4]
-[ext_resource path="res://src/player/scooching.gd" type="Script" id=5]
+[ext_resource path="res://src/player/states/scooching.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -29,72 +29,72 @@ region = Rect2( 96, 56, 32, 56 )
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 168, 32, 56 )
+region = Rect2( 0, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 32, 168, 32, 56 )
+region = Rect2( 32, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 64, 168, 32, 56 )
+region = Rect2( 64, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 96, 168, 32, 56 )
+region = Rect2( 96, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 128, 168, 32, 56 )
+region = Rect2( 0, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 160, 168, 32, 56 )
+region = Rect2( 32, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 192, 168, 32, 56 )
+region = Rect2( 64, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 224, 168, 32, 56 )
+region = Rect2( 96, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 256, 168, 32, 56 )
+region = Rect2( 128, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 288, 168, 32, 56 )
+region = Rect2( 160, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 112, 32, 56 )
+region = Rect2( 192, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 32, 112, 32, 56 )
+region = Rect2( 224, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 64, 112, 32, 56 )
+region = Rect2( 256, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 96, 112, 32, 56 )
+region = Rect2( 288, 168, 32, 56 )
 
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
@@ -103,14 +103,14 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
-"loop": true,
-"name": "die",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "move",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "die",
 "speed": 10.0
 } ]
 
@@ -135,14 +135,9 @@ script = ExtResource( 5 )
 position = Vector2( 0, -12 )
 frames = SubResource( 19 )
 animation = "move"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 20 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-smoothing_speed = 10.0

@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/fizzy/fizzy_state.gd"
 }, {
+"base": "Camera2D",
+"class": "PlayerCamera",
+"language": "GDScript",
+"path": "res://src/player/player_camera.gd"
+}, {
 "base": "Node",
 "class": "SwipeDetector",
 "language": "GDScript",
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
 "FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
+"PlayerCamera": "",
 "SwipeDetector": ""
 }
 

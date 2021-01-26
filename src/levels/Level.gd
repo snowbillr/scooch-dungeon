@@ -7,7 +7,11 @@ extends Node2D
 
 onready var tilemap = $TileMap
 onready var player = $Player
-onready var camera = $Camera2D
+var player_camera: PlayerCamera = null
+
+func _ready() -> void:
+    player_camera = PlayerCamera.new()
+    player.add_child(player_camera)
 
 func _on_SwipeDetector_swiped(direction: Vector2) -> void:
     if player.fsm.current_state.name == "idle":
