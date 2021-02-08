@@ -11,9 +11,9 @@ func fizzy_enter(data) -> void:
         target.sprite.flip_h = false
 
     if abs(direction.y) > 0:
-        (target.movement_collision_shape as CollisionShape2D).shape.extents = Vector2(1, 16)
+        target.movement_collision_shape.shape.extents = Vector2(1, 16)
     if abs(direction.x) > 0:
-        (target.movement_collision_shape as CollisionShape2D).shape.extents = Vector2(16, 1)
+        target.movement_collision_shape.shape.extents = Vector2(16, 1)
 
 func fizzy_physics_process(delta) -> void:
     target.sprite.animation = "move"
