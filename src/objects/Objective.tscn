@@ -81,11 +81,11 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorDown"]
 shape = SubResource( 8 )
-[connection signal="body_entered" from="PlayerDetectorLeft" to="." method="_on_PlayerDetectorLeft_body_entered"]
+[connection signal="body_entered" from="PlayerDetectorLeft" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( -1, 0 ) ]]
 [connection signal="body_exited" from="PlayerDetectorLeft" to="." method="_on_PlayerDetector_body_exited"]
-[connection signal="body_entered" from="PlayerDetectorRight" to="." method="_on_PlayerDetectorRight_body_entered"]
+[connection signal="body_entered" from="PlayerDetectorRight" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( 1, 0 ) ]]
 [connection signal="body_exited" from="PlayerDetectorRight" to="." method="_on_PlayerDetector_body_exited"]
-[connection signal="body_entered" from="PlayerDetectorUp" to="." method="_on_PlayerDetectorUp_body_entered"]
+[connection signal="body_entered" from="PlayerDetectorUp" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( 0, -1 ) ]]
 [connection signal="body_exited" from="PlayerDetectorUp" to="." method="_on_PlayerDetector_body_exited"]
-[connection signal="body_entered" from="PlayerDetectorDown" to="." method="_on_PlayerDetectorDown_body_entered"]
+[connection signal="body_entered" from="PlayerDetectorDown" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( 0, 1 ) ]]
 [connection signal="body_exited" from="PlayerDetectorDown" to="." method="_on_PlayerDetector_body_exited"]
