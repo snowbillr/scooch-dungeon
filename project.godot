@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "FizzyState",
 "language": "GDScript",
 "path": "res://addons/fizzy/fizzy_state.gd"
-}, {
-"base": "Node",
-"class": "SwipeDetector",
-"language": "GDScript",
-"path": "res://src/input/swipe_detector.gd"
 } ]
 _global_script_class_icons={
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
-"FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
-"SwipeDetector": ""
+"FizzyState": "res://addons/fizzy/fizzy_state_icon.png"
 }
 
 [application]
@@ -35,6 +29,10 @@ _global_script_class_icons={
 config/name="scooch-dungeon"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SwipeDetector="*res://src/input/swipe_detector.gd"
 
 [display]
 
@@ -110,7 +108,8 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="walls"
+2d_physics/layer_2="movement"
+2d_physics/layer_3="detectors"
 
 [rendering]
 

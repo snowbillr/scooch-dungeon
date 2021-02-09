@@ -2,8 +2,8 @@
 
 [ext_resource path="res://tilesets/dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/input/swipe_detector.gd" type="Script" id=3]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=4]
+[ext_resource path="res://src/objects/Objective.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
 
@@ -23,6 +23,6 @@ tile_data = PoolIntArray( 0, 18, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 1
 [node name="Player" parent="World/Level" instance=ExtResource( 2 )]
 position = Vector2( 48, 208 )
 
-[node name="SwipeDetector" type="Node" parent="World/Level"]
-script = ExtResource( 3 )
-[connection signal="swiped" from="World/Level/SwipeDetector" to="World/Level" method="_on_SwipeDetector_swiped"]
+[node name="Objective" parent="World/Level" instance=ExtResource( 5 )]
+position = Vector2( 176, 208 )
+player_path = NodePath("../Player")

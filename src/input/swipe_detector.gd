@@ -1,7 +1,5 @@
 extends Node
 
-class_name SwipeDetector
-
 signal swiped
 
 const MOVEMENT_THRESHOLD = 100

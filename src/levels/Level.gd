@@ -9,7 +9,7 @@ onready var tilemap = $TileMap
 onready var player = $Player
 
 func _ready() -> void:
-   pass
+   SwipeDetector.connect("swiped", self, "_on_SwipeDetector_swiped")
 
 func _on_SwipeDetector_swiped(direction: Vector2) -> void:
     if player.fsm.current_state.name == "idle":
