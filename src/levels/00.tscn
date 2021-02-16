@@ -12,4 +12,3 @@ position = Vector2( 48, 304 )
 
 [node name="Objective" parent="." index="2"]
 position = Vector2( 272, 304 )
-player_path = NodePath("../Player")

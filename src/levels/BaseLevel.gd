@@ -2,9 +2,11 @@ extends Node2D
 
 onready var player = $Player
 onready var tilemap = $TileMap as TileMap
+onready var objective = $Objective
 
 func _ready() -> void:
-    print("level ready")
+    objective.player = player
+
     var tilemap_limits = tilemap.get_used_rect()
     var cell_size = tilemap.cell_size
     var camera = player.get_node("Camera2D") as Camera2D

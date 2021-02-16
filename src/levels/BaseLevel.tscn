@@ -21,4 +21,3 @@ position = Vector2( 48, 240 )
 
 [node name="Objective" parent="." instance=ExtResource( 2 )]
 position = Vector2( 272, 336 )
-player_path = NodePath("../../BaseLevel/Player")
