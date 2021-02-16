@@ -139,7 +139,6 @@ animation = "move"
 frame = 3
 
 [node name="MovementCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 1 )
 shape = SubResource( 20 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
