@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "FizzyState",
 "language": "GDScript",
 "path": "res://addons/fizzy/fizzy_state.gd"
+}, {
+"base": "Resource",
+"class": "LevelSet",
+"language": "GDScript",
+"path": "res://resources/level_set.gd"
 } ]
 _global_script_class_icons={
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
-"FizzyState": "res://addons/fizzy/fizzy_state_icon.png"
+"FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
+"LevelSet": ""
 }
 
 [application]
