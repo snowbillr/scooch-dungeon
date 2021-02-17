@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+signal completed
+
 onready var swipe_indicator = $SwipeIndicator
 
 var player
@@ -19,4 +21,4 @@ func _on_PlayerDetector_body_exited(body: Node) -> void:
 
 func _on_SwipeDetector_swiped(direction) -> void:
     if touching_direction == direction * Vector2(-1, -1):
-        print("complete!")
+        emit_signal("completed")

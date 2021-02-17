@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/Objective.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/BaseLevel.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/HopeGold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://tilesets/dungeon.tres" type="TileSet" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0.145098, 0.0117647, 0.109804, 1 )
+font_data = ExtResource( 4 )
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 3 )
@@ -21,3 +28,36 @@ position = Vector2( 48, 240 )
 
 [node name="Objective" parent="." instance=ExtResource( 2 )]
 position = Vector2( 272, 336 )
+
+[node name="LevelMessageLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="LevelMessageLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelMessage" type="Label" parent="LevelMessageLayer/UI"]
+anchor_left = 0.5
+anchor_top = -0.211
+anchor_right = 0.5
+anchor_bottom = -0.211
+margin_left = -112.0
+margin_top = 0.28801
+margin_right = 112.0
+margin_bottom = 1192.29
+custom_fonts/font = SubResource( 1 )
+text = "Level message goes here"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageTween" type="Tween" parent="LevelMessageLayer/UI/LevelMessage"]
+
+[node name="MessagePauseTimer" type="Timer" parent="LevelMessageLayer/UI/LevelMessage"]
+one_shot = true
+[connection signal="completed" from="Objective" to="." method="_on_Objective_completed"]
