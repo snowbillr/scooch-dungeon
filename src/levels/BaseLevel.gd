@@ -1,5 +1,7 @@
 extends Node2D
 
+signal completed
+
 onready var player = $Player
 onready var tilemap = $TileMap as TileMap
 onready var objective = $Objective
@@ -30,4 +32,4 @@ func _ready() -> void:
     message_tween.start()
 
 func _on_Objective_completed() -> void:
-    print("level knows it was completed")
+    emit_signal("completed")
