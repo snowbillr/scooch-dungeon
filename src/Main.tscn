@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://data/level_sets/00.tres" type="Resource" id=1]
-[ext_resource path="res://src/levels/level_set_runner.gd" type="Script" id=2]
+[ext_resource path="res://src/Main.gd" type="Script" id=1]
 
 [node name="Main" type="Node"]
-
-[node name="World" type="Node2D" parent="."]
-
-[node name="LevelSetRunner" type="Node2D" parent="World"]
-script = ExtResource( 2 )
-level_set = ExtResource( 1 )
+script = ExtResource( 1 )
