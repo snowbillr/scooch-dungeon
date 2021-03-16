@@ -11,14 +11,12 @@
 ]]
 texture = ExtResource( 5 )
 hframes = 4
-frame = 3
 script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 0.333333 )
 show_behind_parent = true
 texture = ExtResource( 3 )
-offset = Vector2( -16, 0 )
 
 [node name="PlayerDetector" parent="." instance=ExtResource( 1 )]
 

@@ -43,9 +43,6 @@ func _set_wall(wall) -> void:
             frame = 3
             Shadow.offset = Vector2.LEFT * 16
 
-func _set_connecting_door(value) -> void:
-    connecting_door = get_node_or_null(value)
-
 func _on_PlayerDetector_player_detected_from(from_direction) -> void:
     touching_from = from_direction
     SwipeIndicator.show_from_direction(from_direction)
