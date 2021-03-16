@@ -11,3 +11,4 @@ func _on_Door_activated_door(door) -> void:
     print("going to transfer player")
     var connecting_door = door.connecting_door
     Player.global_position = connecting_door.global_position + connecting_door.get_transfer_offset()
+    Player.fsm.call_deferred("transition_to", "idle", {})
