@@ -28,9 +28,8 @@ animations = [ {
 } ]
 
 [node name="SwipeIndicator" type="Node2D"]
+z_index = 2
 script = ExtResource( 2 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="IndicatorDown" type="AnimatedSprite" parent="."]
 visible = false
