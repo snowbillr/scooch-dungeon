@@ -12,7 +12,6 @@ var touching_from = null
 
 func _ready() -> void:
     _set_wall(wall)
-    SwipeDetector.connect("swiped", self, "_on_SwipeDetector_swiped")
 
 func get_transfer_offset() -> Vector2:
     var offset = 32
@@ -30,9 +29,6 @@ func get_transfer_offset() -> Vector2:
     return Vector2.ZERO
 
 func _set_wall(wall) -> void:
-    print("setting wall")
-    print('to value %s' % wall)
-
     match wall:
         "top":
             frame = 0
@@ -58,7 +54,9 @@ func _on_PlayerDetector_player_lost() -> void:
     touching_from = null
     SwipeIndicator.hide_indicator()
 
-func _on_SwipeDetector_swiped(direction) -> void:
-    if touching_from != null && direction == touching_from * -1:
-        emit_signal("activated_door", self)
-#        get_tree().set_input_as_handled()
+func _input(event) -> void:
+    if event is InputSwipeEvent:
+        if touching_from != null && event.direction == touching_from * -1:
+            print("door got swipe")
+            emit_signal("activated_door", self)
+            get_tree().set_input_as_handled()
