@@ -10,12 +10,11 @@ var touching_direction = null
 func _ready() -> void:
     SwipeDetector.connect("swiped", self, "_on_SwipeDetector_swiped")
 
-func _on_PlayerDetector_body_entered(body: Node, from_direction: Vector2) -> void:
-    if body == player:
-        swipe_indicator.show_from_direction(from_direction)
-        touching_direction = from_direction
+func _on_PlayerDetector_player_detected_from(from_direction) -> void:
+    swipe_indicator.show_from_direction(from_direction)
+    touching_direction = from_direction
 
-func _on_PlayerDetector_body_exited(body: Node) -> void:
+func _on_PlayerDetector_player_lost() -> void:
     swipe_indicator.hide_indicator()
     touching_direction = null
 

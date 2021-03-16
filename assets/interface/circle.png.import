@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/swipe-indicator.png-f7279e3c32d4f2ac18d794232110db68.stex"
+path="res://.import/circle.png-be1af2f06981bfc2cc81d4309ca20a73.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/swipe-indicator.png"
-dest_files=[ "res://.import/swipe-indicator.png-f7279e3c32d4f2ac18d794232110db68.stex" ]
+source_file="res://assets/interface/circle.png"
+dest_files=[ "res://.import/circle.png-be1af2f06981bfc2cc81d4309ca20a73.stex" ]
 
 [params]
 
