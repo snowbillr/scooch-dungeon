@@ -23,7 +23,7 @@ wall = "right"
 connecting_door = NodePath("../../Room2/Door")
 
 [node name="Room2" type="Node2D" parent="."]
-position = Vector2( 432, 0 )
+position = Vector2( 336, 0 )
 
 [node name="TileMap" type="TileMap" parent="Room2"]
 tile_set = ExtResource( 1 )

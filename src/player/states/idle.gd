@@ -8,5 +8,6 @@ func fizzy_enter(data) -> void:
     SwipeDetector.connect("swiped", self, "_on_SwipeDetector_swiped")
 
 func _on_SwipeDetector_swiped(direction: Vector2) -> void:
+    print("player starting to move")
     SwipeDetector.disconnect("swiped", self, "_on_SwipeDetector_swiped")
     fsm.transition_to("scooching", direction)

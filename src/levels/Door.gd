@@ -61,3 +61,4 @@ func _on_PlayerDetector_player_lost() -> void:
 func _on_SwipeDetector_swiped(direction) -> void:
     if touching_from != null && direction == touching_from * -1:
         emit_signal("activated_door", self)
+#        get_tree().set_input_as_handled()
