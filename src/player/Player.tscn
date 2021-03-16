@@ -126,7 +126,7 @@ frame = 3
 [node name="MovementCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 20 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
 smoothing_speed = 9.0

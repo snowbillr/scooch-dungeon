@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilesets/dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
@@ -6,13 +6,46 @@
 [ext_resource path="res://src/objects/Objective.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/levels/BaseLevelWithRooms.gd" type="Script" id=5]
 
+[sub_resource type="Animation" id=1]
+resource_name = "transition_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:anchor_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
 [node name="BaseLevelWithRooms" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 304 )
 
-[node name="Room" type="Node2D" parent="."]
+[node name="Room" type="Node2D" parent="." groups=[
+"rooms",
+]]
 
 [node name="TileMap" type="TileMap" parent="Room"]
 tile_set = ExtResource( 1 )
@@ -26,7 +59,9 @@ position = Vector2( 272, 304 )
 wall = "right"
 connecting_door = NodePath("../../Room2/Door")
 
-[node name="Room2" type="Node2D" parent="."]
+[node name="Room2" type="Node2D" parent="." groups=[
+"rooms",
+]]
 position = Vector2( 336, 0 )
 
 [node name="TileMap" type="TileMap" parent="Room2"]
@@ -43,3 +78,16 @@ connecting_door = NodePath("../../Room/Door")
 
 [node name="Objective" parent="Room2" instance=ExtResource( 4 )]
 position = Vector2( 240, 304 )
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+anims/transition_in = SubResource( 1 )
+anims/transition_out = SubResource( 2 )
