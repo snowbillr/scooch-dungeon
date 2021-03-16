@@ -24,3 +24,5 @@ func _on_Door_activated_door(door) -> void:
     # This might mean redoing the SwipeDetector to give an `swiped` action to the parsed input
     # and using `Input.is_action_pressed` in the player fsm and anywhere else we care about swipes.
     # Then we aren't using signals for input but the actual `Input` singleton itself.
+
+    # Or maybe rather than an `action` and `pressed` we just use the `_input` callback on the nodes that care.
