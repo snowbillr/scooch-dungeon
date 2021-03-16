@@ -21,6 +21,8 @@ func _on_Door_activated_door(door, direction) -> void:
     var connecting_door = door.connecting_door
     var connecting_room = connecting_door.get_parent()
 
+    # TODO - this animation method seems to not work great. the rect is shifted
+    # after the first transition. is there a different property we can animate instead?
     TransitionAnimationPlayer.play("transition_out")
     yield(TransitionAnimationPlayer, "animation_finished")
 
