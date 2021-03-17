@@ -69,3 +69,4 @@ connecting_door = NodePath("../../Room2/DoorDown")
 
 [node name="Objective" parent="Room3" instance=ExtResource( 4 )]
 position = Vector2( 240, 336 )
+[connection signal="activated" from="Room3/Objective" to="." method="_on_Objective_activated"]

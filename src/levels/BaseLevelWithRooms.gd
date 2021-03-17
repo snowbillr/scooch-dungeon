@@ -2,6 +2,8 @@ extends Node2D
 
 var Transition = preload("res://src/levels/Transition.tscn")
 
+signal level_completed
+
 onready var Player = $Player
 
 func _ready() -> void:
@@ -41,3 +43,6 @@ func _on_Door_activated_door(door, direction) -> void:
     transition.queue_free()
 
     Player.camera.smoothing_enabled = true
+
+func _on_Objective_activated() -> void:
+    emit_signal("level_completed")
