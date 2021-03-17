@@ -24,7 +24,7 @@ func _on_Door_activated_door(door, direction) -> void:
 
     var transition = Transition.instance()
     add_child(transition)
-    transition.begin()
+    transition.begin(direction)
     yield(transition, "at_midpoint")
 #    Player.camera.transition()
 #    yield(Player.camera, "transition_halfway_finished")

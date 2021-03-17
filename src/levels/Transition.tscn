@@ -1,7 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/levels/Transition.gd" type="Script" id=1]
 [ext_resource path="res://assets/transitions/transition-edge.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "left-begin"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "left-finish"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -480, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "right-begin"
@@ -43,6 +75,8 @@ script = ExtResource( 1 )
 [node name="Overlay" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -480.0
+margin_right = -480.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,5 +95,7 @@ flip_h = true
 flip_v = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/left-begin = SubResource( 3 )
+anims/left-finish = SubResource( 4 )
 anims/right-begin = SubResource( 1 )
 anims/right-finish = SubResource( 2 )
