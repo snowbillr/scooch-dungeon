@@ -23,23 +23,11 @@ _global_script_classes=[ {
 "class": "InputSwipeEvent",
 "language": "GDScript",
 "path": "res://src/input/InputSwipeEvent.gd"
-}, {
-"base": "Resource",
-"class": "LevelSet",
-"language": "GDScript",
-"path": "res://resources/level_set.gd"
-}, {
-"base": "Node2D",
-"class": "LevelSetRunner",
-"language": "GDScript",
-"path": "res://src/levels/level_set_runner.gd"
 } ]
 _global_script_class_icons={
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
 "FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
-"InputSwipeEvent": "",
-"LevelSet": "",
-"LevelSetRunner": ""
+"InputSwipeEvent": ""
 }
 
 [application]
