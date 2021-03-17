@@ -32,10 +32,10 @@ func _set_wall(wall) -> void:
     match wall:
         "top":
             frame = 0
-            Shadow.offset = Vector2.UP * 16
+            Shadow.offset = Vector2.DOWN * 16
         "bottom":
             frame = 1
-            Shadow.offset = Vector2.DOWN * 16
+            Shadow.offset = Vector2.UP * 16
         "left":
             frame = 2
             Shadow.offset = Vector2.RIGHT * 16
