@@ -10,7 +10,7 @@ func _ready() -> void:
     add_child(main_menu)
 
 func _on_MainMenu_level_selected(level_set_name) -> void:
-    current_level = load("res://src/levels/BaseLevelWithRooms.tscn").instance()
+    current_level = load("res://src/levels/BaseLevel.tscn").instance()
     current_level.connect("level_completed", self, "_on_Level_completed")
 
     add_child(current_level)
