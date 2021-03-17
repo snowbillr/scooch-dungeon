@@ -26,8 +26,6 @@ func _on_Door_activated_door(door, direction) -> void:
     add_child(transition)
     transition.begin(direction)
     yield(transition, "at_midpoint")
-#    Player.camera.transition()
-#    yield(Player.camera, "transition_halfway_finished")
 
     Player.camera.smoothing_enabled = false
     Player.camera.limit_to_room(connecting_room)
