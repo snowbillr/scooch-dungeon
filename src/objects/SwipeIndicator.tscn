@@ -4,22 +4,18 @@
 [ext_resource path="res://src/objects/SwipeIndicator.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 32, 32 )
 
@@ -32,6 +28,7 @@ animations = [ {
 } ]
 
 [node name="SwipeIndicator" type="Node2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="IndicatorDown" type="AnimatedSprite" parent="."]

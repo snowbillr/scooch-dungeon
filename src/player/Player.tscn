@@ -1,98 +1,82 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/hero/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://src/player/states/idle.gd" type="Script" id=3]
 [ext_resource path="res://addons/fizzy/fizzy_machine.gd" type="Script" id=4]
 [ext_resource path="res://src/player/states/scooching.gd" type="Script" id=5]
+[ext_resource path="res://src/player/Camera.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 56, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 56, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 56, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 56, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=10]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=11]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=12]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=13]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 128, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=14]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 160, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=15]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 192, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=16]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 224, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=17]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 256, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=18]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 288, 168, 32, 56 )
 
@@ -117,7 +101,42 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 16, 16 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="Animation" id=21]
+resource_name = "right-end"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 328, 0 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "right-start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -328, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+z_index = 1
 collision_mask = 2
 script = ExtResource( 1 )
 
@@ -141,7 +160,18 @@ frame = 3
 [node name="MovementCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 20 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
 smoothing_speed = 9.0
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/right-end = SubResource( 21 )
+anims/right-start = SubResource( 22 )
+
+[node name="icon" type="Sprite" parent="Camera"]
+visible = false
+position = Vector2( 328, 0 )
+scale = Vector2( 5.1713, 9.54501 )
+texture = ExtResource( 7 )

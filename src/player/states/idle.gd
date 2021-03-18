@@ -5,8 +5,13 @@ func fizzy_enter(data) -> void:
     target.sprite.playing = true
     target.movement_collision_shape.shape.extents = Vector2(16, 16)
 
-    SwipeDetector.connect("swiped", self, "_on_SwipeDetector_swiped")
+    if data.has("direction"):
+        match data.direction:
+            Vector2.LEFT:
+                target.sprite.flip_h = true
+            Vector2.RIGHT:
+                target.sprite.flip_h = false
 
-func _on_SwipeDetector_swiped(direction: Vector2) -> void:
-    SwipeDetector.disconnect("swiped", self, "_on_SwipeDetector_swiped")
-    fsm.transition_to("scooching", direction)
+func fizzy_input(event) -> void:
+    if event is InputSwipeEvent:
+        fsm.transition_to("scooching", event.direction)

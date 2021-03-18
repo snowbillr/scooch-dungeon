@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseTransition",
+"language": "GDScript",
+"path": "res://src/transitions/BaseTransition.gd"
+}, {
 "base": "Node",
 "class": "FizzyMachine",
 "language": "GDScript",
@@ -19,21 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/fizzy/fizzy_state.gd"
 }, {
-"base": "Resource",
-"class": "LevelSet",
+"base": "InputEventAction",
+"class": "InputSwipeEvent",
 "language": "GDScript",
-"path": "res://resources/level_set.gd"
-}, {
-"base": "Node2D",
-"class": "LevelSetRunner",
-"language": "GDScript",
-"path": "res://src/levels/level_set_runner.gd"
+"path": "res://src/input/InputSwipeEvent.gd"
 } ]
 _global_script_class_icons={
+"BaseTransition": "",
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
 "FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
-"LevelSet": "",
-"LevelSetRunner": ""
+"InputSwipeEvent": ""
 }
 
 [application]

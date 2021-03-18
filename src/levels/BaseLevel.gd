@@ -1,35 +1,46 @@
 extends Node2D
 
-signal completed
+onready var transition = $SwipeTransition
 
-onready var player = $Player
-onready var tilemap = $TileMap as TileMap
-onready var objective = $Objective
+signal level_completed
 
-onready var message = $LevelMessageLayer/UI/LevelMessage
-onready var message_tween = $LevelMessageLayer/UI/LevelMessage/MessageTween as Tween
-onready var message_pause_timer = $LevelMessageLayer/UI/LevelMessage/MessagePauseTimer as Timer
+onready var Player = $Player
 
 func _ready() -> void:
-    objective.player = player
+    var rooms = get_tree().get_nodes_in_group("rooms")
+    var first_room = rooms[0]
+    for room in rooms:
+        room.visible = false
+    first_room.visible = true
 
-    var tilemap_limits = tilemap.get_used_rect()
-    var cell_size = tilemap.cell_size
-    var camera = player.get_node("Camera2D") as Camera2D
-    camera.limit_left = tilemap_limits.position.x * cell_size.x
-    camera.limit_top = tilemap_limits.position.y * cell_size.y
-    camera.limit_right = tilemap_limits.end.x * cell_size.x
-    camera.limit_bottom = tilemap_limits.end.y * cell_size.y
+    Player.camera.limit_to_room(first_room)
 
-    message_tween.interpolate_property(message, "margin_top", -message.rect_size.y, get_viewport_rect().size.y / 2, 1.5, Tween.TRANS_QUAD, Tween.EASE_OUT)
-    message_tween.start()
-    yield(message_tween, "tween_completed")
+    var doors = get_tree().get_nodes_in_group("doors")
+    for door in doors:
+        door.connect("activated_door", self, "_on_Door_activated_door")
 
-    message_pause_timer.start()
-    yield(message_pause_timer, "timeout")
+func _on_Door_activated_door(door, direction) -> void:
+    var rooms = get_tree().get_nodes_in_group("rooms")
+    var connecting_door = door.connecting_door
+    var connecting_room = connecting_door.get_parent()
 
-    message_tween.interpolate_property(message, "margin_top", message.margin_top, message.rect_size.y + get_viewport_rect().size.y, 1.5, Tween.TRANS_QUAD, Tween.EASE_IN)
-    message_tween.start()
+    transition.direction = direction
+    transition.begin()
+    yield(transition, "at_midpoint")
 
-func _on_Objective_completed() -> void:
-    emit_signal("completed")
+    Player.camera.smoothing_enabled = false
+    Player.camera.limit_to_room(connecting_room)
+
+    for room in rooms:
+        room.visible = connecting_room.get_instance_id() == room.get_instance_id()
+
+    Player.global_position = connecting_door.global_position + connecting_door.get_transfer_offset()
+    Player.fsm.transition_to("idle", { "direction": direction })
+
+    transition.finish()
+    yield(transition, "finished")
+
+    Player.camera.smoothing_enabled = true
+
+func _on_Objective_activated() -> void:
+    emit_signal("level_completed")
