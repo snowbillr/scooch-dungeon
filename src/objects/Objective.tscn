@@ -28,9 +28,9 @@ region = Rect2( 128, 0, 32, 32 )
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
-"speed": 8.0
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
