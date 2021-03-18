@@ -5,7 +5,7 @@
 [ext_resource path="res://src/objects/Objective.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/levels/BaseLevel.gd" type="Script" id=5]
-[ext_resource path="res://src/levels/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/transitions/SwipeTransition.tscn" type="PackedScene" id=6]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -71,6 +71,5 @@ connecting_door = NodePath("../../../BaseLevel/Room2/DoorDown")
 [node name="Objective" parent="Room3" instance=ExtResource( 3 )]
 position = Vector2( 240, 336 )
 
-[node name="Transition" parent="." instance=ExtResource( 6 )]
-position = Vector2( -528, -192 )
+[node name="SwipeTransition" parent="." instance=ExtResource( 6 )]
 [connection signal="activated" from="Room3/Objective" to="." method="_on_Objective_activated"]

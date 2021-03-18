@@ -1,7 +1,6 @@
 extends Node2D
 
-#var Transition = preload("res://src/levels/Transition.tscn")
-onready var transition = $Transition
+onready var transition = $SwipeTransition
 
 signal level_completed
 
@@ -25,7 +24,8 @@ func _on_Door_activated_door(door, direction) -> void:
     var connecting_door = door.connecting_door
     var connecting_room = connecting_door.get_parent()
 
-    transition.begin(direction)
+    transition.direction = direction
+    transition.begin()
     yield(transition, "at_midpoint")
 
     Player.camera.smoothing_enabled = false

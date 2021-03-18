@@ -1,18 +1,9 @@
-extends Node2D
+extends BaseTransition
 
-signal at_midpoint
-signal finished
-
-onready var overlay = $CanvasLayer/Overlay
-onready var animation_player = $AnimationPlayer
-
+var direction: Vector2 setget _assign_prefix_from_direction
 var animation_prefix = ""
 
-func _ready() -> void:
-    overlay.visible = false
-
-func begin(direction: Vector2):
-    _assign_prefix_from_direction(direction)
+func begin():
     overlay.visible = true
 
     animation_player.play("%s-begin" % animation_prefix)
