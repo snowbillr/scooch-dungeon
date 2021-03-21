@@ -37,6 +37,7 @@ animations = [ {
 extents = Vector2( 16, 16 )
 
 [node name="Objective" type="StaticBody2D"]
+z_index = 1
 collision_layer = 2
 script = ExtResource( 2 )
 
