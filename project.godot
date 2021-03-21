@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "InputSwipeEvent",
 "language": "GDScript",
 "path": "res://src/input/InputSwipeEvent.gd"
+}, {
+"base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://src/levels/BaseRoom.gd"
 } ]
 _global_script_class_icons={
 "BaseTransition": "",
 "FizzyMachine": "res://addons/fizzy/fizzy_machine_icon.png",
 "FizzyState": "res://addons/fizzy/fizzy_state_icon.png",
-"InputSwipeEvent": ""
+"InputSwipeEvent": "",
+"Room": ""
 }
 
 [application]
