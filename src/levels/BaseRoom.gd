@@ -8,12 +8,13 @@ func _ready() -> void:
 
 func get_limits_for_camera():
     var map_rect: Rect2 = map.get_used_rect()
+    var cell_size: Vector2 = map.cell_size
 
     return CameraLimit.new(
         position.x,
-        position.x + map_rect.end.x,
+        position.x + (map_rect.end.x * cell_size.x),
         position.y,
-        position.y + map_rect.end.y
+        position.y + (map_rect.end.y * cell_size.y)
     )
 
 class CameraLimit:

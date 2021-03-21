@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/objects/Objective.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/levels/BaseLevel.gd" type="Script" id=5]
 [ext_resource path="res://src/transitions/SwipeTransition.tscn" type="PackedScene" id=6]
@@ -46,7 +47,11 @@ position = Vector2( 176, 176 )
 wall = "top"
 connecting_door = NodePath("../../Room2/DoorBottom")
 
+[node name="Objective" parent="Room3" instance=ExtResource( 3 )]
+position = Vector2( 176, 368 )
+
 [node name="SwipeTransition" parent="." instance=ExtResource( 6 )]
+[connection signal="activated" from="Room3/Objective" to="." method="_on_Objective_activated"]
 
 [editable path="Room2"]
 
