@@ -11,7 +11,19 @@ func _ready() -> void:
     overlay.visible = false
 
 func begin() -> void:
-    pass
+    animation_player.play(_get_begin_animation_name())
+    yield(animation_player, "animation_finished")
+
+    emit_signal("at_midpoint")
 
 func finish() -> void:
-    pass
+    animation_player.play(_get_finish_animation_name())
+    yield(animation_player, "animation_finished")
+
+    emit_signal("finished")
+
+func _get_begin_animation_name() -> String:
+    return "begin"
+
+func _get_finish_animation_name() -> String:
+    return "finish"

@@ -1,17 +1,31 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/transitions/transition-edge.png" type="Texture" id=1]
-[ext_resource path="res://src/transitions/SwipeTransition.gd" type="Script" id=2]
+[ext_resource path="res://src/transitions/BaseTransition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/transitions/transition-edge.png" type="Texture" id=2]
+[ext_resource path="res://src/transitions/SwipeTransition.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
+resource_name = "down-begin"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -19,14 +33,27 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+resource_name = "down-finish"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -34,14 +61,27 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+resource_name = "left-begin"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -49,6 +89,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+resource_name = "left-finish"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
@@ -62,16 +103,40 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -480, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -81,12 +146,24 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -96,12 +173,24 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/0/path = NodePath("CanvasLayer/Overlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -122,48 +211,56 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -768 ) ]
 }
-
-[node name="SwipeTransition" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Overlay" type="ColorRect" parent="CanvasLayer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -768.0
-margin_bottom = -768.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Overlay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
-[node name="EdgeLeft" type="Sprite" parent="CanvasLayer/Overlay"]
+[node name="SwipeTransition" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Overlay" parent="CanvasLayer" index="0"]
+visible = true
+margin_left = -480.0
+margin_right = -480.0
+
+[node name="EdgeLeft" type="Sprite" parent="CanvasLayer/Overlay" index="0"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -80, 304 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
-[node name="EdgeRight" type="Sprite" parent="CanvasLayer/Overlay"]
+[node name="EdgeRight" type="Sprite" parent="CanvasLayer/Overlay" index="1"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 400, 304 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 flip_h = true
 flip_v = true
 
-[node name="EdgeTop" type="Sprite" parent="CanvasLayer/Overlay"]
+[node name="EdgeTop" type="Sprite" parent="CanvasLayer/Overlay" index="2"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 128, -80 )
-rotation = 1.5708
-texture = ExtResource( 1 )
-
-[node name="EdgeBottom" type="Sprite" parent="CanvasLayer/Overlay"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 144, 688 )
+position = Vector2( 176, -80 )
 rotation = -1.5708
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
+flip_h = true
+flip_v = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="EdgeBottom" type="Sprite" parent="CanvasLayer/Overlay" index="3"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 176, 688 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+flip_h = true
+flip_v = true
+
+[node name="AnimationPlayer" parent="." index="1"]
 anims/down-begin = SubResource( 1 )
 anims/down-finish = SubResource( 2 )
 anims/left-begin = SubResource( 3 )

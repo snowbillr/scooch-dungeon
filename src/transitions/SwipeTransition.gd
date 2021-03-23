@@ -1,24 +1,15 @@
 extends BaseTransition
 
-var direction: Vector2 setget _assign_prefix_from_direction
-var animation_prefix = ""
+var direction: Vector2 setget _assign_animation_prefix_from_direction
+var animation_prefix: String
 
-func begin():
-    overlay.visible = true
+func _get_begin_animation_name() -> String:
+    return "%s-begin" % animation_prefix
 
-    animation_player.play("%s-begin" % animation_prefix)
-    yield(animation_player, "animation_finished")
+func _get_finish_animation_name() -> String:
+    return "%s-finish" % animation_prefix
 
-    emit_signal("at_midpoint")
-
-func finish():
-    animation_player.play("%s-finish" % animation_prefix)
-    yield(animation_player, "animation_finished")
-
-    overlay.visible = false
-    emit_signal("finished")
-
-func _assign_prefix_from_direction(direction: Vector2):
+func _assign_animation_prefix_from_direction(direction: Vector2):
     match direction:
         Vector2.RIGHT:
             animation_prefix = "right"
