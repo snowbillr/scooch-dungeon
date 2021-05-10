@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/level-reset.mp3-f90a6ae60d97322eaa4b62218a9c6c61.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level-reset.mp3"
+dest_files=[ "res://.import/level-reset.mp3-f90a6ae60d97322eaa4b62218a9c6c61.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
