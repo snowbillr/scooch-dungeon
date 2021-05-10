@@ -15,7 +15,7 @@ func _input(event):
 			yield(animated_sprite, "animation_finished")
 			emit_signal("activated")
 
-func _on_PlayerDetector_player_detected_from(from_direction) -> void:
+func _on_PlayerDetector_player_detected_from(player, from_direction) -> void:
 	swipe_indicator.show_from_direction(from_direction)
 	touching_direction = from_direction
 
