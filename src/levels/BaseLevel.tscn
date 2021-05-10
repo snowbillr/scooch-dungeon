@@ -51,8 +51,8 @@ wall = "top"
 connecting_door = NodePath("../../Room2/DoorBottom")
 
 [node name="SwipeTransition" parent="." instance=ExtResource( 1 )]
+
 [connection signal="activated" from="Objective" to="." method="_on_Objective_activated"]
 
 [editable path="Room2"]
-
 [editable path="Room3"]
