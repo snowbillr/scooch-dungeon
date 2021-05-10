@@ -14,9 +14,10 @@ func fizzy_enter(data) -> void:
 		target.movement_collision_shape.shape.extents = Vector2(1, 16)
 	if abs(direction.x) > 0:
 		target.movement_collision_shape.shape.extents = Vector2(16, 1)
+		
+	target.sprite.animation = "move"
 
 func fizzy_physics_process(delta) -> void:
-	target.sprite.animation = "move"
 	var collision = target.move_and_collide(direction * speed * delta)
 	if collision != null:
 		fsm.transition_to("idle", {})
