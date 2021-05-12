@@ -7,11 +7,11 @@
 [node name="Stopper" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="PlayerDetector" parent="." instance=ExtResource( 1 )]
-distance = 0
-
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.247059 )
 texture = ExtResource( 3 )
+
+[node name="PlayerDetector" parent="." instance=ExtResource( 1 )]
+distance = 0
 
 [connection signal="player_detected" from="PlayerDetector" to="." method="_on_PlayerDetector_player_detected"]
