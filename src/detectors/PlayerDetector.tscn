@@ -1,8 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/detectors/PlayerDetector.gd" type="Script" id=1]
 
 [sub_resource type="RayShape2D" id=1]
+length = 32.0
+
+[sub_resource type="RayShape2D" id=2]
+length = 32.0
+
+[sub_resource type="RayShape2D" id=3]
+length = 32.0
+
+[sub_resource type="RayShape2D" id=4]
+length = 32.0
 
 [node name="PlayerDetector" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,20 +29,21 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 rotation = -1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Up" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Down" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
 [connection signal="body_entered" from="Left" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( -1, 0 ) ]]
 [connection signal="body_exited" from="Left" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="body_entered" from="Right" to="." method="_on_PlayerDetector_body_entered" binds= [ Vector2( 1, 0 ) ]]
