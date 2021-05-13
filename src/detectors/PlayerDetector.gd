@@ -1,3 +1,14 @@
+# https://godotengine.org/qa/12876/changing-radius-collision-shape-makes-collision-shapes-change
+# Because we are using a custom length for the ray shape,
+# we need to set a custom RayShape2D for the Area2D instead
+# of using the one configured in the editor. This is because
+# what is seen in the editor, the CollisionShape2D, is editor-only
+# and is used to create a CollisionObject2D under the hood.
+# The editor-only shape is pooled and whatever we set its length
+# to last via code is set for everywhere the PlayerDetector is used.
+# By using new shapes created in the code, we respect the `distance`
+# value set in the editor for each instance of the PlayerDetector.
+
 extends Node2D
 
 signal player_detected_from
