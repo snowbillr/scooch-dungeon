@@ -9,8 +9,8 @@ var current_level
 func _ready() -> void:
 	main_menu.connect("level_selected", self, "_on_MainMenu_level_selected")
 
-func _on_MainMenu_level_selected(level_set_name) -> void:
-	current_level = load("res://src/levels/002.tscn").instance()
+func _on_MainMenu_level_selected(level_identifier) -> void:
+	current_level = load("res://src/levels/%s.tscn" % level_identifier).instance()
 	current_level.connect("level_completed", self, "_on_Level_completed")
 
 	transition.begin()
