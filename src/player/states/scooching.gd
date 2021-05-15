@@ -1,6 +1,5 @@
 extends FizzyState
 
-var speed = 200
 var direction = Vector2.ZERO
 
 func fizzy_enter(data) -> void:
@@ -18,7 +17,7 @@ func fizzy_enter(data) -> void:
 	target.sprite.animation = "move"
 
 func fizzy_physics_process(delta) -> void:
-	var collision = target.move_and_collide(direction * speed * delta)
+	var collision = target.move_and_collide(direction * target.speed * delta)
 	if collision != null:
 		fsm.transition_to("idle", {})
 
