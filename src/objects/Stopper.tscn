@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/detectors/PlayerDetector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/objects/Stopper.gd" type="Script" id=2]
+[ext_resource path="res://assets/objects/octagon.png" type="Texture" id=3]
+
+[node name="Stopper" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="PlayerDetector" parent="." instance=ExtResource( 1 )]
+distance = 0
+
+[connection signal="player_detected" from="PlayerDetector" to="." method="_on_PlayerDetector_player_detected"]

@@ -50,5 +50,6 @@ frames = SubResource( 6 )
 shape = SubResource( 7 )
 
 [node name="PlayerDetector" parent="." instance=ExtResource( 4 )]
+
 [connection signal="player_detected_from" from="PlayerDetector" to="." method="_on_PlayerDetector_player_detected_from"]
 [connection signal="player_lost" from="PlayerDetector" to="." method="_on_PlayerDetector_player_lost"]

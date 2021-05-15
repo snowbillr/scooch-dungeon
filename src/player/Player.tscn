@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/hero/spritesheet.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/player/states/scooching.gd" type="Script" id=5]
 [ext_resource path="res://src/player/Camera.gd" type="Script" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://src/player/tweening.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -26,59 +27,59 @@ region = Rect2( 96, 56, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 168, 32, 56 )
+region = Rect2( 0, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 168, 32, 56 )
+region = Rect2( 32, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 168, 32, 56 )
+region = Rect2( 64, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 168, 32, 56 )
+region = Rect2( 96, 112, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 128, 168, 32, 56 )
+region = Rect2( 0, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 160, 168, 32, 56 )
+region = Rect2( 32, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 192, 168, 32, 56 )
+region = Rect2( 64, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 224, 168, 32, 56 )
+region = Rect2( 96, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 256, 168, 32, 56 )
+region = Rect2( 128, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 288, 168, 32, 56 )
+region = Rect2( 160, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 112, 32, 56 )
+region = Rect2( 192, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 112, 32, 56 )
+region = Rect2( 224, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 112, 32, 56 )
+region = Rect2( 256, 168, 32, 56 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 96, 112, 32, 56 )
+region = Rect2( 288, 168, 32, 56 )
 
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
@@ -87,14 +88,14 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
-"loop": true,
-"name": "die",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "move",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "die",
 "speed": 10.0
 } ]
 
@@ -151,6 +152,11 @@ script = ExtResource( 3 )
 [node name="scooching" type="Node" parent="FizzyMachine"]
 script = ExtResource( 5 )
 
+[node name="tweening" type="Node" parent="FizzyMachine"]
+script = ExtResource( 8 )
+
+[node name="Tween" type="Tween" parent="FizzyMachine/tweening"]
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -12 )
 frames = SubResource( 19 )
@@ -162,6 +168,7 @@ shape = SubResource( 20 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 0.8, 0.8 )
 smoothing_enabled = true
 smoothing_speed = 9.0
 script = ExtResource( 6 )
@@ -175,3 +182,5 @@ visible = false
 position = Vector2( 328, 0 )
 scale = Vector2( 5.1713, 9.54501 )
 texture = ExtResource( 7 )
+
+[connection signal="tween_completed" from="FizzyMachine/tweening/Tween" to="FizzyMachine/tweening" method="_on_Tween_tween_completed"]

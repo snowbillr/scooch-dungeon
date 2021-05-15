@@ -8,22 +8,22 @@ onready var overlay = $CanvasLayer/Overlay
 onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
-    overlay.visible = false
+	overlay.visible = false
 
 func begin() -> void:
-    animation_player.play(_get_begin_animation_name())
-    yield(animation_player, "animation_finished")
+	animation_player.play(_get_begin_animation_name())
+	yield(animation_player, "animation_finished")
 
-    emit_signal("at_midpoint")
+	emit_signal("at_midpoint")
 
 func finish() -> void:
-    animation_player.play(_get_finish_animation_name())
-    yield(animation_player, "animation_finished")
+	animation_player.play(_get_finish_animation_name())
+	yield(animation_player, "animation_finished")
 
-    emit_signal("finished")
+	emit_signal("finished")
 
 func _get_begin_animation_name() -> String:
-    return "begin"
+	return "begin"
 
 func _get_finish_animation_name() -> String:
-    return "finish"
+	return "finish"

@@ -2,5 +2,5 @@ extends Node2D
 
 signal level_selected
 
-func _on_Button_pressed() -> void:
-    emit_signal("level_selected", "00")
+func _on_Button_pressed(level_identifier) -> void:
+	emit_signal("level_selected", level_identifier)
