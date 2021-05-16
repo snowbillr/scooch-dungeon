@@ -1,7 +1,5 @@
 extends Camera2D
 
-onready var AnimationPlayer = $AnimationPlayer
-
 func limit_to_room(room: Room):
 	var camera_limits = room.get_limits_for_camera()
 	limit_left = camera_limits.left

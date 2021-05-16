@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/hero/spritesheet.png" type="Texture" id=2]
@@ -101,14 +101,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="Animation" id=21]
-resource_name = "right-end"
-length = 0.3
-
-[sub_resource type="Animation" id=22]
-resource_name = "right-start"
-length = 0.3
-
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -147,9 +139,5 @@ zoom = Vector2( 0.8, 0.8 )
 smoothing_enabled = true
 smoothing_speed = 9.0
 script = ExtResource( 6 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
-anims/right-end = SubResource( 21 )
-anims/right-start = SubResource( 22 )
 
 [connection signal="tween_completed" from="FizzyMachine/tweening/Tween" to="FizzyMachine/tweening" method="_on_Tween_tween_completed"]
