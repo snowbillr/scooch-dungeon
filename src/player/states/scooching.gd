@@ -15,6 +15,11 @@ func fizzy_enter(data) -> void:
 		target.movement_collision_shape.shape.extents = Vector2(16, 1)
 		
 	target.sprite.animation = "move"
+	
+	target.movement_trail.emitting = true
+
+func fizzy_exit(data) -> void:
+	target.movement_trail.emitting = false
 
 func fizzy_physics_process(delta) -> void:
 	var collision = target.move_and_collide(direction * target.speed * delta)

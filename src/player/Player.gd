@@ -4,6 +4,7 @@ onready var fsm: FizzyMachine = $FizzyMachine
 onready var sprite: AnimatedSprite = $AnimatedSprite
 onready var movement_collision_shape: CollisionShape2D = $MovementCollisionShape
 onready var camera: Camera2D = $Camera
+onready var movement_trail: Particles2D = $MovementTrail
 
 var speed := 200.0
 
