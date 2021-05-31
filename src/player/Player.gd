@@ -1,4 +1,5 @@
 extends Node2D
+class_name Player
 
 onready var fsm: FizzyMachine = $FizzyMachine
 onready var sprite: AnimatedSprite = $AnimatedSprite
