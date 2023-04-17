@@ -4,5 +4,6 @@
 
 [node name="BaseLevel" instance=ExtResource( 1 )]
 
+[editable path="Room"]
 [editable path="Room2"]
 [editable path="Room3"]

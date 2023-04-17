@@ -50,9 +50,6 @@ margin_right = -32.0
 margin_bottom = -112.0
 grow_horizontal = 2
 text = "Level  1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control"]
 anchor_top = 0.5

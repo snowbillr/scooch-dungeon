@@ -29,7 +29,10 @@ wall = "top"
 position = Vector2( 240, 400 )
 
 [node name="Stopper" parent="Room2" index="3" instance=ExtResource( 2 )]
-position = Vector2( 240, 176 )
+position = Vector2( 176, 275 )
+
+[node name="Stopper2" parent="Room2" index="4" instance=ExtResource( 2 )]
+position = Vector2( 240, 275 )
 
 [editable path="Room"]
 [editable path="Room2"]

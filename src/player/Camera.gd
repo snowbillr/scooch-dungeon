@@ -1,6 +1,6 @@
 extends Camera2D
 
-func limit_to_room(room: Room):
+func limit_to_room(room: BaseRoom):
 	var camera_limits = room.get_limits_for_camera()
 	limit_left = camera_limits.left
 	limit_top = camera_limits.top
